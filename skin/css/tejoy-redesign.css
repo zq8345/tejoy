@@ -47,6 +47,7 @@ img { max-width: 100%; }
    ============================================================ */
 .main-header {
   position: fixed !important;
+  z-index: 1000 !important;              /* above hero content (z-index:2) so nav is clickable */
   background: rgba(0,0,0,.55) !important;
   -webkit-backdrop-filter: saturate(140%) blur(14px);
   backdrop-filter: saturate(140%) blur(14px);
