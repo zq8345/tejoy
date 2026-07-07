@@ -1,0 +1,296 @@
+/* ============================================================
+   Tejoy — Starlink-inspired monochrome redesign
+   Override layer. Loaded AFTER theme CSS. Black / white / gray only.
+   ============================================================ */
+
+:root {
+  --tj-black:   #000000;
+  --tj-ink:     #111114;
+  --tj-body:    #55555a;
+  --tj-mute:    #86868b;
+  --tj-line:    #e4e4e7;
+  --tj-panel:   #f4f4f5;
+  --tj-white:   #ffffff;
+  --tj-font: "Inter", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --tj-container: 1240px;
+  --tj-ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ---------- Global type reset ---------- */
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  font-family: var(--tj-font) !important;
+  color: var(--tj-body) !important;
+  background: var(--tj-white) !important;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+h1,h2,h3,h4,h5,h6,.sec-title,.t1 {
+  font-family: var(--tj-font) !important;
+  color: var(--tj-ink) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.08;
+}
+p { color: var(--tj-body); }
+a { transition: color .25s var(--tj-ease); }
+img { max-width: 100%; }
+.container { max-width: var(--tj-container); }
+
+/* kill leftover brand-red / blue accents from theme + inline styles */
+.product-grid-item:hover .product-grid-text { color: var(--tj-black) !important; }
+
+/* ============================================================
+   HEADER / NAV  — fixed translucent black, minimal uppercase
+   ============================================================ */
+.main-header {
+  position: fixed !important;
+  background: rgba(0,0,0,.55) !important;
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: background .35s var(--tj-ease);
+}
+.main-header:before { display:none !important; }
+.main-menu-wrapper { max-width: var(--tj-container); margin: 0 auto; padding: 0 28px; width:100%; }
+.main-menu-wrapper__logo { padding-top: 18px !important; padding-bottom: 18px !important; }
+.main-menu-wrapper__logo img { height: 26px !important; filter: brightness(0) invert(1); } /* force white logo */
+
+.main-menu__list > li > a {
+  color: rgba(255,255,255,.86) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 0 16px !important;
+}
+.main-menu__list > li > a:hover { color: #fff !important; }
+
+/* dropdown menus -> clean white cards */
+.main-menu__list li ul {
+  background: #fff !important;
+  border: 1px solid var(--tj-line) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.16) !important;
+  padding: 8px !important;
+  overflow: hidden;
+}
+.main-menu__list li ul li a {
+  color: var(--tj-ink) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: 8px;
+  padding: 10px 14px !important;
+}
+.main-menu__list li ul li a:hover { background: var(--tj-panel) !important; color: #000 !important; }
+
+/* search + language icons -> white */
+.main-menu-wrapper i, .main-menu-wrapper svg { color: #fff !important; }
+.mobile-nav__toggler, .mobile-nav__toggler i { color: #fff !important; }
+
+/* ============================================================
+   HERO — full-bleed image, dark gradient, big centered headline
+   ============================================================ */
+.main-slider { }
+.main-slider .swiper-slide { height: 88vh !important; min-height: 620px; }
+.main-slider .image-layer {
+  background-size: cover !important;
+  background-position: center !important;
+}
+.main-slider .image-layer:after {
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.30) 42%, rgba(0,0,0,.72) 100%);
+}
+.main-slider .container { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; }
+.main-slider .main-slider__content { text-align: center; max-width: 900px; margin: 0 auto; }
+.main-slider .main-slider__title-box-1 h1 {
+  color: #fff !important;
+  font-size: clamp(2.6rem, 6vw, 5rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.04 !important;
+  margin: 0 0 18px !important;
+}
+.main-slider .main-slider__title-box-2 h2 {
+  color: rgba(255,255,255,.82) !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.45rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+  max-width: 720px; margin: 0 auto !important;
+}
+/* pagination bullets -> minimal white */
+.main-slider .swiper-pagination-bullet { background:#fff !important; opacity:.4; }
+.main-slider .swiper-pagination-bullet-active { opacity:1; }
+
+/* ============================================================
+   SECTION RHYTHM
+   ============================================================ */
+section, .space { padding-top: clamp(64px,8vw,120px); padding-bottom: clamp(64px,8vw,120px); }
+.every-stage { padding-top: 0 !important; }
+
+/* "Our Products" heading */
+.indextitle { padding-top: clamp(72px,9vw,130px); padding-bottom: clamp(28px,3vw,44px); text-align:center; }
+.indextitle .t1 {
+  font-size: clamp(2rem, 4vw, 3.25rem) !important;
+  font-weight: 600 !important;
+  color: var(--tj-ink) !important;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   PRODUCT GRID — responsive monochrome cards
+   ============================================================ */
+.product-grid-full {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
+  flex-wrap: initial !important;
+  max-width: var(--tj-container);
+  margin: 0 auto !important;
+  padding: 0 28px !important;
+}
+.product-grid-item { padding: 0 !important; flex: initial !important; }
+.product-grid-img {
+  background: var(--tj-panel) !important;
+  border-radius: 18px !important;
+  transition: transform .5s var(--tj-ease), box-shadow .5s var(--tj-ease) !important;
+}
+.product-grid-item:hover .product-grid-img {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 24px 50px rgba(0,0,0,.12) !important;
+}
+.product-grid-img img { max-width: 78% !important; max-height: 78% !important; }
+.product-grid-text {
+  margin-top: 16px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--tj-ink) !important;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   OUR ADVANTAGES
+   ============================================================ */
+.process-sec .title-area { max-width: 760px; margin: 0 auto 8px; }
+.process-sec .sec-title {
+  font-size: clamp(2rem, 4vw, 3.25rem) !important;
+  font-weight: 600 !important;
+}
+.process-sec .sub-title {
+  display:block; color: var(--tj-mute) !important;
+  font-size: 1.05rem !important; font-weight: 400 !important;
+  margin-top: 18px; line-height: 1.6;
+}
+.why-choose-one__single {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 28px 0;
+  border-top: 1px solid var(--tj-line);
+}
+.why-choose-one__icon img {
+  width: 46px; height: 46px; object-fit: contain;
+  filter: grayscale(1) contrast(1.05); /* monochrome icons */
+}
+.why-choose-one__title {
+  font-size: 1.35rem !important; font-weight: 600 !important;
+  color: var(--tj-ink) !important; margin-bottom: 8px !important;
+}
+.why-choose-one__text { color: var(--tj-body) !important; font-size: 1rem !important; line-height: 1.6; }
+
+/* ============================================================
+   BUTTONS / CTA — Starlink pill
+   ============================================================ */
+.tj-btn, .btn-primary, .theme-btn, .btn {
+  display: inline-block;
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #fff !important;
+  border-radius: 999px !important;
+  padding: 14px 34px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all .25s var(--tj-ease) !important;
+}
+.tj-btn:hover, .btn:hover { background: transparent !important; color:#fff !important; }
+
+/* ============================================================
+   FOOTER — black minimal
+   ============================================================ */
+.main-footer, footer {
+  background: var(--tj-black) !important;
+  color: rgba(255,255,255,.62) !important;
+}
+.main-footer *, footer * { border-color: rgba(255,255,255,.12) !important; }
+.footer-widget__title {
+  color: #fff !important; font-size: 14px !important; font-weight: 600 !important;
+  letter-spacing: .05em; text-transform: uppercase;
+}
+.main-footer a, footer a { color: rgba(255,255,255,.62) !important; }
+.main-footer a:hover, footer a:hover { color: #fff !important; }
+.main-footer img[src*="tejoy-logo"], footer img[src*="tejoy-logo"] { filter: brightness(0) invert(1); }
+
+/* ============================================================
+   ABOUT US  (.index-four)
+   ============================================================ */
+.index-four { padding-top: clamp(64px,8vw,110px) !important; padding-bottom: clamp(64px,8vw,110px) !important; }
+.index-four .info-wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px,5vw,72px); align-items: center; }
+.index-four .inon-tit {
+  font-size: clamp(2rem,4vw,3.25rem) !important; font-weight: 600 !important;
+  color: var(--tj-ink) !important; letter-spacing: -.02em; margin-bottom: 22px;
+}
+.index-four .info-left > p { color: var(--tj-body) !important; font-size: 1.02rem; line-height: 1.7; }
+.index-four .info-right img { border-radius: 20px; width: 100%; object-fit: cover; }
+.about-data-list { border-top: 1px solid var(--tj-line); margin: 34px 0 !important; padding-top: 30px !important; }
+.about-data-item { border-right: 1px solid var(--tj-line) !important; text-align: left !important; padding-right: 18px; }
+.about-data-item:first-child { }
+.about-data-num { font-size: clamp(1.6rem,2.4vw,2.1rem) !important; font-weight: 600 !important; color: var(--tj-ink) !important; letter-spacing: -.02em; }
+.about-data-text { font-size: 13px !important; color: var(--tj-mute) !important; }
+
+/* generic theme button -> Starlink dark pill */
+.thm-btn, .abut-page__btn {
+  display: inline-block; margin-top: 10px;
+  background: var(--tj-black) !important; color: #fff !important;
+  border: 1px solid var(--tj-black) !important; border-radius: 999px !important;
+  padding: 13px 32px !important; font-size: 13px !important; font-weight: 600 !important;
+  letter-spacing: .05em; text-transform: uppercase; text-decoration: none !important;
+  transition: all .25s var(--tj-ease) !important;
+}
+.thm-btn:hover, .abut-page__btn:hover { background: #fff !important; color: #000 !important; }
+
+/* ============================================================
+   SERVICE + NEWS  (.index_news)
+   ============================================================ */
+.index_news { padding-top: clamp(48px,6vw,90px) !important; padding-bottom: clamp(64px,8vw,110px) !important; }
+.index_news .newleft .t1 { font-size: 1.9rem !important; font-weight: 600 !important; color: var(--tj-ink) !important; letter-spacing: -.02em; }
+.index_news .newleft .t3 { color: var(--tj-mute) !important; font-size: .98rem; line-height: 1.6; margin: 14px 0 20px; }
+.index_news .newleft ul li a { color: var(--tj-ink) !important; font-weight: 500; }
+.index_news .newleft ul li { list-style: none; padding: 8px 0; border-bottom: 1px solid var(--tj-line); }
+.index_news .newright ul { list-style: none; padding: 0; }
+.index_news .newright li { border-top: 1px solid var(--tj-line); }
+.index_news .newright li a { display: block; padding: 24px 0; }
+.index_news .newright h3 {
+  font-size: 1.2rem !important; font-weight: 600 !important; color: var(--tj-ink) !important;
+  line-height: 1.35; margin: 0 0 8px; transition: color .2s var(--tj-ease);
+}
+.index_news .newright li a:hover h3 { color: var(--tj-mute) !important; }
+.index_news .newright .time { color: var(--tj-mute) !important; font-size: 13px !important; margin: 0 0 6px; }
+.index_news .newright p { color: var(--tj-body) !important; font-size: .98rem; }
+
+/* generic: neutralize any leftover theme blue/red text accents */
+[style*="#365299"], [style*="#2b3aa1"], [style*="color: red"], [style*="color:red"] { color: var(--tj-ink) !important; }
+
+/* responsive */
+@media (max-width: 900px){
+  .product-grid-full { grid-template-columns: repeat(2,1fr) !important; }
+  .index-four .info-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .product-grid-full { grid-template-columns: repeat(2,1fr) !important; gap:14px !important; }
+  .about-data-list { display:grid !important; grid-template-columns:1fr 1fr; gap:18px; }
+  .about-data-item { border-right:none !important; }
+}
