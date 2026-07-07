@@ -55,6 +55,8 @@ img { max-width: 100%; }
   transition: background .35s var(--tj-ease);
 }
 .main-header:before { display:none !important; }
+/* kill the scroll-triggered duplicate header (main-header is always fixed now) -> no double nav */
+.stricky-header, .stricked-menu, .sticky-header__content { display:none !important; }
 .main-menu-wrapper { max-width: var(--tj-container); margin: 0 auto; padding: 0 28px; width:100%; }
 .main-menu-wrapper__logo { padding-top: 18px !important; padding-bottom: 18px !important; }
 .main-menu-wrapper__logo img { height: 26px !important; filter: brightness(0) invert(1); } /* force white logo */
@@ -96,7 +98,7 @@ img { max-width: 100%; }
 /* ============================================================
    HERO — full-bleed image, dark gradient, big centered headline
    ============================================================ */
-.main-slider { }
+.main-slider { padding: 0 !important; }   /* exempt hero from generic section padding (was causing white strip) */
 .main-slider .swiper-slide { height: 88vh !important; min-height: 620px; }
 .main-slider .image-layer {
   background-size: cover !important;
