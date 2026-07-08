@@ -413,6 +413,7 @@
   }
 
   if ($(".mobile-nav__container .main-menu__list").length) {
+    $(".mobile-nav__container .main-menu__list li").has("ul").addClass("dropdown");
     let dropdownAnchor = $(
       ".mobile-nav__container .main-menu__list .dropdown > a"
     );
