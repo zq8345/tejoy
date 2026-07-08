@@ -789,3 +789,12 @@
   });
 
 })(jQuery);
+
+(function () {
+  function updateTejoyHeaderState() {
+    document.body.classList.toggle("tejoy-scrolled", window.scrollY > 12);
+  }
+
+  updateTejoyHeaderState();
+  window.addEventListener("scroll", updateTejoyHeaderState, { passive: true });
+})();

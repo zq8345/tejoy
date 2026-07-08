@@ -476,6 +476,265 @@ img { max-width: 100%; }
   }
 }
 
+/* v18: hero-first header. Default nav is transparent over the hero; it turns solid only after scroll. */
+html,
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.main-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  min-height: 96px !important;
+  background: linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 58%, rgba(0,0,0,0) 100%) !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 0 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: background-color .24s ease, background-image .24s ease, box-shadow .24s ease !important;
+}
+
+body.tejoy-scrolled .main-header {
+  background-image: none !important;
+  background-color: #030303 !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+.main-header .main-menu,
+.main-header .main-menu-wrapper,
+.main-header .main-menu-wrapper__main-menu {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.main-slider {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.main-slider .swiper-slide {
+  height: clamp(720px, 92vh, 900px) !important;
+  min-height: clamp(720px, 92vh, 900px) !important;
+}
+
+.main-slider .image-layer {
+  inset: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.main-slider .container {
+  padding-top: 96px !important;
+}
+
+.page-header {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: clamp(340px, 32vw, 420px) !important;
+  min-height: clamp(340px, 32vw, 420px) !important;
+  overflow: hidden !important;
+}
+
+.page-header-bg {
+  inset: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.page-header__inner {
+  height: 100% !important;
+  padding-top: 96px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media (max-width: 1199px) {
+  .main-header {
+    min-height: 78px !important;
+  }
+  .main-slider .swiper-slide {
+    height: clamp(640px, 88vh, 820px) !important;
+    min-height: clamp(640px, 88vh, 820px) !important;
+  }
+  .main-slider .container {
+    padding-top: 78px !important;
+  }
+  .page-header {
+    height: 330px !important;
+    min-height: 330px !important;
+  }
+  .page-header__inner {
+    padding-top: 78px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-header {
+    min-height: 72px !important;
+    background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 64%, rgba(0,0,0,0) 100%) !important;
+  }
+  body.tejoy-scrolled .main-header {
+    background-image: none !important;
+    background-color: #030303 !important;
+  }
+  .main-slider .swiper-slide {
+    height: 720px !important;
+    min-height: 720px !important;
+  }
+  .main-slider .container {
+    padding-top: 72px !important;
+  }
+  .page-header {
+    height: 290px !important;
+    min-height: 290px !important;
+  }
+  .page-header__inner {
+    padding-top: 72px !important;
+  }
+}
+
+/* v19: monochrome language control */
+.main-menu-wrapper__call {
+  min-width: 92px !important;
+}
+
+.main-menu-wrapper__call .yvzhonga {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 38px !important;
+  min-width: 88px !important;
+  padding: 0 10px !important;
+  color: rgba(255,255,255,.9) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em !important;
+  line-height: 1 !important;
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.2) !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+}
+
+.main-menu-wrapper__call .yvzhonga:hover {
+  color: #fff !important;
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.34) !important;
+}
+
+.main-menu-wrapper__call .yvzhonga .yvtu,
+.main-menu-wrapper__call .yvzhonga .lang-img {
+  display: none !important;
+}
+
+.main-menu-wrapper__call .yvzhonga:before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 17px !important;
+  height: 17px !important;
+  flex: 0 0 17px !important;
+  border: 1.7px solid currentColor !important;
+  border-radius: 50% !important;
+  background:
+    linear-gradient(currentColor, currentColor) center/1.5px 100% no-repeat,
+    linear-gradient(currentColor, currentColor) center/100% 1.5px no-repeat !important;
+  opacity: .96 !important;
+}
+
+.main-menu-wrapper__call .yvzhonga:after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-right: 1.5px solid currentColor !important;
+  border-bottom: 1.5px solid currentColor !important;
+  transform: rotate(45deg) translateY(-1px) !important;
+  opacity: .8 !important;
+}
+
+.main-menu-wrapper__call:hover .yvzhonga:after,
+.main-menu-wrapper__call:focus-within .yvzhonga:after {
+  transform: rotate(225deg) translate(-1px, -1px) !important;
+}
+
+.main-menu-wrapper__call .yvzhonga b {
+  display: inline !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: 1 !important;
+}
+
+.main-menu-wrapper__call .yvul {
+  top: calc(100% + 12px) !important;
+  right: 0 !important;
+  left: auto !important;
+  min-width: 190px !important;
+  padding: 8px !important;
+  background: #fff !important;
+  border: 1px solid #e4e4e7 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.2) !important;
+}
+
+.main-menu-wrapper__call .yvul a {
+  color: #111 !important;
+  border-radius: 7px !important;
+  padding: 9px 10px !important;
+}
+
+.main-menu-wrapper__call .yvul a:hover {
+  background: #f4f4f5 !important;
+}
+
+@media (max-width: 1199px) {
+  .main-menu-wrapper__call {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 40px !important;
+  }
+
+  .main-menu-wrapper__call .yvzhonga {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  .main-menu-wrapper__call .yvzhonga b,
+  .main-menu-wrapper__call .yvzhonga:after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-menu-wrapper__call {
+    display: flex !important;
+    grid-column: 3 !important;
+  }
+
+  .main-menu-wrapper__main-menu > .mobile-nav__toggler {
+    grid-column: 4 !important;
+  }
+
+  .main-menu-wrapper {
+    grid-template-columns: auto minmax(8px, 1fr) 40px 42px !important;
+  }
+}
+
 /* v16 final overrides: keep these last */
 .tejoy-mobile-menu-button {
   display: none !important;
