@@ -5182,20 +5182,21 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
   }
 
   html body .main-header .main-menu-wrapper__main-menu {
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  html body .main-header .main-menu .main-menu__list {
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: auto !important;
-    margin: 0 !important;
-    display: flex !important;
     justify-content: center !important;
+    margin: 0 !important;
     z-index: 1 !important;
-  }
-
-  html body .main-header .main-menu .main-menu__list {
-    justify-content: center !important;
-    margin: 0 !important;
   }
 
   html body .main-header .main-menu-wrapper__call {
@@ -5205,5 +5206,16 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
     transform: translateY(-50%) !important;
     margin: 0 !important;
     z-index: 2 !important;
+  }
+}
+
+/* v34 keep language control outside the centered desktop nav group. */
+@media (min-width: 1200px) {
+  html body .main-header .main-menu-wrapper__call {
+    right: 34px !important;
+  }
+
+  html body .main-header .main-menu-wrapper__call .yvul {
+    right: 0 !important;
   }
 }
