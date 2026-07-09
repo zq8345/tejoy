@@ -798,3 +798,39 @@
   updateTejoyHeaderState();
   window.addEventListener("scroll", updateTejoyHeaderState, { passive: true });
 })();
+
+(function () {
+  function setLanguageMenu(menu, show) {
+    if (!menu) return;
+    menu.style.setProperty("display", show ? "block" : "none", "important");
+  }
+
+  function initLanguageMenu() {
+    document.querySelectorAll(".main-menu-wrapper__call .yvn").forEach(function (wrap) {
+      var menu = wrap.querySelector(".yvul");
+      var trigger = wrap.querySelector(".yvzhonga");
+      setLanguageMenu(menu, false);
+
+      wrap.addEventListener("mouseenter", function () {
+        setLanguageMenu(menu, true);
+      });
+
+      wrap.addEventListener("mouseleave", function () {
+        setLanguageMenu(menu, false);
+      });
+
+      if (trigger) {
+        trigger.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }, true);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLanguageMenu);
+  } else {
+    initLanguageMenu();
+  }
+})();
