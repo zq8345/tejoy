@@ -4955,3 +4955,210 @@ html body .main-header .main-menu-wrapper__call .yvzhonga:before {
     height: 36px !important;
   }
 }
+
+/* v31 transparent hero nav, underline, and language icon cleanup. */
+html body .main-header,
+html body .main-header .main-menu {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html body.tejoy-scrolled .main-header,
+html body.tejoy-scrolled .main-header .main-menu {
+  background: rgba(0,0,0,.94) !important;
+  background-color: rgba(0,0,0,.94) !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+html body .main-slider,
+html body .page-header {
+  margin-top: 0 !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li > a {
+  position: relative !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li > a:hover,
+html body .main-header .main-menu .main-menu__list > li:hover > a,
+html body .main-header .main-menu .main-menu__list > li.current > a {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li > a::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 14px !important;
+  right: 14px !important;
+  top: auto !important;
+  bottom: 18px !important;
+  width: auto !important;
+  height: 2px !important;
+  background: #fff !important;
+  border-radius: 0 !important;
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: opacity .2s ease, transform .2s ease !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li:hover > a::before,
+html body .main-header .main-menu .main-menu__list > li.current > a::before {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li > a::after {
+  pointer-events: none !important;
+}
+
+html body .main-header .main-menu-wrapper__call,
+html body .main-header .main-menu-wrapper__call .yvn,
+html body .main-header .main-menu-wrapper__call .yvzhonga {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html body .main-header .main-menu-wrapper__call .yvzhonga:hover,
+html body .main-header .main-menu-wrapper__call:hover .yvzhonga,
+html body .main-header .main-menu-wrapper__call .yvn:hover .yvzhonga {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* v32 remove search and repair mobile submenu controls. */
+html body .main-header .main-menu-wrapper__search-box,
+html body .main-header .main-menu-wrapper__search,
+html body .search-popup {
+  display: none !important;
+}
+
+html body .main-header .main-menu .main-menu__list > li > a:hover,
+html body .main-header .main-menu .main-menu__list > li:hover > a,
+html body .main-header .main-menu .main-menu__list > li.current > a {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 1200px) {
+  html body .main-header .main-menu .main-menu__list > li > a::before {
+    bottom: 14px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  html body .main-header .main-menu-wrapper {
+    grid-template-columns: minmax(150px, auto) minmax(10px, 1fr) 40px 46px !important;
+  }
+
+  html body .main-header .main-menu-wrapper__call {
+    grid-column: 3 !important;
+  }
+
+  html body .main-header .main-menu-wrapper__main-menu > .mobile-nav__toggler {
+    grid-column: 4 !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list ul {
+    display: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 6px 0 10px 16px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border-top: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li.tejoy-mobile-submenu-open > ul {
+    display: block !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li {
+    background: transparent !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li > a {
+    position: relative !important;
+    min-height: 52px !important;
+    padding: 12px 56px 12px 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li > a:hover,
+  html body .mobile-nav__content .main-menu__list li > a.expanded {
+    background: transparent !important;
+    color: #fff !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li > a button {
+    position: absolute !important;
+    right: 0 !important;
+    top: 50% !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255,255,255,.78) !important;
+    transform: translateY(-50%) !important;
+    box-shadow: none !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li > a button i {
+    display: none !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li > a button::before {
+    content: "" !important;
+    display: block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-right: 2px solid currentColor !important;
+    border-bottom: 2px solid currentColor !important;
+    transform: rotate(-45deg) !important;
+    transition: transform .2s ease !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list li.tejoy-mobile-submenu-open > a button::before {
+    transform: rotate(45deg) !important;
+  }
+
+  html body .mobile-nav__content .main-menu__list ul li a {
+    min-height: 40px !important;
+    padding: 8px 0 !important;
+    color: rgba(255,255,255,.74) !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  html body .main-header .main-menu-wrapper {
+    grid-template-columns: minmax(134px, auto) minmax(4px, 1fr) 36px 42px !important;
+  }
+}

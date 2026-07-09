@@ -834,3 +834,56 @@
     initLanguageMenu();
   }
 })();
+
+(function () {
+  function removeHeaderTooltips() {
+    document.querySelectorAll(".main-header .main-menu__list a[title]").forEach(function (link) {
+      link.removeAttribute("title");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", removeHeaderTooltips);
+  } else {
+    removeHeaderTooltips();
+  }
+})();
+
+(function () {
+  function initTejoyMobileSubmenus() {
+    document.querySelectorAll(".mobile-nav__container .main-menu__list li").forEach(function (item) {
+      var submenu = item.querySelector(":scope > ul");
+      var link = item.querySelector(":scope > a");
+      if (!submenu || !link) return;
+
+      var button = link.querySelector("button");
+      if (!button) {
+        button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("aria-label", "Open submenu");
+        link.appendChild(button);
+      }
+
+      button.type = "button";
+      button.setAttribute("aria-expanded", "false");
+      submenu.style.display = "";
+
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        var open = item.classList.toggle("tejoy-mobile-submenu-open");
+        button.classList.toggle("expanded", open);
+        link.classList.toggle("expanded", open);
+        button.setAttribute("aria-expanded", open ? "true" : "false");
+      }, true);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTejoyMobileSubmenus);
+  } else {
+    initTejoyMobileSubmenus();
+  }
+})();
