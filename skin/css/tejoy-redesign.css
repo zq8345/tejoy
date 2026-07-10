@@ -59,7 +59,13 @@ img { max-width: 100%; }
 .stricky-header, .stricked-menu, .sticky-header__content { display:none !important; }
 .main-menu-wrapper { max-width: 1320px; margin: 0 auto; padding: 0 24px; width:100%; }
 .main-menu-wrapper__logo { padding-top: 18px !important; padding-bottom: 18px !important; }
-.main-menu-wrapper__logo img { height: 28px !important; width: auto !important; object-fit: contain; }
+.main-menu-wrapper__logo img { height: 28px !important; width: auto !important; object-fit: contain; transition: filter .25s var(--tj-ease); }
+/* logo is clickable (-> home) with a visible hover-dim. The white logo carries a base
+   filter `grayscale(1) brightness(2.1) contrast(.95) !important` (see ~L2919); a plain
+   `filter: brightness()` can't override that, so we re-declare the full filter with a
+   lowered brightness (2.1 -> 1.35) + !important to dim it. Desktop header only (not mobile .logo-box). */
+.main-menu-wrapper__logo a { cursor: pointer; display: inline-block; }
+.main-menu-wrapper__logo a:hover img { filter: grayscale(1) brightness(1.35) contrast(.95) !important; }
 
 .main-menu__list > li > a {
   color: rgba(255,255,255,.86) !important;
