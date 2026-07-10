@@ -5233,3 +5233,14 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 /* #6: orphan blue -> monochrome. The 100x4 accent bar under section titles
    (.newleft .t2, from mibooz.css #2b3aa1) was the site's last stray brand-blue. */
 .newleft .t2 { background: var(--tj-ink) !important; }
+
+/* #3: reading measure — long-form prose ran ~146 chars/line (about page).
+   Cap prose paragraphs to a comfortable ~70ch. Scoped to text paragraphs only
+   (cards, tables, images, layout unaffected). */
+.xlc-body p,
+.adminbuy_cn p,
+.products-details-content p,
+.blog-details__content p,
+.about-text p {
+  max-width: 70ch;
+}
