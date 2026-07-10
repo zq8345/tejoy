@@ -5244,3 +5244,14 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 .about-text p {
   max-width: 70ch;
 }
+
+/* #7: tighten vertical rhythm — homepage sections carried ~96-130px top/bottom
+   padding, stacking into ~200-260px whitespace bands at each boundary. Calm to ~64px. */
+.every-stage,
+.space.process-sec,
+.index-four,
+.index_news {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+.indextitle { padding-top: 80px !important; }
