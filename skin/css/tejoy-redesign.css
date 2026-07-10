@@ -4,16 +4,24 @@
    ============================================================ */
 
 :root {
-  --tj-black:   #000000;
-  --tj-ink:     #111114;
-  --tj-body:    #55555a;
-  --tj-mute:    #86868b;
-  --tj-line:    #e4e4e7;
-  --tj-panel:   #f4f4f5;
-  --tj-white:   #ffffff;
+  /* single source of truth (#9): merged from 3 former :root blocks, using the
+     previously-cascade-winning values so there is zero visual regression. */
+  --tj-black: #000;
+  --tj-ink: #101010;
+  --tj-body: #525252;
+  --tj-mute: #6e6e73;   /* #5: darkened from #86868b for >=4.5:1 on white */
+  --tj-muted: #6e6e73;  /* #5: unified with --tj-mute (was #8a8a8a) */
+  --tj-line: #e5e5e5;
+  --tj-panel: #f5f5f5;
+  --tj-white: #fff;
   --tj-font: "Inter", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
-  --tj-container: 1240px;
+  --tj-container: 1200px;
   --tj-ease: cubic-bezier(.22,.61,.36,1);
+  --mibooz-primary: #101010 !important;
+  --mibooz-primary-rgb: 16,16,16 !important;
+  --thm-primary: #101010 !important;
+  --thm-base: #101010 !important;
+  --swiper-theme-color: #101010 !important;
 }
 
 /* ---------- Global type reset ---------- */
@@ -2627,10 +2635,7 @@ section, .space { padding-top: clamp(64px,8vw,120px); padding-bottom: clamp(64px
    INNER PAGES — flip theme blue to monochrome via CSS variable,
    then polish each component. (--mibooz-primary used 161x in theme)
    ============================================================ */
-:root{
-  --mibooz-primary: #111114 !important;
-  --mibooz-primary-rgb: 17,17,20 !important;
-}
+/* :root merged into the single source above (#9) */
 
 /* ---- Page header / inner banner ---- */
 .page-header { position: relative; }
@@ -2667,7 +2672,7 @@ table tr:nth-child(even) td { background: #fafafa; }
   padding:13px 16px !important; font-size:15px !important; color:var(--tj-ink) !important;
   background:#fff !important; box-shadow:none !important; transition:border-color .2s var(--tj-ease);
 }
-.form-control:focus { border-color:var(--tj-ink) !important; outline:none !important; }
+.form-control:focus { border-color:var(--tj-ink) !important; }
 .form-group > label, .contact-page label { color:var(--tj-body) !important; font-weight:500; font-size:14px; }
 input[type=submit], button[type=submit], .form-contact-2 button, .form-contact-2 input[type=submit] {
   background:var(--tj-black) !important; color:#fff !important; border:1px solid var(--tj-black) !important;
@@ -2823,21 +2828,7 @@ a:hover { color: var(--tj-ink); }
    FINAL BRAND SYSTEM OVERRIDE
    Starlink-inspired monochrome system. Keep this block last.
    ============================================================ */
-:root {
-  --tj-black: #000;
-  --tj-ink: #101010;
-  --tj-body: #525252;
-  --tj-muted: #8a8a8a;
-  --tj-line: #e5e5e5;
-  --tj-panel: #f5f5f5;
-  --tj-white: #fff;
-  --tj-container: 1200px;
-  --mibooz-primary: #101010 !important;
-  --mibooz-primary-rgb: 16,16,16 !important;
-  --thm-primary: #101010 !important;
-  --thm-base: #101010 !important;
-  --swiper-theme-color: #101010 !important;
-}
+/* :root merged into the single source above (#9) */
 
 html,
 body {
@@ -3087,9 +3078,14 @@ select,
 input:focus,
 textarea:focus,
 select:focus,
-.form-control:focus {
+.form-control:focus,
+input:focus,
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
   border-color: var(--tj-ink) !important;
-  outline: none !important;
+  outline: 2px solid var(--tj-ink) !important;
+  outline-offset: 2px !important;
 }
 
 input[type=submit],
@@ -5225,3 +5221,15 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
     right: 0 !important;
   }
 }
+
+
+/* #8: back-to-top FAB — kill the site's only rounded corner + orphan blue (#2b3aa1
+   from mibooz.css) -> square, monochrome, consistent with the flat/mono language. */
+.yb_bar .yb_top {
+  background-color: var(--tj-ink) !important;
+  border-radius: 0 !important;
+}
+
+/* #6: orphan blue -> monochrome. The 100x4 accent bar under section titles
+   (.newleft .t2, from mibooz.css #2b3aa1) was the site's last stray brand-blue. */
+.newleft .t2 { background: var(--tj-ink) !important; }

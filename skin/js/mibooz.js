@@ -369,24 +369,27 @@
   }
 
   function dynamicCurrentMenuClass(selector) {
-    let FileName = window.location.href.split("/").reverse()[0];
-
+    // #12: highlight the nav item matching the current URL path; if nothing
+    // matches, highlight NOTHING (do NOT default to the first / Home item).
+    let path = window.location.pathname.replace(/index\.html$/, "");
+    if (path === "") path = "/";
+    let matched = null, bestLen = -1;
     selector.find("li").each(function () {
-      let anchor = $(this).find("a");
-      if ($(anchor).attr("href") == FileName) {
-        $(this).addClass("current");
-      }
+      let href = $(this).find("a").attr("href");
+      if (!href || href === "#") return;
+      try { href = new URL(href, window.location.origin).pathname; } catch (e) { return; }
+      href = href.replace(/index\.html$/, "");
+      if (href === "") href = "/";
+      let isMatch = (href === "/") ? (path === "/") : (path === href || path.indexOf(href) === 0);
+      if (isMatch && href.length > bestLen) { matched = this; bestLen = href.length; }
     });
-    // if any li has .current elmnt add class
+    if (matched) $(matched).addClass("current");
+    // propagate .current up to the top-level parent li so it highlights too
     selector.children("li").each(function () {
       if ($(this).find(".current").length) {
         $(this).addClass("current");
       }
     });
-    // if no file name return
-    if ("" == FileName) {
-      selector.find("li").eq(0).addClass("current");
-    }
   }
 
   if ($(".main-menu__list").length) {
