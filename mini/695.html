@@ -425,23 +425,23 @@
                   <form action="/message/"  class="inner-add-comments form-contact-2" method="post">
                     <div class="row gutters-20">
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="firstName" class="sr-only">Company Name</label>Company Name
+                        <label for="gongsi" class="sr-only">Company Name</label>Company Name
                         <input type="text" name="gongsi" id="gongsi" value="" class="form-control dr_required" placeholder="Company Name" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="lastName" class="sr-only">Name</label>Name
+                        <label for="name" class="sr-only">Name</label>Name
                         <input type="text" name="name" id="name" value="" class="form-control dr_required" placeholder="Your Name" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="mobileNumber" class="sr-only">Phone</label>Phone
+                        <label for="tel" class="sr-only">Phone</label>Phone
                         <input type="text" name="tel" id="tel" value="" class="form-control dr_required" placeholder="Your Phone" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="emailAddress" class="sr-only">Email</label>E-mail
+                        <label for="email" class="sr-only">Email</label>E-mail
                         <input type="text" name="email" id="email" value="" class="form-control dr_required" placeholder="Your Email" />
                       </div>
                       <div class="col-md-12 inner-add-comments-box">
-                        <label for="message" class="sr-only">Message</label>Message
+                        <label for="content" class="sr-only">Message</label>Message
                         <textarea class="form-control" id="content" name="content" placeholder="Your Message"></textarea>
                       </div>
                       <div class="col-12 form-group mb-0 pt-2">
@@ -452,7 +452,7 @@
                             <div class="form-recaptcha">
                               <div class="input-group">
                                 <input type="text" class="form-control" name="checkcode">
-                                <div class="input-group-btn fc-code"> <img align="absmiddle" style="cursor:pointer;" onclick="this.src='/core/code.php?'+Math.round(Math.random()*10);" src="/core/code.php" /> </div>
+                                <div class="input-group-btn fc-code"> <button type="button" class="captcha-refresh" aria-label="Refresh verification code" style="border:0;background:none;padding:0;cursor:pointer;" onclick="var i=this.querySelector('img');i.src='/core/code.php?'+Math.round(Math.random()*10);"><img align="absmiddle" src="/core/code.php" alt="Verification code, click to refresh" /></button> </div>
                               </div>
                             </div>
                             </label>
