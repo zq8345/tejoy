@@ -5366,3 +5366,54 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 }
 .page-header__inner.left { align-items: flex-start !important; }
 .page-header__subtitle { text-transform: none !important; }
+
+/* ============================================================================
+   ⑦ About redesign — centered intro, manufacturing split, capability list,
+   certification badges. NEW classes only (about/ page) → zero blast radius on
+   other pages. Matches homepage About (.info-wrap): --tj-line border, restrained
+   padding, right angles, monochrome. */
+
+/* centered intro / global prose — kills the left-hugging text + big empty right */
+.xlc-body.about-intro { max-width: 780px !important; margin: 0 auto !important; text-align: left; }
+.about-intro p { max-width: none !important; margin: 0 0 16px !important; }
+.about-intro p:last-child { margin-bottom: 0 !important; }
+
+/* manufacturing: 2-col text + image, framed like the homepage About info-wrap */
+.about-split {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 3vw, 48px);
+  align-items: center; max-width: var(--tj-container); margin: 0 auto;
+  border: 1px solid var(--tj-line); background: var(--tj-white);
+  padding: clamp(28px, 4vw, 56px);
+}
+.about-split__text p { color: var(--tj-body) !important; font-size: 1rem; line-height: 1.7; margin: 0 0 22px; }
+.about-split__media img { width: 100%; height: auto; display: block; border: 1px solid var(--tj-line); border-radius: 0 !important; }
+.about-caps {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--tj-line);
+}
+.about-caps li { padding: 16px 4px; border-bottom: 1px solid var(--tj-line); }
+.about-caps li:nth-child(odd) { padding-right: 18px; border-right: 1px solid var(--tj-line); }
+.about-caps li:nth-child(even) { padding-left: 18px; }
+.about-caps__k { display: block; color: var(--tj-ink) !important; font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; }
+.about-caps__v { display: block; color: var(--tj-mute) !important; font-size: .8125rem; margin-top: 3px; line-height: 1.4; }
+
+/* certifications: monochrome square badges + inline link */
+.about-certs { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.about-certs__badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 96px; padding: 16px 26px; border: 1px solid var(--tj-ink);
+  color: var(--tj-ink) !important; font-weight: 700; letter-spacing: .08em; font-size: 1rem;
+}
+.about-certs__link { text-align: center; margin: 26px 0 0 !important; }
+.about-certs__link a { color: var(--tj-ink) !important; font-weight: 600; border-bottom: 1px solid var(--tj-ink); padding-bottom: 2px; }
+.about-certs__link a:hover { color: var(--tj-black) !important; }
+
+@media (max-width: 860px) {
+  .about-split { grid-template-columns: 1fr; }
+  .about-split__media { order: -1; margin-bottom: 22px; }
+}
+@media (max-width: 480px) {
+  .about-caps { grid-template-columns: 1fr; }
+  .about-caps li:nth-child(odd) { border-right: none; padding-right: 4px; }
+  .about-caps li:nth-child(even) { padding-left: 4px; }
+}
