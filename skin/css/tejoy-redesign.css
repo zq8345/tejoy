@@ -5316,3 +5316,21 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 .main-menu-wrapper__main-menu a,
 .main-menu-wrapper__main-menu button,
 .main-menu-wrapper__main-menu i { pointer-events: auto; }
+
+/* D3-3 fix: CMS content-body headings — restore a correct in-article hierarchy.
+   The D3-2 h3 scale (24px) was overriding CMS content h3 and making it BIGGER than
+   the inline-styled content h2 (~21px) = h3-over-h2 inversion inside articles/products.
+   Re-assert h2 > h3 > h4 within content bodies (font-size only; blue-box/border inline
+   styles preserved). */
+.blog-details__content h2,
+.adminbuy_cn h2,
+.products-details-content h2,
+.explain h2 { font-size: 1.5rem !important; }
+.blog-details__content h3,
+.adminbuy_cn h3,
+.products-details-content h3,
+.explain h3 { font-size: 1.25rem !important; }
+.blog-details__content h4,
+.adminbuy_cn h4,
+.products-details-content h4,
+.explain h4 { font-size: 1.1rem !important; }
