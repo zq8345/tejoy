@@ -470,7 +470,7 @@ body.tejoy-scrolled .main-menu-wrapper__logo img {
 }
 
 .main-menu__list > li > a {
-  border-radius: 999px !important;
+  border-radius: 0 !important;
   padding-left: 14px !important;
   padding-right: 14px !important;
 }
@@ -648,7 +648,7 @@ body.tejoy-scrolled .main-menu-wrapper__logo img {
 }
 
 .main-menu__list > li > a {
-  border-radius: 999px !important;
+  border-radius: 0 !important;
   padding-left: 14px !important;
   padding-right: 14px !important;
 }
@@ -1348,7 +1348,7 @@ body.tejoy-scrolled .main-header {
   line-height: 1 !important;
   background: rgba(255,255,255,.06) !important;
   border: 1px solid rgba(255,255,255,.2) !important;
-  border-radius: 999px !important;
+  border-radius: 0 !important;
   cursor: pointer !important;
 }
 
@@ -2544,7 +2544,7 @@ section, .space { padding-top: clamp(64px,8vw,120px); padding-bottom: clamp(64px
   background: #fff !important;
   color: #000 !important;
   border: 1px solid #fff !important;
-  border-radius: 999px !important;
+  border-radius: 0 !important;
   padding: 14px 34px !important;
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -2591,7 +2591,7 @@ section, .space { padding-top: clamp(64px,8vw,120px); padding-bottom: clamp(64px
 .thm-btn, .abut-page__btn {
   display: inline-block; margin-top: 10px;
   background: var(--tj-black) !important; color: #fff !important;
-  border: 1px solid var(--tj-black) !important; border-radius: 999px !important;
+  border: 1px solid var(--tj-black) !important; border-radius: 0 !important;
   padding: 13px 32px !important; font-size: 13px !important; font-weight: 600 !important;
   letter-spacing: .05em; text-transform: uppercase; text-decoration: none !important;
   transition: all .25s var(--tj-ease) !important;
@@ -2676,7 +2676,7 @@ table tr:nth-child(even) td { background: #fafafa; }
 .form-group > label, .contact-page label { color:var(--tj-body) !important; font-weight:500; font-size:14px; }
 input[type=submit], button[type=submit], .form-contact-2 button, .form-contact-2 input[type=submit] {
   background:var(--tj-black) !important; color:#fff !important; border:1px solid var(--tj-black) !important;
-  border-radius:999px !important; padding:13px 40px !important; font-weight:600 !important;
+  border-radius:0 !important; padding:13px 40px !important; font-weight:600 !important;
   letter-spacing:.05em; text-transform:uppercase; font-size:13px !important; cursor:pointer; transition:all .25s var(--tj-ease);
 }
 input[type=submit]:hover, button[type=submit]:hover { background:#fff !important; color:#000 !important; }
@@ -2718,7 +2718,7 @@ input[type=submit]:hover, button[type=submit]:hover { background:#fff !important
 .xlc-cta { background: var(--tj-black) !important; border-radius:20px !important; }
 .xlc-cta h3 { color:#fff !important; font-weight:600 !important; letter-spacing:-.02em; }
 .xlc-cta p { color:rgba(255,255,255,.75) !important; }
-.xlc-cta a { background:#fff !important; color:#000 !important; border-radius:999px !important; padding:14px 36px !important; font-weight:600 !important; letter-spacing:.05em; text-transform:uppercase; font-size:13px; }
+.xlc-cta a { background:#fff !important; color:#000 !important; border-radius:0 !important; padding:14px 36px !important; font-weight:600 !important; letter-spacing:.05em; text-transform:uppercase; font-size:13px; }
 .xlc-cta a:hover { background:rgba(255,255,255,.85) !important; }
 
 /* ---- About page xlc-* system (inline blue #2b3aa1 -> monochrome) ---- */
@@ -5255,3 +5255,8 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
   padding-bottom: 64px !important;
 }
 .indextitle { padding-top: 80px !important; }
+
+/* D3-1: square the last stray rounded shapes to match the flat/square language.
+   CTA pills (border-radius:999px) squared above; mobile-nav contact icon badges
+   (email/phone) were the round 30x30 exception -> square. */
+.mobile-nav__contact li > i { border-radius: 0 !important; }
