@@ -5295,3 +5295,24 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
   line-height: 1.2 !important;
   font-weight: 600 !important;
 }
+
+/* logo pointer-interception fix (root cause): .main-menu-wrapper__main-menu (z-index:10)
+   overlaps the logo's box and swallowed REAL mouse hover/click (a.click() bypassed it,
+   which masked the bug). Raise the logo above the nav wrapper so the pointer reaches it. */
+.main-menu-wrapper__logo,
+.main-menu-wrapper__logo a {
+  position: relative;
+  z-index: 20;
+}
+
+/* logo pointer fix (robust): the nav wrapper (.main-menu-wrapper__main-menu, ~1127px
+   wide, static) overlaps the absolutely-positioned logo and swallowed REAL mouse
+   hover/click. z-index couldn't win (logo is abs+transform=own context @z2). So make
+   the nav wrapper transparent to the pointer in its empty area; re-enable pointer on
+   its actual interactive children so nav links/toggler still work. */
+.main-menu-wrapper__main-menu { pointer-events: none; }
+.main-menu-wrapper__main-menu > *,
+.main-menu-wrapper__main-menu .main-menu__list,
+.main-menu-wrapper__main-menu a,
+.main-menu-wrapper__main-menu button,
+.main-menu-wrapper__main-menu i { pointer-events: auto; }
