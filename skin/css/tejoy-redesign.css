@@ -1038,8 +1038,8 @@ body.tejoy-scrolled .main-header .main-menu {
 }
 
 .page-header {
-  height: clamp(340px, 32vw, 420px) !important;
-  min-height: clamp(340px, 32vw, 420px) !important;
+  height: clamp(240px, 26vw, 320px) !important;
+  min-height: clamp(240px, 26vw, 320px) !important;
 }
 
 .blog-one__single {
@@ -1263,8 +1263,8 @@ body.tejoy-scrolled .main-header {
 .page-header {
   margin-top: 0 !important;
   padding-top: 0 !important;
-  height: clamp(340px, 32vw, 420px) !important;
-  min-height: clamp(340px, 32vw, 420px) !important;
+  height: clamp(240px, 26vw, 320px) !important;
+  min-height: clamp(240px, 26vw, 320px) !important;
   overflow: hidden !important;
 }
 
@@ -1735,8 +1735,8 @@ body.tejoy-scrolled .main-header {
 }
 
 .page-header {
-  height: clamp(320px, 38vw, 420px) !important;
-  min-height: clamp(320px, 38vw, 420px) !important;
+  height: clamp(240px, 26vw, 320px) !important;
+  min-height: clamp(240px, 26vw, 320px) !important;
   padding: 0 !important;
   margin-top: 0 !important;
   overflow: hidden !important;
@@ -5334,3 +5334,35 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 .adminbuy_cn h4,
 .products-details-content h4,
 .explain h4 { font-size: 1.1rem !important; }
+
+/* D5 (#4 banner): honest one-line subtitle under the page-header title.
+   Banner height also reduced (clamp 240-320px, was 340-420) — less empty hero space. */
+.page-header__subtitle {
+  color: rgba(255,255,255,.85) !important;
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  margin: 14px 0 0 !important;
+  max-width: 640px;
+}
+@media (max-width: 767px) {
+  .page-header__subtitle { font-size: 1rem !important; }
+}
+
+/* D5: inner-page banner (.page-header) final height — placed last to win over the
+   many conflicting .page-header height rules. Reduced ~420 -> calmer 240-320px.
+   (.page-header is inner-pages only; homepage hero is .main-slider, untouched.) */
+.page-header {
+  height: clamp(240px, 26vw, 320px) !important;
+  min-height: clamp(240px, 26vw, 320px) !important;
+}
+
+/* D5 fix: stack banner title + subtitle vertically (inner was flex-row -> overlapped),
+   and keep the subtitle in sentence case (title's uppercase was cascading onto it). */
+.page-header__inner {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+.page-header__inner.left { align-items: flex-start !important; }
+.page-header__subtitle { text-transform: none !important; }
