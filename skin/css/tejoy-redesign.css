@@ -5704,3 +5704,13 @@ a.tj-gcard:hover .tj-more .tj-arw { transform: translateX(6px); }
 .tj-st .tj-v { font-size: 23px !important; font-weight: 800 !important; letter-spacing: -.01em; line-height: 1.1; color: var(--tj-ink) !important; }
 .tj-st .tj-l { font-size: 13px !important; color: var(--tj-muted) !important; margin-top: 6px; }
 @media (max-width: 820px) { .tj-stats { grid-template-columns: repeat(2, 1fr); } .tj-st:nth-child(2) { border-right: 0; } .tj-st:nth-child(1), .tj-st:nth-child(2) { border-bottom: 1px solid var(--tj-line); } }
+
+/* two-axis product filter (/products/): Model row + Type row, count linkage */
+.product-filters { margin: 0 0 32px !important; }
+.product-chiprow { display: flex !important; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+.product-chiprow:last-child { margin-bottom: 0; }
+.product-chiprow__label { flex: none; font-size: 12px !important; font-weight: 600 !important; letter-spacing: .08em; text-transform: uppercase; color: var(--tj-muted) !important; padding-top: 10px; min-width: 46px; }
+.product-chiprow .product-chips { margin: 0 !important; flex: 1; }
+.product-chip.is-empty { opacity: .35; }
+.product-empty { text-align: center; padding: 56px 20px; color: var(--tj-muted); font-size: 15px; }
+@media (max-width: 575px) { .product-chiprow { gap: 8px; } .product-chiprow__label { padding-top: 8px; min-width: 40px; font-size: 11px !important; } }

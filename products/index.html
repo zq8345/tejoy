@@ -255,7 +255,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=44" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=45" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 </head>
@@ -347,18 +347,34 @@
         <div class="col-xl-9 col-lg-9">
           <div class="pro-sidebar__left">
             <div class="blog-sidebar__content">
-              <div class="product-chips" id="productChips">
-                <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">64</span></button>
-                <button type="button" class="product-chip" data-filter="mini">Mini <span class="product-chip__n">32</span></button>
-                <button type="button" class="product-chip" data-filter="standard">Standard <span class="product-chip__n">13</span></button>
-                <button type="button" class="product-chip" data-filter="standard-actuated">Standard Actuated <span class="product-chip__n">6</span></button>
-                <button type="button" class="product-chip" data-filter="standard-circular">Standard Circular <span class="product-chip__n">2</span></button>
-                <button type="button" class="product-chip" data-filter="performance-gen-1">Perf Gen1 <span class="product-chip__n">1</span></button>
-                <button type="button" class="product-chip" data-filter="performance-gen-3">Perf Gen3 <span class="product-chip__n">5</span></button>
-                <button type="button" class="product-chip" data-filter="enterprise">Enterprise <span class="product-chip__n">5</span></button>
+              <div class="product-filters">
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Model</span>
+                  <div class="product-chips" id="modelChips">
+                    <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">64</span></button>
+                    <button type="button" class="product-chip" data-filter="mini">Mini <span class="product-chip__n">32</span></button>
+                    <button type="button" class="product-chip" data-filter="standard">Standard <span class="product-chip__n">13</span></button>
+                    <button type="button" class="product-chip" data-filter="standard-actuated">Standard Actuated <span class="product-chip__n">6</span></button>
+                    <button type="button" class="product-chip" data-filter="standard-circular">Standard Circular <span class="product-chip__n">2</span></button>
+                    <button type="button" class="product-chip" data-filter="performance-gen-1">Perf Gen1 <span class="product-chip__n">1</span></button>
+                    <button type="button" class="product-chip" data-filter="performance-gen-3">Perf Gen3 <span class="product-chip__n">5</span></button>
+                    <button type="button" class="product-chip" data-filter="enterprise">Enterprise <span class="product-chip__n">5</span></button>
+                  </div>
+                </div>
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Type</span>
+                  <div class="product-chips" id="formChips">
+                    <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">64</span></button>
+                    <button type="button" class="product-chip" data-filter="mounts">Mounts &amp; Brackets <span class="product-chip__n">19</span></button>
+                    <button type="button" class="product-chip" data-filter="power">Power &amp; Charging <span class="product-chip__n">5</span></button>
+                    <button type="button" class="product-chip" data-filter="cables">Cables <span class="product-chip__n">33</span></button>
+                    <button type="button" class="product-chip" data-filter="networking">Networking <span class="product-chip__n">4</span></button>
+                    <button type="button" class="product-chip" data-filter="cases">Cases &amp; Protection <span class="product-chip__n">3</span></button>
+                  </div>
+                </div>
               </div>
               <div class="row" id="productGrid">
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/44.html">
                       <div class="blog-one__img">
@@ -371,7 +387,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/656.html">
                       <div class="blog-one__img">
@@ -384,7 +400,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/663.html">
                       <div class="blog-one__img">
@@ -397,7 +413,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/676.html">
                       <div class="blog-one__img">
@@ -410,7 +426,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/678.html">
                       <div class="blog-one__img">
@@ -423,7 +439,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/679.html">
                       <div class="blog-one__img">
@@ -436,7 +452,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/680.html">
                       <div class="blog-one__img">
@@ -449,7 +465,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/681.html">
                       <div class="blog-one__img">
@@ -462,7 +478,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/682.html">
                       <div class="blog-one__img">
@@ -475,7 +491,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
                   <div class="blog-one__single">
                     <a href="/mini/683.html">
                       <div class="blog-one__img">
@@ -488,7 +504,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/684.html">
                       <div class="blog-one__img">
@@ -501,7 +517,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/685.html">
                       <div class="blog-one__img">
@@ -514,7 +530,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/686.html">
                       <div class="blog-one__img">
@@ -527,7 +543,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/687.html">
                       <div class="blog-one__img">
@@ -540,7 +556,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/688.html">
                       <div class="blog-one__img">
@@ -553,7 +569,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/689.html">
                       <div class="blog-one__img">
@@ -566,7 +582,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/690.html">
                       <div class="blog-one__img">
@@ -579,7 +595,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/mini/691.html">
                       <div class="blog-one__img">
@@ -592,7 +608,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/692.html">
                       <div class="blog-one__img">
@@ -605,7 +621,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/693.html">
                       <div class="blog-one__img">
@@ -618,7 +634,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cases">
                   <div class="blog-one__single">
                     <a href="/mini/694.html">
                       <div class="blog-one__img">
@@ -631,7 +647,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cases">
                   <div class="blog-one__single">
                     <a href="/mini/695.html">
                       <div class="blog-one__img">
@@ -644,7 +660,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/702.html">
                       <div class="blog-one__img">
@@ -657,7 +673,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
                   <div class="blog-one__single">
                     <a href="/mini/703.html">
                       <div class="blog-one__img">
@@ -670,7 +686,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="networking">
                   <div class="blog-one__single">
                     <a href="/mini/4199.html">
                       <div class="blog-one__img">
@@ -683,7 +699,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/4200.html">
                       <div class="blog-one__img">
@@ -696,7 +712,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
                   <div class="blog-one__single">
                     <a href="/mini/4201.html">
                       <div class="blog-one__img">
@@ -709,7 +725,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/4203.html">
                       <div class="blog-one__img">
@@ -722,7 +738,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
                   <div class="blog-one__single">
                     <a href="/mini/4204.html">
                       <div class="blog-one__img">
@@ -735,7 +751,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
                   <div class="blog-one__single">
                     <a href="/mini/4205.html">
                       <div class="blog-one__img">
@@ -748,7 +764,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/4206.html">
                       <div class="blog-one__img">
@@ -761,7 +777,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/mini/4207.html">
                       <div class="blog-one__img">
@@ -774,7 +790,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard/651.html">
                       <div class="blog-one__img">
@@ -787,7 +803,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard/652.html">
                       <div class="blog-one__img">
@@ -800,7 +816,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard/660.html">
                       <div class="blog-one__img">
@@ -813,7 +829,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="networking">
                   <div class="blog-one__single">
                     <a href="/standard/661.html">
                       <div class="blog-one__img">
@@ -826,7 +842,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/662.html">
                       <div class="blog-one__img">
@@ -839,7 +855,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cases">
                   <div class="blog-one__single">
                     <a href="/standard/671.html">
                       <div class="blog-one__img">
@@ -852,7 +868,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/672.html">
                       <div class="blog-one__img">
@@ -865,7 +881,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/673.html">
                       <div class="blog-one__img">
@@ -878,7 +894,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/674.html">
                       <div class="blog-one__img">
@@ -891,7 +907,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard/677.html">
                       <div class="blog-one__img">
@@ -904,7 +920,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/696.html">
                       <div class="blog-one__img">
@@ -917,7 +933,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard/701.html">
                       <div class="blog-one__img">
@@ -930,7 +946,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard/704.html">
                       <div class="blog-one__img">
@@ -943,7 +959,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="networking">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/659.html">
                       <div class="blog-one__img">
@@ -956,7 +972,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/665.html">
                       <div class="blog-one__img">
@@ -969,7 +985,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/666.html">
                       <div class="blog-one__img">
@@ -982,7 +998,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="networking">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/667.html">
                       <div class="blog-one__img">
@@ -995,7 +1011,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/668.html">
                       <div class="blog-one__img">
@@ -1008,7 +1024,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard-actuated/670.html">
                       <div class="blog-one__img">
@@ -1021,7 +1037,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard-circular/655.html">
                       <div class="blog-one__img">
@@ -1034,7 +1050,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/standard-circular/664.html">
                       <div class="blog-one__img">
@@ -1047,7 +1063,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-1">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-1" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-1/654.html">
                       <div class="blog-one__img">
@@ -1060,7 +1076,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-3/42.html">
                       <div class="blog-one__img">
@@ -1073,7 +1089,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-3/43.html">
                       <div class="blog-one__img">
@@ -1086,7 +1102,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-3/697.html">
                       <div class="blog-one__img">
@@ -1099,7 +1115,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-3/700.html">
                       <div class="blog-one__img">
@@ -1112,7 +1128,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="mounts">
                   <div class="blog-one__single">
                     <a href="/performance-gen-3/4202.html">
                       <div class="blog-one__img">
@@ -1125,7 +1141,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/enterprise/650.html">
                       <div class="blog-one__img">
@@ -1138,7 +1154,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/enterprise/657.html">
                       <div class="blog-one__img">
@@ -1151,7 +1167,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/enterprise/658.html">
                       <div class="blog-one__img">
@@ -1164,7 +1180,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/enterprise/669.html">
                       <div class="blog-one__img">
@@ -1177,7 +1193,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise">
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/enterprise/675.html">
                       <div class="blog-one__img">
@@ -1934,26 +1950,56 @@ window.onload = function(){
 <!-- product-filter -->
 <script>
 (function(){
-  var chips = document.querySelectorAll('#productChips .product-chip');
   var grid = document.getElementById('productGrid');
-  if(!grid || !chips.length) return;
-  var cards = grid.querySelectorAll('[data-cat]');
-  function apply(f){
-    for(var i=0;i<cards.length;i++){
-      cards[i].style.display = (f==='all'||cards[i].getAttribute('data-cat')===f)?'':'none';
+  if(!grid) return;
+  var cards = [].slice.call(grid.querySelectorAll('[data-cat]'));
+  var modelChips = [].slice.call(document.querySelectorAll('#modelChips .product-chip'));
+  var formChips = [].slice.call(document.querySelectorAll('#formChips .product-chip'));
+  if(!modelChips.length || !formChips.length) return;
+  var state = { cat:'all', form:'all' };
+  var emptyMsg = document.createElement('div');
+  emptyMsg.className = 'product-empty';
+  emptyMsg.textContent = 'No products match this combination.';
+  emptyMsg.style.display = 'none';
+  grid.parentNode.insertBefore(emptyMsg, grid.nextSibling);
+  function show(c){
+    return (state.cat==='all'||c.getAttribute('data-cat')===state.cat) &&
+           (state.form==='all'||c.getAttribute('data-form')===state.form);
+  }
+  function count(chips, selfAttr, otherAttr){
+    var otherVal = (otherAttr==='data-cat') ? state.cat : state.form;
+    for(var i=0;i<chips.length;i++){
+      var f = chips[i].getAttribute('data-filter'), n = 0;
+      for(var j=0;j<cards.length;j++){
+        var c = cards[j];
+        var selfOk = (f==='all') || (c.getAttribute(selfAttr)===f);
+        var otherOk = (otherVal==='all') || (c.getAttribute(otherAttr)===otherVal);
+        if(selfOk && otherOk) n++;
+      }
+      var span = chips[i].querySelector('.product-chip__n');
+      if(span) span.textContent = n;
+      chips[i].classList.toggle('is-empty', n===0);
     }
   }
-  function activate(f){
-    for(var j=0;j<chips.length;j++){
-      chips[j].classList.toggle('is-active', chips[j].getAttribute('data-filter')===f);
+  function apply(){
+    var vis = 0;
+    for(var i=0;i<cards.length;i++){ var ok = show(cards[i]); cards[i].style.display = ok?'':'none'; if(ok) vis++; }
+    count(modelChips, 'data-cat', 'data-form');
+    count(formChips, 'data-form', 'data-cat');
+    emptyMsg.style.display = vis ? 'none' : '';
+  }
+  function bind(chips, axis){
+    for(var i=0;i<chips.length;i++){
+      chips[i].addEventListener('click', function(){
+        state[axis] = this.getAttribute('data-filter');
+        for(var j=0;j<chips.length;j++) chips[j].classList.toggle('is-active', chips[j]===this);
+        apply();
+      });
     }
-    apply(f);
   }
-  for(var i=0;i<chips.length;i++){
-    chips[i].addEventListener('click', function(){ activate(this.getAttribute('data-filter')); });
-  }
-  var h=(location.hash||'').replace('#','');
-  if(/^[a-z0-9-]+$/.test(h) && document.querySelector('#productChips .product-chip[data-filter="'+h+'"]')) activate(h);
+  bind(modelChips, 'cat');
+  bind(formChips, 'form');
+  apply();
 })();
 </script>
 
