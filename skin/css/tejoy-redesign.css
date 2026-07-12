@@ -5714,3 +5714,11 @@ a.tj-gcard:hover .tj-more .tj-arw { transform: translateX(6px); }
 .product-chip.is-empty { opacity: .35; }
 .product-empty { text-align: center; padding: 56px 20px; color: var(--tj-muted); font-size: 15px; }
 @media (max-width: 575px) { .product-chiprow { gap: 8px; } .product-chiprow__label { padding-top: 8px; min-width: 40px; font-size: 11px !important; } }
+
+/* PRODUCTS nav dropdown — by-type with counts + divider (Step 1 nav restructure) */
+.main-menu__list li ul.nav-dd-products { min-width: 260px !important; }
+.main-menu__list li ul.nav-dd-products li a { display: flex !important; justify-content: space-between !important; align-items: center; gap: 20px; }
+.main-menu__list li ul.nav-dd-products .nav-dd__n { font-size: 12px !important; color: var(--tj-muted) !important; font-weight: 400 !important; flex: none; }
+.main-menu__list li ul.nav-dd-products li a:hover .nav-dd__n { color: var(--tj-ink) !important; }
+.main-menu__list li ul.nav-dd-products li.nav-dd__sep { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--tj-line); }
+.main-menu__list li ul.nav-dd-products li.nav-dd__sep a, .main-menu__list li ul.nav-dd-products li:last-child a { font-weight: 600 !important; }
