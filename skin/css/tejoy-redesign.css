@@ -5694,3 +5694,13 @@ a.tj-gcard:hover .tj-more .tj-arw { transform: translateX(6px); }
 
 @media (max-width: 900px) { .tj-feat { grid-template-columns: repeat(2, 1fr); } .tj-guides { grid-template-columns: 1fr; } }
 @media (max-width: 575px) { .tj-feat { grid-template-columns: 1fr; } .tj-sechead { margin-bottom: 34px !important; } }
+
+/* About "Global Reach" — icon data row (4 cells, 1px dividers, hover lighten) */
+.tj-stats { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--tj-line); margin-top: 34px; }
+.tj-st { padding: 32px 22px; text-align: center; border-right: 1px solid var(--tj-line); transition: background .2s var(--tj-ease); }
+.tj-st:last-child { border-right: 0; }
+.tj-st:hover { background: #f4f4f4; }
+.tj-st .tj-ic { width: 34px; height: 34px; color: var(--tj-ink); margin: 0 auto 14px; display: block; }
+.tj-st .tj-v { font-size: 23px !important; font-weight: 800 !important; letter-spacing: -.01em; line-height: 1.1; color: var(--tj-ink) !important; }
+.tj-st .tj-l { font-size: 13px !important; color: var(--tj-muted) !important; margin-top: 6px; }
+@media (max-width: 820px) { .tj-stats { grid-template-columns: repeat(2, 1fr); } .tj-st:nth-child(2) { border-right: 0; } .tj-st:nth-child(1), .tj-st:nth-child(2) { border-bottom: 1px solid var(--tj-line); } }
