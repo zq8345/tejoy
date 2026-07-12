@@ -897,7 +897,7 @@ body.tejoy-scrolled .main-header .main-menu {
   object-position: center center !important;
   margin: 0 !important;
   padding: 0 !important;
-  transform: scale(1.2) !important;
+  transform: none !important;
   transform-origin: center center !important;
 }
 
@@ -1071,7 +1071,7 @@ body.tejoy-scrolled .main-header .main-menu {
   object-position: center center !important;
   margin: 0 !important;
   padding: 0 !important;
-  transform: scale(1.18) !important;
+  transform: none !important;
   transform-origin: center center !important;
 }
 
@@ -4406,7 +4406,7 @@ body.tejoy-scrolled .main-header .main-menu {
   height: 100% !important;
   max-width: none !important;
   object-fit: cover !important;
-  transform: scale(1.2) !important;
+  transform: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
