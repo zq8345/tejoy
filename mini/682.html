@@ -243,7 +243,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=38" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=39" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 </head>
@@ -448,47 +448,38 @@
                 <h3 class="title-tab">Online Message</h3>
                 <p class="explain">If you have any questions, please leave us a message and we will reply you as soon as possible.</p>
                 <div class="add-comments">
-                  <form action="/message/"  class="inner-add-comments form-contact-2" method="post">
+                  <form id="tejoy-product-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
+                    <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
+                    <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
+                    <input type="hidden" name="subject" value="New product inquiry from Tejoy.com">
+                    <input type="hidden" name="from_name" value="Tejoy.com Product Inquiry">
+                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="row gutters-20">
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="gongsi" class="sr-only">Company Name</label>Company Name
-                        <input type="text" name="gongsi" id="gongsi" value="" class="form-control dr_required" placeholder="Company Name" />
+                        <label for="p_company" class="sr-only">Company Name</label>Company Name
+                        <input type="text" name="company" id="p_company" value="" class="form-control" placeholder="Company Name" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="name" class="sr-only">Name</label>Name
-                        <input type="text" name="name" id="name" value="" class="form-control dr_required" placeholder="Your Name" />
+                        <label for="p_name" class="sr-only">Name</label>Name
+                        <input type="text" name="name" id="p_name" value="" class="form-control" placeholder="Your Name" required />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="tel" class="sr-only">Phone</label>Phone
-                        <input type="text" name="tel" id="tel" value="" class="form-control dr_required" placeholder="Your Phone" />
+                        <label for="p_phone" class="sr-only">Phone</label>Phone
+                        <input type="tel" name="phone" id="p_phone" value="" class="form-control" placeholder="Your Phone" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="email" class="sr-only">Email</label>E-mail
-                        <input type="text" name="email" id="email" value="" class="form-control dr_required" placeholder="Your Email" />
+                        <label for="p_email" class="sr-only">Email</label>E-mail
+                        <input type="email" name="email" id="p_email" value="" class="form-control" placeholder="Your Email" required />
                       </div>
                       <div class="col-md-12 inner-add-comments-box">
-                        <label for="content" class="sr-only">Message</label>Message
-                        <textarea class="form-control" id="content" name="content" placeholder="Your Message"></textarea>
-                      </div>
-                      <div class="col-12 form-group mb-0 pt-2">
-                        <div class="form-group">
-                          <label class="control-label">Code</label>
-                          <div class="">
-                            <label>
-                            <div class="form-recaptcha">
-                              <div class="input-group">
-                                <input type="text" class="form-control" name="checkcode">
-                                <div class="input-group-btn fc-code"> <button type="button" class="captcha-refresh" aria-label="Refresh verification code" style="border:0;background:none;padding:0;cursor:pointer;" onclick="var i=this.querySelector('img');i.src='/core/code.php?'+Math.round(Math.random()*10);"><img align="absmiddle" src="/core/code.php" alt="Verification code, click to refresh" /></button> </div>
-                              </div>
-                            </div>
-                            </label>
-                          </div>
-                        </div>
+                        <label for="p_message" class="sr-only">Message</label>Message
+                        <textarea class="form-control" id="p_message" name="message" placeholder="Your Message" required></textarea>
                       </div>
                       <div class="col-12 form-group mb-0 pt-2">
                         <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>Submit</span></button>
                       </div>
                     </div>
+                    <p id="tejoy-product-status" class="tejoy-form-status" role="status" aria-live="polite" hidden></p>
                   </form>
                 </div>
               </div>
@@ -523,10 +514,7 @@
         <div class="col-xl-3 col-lg-3">
           <div class="sidebar">
             <div class="sidebar__single sidebar__search">
-              <form action="/search/" class="sidebar__search-form" method="get">
-                <input type="search" placeholder="Search here" name="keyword">
-                <button type="submit"><i class="icon-magnifying-glass"></i></button>
-              </form>
+              
             </div>
             <div class="sidebar__single sidebar__category">
               <h3 class="sidebar__title">Products</h3>
@@ -1171,12 +1159,7 @@ var FOOTER_LANGS = {
   <div class="search-popup__overlay search-toggler"></div>
   <!-- /.search-popup__overlay -->
   <div class="search-popup__content">
-    <form action="/search/" method="get">
-      <label for="search" class="sr-only">Search</label>
-      <!-- /.sr-only -->
-      <input type="text" id="search" placeholder="Search Here..."  name="keyword" />
-      <button type="submit" aria-label="search submit" class="thm-btn"> <i class="icon-magnifying-glass"></i> </button>
-    </form>
+    
   </div>
   <!-- /.search-popup__content --> 
 </div>
@@ -1351,5 +1334,29 @@ document.addEventListener('DOMContentLoaded', function(){
 }
 </script>
 
+<!-- Web3Forms AJAX for product inquiry -->
+<script>
+(function () {
+  var form = document.getElementById('tejoy-product-form');
+  if (!form) return;
+  var status = document.getElementById('tejoy-product-status');
+  var btn = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (status) { status.hidden = false; status.className = 'tejoy-form-status is-pending'; status.textContent = 'Sending\u2026'; }
+    if (btn) { btn.disabled = true; }
+    var data = new FormData(form);
+    data.append('product_page', document.title + ' | ' + location.href);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+      .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
+      .then(function (r) {
+        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'tejoy-form-status is-success'; status.textContent = "Thank you \u2014 we'll reply within 1 business day."; } }
+        else { if (status) { status.className = 'tejoy-form-status is-error'; status.textContent = "Sorry \u2014 we couldn't send your message. Please email hello@tejoy.com."; } }
+      })
+      .catch(function () { if (status) { status.className = 'tejoy-form-status is-error'; status.textContent = "Network error \u2014 please email hello@tejoy.com."; } })
+      .then(function () { if (btn) { btn.disabled = false; } });
+  });
+})();
+</script>
 </body>
 </html>

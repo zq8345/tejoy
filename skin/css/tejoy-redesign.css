@@ -5525,8 +5525,25 @@ a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decor
   text-wrap: balance;
   text-shadow: 0 2px 30px rgba(0,0,0,.5);
 }
+.hero-single__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 620px; }
+.hero-single__subtitle {
+  color: rgba(255,255,255,.9) !important;
+  font-family: var(--tj-font) !important;
+  font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+  font-weight: 400 !important; line-height: 1.5 !important; margin: 0 !important;
+  max-width: 46ch; text-shadow: 0 1px 16px rgba(0,0,0,.5);
+}
+.hero-single__cta {
+  display: inline-block; margin-top: 4px;
+  background: #fff; color: #0b0b0b !important;
+  font-weight: 600; font-size: .875rem; letter-spacing: .05em; text-transform: uppercase;
+  padding: 14px 32px; border: 1px solid #fff; border-radius: 0 !important;
+  transition: background .25s var(--tj-ease), color .25s var(--tj-ease);
+}
+.hero-single__cta:hover { background: transparent; color: #fff !important; }
 @media (max-width: 767px) {
-  .hero-single { min-height: clamp(380px, 62vh, 520px); text-align: center; }
+  .hero-single { min-height: clamp(400px, 64vh, 540px); text-align: center; }
+  .hero-single__inner { align-items: center; max-width: none; margin-inline: auto; }
   .hero-single__title { max-width: none; margin-inline: auto !important; }
   .hero-single::after {
     background: linear-gradient(180deg, rgba(0,0,0,.44) 0%, rgba(0,0,0,.50) 52%, rgba(0,0,0,.64) 100%);
@@ -5572,3 +5589,7 @@ a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decor
 @media (max-width: 1199px) {
   .contact-info-card { height: auto; }
 }
+
+/* F2: dead /search/ boxes removed from HTML — hide the remaining entry points
+   (header search icon, the now-empty popup, the empty product-sidebar search block). */
+.main-menu-wrapper__search, .search-popup, .sidebar__search { display: none !important; }

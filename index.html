@@ -156,7 +156,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=38" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=39" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 </head>
@@ -234,7 +234,11 @@
   <section class="hero-single">
     <div class="hero-single__bg" style="background-image: url(/static/upload/image/hero-montana-dusk.webp);"></div>
     <div class="container">
-      <h1 class="hero-single__title">Starlink Accessories One-stop Solution</h1>
+      <div class="hero-single__inner">
+        <h1 class="hero-single__title">Starlink Accessories One-stop Solution</h1>
+        <p class="hero-single__subtitle">Accessories for every Starlink model — mounts, cables, power adapters, and more.</p>
+        <a class="hero-single__cta" href="/products/">Browse products</a>
+      </div>
     </div>
   </section>
   <!--Hero End-->
@@ -311,20 +315,20 @@
           </div>
           
           <div class="product-grid-item">
-            <a href="/enterprise/" class="product-grid-link">
-              <div class="product-grid-img">
-                <img src="/static/upload/image/20260424/1777029622924003.png" alt="Enterprise - tejoy product category" loading="lazy">
-              </div>
-              <div class="product-grid-text"><b>Enterprise</b></div>
-            </a>
-          </div>
-          
-          <div class="product-grid-item">
             <a href="/performance-gen-3/" class="product-grid-link">
               <div class="product-grid-img">
                 <img src="/static/upload/image/20260425/1777097136684250.png" alt="Performance (Gen 3) - tejoy product category" loading="lazy">
               </div>
               <div class="product-grid-text"><b>Performance (Gen 3)</b></div>
+            </a>
+          </div>
+
+          <div class="product-grid-item">
+            <a href="/enterprise/" class="product-grid-link">
+              <div class="product-grid-img">
+                <img src="/static/upload/image/20260424/1777029622924003.png" alt="Enterprise - tejoy product category" loading="lazy">
+              </div>
+              <div class="product-grid-text"><b>Enterprise</b></div>
             </a>
           </div>
           
@@ -1190,12 +1194,7 @@ var FOOTER_LANGS = {
   <div class="search-popup__overlay search-toggler"></div>
   <!-- /.search-popup__overlay -->
   <div class="search-popup__content">
-    <form action="/search/" method="get">
-      <label for="search" class="sr-only">Search</label>
-      <!-- /.sr-only -->
-      <input type="text" id="search" placeholder="Search Here..."  name="keyword" />
-      <button type="submit" aria-label="search submit" class="thm-btn"> <i class="icon-magnifying-glass"></i> </button>
-    </form>
+    
   </div>
   <!-- /.search-popup__content --> 
 </div>
