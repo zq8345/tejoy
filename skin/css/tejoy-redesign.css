@@ -5593,3 +5593,32 @@ a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decor
 /* F2: dead /search/ boxes removed from HTML — hide the remaining entry points
    (header search icon, the now-empty popup, the empty product-sidebar search block). */
 .main-menu-wrapper__search, .search-popup, .sidebar__search { display: none !important; }
+
+/* Task A: Service section stacked — header + category buttons on top (full width),
+   article cards in a grid below (was a left/right 2-column split). */
+.index_news .newleft { width: 100% !important; float: none !important; margin-bottom: 34px; overflow: hidden; }
+.index_news .newleft .t1, .index_news .newleft .t3 { float: none !important; }
+.index_news .newleft .t3 { max-width: 760px; }
+.index_news .newleft ul {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  width: auto !important; float: none !important; margin: 18px 0 0 !important;
+}
+.index_news .newleft ul li {
+  width: auto !important; float: none !important; margin: 0 !important;
+  padding: 0 !important; border: none !important; border-bottom: none !important;
+}
+.index_news .newleft ul li a {
+  display: inline-block !important; width: auto !important; float: none !important;
+  padding: 9px 22px !important; background: var(--tj-white) !important;
+  border: 1px solid var(--tj-line) !important; color: var(--tj-ink) !important;
+  font-weight: 500 !important; font-size: .95rem !important; text-align: center;
+  transition: background .2s var(--tj-ease), color .2s var(--tj-ease);
+}
+.index_news .newleft ul li a:hover { background: var(--tj-ink) !important; color: #fff !important; }
+.index_news .newright { width: 100% !important; float: none !important; border: none !important; }
+.index_news .newright ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.index_news .newright li { width: auto !important; float: none !important; }
+.index_news .newright li a { padding: 22px 0 !important; }
+@media (max-width: 767px) {
+  .index_news .newright ul { grid-template-columns: 1fr; gap: 0; }
+}
