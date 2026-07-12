@@ -5489,3 +5489,45 @@ a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decor
 .tejoy-form-status.is-pending { color: var(--tj-mute) !important; }
 .tejoy-form-status.is-success { color: var(--tj-ink) !important; border-color: var(--tj-ink); background: var(--tj-panel); }
 .tejoy-form-status.is-error { color: #9a1b1b; border-color: #d99; background: #fbf3f3; }
+
+/* ============================================================================
+   Homepage hero — single static image (replaced the 2-slide swiper carousel).
+   New self-contained classes; one <h1>; Inter, monochrome, dark gradient scrim
+   for white-text legibility. */
+.hero-single {
+  position: relative;
+  min-height: clamp(460px, 66vh, 720px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+.hero-single__bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+}
+.hero-single::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.42) 46%, rgba(0,0,0,.12) 100%);
+}
+.hero-single .container { position: relative; z-index: 2; }
+.hero-single__title {
+  color: #fff !important;
+  font-family: var(--tj-font) !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 5vw, 3.6rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.02em !important;
+  margin: 0 !important;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+@media (max-width: 767px) {
+  .hero-single { min-height: clamp(380px, 62vh, 520px); text-align: center; }
+  .hero-single__title { max-width: none; margin-inline: auto !important; }
+  .hero-single::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.44) 0%, rgba(0,0,0,.50) 52%, rgba(0,0,0,.64) 100%);
+  }
+}
