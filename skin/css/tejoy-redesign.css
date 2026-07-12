@@ -5726,3 +5726,10 @@ a.tj-gcard:hover .tj-more .tj-arw { transform: translateX(6px); }
 /* category-page Model chips are navigation links (Step 2) */
 a.product-chip { text-decoration: none !important; }
 .product-modelnav a.product-chip { cursor: pointer; }
+
+/* product-card title: dial down (was forced to 24px by .page-wrapper h3:not() 0,3,1 — beat it) */
+.page-wrapper .blog-sidebar__content .blog-one__single h3.blog-one__title,
+.page-wrapper .blog-sidebar__content .blog-one__single h3.blog-one__title a {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
