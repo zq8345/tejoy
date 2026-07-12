@@ -5622,3 +5622,25 @@ a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decor
 @media (max-width: 767px) {
   .index_news .newright ul { grid-template-columns: 1fr; gap: 0; }
 }
+
+/* ===== Task B: product browse — category filter chips (/products/) ===== */
+.product-chips {
+  display: flex !important; flex-wrap: wrap !important; gap: 10px !important;
+  margin: 0 0 32px !important; padding: 0 !important; list-style: none !important;
+}
+.product-chip {
+  font-family: var(--tj-font) !important; font-size: .92rem !important; font-weight: 500 !important;
+  color: var(--tj-ink) !important; background: #fff !important;
+  border: 1px solid var(--tj-line) !important; border-radius: 0 !important;
+  padding: 9px 20px !important; margin: 0 !important; cursor: pointer;
+  line-height: 1.2 !important; letter-spacing: -.01em; width: auto !important;
+  transition: background .2s var(--tj-ease), color .2s var(--tj-ease), border-color .2s var(--tj-ease);
+}
+.product-chip:hover { border-color: var(--tj-ink) !important; }
+.product-chip.is-active { background: var(--tj-ink) !important; color: #fff !important; border-color: var(--tj-ink) !important; }
+.product-chip__n { opacity: .45; font-size: .82em; margin-left: 4px; font-weight: 400; }
+.product-chip.is-active .product-chip__n { opacity: .7; color: #fff !important; }
+@media (max-width: 575px) {
+  .product-chips { gap: 8px !important; margin-bottom: 24px !important; }
+  .product-chip { padding: 7px 15px !important; font-size: .85rem !important; }
+}
