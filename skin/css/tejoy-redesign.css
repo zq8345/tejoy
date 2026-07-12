@@ -5769,3 +5769,6 @@ a.product-chip { text-decoration: none !important; }
 .related-products { margin-top: 60px; }
 .related-products__head { font-size: clamp(1.3rem, 2.1vw, 1.6rem); font-weight: 800; letter-spacing: -.01em; color: var(--tj-ink); margin: 0 0 26px; }
 .page-wrapper .related-products .blog-one__single h3.blog-one__title { font-size: 15px !important; line-height: 1.4 !important; }
+/* description paragraph spacing (empty <p><br></p> removed → restore rhythm via margin) */
+.products-details .explain p { margin: 0 0 12px !important; }
+.products-details .explain p:last-child { margin-bottom: 0 !important; }
