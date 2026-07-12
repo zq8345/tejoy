@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Contact Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions</title>
 <meta name="keywords" content="Contact Us, Starlink, satellite internet, Starlink accessories">
-<meta name="description" content="21`2`12">
+<meta name="description" content="Contact Tejoy for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@tejoy.com; we typically reply within one business day.">
 <meta name="author" content="tejoy" />
 
 <!-- Organization + WebSite JSON-LD Structured Data -->
@@ -131,7 +131,7 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Contact Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta property="og:description" content="21`2`12" />
+<meta property="og:description" content="Contact Tejoy for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@tejoy.com; we typically reply within one business day." />
 <meta property="og:url" content="https://tejoy.com" />
 <meta property="og:image" content="/static/tejoy-logo-black.png" />
 <meta property="og:type" content="website" />
@@ -140,7 +140,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Contact Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta name="twitter:description" content="21`2`12" />
+<meta name="twitter:description" content="Contact Tejoy for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@tejoy.com; we typically reply within one business day." />
 <meta name="twitter:image" content="/static/tejoy-logo-black.png" />
 
 
@@ -157,7 +157,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=35" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=36" />
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
@@ -247,11 +247,23 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-6">
-          <div class="contact">
-            <h3><b>TEJOY STARLINK ACCESSORIES LIMITED</b></h3>
-            <div class="text"> 
-              <p><strong><span data-slate-node="text"></span></strong></p><p><span style="text-wrap-mode: nowrap"></span></p><p><span data-slate-node="text"><br/><strong>Headquarters contact information:</strong><br/></span>Address: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong Province, China<br/>Email: hello@tejoy.com<br/><br/><strong>日本の連絡先：</strong><br/>住所：東京都新宿区高田馬場4丁目13-11<br/>Email：hello@tejoy.com</p><p><span data-slate-node="text"></span></p><p><span data-slate-node="text"></span></p><p><span data-slate-node="text">Website: http://tejoy.com</span></p><p><span style="text-wrap-mode: nowrap"></span><br/></p><p><br/></p><p><br/></p>
-               </div>
+          <div class="section-title ">
+            <span class="section-title__tagline">Reach the Tejoy team</span>
+            <h2 class="section-title__title">Contact Information</h2>
+          </div>
+          <div class="contact-info-card">
+            <h3 class="contact-info-card__name">TEJOY STARLINK ACCESSORIES LIMITED</h3>
+            <ul class="contact-info-list">
+              <li class="contact-info-list__item">
+                <span class="contact-info-list__label">Email</span>
+                <a class="contact-info-list__value" href="mailto:hello@tejoy.com">hello@tejoy.com</a>
+              </li>
+              <li class="contact-info-list__item">
+                <span class="contact-info-list__label">Headquarters</span>
+                <span class="contact-info-list__value">No. 62, Baotian 1st Road, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China</span>
+              </li>
+            </ul>
+            <p class="contact-info-card__note">OEM/ODM inquiries welcome — we typically reply within 1 business day.</p>
           </div>
         </div>
         <div class="col-xl-6">
@@ -260,48 +272,39 @@
           </div>
           <div class="products-details-content" >
             <div class="add-comments">
-                  <form action="/message/"  class="inner-add-comments form-contact-2" method="post">
+                  <form id="tejoy-contact-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
+                    <!-- Web3Forms wiring — public access key (client-side by design; inquiries land in the Web3Forms account inbox) -->
+                    <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
+                    <input type="hidden" name="subject" value="New inquiry from Tejoy.com">
+                    <input type="hidden" name="from_name" value="Tejoy.com Contact Form">
+                    <!-- honeypot: real visitors leave this empty; bots tick it -->
+                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="row gutters-20">
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="gongsi" class="sr-only">Company Name</label>Company Name
-                        <input type="text" name="gongsi" id="gongsi" value="" class="form-control dr_required" placeholder="Company Name" />
+                        <label for="company" class="sr-only">Company Name</label>Company Name
+                        <input type="text" name="company" id="company" value="" class="form-control" placeholder="Company Name" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
                         <label for="name" class="sr-only">Name</label>Name
-                        <input type="text" name="name" id="name" value="" class="form-control dr_required" placeholder="Your Name" />
+                        <input type="text" name="name" id="name" value="" class="form-control" placeholder="Your Name" required />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="tel" class="sr-only">Phone</label>Phone
-                        <input type="text" name="tel" id="tel" value="" class="form-control dr_required" placeholder="Your Phone Number" />
+                        <label for="phone" class="sr-only">Phone</label>Phone
+                        <input type="tel" name="phone" id="phone" value="" class="form-control" placeholder="Your Phone Number" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
                         <label for="email" class="sr-only">Email</label>Email
-                        <input type="text" name="email" id="email" value="" class="form-control dr_required" placeholder="Your Email Address" />
+                        <input type="email" name="email" id="email" value="" class="form-control" placeholder="Your Email Address" required />
                       </div>
                       <div class="col-md-12 inner-add-comments-box">
-                        <label for="content" class="sr-only">Content</label>Content
-                        <textarea class="form-control" id="content" value="" name="content" placeholder="Your Message"></textarea>
+                        <label for="message" class="sr-only">Message</label>Message
+                        <textarea class="form-control" id="message" name="message" placeholder="Your Message" required></textarea>
                       </div>
-                      <div class="col-12 form-group mb-0 pt-2">
-                        <div class="form-group">
-                          <label class="control-label">Code</label>
-                          <div class="">
-                            <label>
-                            <div class="form-recaptcha">
-                              <div class="input-group">
-                                <input type="text" class="form-control" name="checkcode" placeholder="Enter Verification Code">
-                                <div class="input-group-btn fc-code"> <button type="button" class="captcha-refresh" aria-label="Refresh verification code" style="border:0;background:none;padding:0;cursor:pointer;" onclick="var i=this.querySelector('img');i.src='/core/code.php?'+Math.round(Math.random()*10);"><img align="absmiddle" src="/core/code.php" alt="Verification code, click to refresh" /></button> </div>
-                              </div>
-                            </div>
-                            </label>
-                          </div>
-                        </div>
-                      </div><br>
-
                       <div class="col-12 form-group mb-0 pt-2">
                         <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>Submit</span></button>
                       </div>
                     </div>
+                    <p id="tejoy-form-status" class="tejoy-form-status" role="status" aria-live="polite" hidden></p>
                   </form>
                 </div>
           </div>
@@ -993,6 +996,39 @@ $(function() {
 		}, 300)
 	});
 });
+</script>
+
+<!-- Web3Forms AJAX submit — inline success/error, no page redirect -->
+<script>
+(function () {
+  var form = document.getElementById('tejoy-contact-form');
+  if (!form) return;
+  var status = document.getElementById('tejoy-form-status');
+  var btn = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (status) { status.hidden = false; status.className = 'tejoy-form-status is-pending'; status.textContent = 'Sending…'; }
+    if (btn) { btn.disabled = true; }
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function (res) {
+      return res.json().then(function (json) { return { ok: res.ok, json: json }; });
+    }).then(function (r) {
+      if (r.ok && r.json.success) {
+        form.reset();
+        if (status) { status.className = 'tejoy-form-status is-success'; status.textContent = "Thank you — we'll reply within 1 business day."; }
+      } else {
+        if (status) { status.className = 'tejoy-form-status is-error'; status.textContent = "Sorry — we couldn't send your message just now. Please email hello@tejoy.com and we'll reply right away."; }
+      }
+    }).catch(function () {
+      if (status) { status.className = 'tejoy-form-status is-error'; status.textContent = "Network error — please email hello@tejoy.com and we'll get right back to you."; }
+    }).then(function () {
+      if (btn) { btn.disabled = false; }
+    });
+  });
+})();
 </script>
 
 </body>

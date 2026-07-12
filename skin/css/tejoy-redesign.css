@@ -5368,6 +5368,69 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
 .page-header__subtitle { text-transform: none !important; }
 
 /* ============================================================================
+   ⑥ Contact redesign — balanced two-column layout (info card | inquiry form).
+   Matches homepage About container width (1200) + whitespace rhythm (~80px);
+   right angles, monochrome, restrained whitespace. The Japan contact block,
+   "Website:" line and empty CMS junk were removed in the HTML. */
+.contact-page { padding: clamp(48px, 7vw, 80px) 0 !important; }
+.contact-page .container { max-width: var(--tj-container); }
+.contact-page .col-xl-6 { margin-bottom: 24px; }
+
+/* parallel section-title header on BOTH columns so they start on the same line */
+.contact-page .section-title { margin-bottom: 22px !important; }
+.contact-page .section-title__tagline {
+  display: block; color: var(--tj-mute) !important;
+  font-size: .8125rem !important; font-weight: 500 !important;
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px !important;
+}
+.contact-page .section-title__title {
+  color: var(--tj-ink) !important; font-size: clamp(1.5rem, 2.4vw, 1.875rem) !important;
+  font-weight: 700 !important; line-height: 1.2 !important; margin: 0 !important;
+}
+
+/* left: contact-info card — visual weight to balance the form; 直角 + --tj-line border */
+.contact-info-card {
+  border: 1px solid var(--tj-line); background: var(--tj-white);
+  padding: clamp(24px, 3vw, 34px);
+}
+.contact-info-card__name {
+  color: var(--tj-ink) !important; font-size: 1.125rem !important; font-weight: 700 !important;
+  letter-spacing: .01em; margin: 0 0 18px !important; padding-bottom: 16px;
+  border-bottom: 1px solid var(--tj-line);
+}
+.contact-info-list { list-style: none; margin: 0; padding: 0; }
+.contact-info-list__item { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; }
+.contact-info-list__item + .contact-info-list__item { border-top: 1px solid var(--tj-line); }
+.contact-info-list__label {
+  color: var(--tj-mute) !important; font-size: .75rem !important; font-weight: 600 !important;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.contact-info-list__value { color: var(--tj-body) !important; font-size: 1rem !important; line-height: 1.55; }
+a.contact-info-list__value { color: var(--tj-ink) !important; }
+a.contact-info-list__value:hover { color: var(--tj-black) !important; text-decoration: underline; }
+.contact-info-card__note {
+  margin: 18px 0 0 !important; padding-top: 16px; border-top: 1px solid var(--tj-line);
+  color: var(--tj-body) !important; font-size: .9375rem !important; line-height: 1.6;
+}
+
+/* right: inquiry form — align controls with the redesign (直角, --tj-line, monochrome focus) */
+.contact-page .inner-add-comments-box { margin-bottom: 4px; }
+.contact-page .form-control {
+  border: 1px solid var(--tj-line) !important; border-radius: 0 !important;
+  background: var(--tj-white) !important; color: var(--tj-ink) !important;
+  padding: 12px 14px !important; font-size: .9375rem !important;
+  box-shadow: none !important; transition: border-color .25s var(--tj-ease) !important;
+}
+.contact-page .form-control::placeholder { color: var(--tj-mute) !important; }
+.contact-page .form-control:focus { border-color: var(--tj-ink) !important; outline: none !important; }
+.contact-page textarea.form-control { min-height: 132px; resize: vertical; }
+.contact-page .submit.btn-1, .contact-page .btn-3 { border-radius: 0 !important; }
+
+@media (max-width: 1199px) {
+  .contact-info-card { margin-bottom: 8px; }
+}
+
+/* ============================================================================
    ⑦ About redesign — centered intro, manufacturing split, capability list,
    certification badges. NEW classes only (about/ page) → zero blast radius on
    other pages. Matches homepage About (.info-wrap): --tj-line border, restrained
@@ -5417,3 +5480,12 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
   .about-caps li:nth-child(odd) { border-right: none; padding-right: 4px; }
   .about-caps li:nth-child(even) { padding-left: 4px; }
 }
+
+/* Contact form (Web3Forms) — inline submit status message, right angles, monochrome */
+.tejoy-form-status {
+  margin: 18px 0 0 !important; padding: 13px 16px; font-size: .9375rem; line-height: 1.5;
+  border: 1px solid var(--tj-line); border-radius: 0;
+}
+.tejoy-form-status.is-pending { color: var(--tj-mute) !important; }
+.tejoy-form-status.is-success { color: var(--tj-ink) !important; border-color: var(--tj-ink); background: var(--tj-panel); }
+.tejoy-form-status.is-error { color: #9a1b1b; border-color: #d99; background: #fbf3f3; }
