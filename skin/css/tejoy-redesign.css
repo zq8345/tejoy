@@ -5722,3 +5722,7 @@ a.tj-gcard:hover .tj-more .tj-arw { transform: translateX(6px); }
 .main-menu__list li ul.nav-dd-products li a:hover .nav-dd__n { color: var(--tj-ink) !important; }
 .main-menu__list li ul.nav-dd-products li.nav-dd__sep { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--tj-line); }
 .main-menu__list li ul.nav-dd-products li.nav-dd__sep a, .main-menu__list li ul.nav-dd-products li:last-child a { font-weight: 600 !important; }
+
+/* category-page Model chips are navigation links (Step 2) */
+a.product-chip { text-decoration: none !important; }
+.product-modelnav a.product-chip { cursor: pointer; }

@@ -255,7 +255,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=46" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=47" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 </head>
@@ -343,11 +343,37 @@
   <section class="blog-sidebar huibg">
     <div class="container">
       <div class="row">
-        <div class="col-xl-9 col-lg-9">
+        <div class="col-12">
           <div class="pro-sidebar__left">
             <div class="blog-sidebar__content">
+              <div class="product-filters">
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Model</span>
+                  <div class="product-chips product-modelnav">
+                  <a class="product-chip" href="/products/">All <span class="product-chip__n">64</span></a>
+                  <a class="product-chip" href="/mini/">Mini <span class="product-chip__n">32</span></a>
+                  <a class="product-chip" href="/standard/">Standard <span class="product-chip__n">13</span></a>
+                  <a class="product-chip" href="/standard-actuated/">Standard Actuated <span class="product-chip__n">6</span></a>
+                  <a class="product-chip" href="/standard-circular/">Standard Circular <span class="product-chip__n">2</span></a>
+                  <a class="product-chip is-active" href="/performance-gen-1/">Perf Gen1 <span class="product-chip__n">1</span></a>
+                  <a class="product-chip" href="/performance-gen-3/">Perf Gen3 <span class="product-chip__n">5</span></a>
+                  <a class="product-chip" href="/enterprise/">Enterprise <span class="product-chip__n">5</span></a>
+                  </div>
+                </div>
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Type</span>
+                  <div class="product-chips" id="formChips">
+                    <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">1</span></button>
+                    <button type="button" class="product-chip is-empty" data-filter="mounts">Mounts & Brackets <span class="product-chip__n">0</span></button>
+                    <button type="button" class="product-chip is-empty" data-filter="power">Power & Charging <span class="product-chip__n">0</span></button>
+                    <button type="button" class="product-chip" data-filter="cables">Cables <span class="product-chip__n">1</span></button>
+                    <button type="button" class="product-chip is-empty" data-filter="networking">Networking <span class="product-chip__n">0</span></button>
+                    <button type="button" class="product-chip is-empty" data-filter="cases">Cases & Protection <span class="product-chip__n">0</span></button>
+                  </div>
+                </div>
+              </div>
               <div class="row" id="productGrid">
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-1">
+                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-1" data-form="cables">
                   <div class="blog-one__single">
                     <a href="/performance-gen-1/654.html">
                       <div class="blog-one__img">
@@ -365,49 +391,6 @@
           </div>
         </div>
         
-        <!-- Sidebar Category -->
-        <div class="col-xl-3 col-lg-3">
-          <div class="sidebar">
-            <div class="sidebar__single sidebar__search">
-              
-            </div>
-            <div class="sidebar__single sidebar__category">
-              <h3 class="sidebar__title">Products</h3>
-              <ul class="sidebar__category-list list-unstyled" id="catList">
-                
-                <li data-link="/standard-circular/">
-                  <a href="/standard-circular/" title="Standard Circular">Standard Circular <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                <li data-link="/standard-actuated/">
-                  <a href="/standard-actuated/" title="Standard Actuated">Standard Actuated <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                <li data-link="/standard/">
-                  <a href="/standard/" title="Standard">Standard <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                <li data-link="/mini/">
-                  <a href="/mini/" title="Mini">Mini <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                <li data-link="/performance-gen-1/">
-                  <a href="/performance-gen-1/" title="Performance (Gen 1)">Performance (Gen 1) <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                
-                <li data-link="/enterprise/">
-                  <a href="/enterprise/" title="Enterprise">Enterprise <span class="icon-arrow-right"></span></a>
-                </li>
-                
-                <li data-link="/performance-gen-3/">
-                  <a href="/performance-gen-3/" title="Performance (Gen 3)">Performance (Gen 3) <span class="icon-arrow-right"></span></a>
-                </li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1101,5 +1084,30 @@ window.onload = function(){
     });
 }
 </script>
+<!-- category-filter -->
+<script>
+(function(){
+  var grid=document.getElementById('productGrid'); if(!grid) return;
+  var cards=[].slice.call(grid.querySelectorAll('[data-form]'));
+  var formChips=[].slice.call(document.querySelectorAll('#formChips .product-chip'));
+  if(!formChips.length) return;
+  var emptyMsg=document.createElement('div');
+  emptyMsg.className='product-empty'; emptyMsg.textContent='No products of this type for this model.';
+  emptyMsg.style.display='none'; grid.parentNode.insertBefore(emptyMsg, grid.nextSibling);
+  function apply(f){ var vis=0;
+    for(var i=0;i<cards.length;i++){ var ok=(f==='all'||cards[i].getAttribute('data-form')===f); cards[i].style.display=ok?'':'none'; if(ok)vis++; }
+    emptyMsg.style.display=vis?'none':''; }
+  for(var i=0;i<formChips.length;i++){ formChips[i].addEventListener('click',function(){
+    var f=this.getAttribute('data-filter');
+    for(var j=0;j<formChips.length;j++) formChips[j].classList.toggle('is-active', formChips[j]===this);
+    apply(f); }); }
+  function deepLink(){ var h=(location.hash||'').replace('#','').toLowerCase();
+    if(!/^[a-z0-9-]+$/.test(h)) return;
+    var chip=document.querySelector('#formChips .product-chip[data-filter="'+h+'"]');
+    if(chip){ chip.click(); var fl=document.querySelector('.product-filters'); if(fl) fl.scrollIntoView({block:'start'}); } }
+  deepLink(); window.addEventListener('hashchange', deepLink);
+})();
+</script>
+
 </body>
 </html>
