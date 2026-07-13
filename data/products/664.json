@@ -1,0 +1,36 @@
+{
+  "id": 664,
+  "category": "standard-circular",
+  "form": "Mounts & Brackets",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs",
+      "summary_html": "",
+      "description_html": "<p>Tame your tangled cables with 20 Packs of Starlink Cable Mounting Clips. These high-quality steel and plastic clamps are built to last and can withstand outdoor elements. Easily fix cables in place on walls or desks, taking the clutter out of your cable placement. Get organized and stay that way with Starlink Cable Clamps.</p><p><strong>Features:</strong></p><ul><li><p>Screw Clip and Fasteners for Starlink cable are designed to keep cables neatly secured to a wall or any surface</p></li><li><p>Added ridges provide a firm & all-round grip on the cables to ensure they stay in place without loosening or slipping</p></li><li><p>Constructed of high-quality steel and plastic for durability and to withstand outdoor elements for longer lifespan</p></li><li><p>Features pre-installed screws into clips which save you time and effort, making installation much easier</p></li><li><p>Can be used for both indoor & outdoor applications, keeping cords organized on walls, under desks, or along baseboards</p></li></ul><p><strong>Specifications:</strong></p><ul><li><p>Overall Dimension(LxWxH): 1 3/8\" x 3/8\" x 5/16\" (3.5 x 1 x 0.8 cm)</p></li><li><p>Fits for Cable Diameter: 5/32\" to 1/4\" (3.8-6.3mm)</p></li><li><p>Material: Steel, Plastic</p></li><li><p>Net Weight: 0.01 Lb (0.003 kg)</p></li></ul><p><strong>Package Includes:</strong></p><ul><li><p><strong>20x Single Cable Screw Clips</strong></p></li></ul>",
+      "keywords": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs, Starlink Cable Routing Kit Screws+ Clamps, Starlink accessories, Starlink parts, satellite internet, Starlink 配...",
+      "meta_title": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs-Standard Circular-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "Tame your tangled cables with 20 Packs of Starlink Cable Mounting Clips. These high-quality steel and plastic clamps are built to last and can withstand outdoor elements. Easily fix cables in place on walls or desks, taking the clutter out of your cable placement. Get organized and stay that way wit"
+    }
+  },
+  "images": [
+    {
+      "src": "/static/upload/down/08cc07cfde.jpg",
+      "alt": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs - tejoy"
+    },
+    {
+      "src": "/static/upload/down/19919345cd.jpg",
+      "alt": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs - tejoy"
+    },
+    {
+      "src": "/static/upload/down/f098b91623.jpg",
+      "alt": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs - tejoy"
+    },
+    {
+      "src": "/static/upload/down/d13bb20a7a.jpg",
+      "alt": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs\",\n  \"description\": \"Tame your tangled cables with 20 Packs of Starlink Cable Mounting Clips. These high-quality steel and plastic clamps are built to last and can withstand outdoor elements. Easily fix cables in place on walls or desks, taking the clutter out of your cable placement. Get organized and stay that way wit\",\n  \"image\": \"https://tejoy.com/static/upload/down/f5810c6e45.jpg\",\n  \"category\": \"Standard Circular\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard Circular\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}

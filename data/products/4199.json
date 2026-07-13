@@ -1,0 +1,36 @@
+{
+  "id": 4199,
+  "category": "mini",
+  "form": "Networking",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box",
+      "summary_html": "<p>Compact POE network box designed for smart home, CCTV, and office Ethernet installations. Clean cable management with reliable RJ45 connectivity.<br><br>Professional mini Ethernet wall box with multiple RJ45 ports for secure and organized LAN deployment.<br><br>Simplify your network installation with this compact POE-compatible RJ45 distribution box.</p>",
+      "description_html": "<h3>Compact &amp; Professional Network Connectivity Solution</h3><p>This compact POE network box is designed for clean and reliable Ethernet connectivity in smart homes, offices, surveillance systems, and IoT installations. Featuring multiple RJ45 ports and a slim wall-mounted structure, it helps organize network connections while reducing visible cable clutter.</p><p>Ideal for wireless access points, IP cameras, routers, VOIP systems, and smart networking applications.</p><hr/><h2>Key Features</h2><h3>✔ Compact Wall-Mount Design</h3><p>Space-saving low-profile enclosure suitable for indoor wall installations.</p><p><img src=\"/static/upload/image/20260521/1779350915122329.jpg\" alt=\"3.jpg\"/></p><h3>✔ Multiple RJ45 Ethernet Ports</h3><p>Supports stable LAN networking for multiple devices and easy cable management.</p><p><img src=\"/static/upload/image/20260521/1779350999627622.jpg\" alt=\"1.1.jpg\"/></p><h3>✔ POE Compatible</h3><p>Can be used with Power over Ethernet (POE) systems for simplified installation.</p><p><img src=\"/static/upload/image/20260521/1779351149657528.png\" alt=\"2.2.png\"/></p><h3>✔ Easy Installation</h3><p>Includes mounting bracket, RJ45 patch cable, and power connection cable for quick deployment.</p><h3>✔ Durable &amp; Clean Appearance</h3><p>Minimalist white housing blends seamlessly into modern office and home environments.</p>",
+      "keywords": "POE network box,mini ethernet box,POE splitter box,etwork junction box,ethernet terminal box,concealed cable management",
+      "meta_title": "Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box-Mini-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "Compact &amp; Professional Network Connectivity SolutionThis compact POE network box is designed for clean and reliable Ethernet connectivity in smart homes, offices, surveillance systems, and IoT installations. Featuring multiple RJ45 ports and a slim wall-mounted structure, it helps organize netwo"
+    }
+  },
+  "images": [
+    {
+      "src": "/static/upload/image/20260521/1779350844699054.jpg",
+      "alt": "2.jpg - tejoy"
+    },
+    {
+      "src": "/static/upload/image/20260521/1779350844208049.jpg",
+      "alt": "3.jpg - tejoy"
+    },
+    {
+      "src": "/static/upload/image/20260521/1779350845170757.jpg",
+      "alt": "1.1.jpg - tejoy"
+    },
+    {
+      "src": "/static/upload/image/20260521/1779350845464071.png",
+      "alt": "2.2.png - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box\",\n  \"description\": \"Compact &amp; Professional Network Connectivity SolutionThis compact POE network box is designed for clean and reliable Ethernet connectivity in smart homes, offices, surveillance systems, and IoT installations. Featuring multiple RJ45 ports and a slim wall-mounted structure, it helps organize netwo\",\n  \"image\": \"https://tejoy.com/static/upload/image/20260521/1779350795536742.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}

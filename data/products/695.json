@@ -1,0 +1,56 @@
+{
+  "id": 695,
+  "category": "mini",
+  "form": "Cases & Protection",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "For Starlink Mini Waterproof Hard Case for Dish Kit",
+      "summary_html": "",
+      "description_html": "<p>Starlink Mini Hard Case with injection-molded shell for impact resistance and protection, offers organized storage for Starlink Mini and accessories like kickstand, power supply, cables.</p><p><strong>Features:</strong></p><ul><li><p>Starlink Mini Hard Case - Starlink Mini Case is designed to keep Starlink Mini and all accessories protected and organized, with precisely cut foam compartments to cradle Starlink dish, kickstand, power supply, cables</p></li><li><p>Built to Last - Crafted from injection-molded plastic, this travel case features high strength and is water-resistant, dust-proof, impact-resistant to ensure strong protection to your Starlink Mini kit</p></li><li><p>Enhanced Security - Features thick molded foam Interior for fixing the items in place and protecting them from shock and vibration during travel; Equipped with two security locking rings and pressure valve, the internal and external air pressure can be easily adjusted to provide a better seal</p></li><li><p>Travel-friendly - Compact and lightweight design makes it ideal for on-the-go use, along with a rubberized handle for comfortable grip and easy carrying</p></li><li><p>Overall Dimension(LxWxH) 17 5/16&quot; x 14&quot; x 5 7/8&quot; (44 x 35.5 x 15 cm)</p></li></ul><p><strong>Specifications:</strong></p><ul><li><p>Overall Dimension(LxWxH): 17 5/16&quot; x 14&quot; x 5 7/8&quot; (44 x 35.5 x 15 cm)</p></li><li><p>Interior Dimension(LxWxH): 15 9/16&quot; x 11 5/8&quot; x 5 11/16&quot; (39.5 x 29.5 x 14.5 cm)</p></li><li><p>IP Rating: IP60</p></li><li><p>Compatibility: Starlink Mini</p></li><li><p>Net Weight: 4.3 Lbs (1.95 kg)</p></li></ul><p><strong>Package Includes:</strong></p><ul><li><p>1x Starlink Mini Case</p></li></ul>",
+      "keywords": "Starlink Mini，",
+      "meta_title": "For Starlink Mini Waterproof Hard Case for Dish Kit-Mini-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "Starlink Mini Hard Case with injection-molded shell for impact resistance and protection, offers organized storage for Starlink Mini and accessories like kickstand, power supply, cables.Features:Starlink Mini Hard Case - Starlink Mini Case is designed to keep Starlink Mini and all accessories protec"
+    }
+  },
+  "images": [
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/d649cf2f17.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/3e337a7724.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/e361eec325.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/9ca3abcac5.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/301f73f6c2.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/5870a1676b.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/fb47e11153.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/3b66c18880.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/11b455be52.jpg",
+      "alt": "For Starlink Mini Waterproof Hard Case for Dish Kit - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Waterproof Hard Case for Dish Kit\",\n  \"description\": \"Starlink Mini Hard Case with injection-molded shell for impact resistance and protection, offers organized storage for Starlink Mini and accessories like kickstand, power supply, cables.Features:Starlink Mini Hard Case - Starlink Mini Case is designed to keep Starlink Mini and all accessories protec\",\n  \"image\": \"/static/img/u_file/UPBH/UPBH843/2603/02/products/b845c52ef1.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}

@@ -1,0 +1,40 @@
+{
+  "id": 701,
+  "category": "standard",
+  "form": "Mounts & Brackets",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter",
+      "summary_html": "",
+      "description_html": "<p>Starlink Gen 3 Pipe Adapter enables a secure connection between Starlink dish and poles. Compatibale with any pole 1 1/4&quot; to 2 1/2&quot; in diameter, it is suitable for any outdoor scenarios such as camping, tailgate party, and RV trips.</p><p><strong>Features:</strong></p><ul><li><p>Starlink Pole Mount Adapter - Starlink Gen 3 Pipe Adapter is designed to attach your Starlink dish to any pole with a diameter of 1 1/4&quot; to 2 1/2&quot;, providing a sturdy foundation to help you track the optimal signal without hassle</p></li><li><p>Tilt Angle for Better Signal - Engineered with a fixed tilt angle, the adapter ensures an unobstructed view of the sky for better signal reception</p></li><li><p>Weather Resilient - Crafted from glass-fiber reinforced polycarbonate, the adapter stands resilient against all harsh elements, from heavy rain to harsh winds</p></li><li><p>Easy Installation - Simply remove the kickstand and replace it with the pipe adapter, then install your dish onto a pole</p></li><li><p>Ultimate Stability - Tighten the 2 socket head cap screws to ensure a secure and custom-fit connection</p></li></ul><p><strong>Specifications:</strong></p><ul><li><p>Compatibility: Starlink Standard Kit Gen 3</p></li><li><p><strong>Option 1 for Pole Diam. 1 1/2&quot;:</strong></p></li><ul><li><p>Overall Dimension(LxWxH): 7 1/2&quot; x 5 7/8&quot; x 3 15/16&quot; (19 x 13.5 x 10 cm)</p></li><li><p>Hole Inner Diameter: 1 9/16&quot; (3.9 cm)</p></li><li><p>Fits Pole Diameter: Up to 1 1/2&quot; (3.8 cm)</p></li><li><p>Net Weight: 0.66 Lb (0.3 kg)</p></li></ul><li><p><strong>Option 2 for Pole Diam. 1 1/4&quot; to 2 1/2&quot;:</strong></p></li><ul><li><p>Overall Dimension(LxWxH): 7 1/2&quot; x 5 7/8&quot; x 3 9/16&quot; (19 x 13.5 x 9 cm)</p></li><li><p>Hole Inner Diameter: 2 1/2&quot; (6.3 cm)</p></li><li><p>Fits Pole Diameter: 1 1/4&quot; to 2 1/2&quot; (3.2 to 6.3 cm)</p></li><li><p>Net Weight: 0.82 Lb (0.37 kg)</p></li></ul></ul><p><strong>Package Includes:</strong></p><ul><li><p>1x Gen 3 Pipe Adapter</p></li><li><p>20x Single Cable Screw Clips</p></li><li><p>2x Screws</p></li><li><p>1x Allen Key</p></li><li><p>1x Manual</p></li></ul><p><strong>Notice:</strong></p><ul><li><p>Starlink dish and pipe are not included.</p></li></ul>",
+      "keywords": "Standard  Adapter，,Starlink Gen 3 ，",
+      "meta_title": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter-Standard-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "Starlink Gen 3 Pipe Adapter enables a secure connection between Starlink dish and poles. Compatibale with any pole 1 1/4&quot; to 2 1/2&quot; in diameter, it is suitable for any outdoor scenarios such as camping, tailgate party, and RV trips.Features:Starlink Pole Mount Adapter - Starlink Gen 3 Pipe"
+    }
+  },
+  "images": [
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/4d257d30f3.jpg",
+      "alt": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/cf23a64033.jpg",
+      "alt": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/72758fdf8d.jpg",
+      "alt": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/f7dda597a8.jpg",
+      "alt": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/5271053b4e.jpg",
+      "alt": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter\",\n  \"description\": \"Starlink Gen 3 Pipe Adapter enables a secure connection between Starlink dish and poles. Compatibale with any pole 1 1/4&quot; to 2 1/2&quot; in diameter, it is suitable for any outdoor scenarios such as camping, tailgate party, and RV trips.Features:Starlink Pole Mount Adapter - Starlink Gen 3 Pipe\",\n  \"image\": \"/static/img/u_file/UPBH/UPBH843/2603/02/products/0c92fd4dac.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}

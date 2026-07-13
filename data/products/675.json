@@ -1,0 +1,36 @@
+{
+  "id": 675,
+  "category": "enterprise",
+  "form": "Cables",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices",
+      "summary_html": "",
+      "description_html": "<table><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p>Connector</p></td><td colspan=\"1\" rowspan=\"1\"><p>Starlink Gen3 RJ45 *1,Starlink High-Performance Power Connector*1, T568B wiring standard.</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>Cable</p></td><td colspan=\"1\" rowspan=\"1\"><p>CAT5E cable (24AWG), 9 Cores + 1 Ground Wire, gray PVC outer sheath.</p></td></tr></tbody></table><p><br/><img src=\"https://ueeshop.ly200-cdn.com/u_file/UPBH/UPBH843/2603/08/photo/StarlinkHighPerformance1.jpg\"/><img src=\"https://ueeshop.ly200-cdn.com/u_file/UPBH/UPBH843/2603/08/photo/StarlinkHighPerformance2.jpg\"/><img src=\"https://ueeshop.ly200-cdn.com/u_file/UPBH/UPBH843/2603/08/photo/StarlinkHighPerformance3.jpg\"/><img src=\"https://ueeshop.ly200-cdn.com/u_file/UPBH/UPBH843/2603/08/photo/StarlinkHighPerformance4.jpg\"/><br/><br/><br/>【Multi-device compatibility】This Starlink Ethernet cable can replace the standard cable in the Starlink kit to connect the power supply and the RJ45 connector, for example, to devices such as computers, TVs, laptops, routers, and more.<br/>【Premium Materials Ensure Stability】This Starlink cable is made from high-quality 26AWG single-core copper material, offering Highly flexible, suitable for applications that require frequent bending or movement.<br/>【Compliant Materials Ensure High Safety】Both CMX and CMR offer higher safety and fire hazard ratings. The outer jacket of this cable is made of high flame-retardant PVC material, and the insulation layer is composed of high-density PE material. It meets the highest industry standards for quality and performance,Its durable construction ensures a stable connection and 1200M data transmission under various environmental conditions.<br/>【High-Quality Assurance for Continuous Connection】This cable guarantees to replicate the original configuration and undergoes multiple data tests and experiments after product, ensuring that you will not experience disconnections or intermittent issues during use.<br/>【Reliable After-Sales Support】We provide comprehensive after-sales service to ensure you receive technical support and solutions for any issues that may arise after your purchase. We also guarantee to respond to your inquiries within 12 hour during business hours, ensuring a worry-free shopping experience.</p>",
+      "keywords": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices, Starlink Eth...",
+      "meta_title": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices-Enterprise-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "ConnectorStarlink Gen3 RJ45 *1,Starlink High-Performance Power Connector*1, T568B wiring standard.CableCAT5E cable (24AWG), 9 Cores + 1 Ground Wire, gray PVC outer sheath.【Multi-device compatibility】This Starlink Ethernet cable can replace the standard cable in the Starlink kit to connect the powe"
+    }
+  },
+  "images": [
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/0959d22481.jpg",
+      "alt": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/8ca7b4f5d1.jpg",
+      "alt": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/0a893939aa.jpg",
+      "alt": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices - tejoy"
+    },
+    {
+      "key": "u_file/UPBH/UPBH843/2603/02/products/4b10079ee8.jpg",
+      "alt": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices\",\n  \"description\": \"ConnectorStarlink Gen3 RJ45 *1,Starlink High-Performance Power Connector*1, T568B wiring standard.CableCAT5E cable (24AWG), 9 Cores + 1 Ground Wire, gray PVC outer sheath.【Multi-device compatibility】This Starlink Ethernet cable can replace the standard cable in the Starlink kit to connect the powe\",\n  \"image\": \"/static/img/u_file/UPBH/UPBH843/2603/02/products/bd093d413e.jpg\",\n  \"category\": \"Enterprise\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Enterprise\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}

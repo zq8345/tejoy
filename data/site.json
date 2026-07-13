@@ -1,0 +1,4 @@
+{
+  "img_base": "/static/img/",
+  "_note": "上 R2 后改为 https://img.tejoy.com/ ,产品 JSON 的 images[].key 前缀不用动"
+}

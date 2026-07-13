@@ -1,0 +1,40 @@
+{
+  "id": 686,
+  "category": "mini",
+  "form": "Cables",
+  "robots": null,
+  "i18n": {
+    "en": {
+      "title": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv",
+      "summary_html": "",
+      "description_html": "<ul><li><p>Starlink DC Extension Cable: Designed specifically for Starlink Mini and Starlink Standard Gen3, the starlink mini extension cable seamlessly connects two male DC power cables via a female-to-female DC interface, effortlessly extending cable length. Without replacing the original cable, it allows you to position the satellite dish in a location with better signal reception while ensuring stable power supply—a practical accessory for flexible installation.</p></li><li><p>IP68 Waterproof &amp; Durable Design: The starlink cable connector achieves an IP68 waterproof and dustproof rating. The DC connector on the Starlink power cable (with silicone gasket) plugs in seamlessly, effortlessly withstanding rain, dust, and even blizzards for stable, reliable outdoor use. Whether in an RV, camping, or on outdoor adventures, it ensures uninterrupted power for your Starlink, making it a practical accessory for harsh weather conditions.</p></li><li><p>High-Power Stable Transmission: Featuring built-in 18AWG pure copper wiring, the starlink mini dc adapter supports up to 150W power input. Its low-resistance design ensures stable current transmission. Whether for everyday web browsing, HD streaming, gaming, or remote work, it delivers continuous power to the Starlink Mini and Starlink Standard Gen3, preventing network disruptions caused by unstable power supply. This essential accessory is key to maintaining efficient device operation.</p></li><li><p>Durable &amp; Compact Must-Have: Withstands up to 30,000 bends and 10,000 plug-ins, delivering maximum durability for years of reliable use. Compact and lightweight for easy portability, effortless plug-and-play operation, and space-saving storage. Plug the starlink mini short power cable in and go—no complicated setup required. Whether for daily home use or on-the-go, the Starlink Mini is your practical, go-to companion.</p></li><li><p>Wide Compatibility: Compatible with Starlink Mini and Gen 3 systems, supports original/other OEM power cables as well as standard 5.5x2.1mm DC cables. Simply connect two cables for extension—flexible installation with no hassle.</p></li></ul><p><br><img src=\"/static/upload/down/StarlinkMiniExtensionCable1.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable2.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable3.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable4.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable5.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable6.jpg\"><img src=\"/static/upload/down/StarlinkMiniExtensionCable7.jpg\"></p>",
+      "keywords": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv, Starlink Mini Extension Cable Dai...",
+      "meta_title": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv-Mini-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+      "meta_description": "Starlink DC Extension Cable: Designed specifically for Starlink Mini and Starlink Standard Gen3, the starlink mini extension cable seamlessly connects two male DC power cables via a female-to-female DC interface, effortlessly extending cable length. Without replacing the original cable, it allows yo"
+    }
+  },
+  "images": [
+    {
+      "src": "/static/upload/down/f7e0ae7d2f.jpg",
+      "alt": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv - tejoy"
+    },
+    {
+      "src": "/static/upload/down/6e1f293c4c.jpg",
+      "alt": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv - tejoy"
+    },
+    {
+      "src": "/static/upload/down/ee337a27cc.jpg",
+      "alt": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv - tejoy"
+    },
+    {
+      "src": "/static/upload/down/e08fe048df.jpg",
+      "alt": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv - tejoy"
+    },
+    {
+      "src": "/static/upload/down/949bf183bf.jpg",
+      "alt": "For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv - tejoy"
+    }
+  ],
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Extension Cable DaierTek Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Protable, for Camp Travel Car Rv\",\n  \"description\": \"Starlink DC Extension Cable: Designed specifically for Starlink Mini and Starlink Standard Gen3, the starlink mini extension cable seamlessly connects two male DC power cables via a female-to-female DC interface, effortlessly extending cable length. Without replacing the original cable, it allows yo\",\n  \"image\": \"https://tejoy.com/static/upload/down/38a9651caa.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://tejoy.com\"\n  }\n}\n",
+  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://tejoy.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://tejoy.com\"\n    }\n  ]\n}\n"
+}
