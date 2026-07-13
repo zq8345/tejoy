@@ -5772,3 +5772,7 @@ a.product-chip { text-decoration: none !important; }
 /* description paragraph spacing (empty <p><br></p> removed → restore rhythm via margin) */
 .products-details .explain p { margin: 0 0 12px !important; }
 .products-details .explain p:last-child { margin-bottom: 0 !important; }
+/* description lists — uniform site style (Amazon classes stripped, semantic <ul><li> kept) */
+.products-details .explain ul { margin: 0 0 14px !important; padding-left: 22px !important; list-style: disc !important; }
+.products-details .explain ol { margin: 0 0 14px !important; padding-left: 22px !important; }
+.products-details .explain li { margin: 0 0 7px !important; line-height: 1.6 !important; color: var(--tj-body, #333); }
