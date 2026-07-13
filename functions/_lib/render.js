@@ -87,3 +87,11 @@ export function regenListPage(html, entries, catFilter) {
   html = updateChips(html, "formChips", countForm);
   return html;
 }
+
+// Short text excerpt for list cards (first ~92 chars of description/summary).
+export function excerptOf(prod) {
+  const e = prod.i18n.en;
+  const txt = (e.description_html || e.summary_html || "")
+    .replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&[a-z#0-9]+;/gi, " ").replace(/\s+/g, " ").trim();
+  return txt ? txt.slice(0, 92).trim() + " ···" : "";
+}

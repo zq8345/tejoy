@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, excerptOf } from "../functions/_lib/render.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -19,11 +19,6 @@ for (const f of fs.readdirSync(pdir)) {
 }
 
 // Manifest entries drive related-generation, the admin list, AND list-page regen.
-const excerptOf = (p) => {
-  const txt = (p.i18n.en.description_html || p.i18n.en.summary_html || "")
-    .replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&[a-z#0-9]+;/gi, " ").replace(/\s+/g, " ").trim();
-  return txt ? txt.slice(0, 92).trim() + " ···" : "";
-};
 const entries = Object.values(prods).map((p) => ({
   id: p.id, category: p.category, form: p.form, title: p.i18n.en.title,
   thumb: p.images[0] ? resolveImg(p.images[0], cfg.img_base) : "",

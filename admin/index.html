@@ -152,11 +152,12 @@ function renderList() {
   const q = $("#search").value.trim().toLowerCase();
   const rows = LIST.filter(p => !q || (p.title+" "+p.category).toLowerCase().includes(q));
   $("#count").textContent = rows.length+" / "+LIST.length+" 个产品";
-  $("#grid").innerHTML = rows.map(p => `
+  $("#grid").innerHTML = `<div class="newbtn" id="newBtn">+ 新增产品</div>` + rows.map(p => `
     <div class="card" data-id="${p.id}">
       <div class="thumb" style="background-image:url('${(p.thumb||'').replace(/'/g,"%27")}')"></div>
       <div class="meta"><div class="t">${esc(p.title)}</div><div class="c">${CAT_LABEL[p.category]||p.category} · ${p.form||"—"}</div></div>
     </div>`).join("");
+  $("#newBtn").onclick = openNew;
   document.querySelectorAll("#grid .card").forEach(c => c.onclick = () => openEdit(Number(c.dataset.id)));
 }
 function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -259,6 +260,14 @@ function drawImgs(){
   $("#imgs").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const[i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=IMGS.length)return; [IMGS[i],IMGS[j]]=[IMGS[j],IMGS[i]]; drawImgs(); });
 }
 
+// ----- 新增产品 -----
+function openNew(){
+  const blank = { id:null, category:"mini", form:null, robots:null,
+    i18n:{ en:{ title:"", summary_html:"", description_html:"", keywords:"", meta_title:"", meta_description:"" } },
+    images:[], jsonld_product:null, jsonld_breadcrumb:null };
+  showEditor(blank, true);
+}
+
 // ----- 保存 -----
 async function save(){
   if(!EDITING) return;
@@ -279,12 +288,16 @@ async function save(){
     jsonld_product: p.jsonld_product ?? null, jsonld_breadcrumb: p.jsonld_breadcrumb ?? null,
   };
   if(!payload.i18n.en.title){ msg("标题必填。","err"); return; }
+  const isNew = !p.id;
   $("#saveBtn").disabled = true; $("#saveHint").textContent = "保存中…";
   try {
-    const r = await api("products/"+p.id, { method:"PUT", body: JSON.stringify(payload) });
+    const r = isNew
+      ? await api("products", { method:"POST", body: JSON.stringify(payload) })
+      : await api("products/"+p.id, { method:"PUT", body: JSON.stringify(payload) });
     msg("已保存。"+(r.note||"约 1 分钟后部署生效。"), "ok");
-    $("#saveHint").textContent = "提交 "+(r.commit||"").slice(0,7);
+    $("#saveHint").textContent = "提交 "+(r.commit||"").slice(0,7)+(r.id?(" · 新 id "+r.id):"");
     await loadList();
+    if(isNew) backToList();
   } catch(e){ if(e.message!=="auth") msg("保存失败:"+e.message,"err"); $("#saveHint").textContent=""; }
   finally { $("#saveBtn").disabled = false; }
 }

@@ -2,15 +2,52 @@
 // Hard gate acceptance: `curl https://tejoy.com/api/admin/...` with no Access token => 401.
 // Read routes are live now; write/publish (GitHub API + regen) land in the next increment.
 import { verifyAccessJwt, deny } from "../../_lib/access-jwt.js";
-import { render, genRelated, resolveImg } from "../../_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, excerptOf } from "../../_lib/render.js";
 import { ghConfig, commitFiles, readFile } from "../../_lib/github.js";
+
+const LIST_CAT = null; // /products/ uses no category filter
+
+// Read the render inputs (template + config + manifest) straight from the repo.
+async function loadCtx(env, cfg) {
+  const [template, siteRaw, manRaw] = await Promise.all([
+    readFile(env, cfg, "data/templates/product.html"),
+    readFile(env, cfg, "data/site.json"),
+    readFile(env, cfg, "data/products-index.json"),
+  ]);
+  if (!template || !siteRaw) return null;
+  return { template, site: JSON.parse(siteRaw), manifest: manRaw ? JSON.parse(manRaw) : [] };
+}
+
+// Persist a product: update manifest, regenerate its detail page + the affected list pages
+// (/products/ + new category + old category if it moved), commit everything in one commit.
+async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }) {
+  const { template, site } = ctx;
+  const thumb = prod.images[0] ? resolveImg(prod.images[0], site.img_base) : "";
+  const entry = { id: prod.id, category: prod.category, form: prod.form, title: prod.i18n.en.title, thumb, excerpt: excerptOf(prod) };
+  const manifest = ctx.manifest.filter((e) => e.id !== prod.id).concat(entry)
+    .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
+  const detailHtml = render(prod, { template, imgBase: site.img_base, related: genRelated(entry, manifest) });
+  const files = [
+    { path: `data/products/${prod.id}.json`, content: JSON.stringify(prod, null, 2) },
+    { path: `${prod.category}/${prod.id}.html`, content: detailHtml },
+    { path: `data/products-index.json`, content: JSON.stringify(manifest, null, 2) },
+  ];
+  const cats = new Set([LIST_CAT, prod.category]);
+  if (oldCategory && oldCategory !== prod.category) cats.add(oldCategory);
+  for (const cat of cats) {
+    const rel = cat ? `${cat}/index.html` : "products/index.html";
+    const h = await readFile(env, cfg, rel);
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+  }
+  return commitFiles(env, cfg, files, `admin: ${isNew ? "create" : "update"} product ${prod.id} (${email})`);
+}
 
 const CATEGORIES = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
 
 // Validate + normalize an admin-submitted product. Returns {prod} or {error}.
 function validateProduct(body, id) {
   if (!body || typeof body !== "object") return { error: "body must be an object" };
-  if (Number(body.id) !== id) return { error: "id mismatch" };
+  // id is authoritative from the caller (URL id for edit, assigned id for create) — not body.
   if (!CATEGORIES.includes(body.category)) return { error: "invalid category" };
   const en = body.i18n && body.i18n.en;
   if (!en || typeof en.title !== "string" || !en.title.trim()) return { error: "title required" };
@@ -82,48 +119,41 @@ export async function onRequest(context) {
     return json({ ok: true, key });
   }
 
-  // PUT /api/admin/products/:id  -> validate, regenerate detail page, commit (JSON+HTML+manifest)
+  // POST /api/admin/products  -> create a new product (assign next id), regen detail + lists.
+  if (method === "POST" && path[0] === "products" && path.length === 1) {
+    const cfg = ghConfig(env);
+    if (!cfg) return json({ error: "GitHub not configured" }, 503);
+    let body;
+    try { body = await request.json(); } catch { return json({ error: "bad json body" }, 400); }
+    const ctx = await loadCtx(env, cfg);
+    if (!ctx) return json({ error: "template/config missing" }, 500);
+    const newId = ctx.manifest.reduce((m, e) => Math.max(m, e.id), 0) + 1;
+    const v = validateProduct(body, newId);
+    if (v.error) return json({ error: v.error }, 400);
+    try {
+      const r = await publishProduct(env, cfg, ctx, v.prod, { isNew: true, email: auth.email });
+      return json({ ok: true, id: newId, ...r, note: "new product created + lists regenerated; deploys in ~1 min" });
+    } catch (e) {
+      return json({ error: "commit failed", detail: String(e).slice(0, 300) }, 502);
+    }
+  }
+
+  // PUT /api/admin/products/:id  -> edit an existing product, regen detail + affected lists.
   if (method === "PUT" && path[0] === "products" && path.length === 2) {
     const id = Number(path[1].replace(/\D/g, ""));
     if (!id) return json({ error: "bad id" }, 400);
     const cfg = ghConfig(env);
     if (!cfg) return json({ error: "GitHub not configured" }, 503);
-
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json body" }, 400); }
     const v = validateProduct(body, id);
     if (v.error) return json({ error: v.error }, 400);
-    const prod = v.prod;
-
-    // Read template/config/manifest straight from the repo (GitHub), NOT via env.ASSETS:
-    // ASSETS serves HTML with the CF-Pages-Analytics beacon injected, which would get baked
-    // into the regenerated page. GitHub gives the raw committed file + the freshest branch state.
-    const [template, siteRaw, manRaw] = await Promise.all([
-      readFile(env, cfg, "data/templates/product.html"),
-      readFile(env, cfg, "data/site.json"),
-      readFile(env, cfg, "data/products-index.json"),
-    ]);
-    if (!template || !siteRaw) return json({ error: "template/config missing" }, 500);
-    const site = JSON.parse(siteRaw);
-    let manifest = manRaw ? JSON.parse(manRaw) : [];
-
-    // Update this product's manifest entry, then regenerate its detail page.
-    const thumb = prod.images[0] ? resolveImg(prod.images[0], site.img_base) : "";
-    const entry = { id: prod.id, category: prod.category, form: prod.form, title: prod.i18n.en.title, thumb };
-    manifest = manifest.filter((e) => e.id !== prod.id).concat(entry)
-      .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
-    const html = render(prod, { template, imgBase: site.img_base, related: genRelated(entry, manifest) });
-
-    const files = [
-      { path: `data/products/${prod.id}.json`, content: JSON.stringify(prod, null, 2) },
-      { path: `${prod.category}/${prod.id}.html`, content: html },
-      { path: `data/products-index.json`, content: JSON.stringify(manifest, null, 2) },
-    ];
+    const ctx = await loadCtx(env, cfg);
+    if (!ctx) return json({ error: "template/config missing" }, 500);
+    const oldCategory = (ctx.manifest.find((e) => e.id === id) || {}).category;
     try {
-      const result = await commitFiles(env, cfg, files, `admin: update product ${prod.id} (${auth.email})`);
-      // NOTE: only this product's detail page is regenerated. Category/hub list cards + NEW
-      // products are a follow-up (list templates); an existing edit stays reachable via its page.
-      return json({ ok: true, ...result, note: "detail page regenerated + committed; deploys in ~1 min" });
+      const r = await publishProduct(env, cfg, ctx, v.prod, { isNew: false, oldCategory, email: auth.email });
+      return json({ ok: true, ...r, note: "detail + affected lists regenerated; deploys in ~1 min" });
     } catch (e) {
       return json({ error: "commit failed", detail: String(e).slice(0, 300) }, 502);
     }
