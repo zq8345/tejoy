@@ -35,3 +35,11 @@ for (const id of targets) {
   written++;
 }
 console.log(`regen: wrote ${written} pages | div-imbalanced ${imbalanced} | related fallback OK`);
+
+// Lightweight admin manifest (id/category/form/title) for the admin product list.
+const manifest = Object.values(prods)
+  .map((p) => ({ id: p.id, category: p.category, form: p.form, title: p.i18n.en.title }))
+  .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
+fs.writeFileSync(path.join(REPO, "data", "products-index.json"), JSON.stringify(manifest, null, 2));
+console.log(`manifest: data/products-index.json (${manifest.length} products)`);
+
