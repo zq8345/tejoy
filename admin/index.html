@@ -136,7 +136,7 @@ async function api(path, opts) {
   return j;
 }
 
-let LIST = [], EDITING = null, IMG_BASE = "/static/img/";
+let LIST = [], EDITING = null, IMG_BASE = "https://img.tejoy.com/";
 fetch("/data/site.json").then(r=>r.json()).then(c=>{ if(c.img_base) IMG_BASE = c.img_base; drawImgs(); }).catch(()=>{});
 
 // ---------- 列表 ----------

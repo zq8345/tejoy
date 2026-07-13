@@ -1,4 +1,4 @@
 {
-  "img_base": "/static/img/",
-  "_note": "上 R2 后改为 https://img.tejoy.com/ ,产品 JSON 的 images[].key 前缀不用动"
+  "img_base": "https://img.tejoy.com/",
+  "_note": "R2:图存 tejoy-images,经 img.tejoy.com 出;产品 JSON images[].key 前缀不动。native /static/upload/ 图不受影响。"
 }
