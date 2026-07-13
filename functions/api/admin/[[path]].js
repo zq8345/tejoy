@@ -3,7 +3,7 @@
 // Read routes are live now; write/publish (GitHub API + regen) land in the next increment.
 import { verifyAccessJwt, deny } from "../../_lib/access-jwt.js";
 import { render, genRelated, resolveImg } from "../../_lib/render.js";
-import { ghConfig, commitFiles } from "../../_lib/github.js";
+import { ghConfig, commitFiles, readFile } from "../../_lib/github.js";
 
 const CATEGORIES = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
 
@@ -95,14 +95,17 @@ export async function onRequest(context) {
     if (v.error) return json({ error: v.error }, 400);
     const prod = v.prod;
 
-    // Current template / config / manifest from deployed assets.
-    const [tplRes, siteRes, manRes] = await Promise.all([
-      asset("/data/templates/product.html"), asset("/data/site.json"), asset("/data/products-index.json"),
+    // Read template/config/manifest straight from the repo (GitHub), NOT via env.ASSETS:
+    // ASSETS serves HTML with the CF-Pages-Analytics beacon injected, which would get baked
+    // into the regenerated page. GitHub gives the raw committed file + the freshest branch state.
+    const [template, siteRaw, manRaw] = await Promise.all([
+      readFile(env, cfg, "data/templates/product.html"),
+      readFile(env, cfg, "data/site.json"),
+      readFile(env, cfg, "data/products-index.json"),
     ]);
-    if (!tplRes.ok || !siteRes.ok) return json({ error: "template/config missing" }, 500);
-    const template = await tplRes.text();
-    const site = await siteRes.json();
-    let manifest = manRes.ok ? await manRes.json() : [];
+    if (!template || !siteRaw) return json({ error: "template/config missing" }, 500);
+    const site = JSON.parse(siteRaw);
+    let manifest = manRaw ? JSON.parse(manRaw) : [];
 
     // Update this product's manifest entry, then regenerate its detail page.
     const thumb = prod.images[0] ? resolveImg(prod.images[0], site.img_base) : "";

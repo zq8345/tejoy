@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Tejoy Product Admin</title>
+<title>Tejoy 产品后台</title>
 <style>
   :root { --ink:#1a1a1a; --muted:#666; --line:#e4e4e7; --brand:#2b3aa1; --bg:#f7f7f8; --ok:#178a4c; --danger:#c0392b; }
   * { box-sizing: border-box; }
-  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
   header { background:#fff; border-bottom:1px solid var(--line); padding:14px 24px; display:flex; align-items:center; gap:16px; position:sticky; top:0; z-index:10; }
   header h1 { font-size:18px; margin:0; font-weight:700; }
   header .who { margin-left:auto; color:var(--muted); font-size:13px; }
@@ -24,8 +24,9 @@
   .card .thumb { aspect-ratio:1/1; background:#fafafa center/contain no-repeat; border-bottom:1px solid var(--line); }
   .card .meta { padding:10px 12px; }
   .card .meta .t { font-size:13px; line-height:1.35; max-height:3.6em; overflow:hidden; }
-  .card .meta .c { font-size:11px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:.03em; }
-  label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:14px 0 5px; text-transform:uppercase; letter-spacing:.03em; }
+  .card .meta .c { font-size:11px; color:var(--muted); margin-top:6px; }
+  .newbtn { background:#fff; border:1px dashed var(--brand); color:var(--brand); border-radius:10px; display:flex; align-items:center; justify-content:center; min-height:120px; font-size:15px; font-weight:600; cursor:pointer; }
+  label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:14px 0 5px; }
   input[type=text], textarea, select { width:100%; padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; font-family:inherit; background:#fff; }
   textarea { resize:vertical; min-height:64px; }
   .row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -38,7 +39,7 @@
   .blocks { border:1px solid var(--line); border-radius:10px; padding:12px; background:#fff; }
   .block { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; background:#fafafa; }
   .block .bhead { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
-  .block .bhead .type { font-size:11px; font-weight:700; color:var(--brand); text-transform:uppercase; }
+  .block .bhead .type { font-size:11px; font-weight:700; color:var(--brand); }
   .block .bhead .sp { margin-left:auto; }
   .block textarea, .block input { background:#fff; }
   .addblock { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
@@ -54,56 +55,56 @@
 </head>
 <body>
 <header>
-  <h1>Tejoy Product Admin</h1>
+  <h1>Tejoy 产品后台</h1>
   <span class="who" id="who"></span>
 </header>
 <div class="wrap">
   <div class="msg" id="msg"></div>
 
-  <!-- LIST -->
+  <!-- 列表 -->
   <section id="listView">
     <div class="toolbar">
-      <input type="search" id="search" placeholder="Search products by title / category…">
+      <input type="search" id="search" placeholder="按标题 / 分类搜索产品…">
       <span id="count" class="hint"></span>
     </div>
     <div class="grid" id="grid"></div>
   </section>
 
-  <!-- EDIT -->
+  <!-- 编辑 -->
   <section id="editView" class="hidden">
-    <button class="btn ghost small" id="backBtn">← Back to list</button>
+    <button class="btn ghost small" id="backBtn">← 返回列表</button>
     <div class="row2">
-      <div><label>Category</label><select id="f_category"></select></div>
-      <div><label>Form factor</label><select id="f_form"></select></div>
+      <div><label>分类(机型)</label><select id="f_category"></select></div>
+      <div><label>形态</label><select id="f_form"></select></div>
     </div>
-    <label>Product title</label>
+    <label>产品标题(正文保持英文,给海外客户看)</label>
     <textarea id="f_title" rows="2"></textarea>
     <div class="row2">
-      <div><label>Meta title (SEO)</label><textarea id="f_meta_title" rows="2"></textarea></div>
-      <div><label>Keywords</label><textarea id="f_keywords" rows="2"></textarea></div>
+      <div><label>Meta 标题(SEO)</label><textarea id="f_meta_title" rows="2"></textarea></div>
+      <div><label>关键词(SEO)</label><textarea id="f_keywords" rows="2"></textarea></div>
     </div>
-    <label>Meta description (SEO)</label>
+    <label>Meta 描述(SEO)</label>
     <textarea id="f_meta_description" rows="2"></textarea>
-    <label>Short summary (optional, shown under the title)</label>
-    <textarea id="f_summary" rows="2"></textarea>
-    <label><input type="checkbox" id="f_noindex" style="width:auto;margin-right:6px"> noindex this page</label>
+    <label>简短摘要(可选,显示在标题下方;换行会保留)</label>
+    <textarea id="f_summary" rows="3"></textarea>
+    <label><input type="checkbox" id="f_noindex" style="width:auto;margin-right:6px"> 此页 noindex(不被搜索引擎收录)</label>
 
-    <label>Description — structured blocks (paste is forced to plain text; no raw HTML)</label>
+    <label>描述 — 分块编辑(粘贴强制纯文本,杜绝原始 HTML / 乱码)</label>
     <div class="blocks" id="blocks"></div>
     <div class="addblock">
-      <button class="btn ghost small" data-add="heading">+ Heading</button>
-      <button class="btn ghost small" data-add="paragraph">+ Paragraph</button>
-      <button class="btn ghost small" data-add="list">+ Bullet list</button>
+      <button class="btn ghost small" data-add="heading">+ 小标题</button>
+      <button class="btn ghost small" data-add="paragraph">+ 段落</button>
+      <button class="btn ghost small" data-add="list">+ 要点列表</button>
     </div>
-    <div class="hint">Bullet list: one item per line. Images live in the gallery below — the description is text only.</div>
+    <div class="hint">要点列表:一行一条。图片放在下方图廊,描述区只放文字。</div>
 
-    <label>Gallery images (reorder ◀ ▶ · remove ✕)</label>
+    <label>图廊图片(◀ ▶ 排序 · ✕ 删除)</label>
     <div class="imgs" id="imgs"></div>
-    <div style="margin-top:8px"><input type="file" id="uploadInput" accept="image/jpeg,image/png,image/webp,image/gif" style="width:auto"> <span class="hint" id="uploadHint">upload stores the image in R2 (tejoy-images) and appends it</span></div>
+    <div style="margin-top:8px"><input type="file" id="uploadInput" accept="image/jpeg,image/png,image/webp,image/gif" style="width:auto"> <span class="hint" id="uploadHint">上传后图片存入 R2(tejoy-images)并追加到图廊</span></div>
 
     <div class="editbar">
-      <button class="btn primary" id="saveBtn">Save &amp; publish</button>
-      <button class="btn ghost" id="cancelBtn">Cancel</button>
+      <button class="btn primary" id="saveBtn">保存并发布</button>
+      <button class="btn ghost" id="cancelBtn">取消</button>
       <span id="saveHint" class="hint"></span>
     </div>
   </section>
@@ -111,12 +112,18 @@
 
 <script>
 const CATS = ["mini","standard","standard-actuated","standard-circular","performance-gen-1","performance-gen-3","enterprise"];
+// 显示 label（中文友好），存的仍是上面的 data key，不变
+const CAT_LABEL = { "mini":"Mini 迷你", "standard":"Standard 标准", "standard-actuated":"Standard Actuated 标准电动", "standard-circular":"Standard Circular 标准圆盘", "performance-gen-1":"Performance Gen 1", "performance-gen-3":"Performance Gen 3", "enterprise":"Enterprise 企业级" };
+// 形态：存英文枚举值不变，显示中文 label
 const FORMS = ["Cables","Mounts & Brackets","Power & Charging","Networking","Cases & Protection"];
+const FORM_LABEL = { "Cables":"线缆 Cables", "Mounts & Brackets":"支架&底座 Mounts", "Power & Charging":"供电&充电 Power", "Networking":"网络 Networking", "Cases & Protection":"防护 Cases" };
+const BTYPE = { heading:"小标题", paragraph:"段落", list:"要点列表" };
+const ADD_LABEL = { heading:"小标题", paragraph:"段落", list:"要点列表" };
 const $ = (s) => document.querySelector(s);
 const msg = (t, cls) => { const m=$("#msg"); m.textContent=t; m.className="msg "+(cls||""); if(cls) setTimeout(()=>{if(m.textContent===t)m.className="msg";}, 6000); };
 async function api(path, opts) {
   const r = await fetch("/api/admin/"+path, { credentials:"same-origin", headers:{"Content-Type":"application/json"}, ...opts });
-  if (r.status===401||r.status===403) { msg("Not signed in / not authorized (Cloudflare Access). Reload after login.", "err"); throw new Error("auth"); }
+  if (r.status===401||r.status===403) { msg("未登录 / 无权限(Cloudflare Access)。登录后刷新页面。", "err"); throw new Error("auth"); }
   const j = await r.json().catch(()=>({}));
   if (!r.ok) throw new Error(j.error || ("HTTP "+r.status));
   return j;
@@ -125,63 +132,67 @@ async function api(path, opts) {
 let LIST = [], EDITING = null, IMG_BASE = "/static/img/";
 fetch("/data/site.json").then(r=>r.json()).then(c=>{ if(c.img_base) IMG_BASE = c.img_base; drawImgs(); }).catch(()=>{});
 
-// ---------- LIST ----------
+// ---------- 列表 ----------
 async function loadList() {
   try {
     const j = await api("products");
     LIST = j.products || [];
-    $("#who").textContent = j.admin ? ("signed in: "+j.admin) : "";
+    $("#who").textContent = j.admin ? ("已登录:"+j.admin) : "";
     renderList();
-  } catch(e){ if(e.message!=="auth") msg("Load failed: "+e.message,"err"); }
+  } catch(e){ if(e.message!=="auth") msg("加载失败:"+e.message,"err"); }
 }
 function renderList() {
   const q = $("#search").value.trim().toLowerCase();
   const rows = LIST.filter(p => !q || (p.title+" "+p.category).toLowerCase().includes(q));
-  $("#count").textContent = rows.length+" / "+LIST.length+" products";
+  $("#count").textContent = rows.length+" / "+LIST.length+" 个产品";
   $("#grid").innerHTML = rows.map(p => `
     <div class="card" data-id="${p.id}">
       <div class="thumb" style="background-image:url('${(p.thumb||'').replace(/'/g,"%27")}')"></div>
-      <div class="meta"><div class="t">${esc(p.title)}</div><div class="c">${p.category} · ${p.form||"—"}</div></div>
+      <div class="meta"><div class="t">${esc(p.title)}</div><div class="c">${CAT_LABEL[p.category]||p.category} · ${p.form||"—"}</div></div>
     </div>`).join("");
   document.querySelectorAll("#grid .card").forEach(c => c.onclick = () => openEdit(Number(c.dataset.id)));
 }
 function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
-// ---------- EDIT ----------
+// ---------- 编辑 ----------
 async function openEdit(id) {
   try {
     const p = await api("products/"+id);
-    EDITING = p;
-    $("#f_category").innerHTML = CATS.map(c=>`<option ${c===p.category?"selected":""}>${c}</option>`).join("");
-    $("#f_form").innerHTML = ['<option value="">—</option>'].concat(FORMS.map(f=>`<option ${f===p.form?"selected":""}>${f}</option>`)).join("");
-    const e = p.i18n.en;
-    $("#f_title").value = e.title||""; $("#f_meta_title").value = e.meta_title||"";
-    $("#f_keywords").value = e.keywords||""; $("#f_meta_description").value = e.meta_description||"";
-    $("#f_summary").value = stripTags(e.summary_html||""); $("#f_noindex").checked = !!p.robots;
-    renderBlocks(htmlToBlocks(e.description_html||""));
-    renderImgs(p.images||[]);
-    $("#listView").classList.add("hidden"); $("#editView").classList.remove("hidden");
-    window.scrollTo(0,0);
-  } catch(e){ if(e.message!=="auth") msg("Open failed: "+e.message,"err"); }
+    showEditor(p, false);
+  } catch(e){ if(e.message!=="auth") msg("打开失败:"+e.message,"err"); }
+}
+function showEditor(p, isNew){
+  EDITING = p;
+  $("#f_category").innerHTML = CATS.map(c=>`<option value="${c}" ${c===p.category?"selected":""}>${CAT_LABEL[c]||c}</option>`).join("");
+  $("#f_form").innerHTML = ['<option value="">—</option>'].concat(FORMS.map(f=>`<option value="${esc(f)}" ${f===p.form?"selected":""}>${FORM_LABEL[f]||f}</option>`)).join("");
+  const e = p.i18n.en;
+  $("#f_title").value = e.title||""; $("#f_meta_title").value = e.meta_title||"";
+  $("#f_keywords").value = e.keywords||""; $("#f_meta_description").value = e.meta_description||"";
+  $("#f_summary").value = summaryToText(e.summary_html||""); $("#f_noindex").checked = !!p.robots;
+  renderBlocks(htmlToBlocks(e.description_html||""));
+  renderImgs(p.images||[]);
+  $("#saveHint").textContent = isNew ? "新产品(尚未保存)" : ("产品 id "+p.id);
+  $("#listView").classList.add("hidden"); $("#editView").classList.remove("hidden");
+  window.scrollTo(0,0);
 }
 function backToList(){ $("#editView").classList.add("hidden"); $("#listView").classList.remove("hidden"); EDITING=null; }
 
-// ----- block editor (description) -----
+// ----- 分块编辑器(描述) -----
 let BLOCKS = [];
 function renderBlocks(blocks){ BLOCKS = blocks; drawBlocks(); }
 function drawBlocks(){
   $("#blocks").innerHTML = BLOCKS.map((b,i)=>`
     <div class="block" data-i="${i}">
-      <div class="bhead"><span class="type">${b.type}</span>
+      <div class="bhead"><span class="type">${BTYPE[b.type]||b.type}</span>
         <span class="sp"></span>
-        <button class="btn ghost small" data-mv="${i}:-1" title="up">▲</button>
-        <button class="btn ghost small" data-mv="${i}:1" title="down">▼</button>
+        <button class="btn ghost small" data-mv="${i}:-1" title="上移">▲</button>
+        <button class="btn ghost small" data-mv="${i}:1" title="下移">▼</button>
         <button class="btn ghost small danger" data-del="${i}">✕</button>
       </div>
       ${b.type==="heading"
         ? `<input type="text" data-edit="${i}" value="${esc(b.text)}">`
-        : `<textarea data-edit="${i}" rows="${b.type==="list"?4:3}" placeholder="${b.type==="list"?"one item per line":""}">${esc(b.text)}</textarea>`}
-    </div>`).join("") || '<div class="hint">No description blocks yet — add one below.</div>';
+        : `<textarea data-edit="${i}" rows="${b.type==="list"?4:3}" placeholder="${b.type==="list"?"每行一条":""}">${esc(b.text)}</textarea>`}
+    </div>`).join("") || '<div class="hint">还没有描述块 — 用下方按钮添加。</div>';
   $("#blocks").querySelectorAll("[data-edit]").forEach(el=>{
     el.oninput = () => { BLOCKS[Number(el.dataset.edit)].text = el.value; };
     el.addEventListener("paste", forcePlainPaste);
@@ -189,7 +200,7 @@ function drawBlocks(){
   $("#blocks").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ BLOCKS.splice(Number(b.dataset.del),1); drawBlocks(); });
   $("#blocks").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const [i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=BLOCKS.length)return; [BLOCKS[i],BLOCKS[j]]=[BLOCKS[j],BLOCKS[i]]; drawBlocks(); });
 }
-// paste = plain text only (kills raw HTML / Amazon markup at the source)
+// 粘贴强制纯文本(从源头掐死原始 HTML / Amazon 乱码)
 function forcePlainPaste(ev){
   ev.preventDefault();
   const text = (ev.clipboardData||window.clipboardData).getData("text/plain");
@@ -200,7 +211,7 @@ function forcePlainPaste(ev){
 }
 document.querySelectorAll("[data-add]").forEach(b=> b.onclick=()=>{ BLOCKS.push({type:b.dataset.add, text:""}); drawBlocks(); });
 
-// description_html <-> blocks (clean semantic only)
+// description_html <-> 块(只产出干净语义)
 function htmlToBlocks(html){
   const doc = new DOMParser().parseFromString("<div>"+html+"</div>","text/html");
   const out = [];
@@ -210,7 +221,6 @@ function htmlToBlocks(html){
     if(tag==="h1"||tag==="h2"||tag==="h3"||tag==="h4") out.push({type:"heading", text:n.textContent.trim()});
     else if(tag==="p"){ const t=n.textContent.trim(); if(t) out.push({type:"paragraph", text:t}); }
     else if(tag==="ul"||tag==="ol"){ const items=[...n.querySelectorAll("li")].map(li=>li.textContent.trim()).filter(Boolean); if(items.length) out.push({type:"list", text:items.join("\n")}); }
-    // <img>/<hr>/others dropped — description is text-only; images live in the gallery
   });
   return out;
 }
@@ -222,21 +232,26 @@ function blocksToHtml(blocks){
     return "<p>"+esc(t)+"</p>";
   }).filter(Boolean).join("");
 }
-function stripTags(html){ const d=new DOMParser().parseFromString(html,"text/html"); return d.body.textContent.trim(); }
+// 摘要:载入时 <br>→换行(保留分行);保存时换行→<br>
+function summaryToText(html){
+  const d=new DOMParser().parseFromString(html.replace(/<br\s*\/?>/gi,"\n"),"text/html");
+  return d.body.textContent.trim();
+}
 
-// ----- images -----
+// ----- 图片 -----
 let IMGS = [];
 function renderImgs(imgs){ IMGS = imgs.map(x=>({...x})); drawImgs(); }
 function drawImgs(){
+  if(!$("#imgs")) return;
   $("#imgs").innerHTML = IMGS.map((im,i)=>{
-    const src = im.key!==undefined ? (IMG_BASE+im.key) : im.src;  // preview via configured img_base
+    const src = im.key!==undefined ? (IMG_BASE+im.key) : im.src;  // 预览用配置的 img_base
     return `<div class="im"><button class="x" data-del="${i}">✕</button><img src="${src}" alt=""><div class="mv"><button class="btn ghost small" data-mv="${i}:-1">◀</button><button class="btn ghost small" data-mv="${i}:1">▶</button></div></div>`;
-  }).join("") || '<div class="hint">No images.</div>';
+  }).join("") || '<div class="hint">暂无图片。</div>';
   $("#imgs").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ IMGS.splice(Number(b.dataset.del),1); drawImgs(); });
   $("#imgs").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const[i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=IMGS.length)return; [IMGS[i],IMGS[j]]=[IMGS[j],IMGS[i]]; drawImgs(); });
 }
 
-// ----- save -----
+// ----- 保存 -----
 async function save(){
   if(!EDITING) return;
   const p = EDITING;
@@ -246,7 +261,7 @@ async function save(){
     robots: $("#f_noindex").checked ? "noindex,follow" : null,
     i18n: { en: {
       title: $("#f_title").value.trim(),
-      summary_html: summary ? "<p>"+esc(summary)+"</p>" : "",
+      summary_html: summary ? "<p>"+esc(summary).replace(/\n/g,"<br>")+"</p>" : "",
       description_html: blocksToHtml(BLOCKS),
       keywords: $("#f_keywords").value.trim(),
       meta_title: $("#f_meta_title").value.trim() || $("#f_title").value.trim(),
@@ -255,32 +270,33 @@ async function save(){
     images: IMGS,
     jsonld_product: p.jsonld_product ?? null, jsonld_breadcrumb: p.jsonld_breadcrumb ?? null,
   };
-  if(!payload.i18n.en.title){ msg("Title is required.","err"); return; }
-  $("#saveBtn").disabled = true; $("#saveHint").textContent = "Saving…";
+  if(!payload.i18n.en.title){ msg("标题必填。","err"); return; }
+  $("#saveBtn").disabled = true; $("#saveHint").textContent = "保存中…";
   try {
     const r = await api("products/"+p.id, { method:"PUT", body: JSON.stringify(payload) });
-    msg("Saved. "+(r.note||"Deploys in ~1 min."), "ok");
-    $("#saveHint").textContent = "commit "+(r.commit||"").slice(0,7);
+    msg("已保存。"+(r.note||"约 1 分钟后部署生效。"), "ok");
+    $("#saveHint").textContent = "提交 "+(r.commit||"").slice(0,7);
     await loadList();
-  } catch(e){ if(e.message!=="auth") msg("Save failed: "+e.message,"err"); $("#saveHint").textContent=""; }
+  } catch(e){ if(e.message!=="auth") msg("保存失败:"+e.message,"err"); $("#saveHint").textContent=""; }
   finally { $("#saveBtn").disabled = false; }
 }
 
-// ----- upload (R2) -----
+// ----- 上传(R2) -----
 $("#uploadInput").onchange = async (ev) => {
   const file = ev.target.files[0]; if(!file) return;
-  if(file.size > 8*1024*1024){ msg("Image exceeds 8MB.","err"); ev.target.value=""; return; }
-  $("#uploadHint").textContent = "uploading…";
+  if(file.size > 8*1024*1024){ msg("图片超过 8MB。","err"); ev.target.value=""; return; }
+  $("#uploadHint").textContent = "上传中…";
   try {
     const r = await fetch("/api/admin/upload?name="+encodeURIComponent(file.name), {
       method:"POST", credentials:"same-origin", headers:{"Content-Type": file.type||"application/octet-stream"}, body: file });
-    if(r.status===401||r.status===403){ msg("Not authorized (Cloudflare Access).","err"); return; }
+    if(r.status===401||r.status===403){ msg("无权限(Cloudflare Access)。","err"); return; }
     const j = await r.json(); if(!r.ok) throw new Error(j.error||("HTTP "+r.status));
     IMGS.push({ key: j.key, alt: "" }); drawImgs();
-    $("#uploadHint").textContent = "added: "+j.key;
-  } catch(e){ msg("Upload failed: "+e.message,"err"); $("#uploadHint").textContent=""; }
+    $("#uploadHint").textContent = "已添加:"+j.key;
+  } catch(e){ msg("上传失败:"+e.message,"err"); $("#uploadHint").textContent=""; }
   finally { ev.target.value=""; }
 };
+
 $("#search").oninput = renderList;
 $("#backBtn").onclick = backToList;
 $("#cancelBtn").onclick = backToList;
