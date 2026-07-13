@@ -97,8 +97,9 @@
     </div>
     <div class="hint">Bullet list: one item per line. Images live in the gallery below — the description is text only.</div>
 
-    <label>Gallery images (drag order via ◀ ▶; upload → R2 lands in the next build)</label>
+    <label>Gallery images (reorder ◀ ▶ · remove ✕)</label>
     <div class="imgs" id="imgs"></div>
+    <div style="margin-top:8px"><input type="file" id="uploadInput" accept="image/jpeg,image/png,image/webp,image/gif" style="width:auto"> <span class="hint" id="uploadHint">upload stores the image in R2 (tejoy-images) and appends it</span></div>
 
     <div class="editbar">
       <button class="btn primary" id="saveBtn">Save &amp; publish</button>
@@ -121,7 +122,8 @@ async function api(path, opts) {
   return j;
 }
 
-let LIST = [], EDITING = null;
+let LIST = [], EDITING = null, IMG_BASE = "/static/img/";
+fetch("/data/site.json").then(r=>r.json()).then(c=>{ if(c.img_base) IMG_BASE = c.img_base; drawImgs(); }).catch(()=>{});
 
 // ---------- LIST ----------
 async function loadList() {
@@ -227,7 +229,7 @@ let IMGS = [];
 function renderImgs(imgs){ IMGS = imgs.map(x=>({...x})); drawImgs(); }
 function drawImgs(){
   $("#imgs").innerHTML = IMGS.map((im,i)=>{
-    const src = im.key!==undefined ? ("/static/img/"+im.key) : im.src;  // preview uses v1 base
+    const src = im.key!==undefined ? (IMG_BASE+im.key) : im.src;  // preview via configured img_base
     return `<div class="im"><button class="x" data-del="${i}">✕</button><img src="${src}" alt=""><div class="mv"><button class="btn ghost small" data-mv="${i}:-1">◀</button><button class="btn ghost small" data-mv="${i}:1">▶</button></div></div>`;
   }).join("") || '<div class="hint">No images.</div>';
   $("#imgs").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ IMGS.splice(Number(b.dataset.del),1); drawImgs(); });
@@ -264,6 +266,21 @@ async function save(){
   finally { $("#saveBtn").disabled = false; }
 }
 
+// ----- upload (R2) -----
+$("#uploadInput").onchange = async (ev) => {
+  const file = ev.target.files[0]; if(!file) return;
+  if(file.size > 8*1024*1024){ msg("Image exceeds 8MB.","err"); ev.target.value=""; return; }
+  $("#uploadHint").textContent = "uploading…";
+  try {
+    const r = await fetch("/api/admin/upload?name="+encodeURIComponent(file.name), {
+      method:"POST", credentials:"same-origin", headers:{"Content-Type": file.type||"application/octet-stream"}, body: file });
+    if(r.status===401||r.status===403){ msg("Not authorized (Cloudflare Access).","err"); return; }
+    const j = await r.json(); if(!r.ok) throw new Error(j.error||("HTTP "+r.status));
+    IMGS.push({ key: j.key, alt: "" }); drawImgs();
+    $("#uploadHint").textContent = "added: "+j.key;
+  } catch(e){ msg("Upload failed: "+e.message,"err"); $("#uploadHint").textContent=""; }
+  finally { ev.target.value=""; }
+};
 $("#search").oninput = renderList;
 $("#backBtn").onclick = backToList;
 $("#cancelBtn").onclick = backToList;
