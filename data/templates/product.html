@@ -319,7 +319,7 @@
               <h1 class="title-product">{{TITLE}}</h1>
               {{SUMMARY_BLOCK}}
               <div class="item-inputs">
-                <a class="thm-btn" href="#profile" id="contact-now-btn"><span>Contact Now</span></a>
+                <a class="thm-btn" href="#inquiry" id="contact-now-btn"><span>Contact Now</span></a>
                 <a class="thm-btn is-secondary" href="javascript:history.back(-1)"><span>Back</span></a>
               </div>
             </div>
@@ -333,27 +333,19 @@
       <div class="row">
         <div class="col-12">
           <div class="products-details-content">
-            <ul class="nav nav-tabs" id="descriptionTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Description</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Inquiry</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="descriptionTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="explain adminbuy_cn">{{DESCRIPTION}}</div>
-              </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h3 class="title-tab">Online Message</h3>
-                <p class="explain">If you have any questions, please leave us a message and we will reply you as soon as possible.</p>
+            <div class="product-description">
+              <div class="explain adminbuy_cn">{{DESCRIPTION}}</div>
+            </div>
+            <div class="product-inquiry" id="inquiry">
+                <h3 class="title-tab">Send an Inquiry</h3>
+                <p class="explain">Interested in this product? Leave us a message and we'll reply as soon as possible.</p>
                 <div class="add-comments">
                   <form id="tejoy-product-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
                     <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
                     <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
-                    <input type="hidden" name="subject" value="New product inquiry from Tejoy.com">
+                    <input type="hidden" name="subject" value="New product inquiry: {{TITLE}}">
                     <input type="hidden" name="from_name" value="Tejoy.com Product Inquiry">
+                    <input type="hidden" name="product" value="{{TITLE}}">
                     <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="row gutters-20">
                       <div class="col-md-6 inner-add-comments-box">
@@ -382,7 +374,6 @@
                     </div>
                     </form>
                 </div>
-              </div>
             </div>
           </div>
 
@@ -1156,8 +1147,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var btn=document.getElementById('contact-now-btn'); if(!btn) return;
   btn.addEventListener('click', function(e){
     e.preventDefault();
-    var tab=document.getElementById('profile-tab'); if(tab) tab.click();
-    var t=document.getElementById('descriptionTab'); if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    var t=document.getElementById('inquiry'); if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
   });
 })();
 </script>
