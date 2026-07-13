@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tejoy Product Admin</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#666; --line:#e4e4e7; --brand:#2b3aa1; --bg:#f7f7f8; --ok:#178a4c; --danger:#c0392b; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:#fff; border-bottom:1px solid var(--line); padding:14px 24px; display:flex; align-items:center; gap:16px; position:sticky; top:0; z-index:10; }
+  header h1 { font-size:18px; margin:0; font-weight:700; }
+  header .who { margin-left:auto; color:var(--muted); font-size:13px; }
+  .wrap { max-width:960px; margin:0 auto; padding:24px; }
+  .msg { padding:10px 14px; border-radius:8px; margin:12px 0; font-size:14px; display:none; }
+  .msg.err { background:#fdecea; color:var(--danger); display:block; }
+  .msg.ok { background:#e8f6ee; color:var(--ok); display:block; }
+  .toolbar { display:flex; gap:10px; align-items:center; margin-bottom:16px; }
+  .toolbar input[type=search] { flex:1; padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; cursor:pointer; transition:box-shadow .15s; }
+  .card:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); }
+  .card .thumb { aspect-ratio:1/1; background:#fafafa center/contain no-repeat; border-bottom:1px solid var(--line); }
+  .card .meta { padding:10px 12px; }
+  .card .meta .t { font-size:13px; line-height:1.35; max-height:3.6em; overflow:hidden; }
+  .card .meta .c { font-size:11px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:.03em; }
+  label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:14px 0 5px; text-transform:uppercase; letter-spacing:.03em; }
+  input[type=text], textarea, select { width:100%; padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; font-family:inherit; background:#fff; }
+  textarea { resize:vertical; min-height:64px; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .btn { padding:9px 18px; border:0; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; }
+  .btn.primary { background:var(--brand); color:#fff; }
+  .btn.ghost { background:#fff; border:1px solid var(--line); color:var(--ink); }
+  .btn.small { padding:5px 10px; font-size:12px; }
+  .btn.danger { color:var(--danger); }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .blocks { border:1px solid var(--line); border-radius:10px; padding:12px; background:#fff; }
+  .block { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; background:#fafafa; }
+  .block .bhead { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .block .bhead .type { font-size:11px; font-weight:700; color:var(--brand); text-transform:uppercase; }
+  .block .bhead .sp { margin-left:auto; }
+  .block textarea, .block input { background:#fff; }
+  .addblock { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .imgs { display:flex; gap:10px; flex-wrap:wrap; }
+  .imgs .im { width:90px; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; position:relative; }
+  .imgs .im img { width:100%; aspect-ratio:1/1; object-fit:contain; display:block; }
+  .imgs .im .x { position:absolute; top:2px; right:2px; background:rgba(0,0,0,.6); color:#fff; border:0; border-radius:4px; cursor:pointer; font-size:11px; padding:2px 5px; }
+  .imgs .im .mv { display:flex; justify-content:space-between; padding:2px 4px; }
+  .hint { font-size:12px; color:var(--muted); margin-top:4px; }
+  .editbar { display:flex; gap:10px; margin:22px 0; position:sticky; bottom:0; background:var(--bg); padding:12px 0; border-top:1px solid var(--line); }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tejoy Product Admin</h1>
+  <span class="who" id="who"></span>
+</header>
+<div class="wrap">
+  <div class="msg" id="msg"></div>
+
+  <!-- LIST -->
+  <section id="listView">
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search products by title / category…">
+      <span id="count" class="hint"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- EDIT -->
+  <section id="editView" class="hidden">
+    <button class="btn ghost small" id="backBtn">← Back to list</button>
+    <div class="row2">
+      <div><label>Category</label><select id="f_category"></select></div>
+      <div><label>Form factor</label><select id="f_form"></select></div>
+    </div>
+    <label>Product title</label>
+    <textarea id="f_title" rows="2"></textarea>
+    <div class="row2">
+      <div><label>Meta title (SEO)</label><textarea id="f_meta_title" rows="2"></textarea></div>
+      <div><label>Keywords</label><textarea id="f_keywords" rows="2"></textarea></div>
+    </div>
+    <label>Meta description (SEO)</label>
+    <textarea id="f_meta_description" rows="2"></textarea>
+    <label>Short summary (optional, shown under the title)</label>
+    <textarea id="f_summary" rows="2"></textarea>
+    <label><input type="checkbox" id="f_noindex" style="width:auto;margin-right:6px"> noindex this page</label>
+
+    <label>Description — structured blocks (paste is forced to plain text; no raw HTML)</label>
+    <div class="blocks" id="blocks"></div>
+    <div class="addblock">
+      <button class="btn ghost small" data-add="heading">+ Heading</button>
+      <button class="btn ghost small" data-add="paragraph">+ Paragraph</button>
+      <button class="btn ghost small" data-add="list">+ Bullet list</button>
+    </div>
+    <div class="hint">Bullet list: one item per line. Images live in the gallery below — the description is text only.</div>
+
+    <label>Gallery images (drag order via ◀ ▶; upload → R2 lands in the next build)</label>
+    <div class="imgs" id="imgs"></div>
+
+    <div class="editbar">
+      <button class="btn primary" id="saveBtn">Save &amp; publish</button>
+      <button class="btn ghost" id="cancelBtn">Cancel</button>
+      <span id="saveHint" class="hint"></span>
+    </div>
+  </section>
+</div>
+
+<script>
+const CATS = ["mini","standard","standard-actuated","standard-circular","performance-gen-1","performance-gen-3","enterprise"];
+const FORMS = ["Cables","Mounts & Brackets","Power & Charging","Networking","Cases & Protection"];
+const $ = (s) => document.querySelector(s);
+const msg = (t, cls) => { const m=$("#msg"); m.textContent=t; m.className="msg "+(cls||""); if(cls) setTimeout(()=>{if(m.textContent===t)m.className="msg";}, 6000); };
+async function api(path, opts) {
+  const r = await fetch("/api/admin/"+path, { credentials:"same-origin", headers:{"Content-Type":"application/json"}, ...opts });
+  if (r.status===401||r.status===403) { msg("Not signed in / not authorized (Cloudflare Access). Reload after login.", "err"); throw new Error("auth"); }
+  const j = await r.json().catch(()=>({}));
+  if (!r.ok) throw new Error(j.error || ("HTTP "+r.status));
+  return j;
+}
+
+let LIST = [], EDITING = null;
+
+// ---------- LIST ----------
+async function loadList() {
+  try {
+    const j = await api("products");
+    LIST = j.products || [];
+    $("#who").textContent = j.admin ? ("signed in: "+j.admin) : "";
+    renderList();
+  } catch(e){ if(e.message!=="auth") msg("Load failed: "+e.message,"err"); }
+}
+function renderList() {
+  const q = $("#search").value.trim().toLowerCase();
+  const rows = LIST.filter(p => !q || (p.title+" "+p.category).toLowerCase().includes(q));
+  $("#count").textContent = rows.length+" / "+LIST.length+" products";
+  $("#grid").innerHTML = rows.map(p => `
+    <div class="card" data-id="${p.id}">
+      <div class="thumb" style="background-image:url('${(p.thumb||'').replace(/'/g,"%27")}')"></div>
+      <div class="meta"><div class="t">${esc(p.title)}</div><div class="c">${p.category} · ${p.form||"—"}</div></div>
+    </div>`).join("");
+  document.querySelectorAll("#grid .card").forEach(c => c.onclick = () => openEdit(Number(c.dataset.id)));
+}
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+// ---------- EDIT ----------
+async function openEdit(id) {
+  try {
+    const p = await api("products/"+id);
+    EDITING = p;
+    $("#f_category").innerHTML = CATS.map(c=>`<option ${c===p.category?"selected":""}>${c}</option>`).join("");
+    $("#f_form").innerHTML = ['<option value="">—</option>'].concat(FORMS.map(f=>`<option ${f===p.form?"selected":""}>${f}</option>`)).join("");
+    const e = p.i18n.en;
+    $("#f_title").value = e.title||""; $("#f_meta_title").value = e.meta_title||"";
+    $("#f_keywords").value = e.keywords||""; $("#f_meta_description").value = e.meta_description||"";
+    $("#f_summary").value = stripTags(e.summary_html||""); $("#f_noindex").checked = !!p.robots;
+    renderBlocks(htmlToBlocks(e.description_html||""));
+    renderImgs(p.images||[]);
+    $("#listView").classList.add("hidden"); $("#editView").classList.remove("hidden");
+    window.scrollTo(0,0);
+  } catch(e){ if(e.message!=="auth") msg("Open failed: "+e.message,"err"); }
+}
+function backToList(){ $("#editView").classList.add("hidden"); $("#listView").classList.remove("hidden"); EDITING=null; }
+
+// ----- block editor (description) -----
+let BLOCKS = [];
+function renderBlocks(blocks){ BLOCKS = blocks; drawBlocks(); }
+function drawBlocks(){
+  $("#blocks").innerHTML = BLOCKS.map((b,i)=>`
+    <div class="block" data-i="${i}">
+      <div class="bhead"><span class="type">${b.type}</span>
+        <span class="sp"></span>
+        <button class="btn ghost small" data-mv="${i}:-1" title="up">▲</button>
+        <button class="btn ghost small" data-mv="${i}:1" title="down">▼</button>
+        <button class="btn ghost small danger" data-del="${i}">✕</button>
+      </div>
+      ${b.type==="heading"
+        ? `<input type="text" data-edit="${i}" value="${esc(b.text)}">`
+        : `<textarea data-edit="${i}" rows="${b.type==="list"?4:3}" placeholder="${b.type==="list"?"one item per line":""}">${esc(b.text)}</textarea>`}
+    </div>`).join("") || '<div class="hint">No description blocks yet — add one below.</div>';
+  $("#blocks").querySelectorAll("[data-edit]").forEach(el=>{
+    el.oninput = () => { BLOCKS[Number(el.dataset.edit)].text = el.value; };
+    el.addEventListener("paste", forcePlainPaste);
+  });
+  $("#blocks").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ BLOCKS.splice(Number(b.dataset.del),1); drawBlocks(); });
+  $("#blocks").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const [i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=BLOCKS.length)return; [BLOCKS[i],BLOCKS[j]]=[BLOCKS[j],BLOCKS[i]]; drawBlocks(); });
+}
+// paste = plain text only (kills raw HTML / Amazon markup at the source)
+function forcePlainPaste(ev){
+  ev.preventDefault();
+  const text = (ev.clipboardData||window.clipboardData).getData("text/plain");
+  const el = ev.target, s=el.selectionStart, e=el.selectionEnd;
+  el.value = el.value.slice(0,s) + text + el.value.slice(e);
+  el.selectionStart = el.selectionEnd = s + text.length;
+  el.dispatchEvent(new Event("input"));
+}
+document.querySelectorAll("[data-add]").forEach(b=> b.onclick=()=>{ BLOCKS.push({type:b.dataset.add, text:""}); drawBlocks(); });
+
+// description_html <-> blocks (clean semantic only)
+function htmlToBlocks(html){
+  const doc = new DOMParser().parseFromString("<div>"+html+"</div>","text/html");
+  const out = [];
+  doc.body.firstChild.childNodes.forEach(n=>{
+    if(n.nodeType!==1) return;
+    const tag = n.tagName.toLowerCase();
+    if(tag==="h1"||tag==="h2"||tag==="h3"||tag==="h4") out.push({type:"heading", text:n.textContent.trim()});
+    else if(tag==="p"){ const t=n.textContent.trim(); if(t) out.push({type:"paragraph", text:t}); }
+    else if(tag==="ul"||tag==="ol"){ const items=[...n.querySelectorAll("li")].map(li=>li.textContent.trim()).filter(Boolean); if(items.length) out.push({type:"list", text:items.join("\n")}); }
+    // <img>/<hr>/others dropped — description is text-only; images live in the gallery
+  });
+  return out;
+}
+function blocksToHtml(blocks){
+  return blocks.map(b=>{
+    const t=(b.text||"").trim(); if(!t) return "";
+    if(b.type==="heading") return "<h3>"+esc(t)+"</h3>";
+    if(b.type==="list") return "<ul>"+t.split("\n").map(x=>x.trim()).filter(Boolean).map(x=>"<li><p>"+esc(x)+"</p></li>").join("")+"</ul>";
+    return "<p>"+esc(t)+"</p>";
+  }).filter(Boolean).join("");
+}
+function stripTags(html){ const d=new DOMParser().parseFromString(html,"text/html"); return d.body.textContent.trim(); }
+
+// ----- images -----
+let IMGS = [];
+function renderImgs(imgs){ IMGS = imgs.map(x=>({...x})); drawImgs(); }
+function drawImgs(){
+  $("#imgs").innerHTML = IMGS.map((im,i)=>{
+    const src = im.key!==undefined ? ("/static/img/"+im.key) : im.src;  // preview uses v1 base
+    return `<div class="im"><button class="x" data-del="${i}">✕</button><img src="${src}" alt=""><div class="mv"><button class="btn ghost small" data-mv="${i}:-1">◀</button><button class="btn ghost small" data-mv="${i}:1">▶</button></div></div>`;
+  }).join("") || '<div class="hint">No images.</div>';
+  $("#imgs").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ IMGS.splice(Number(b.dataset.del),1); drawImgs(); });
+  $("#imgs").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const[i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=IMGS.length)return; [IMGS[i],IMGS[j]]=[IMGS[j],IMGS[i]]; drawImgs(); });
+}
+
+// ----- save -----
+async function save(){
+  if(!EDITING) return;
+  const p = EDITING;
+  const summary = $("#f_summary").value.trim();
+  const payload = {
+    id: p.id, category: $("#f_category").value, form: $("#f_form").value || null,
+    robots: $("#f_noindex").checked ? "noindex,follow" : null,
+    i18n: { en: {
+      title: $("#f_title").value.trim(),
+      summary_html: summary ? "<p>"+esc(summary)+"</p>" : "",
+      description_html: blocksToHtml(BLOCKS),
+      keywords: $("#f_keywords").value.trim(),
+      meta_title: $("#f_meta_title").value.trim() || $("#f_title").value.trim(),
+      meta_description: $("#f_meta_description").value.trim(),
+    }},
+    images: IMGS,
+    jsonld_product: p.jsonld_product ?? null, jsonld_breadcrumb: p.jsonld_breadcrumb ?? null,
+  };
+  if(!payload.i18n.en.title){ msg("Title is required.","err"); return; }
+  $("#saveBtn").disabled = true; $("#saveHint").textContent = "Saving…";
+  try {
+    const r = await api("products/"+p.id, { method:"PUT", body: JSON.stringify(payload) });
+    msg("Saved. "+(r.note||"Deploys in ~1 min."), "ok");
+    $("#saveHint").textContent = "commit "+(r.commit||"").slice(0,7);
+    await loadList();
+  } catch(e){ if(e.message!=="auth") msg("Save failed: "+e.message,"err"); $("#saveHint").textContent=""; }
+  finally { $("#saveBtn").disabled = false; }
+}
+
+$("#search").oninput = renderList;
+$("#backBtn").onclick = backToList;
+$("#cancelBtn").onclick = backToList;
+$("#saveBtn").onclick = save;
+loadList();
+</script>
+</body>
+</html>
