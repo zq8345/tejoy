@@ -5776,3 +5776,7 @@ a.product-chip { text-decoration: none !important; }
 .products-details .explain ul { margin: 0 0 14px !important; padding-left: 22px !important; list-style: disc !important; }
 .products-details .explain ol { margin: 0 0 14px !important; padding-left: 22px !important; }
 .products-details .explain li { margin: 0 0 7px !important; line-height: 1.6 !important; color: var(--tj-body, #333); }
+/* detail page A layout (Joe 2026-07-13): single inquiry form under description, no tabs.
+   Clean separator between the (long) description and the inquiry form. */
+.products-details .product-inquiry { margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--tj-line, #e8e8e8); }
+.products-details .product-inquiry > .explain { color: var(--tj-muted, #666); margin: 0 0 20px; }
