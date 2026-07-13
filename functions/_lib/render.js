@@ -50,3 +50,40 @@ export function genRelated(prodEntry, entries) {
     title: s.title,
   }));
 }
+
+// ---- List-page regen (/products/ + /{category}/): rebuild the card grid + chip counts ----
+// form-factor bucket name -> data-form key used on the list pages.
+export const FORM_KEY = {
+  "Cables": "cables", "Mounts & Brackets": "mounts", "Power & Charging": "power",
+  "Networking": "networking", "Cases & Protection": "cases",
+};
+
+export function cardHtml(e) {
+  const alt = `${e.title} - tejoy Products`;
+  return `\n              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="${e.category}" data-form="${FORM_KEY[e.form] || ""}">\n                <div class="blog-one__single">\n                  <a href="/${e.category}/${e.id}.html">\n                    <div class="blog-one__img">\n                      <img src="${e.thumb}" alt="${alt}" loading="lazy">\n                    </div>\n                    <div class="blog-content">\n                      <h3 class="blog-one__title">${e.title}</h3>\n                      <p class="blog-one__tt">${e.excerpt || ""}</p>\n                    </div>\n                  </a>\n                </div>\n              </div>`;
+}
+
+function updateChips(html, id, countFn) {
+  return html.replace(new RegExp(`(<div class="product-chips" id="${id}">)([^]*?)(</div>)`), (m, open, inner, close) => {
+    const upd = inner.replace(/(data-filter="([^"]+)"[^>]*>[^<]*<span class="product-chip__n">)(\d+)(<\/span>)/g,
+      (mm, pre, f, old, post) => pre + countFn(f) + post);
+    return open + upd + close;
+  });
+}
+
+// Rebuild #productGrid cards + the model/form chip counts. catFilter=null for /products/,
+// or a category slug for /{category}/. Returns updated html (unchanged if no #productGrid).
+export function regenListPage(html, entries, catFilter) {
+  const scope = (catFilter ? entries.filter((e) => e.category === catFilter) : entries.slice())
+    .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
+  const cards = scope.map(cardHtml).join("") + "\n            ";
+  html = html.replace(
+    /(<div class="row" id="productGrid">)(?:\s*<div class="col-xl-3[^"]*"[^>]*data-cat="[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*<\/div>)*\s*(<\/div>)/,
+    (m, open, close) => open + cards + close
+  );
+  const countModel = (f) => (f === "all" ? entries.length : entries.filter((e) => e.category === f).length);
+  const countForm = (f) => (f === "all" ? scope.length : scope.filter((e) => FORM_KEY[e.form] === f).length);
+  html = updateChips(html, "modelChips", countModel);
+  html = updateChips(html, "formChips", countForm);
+  return html;
+}
