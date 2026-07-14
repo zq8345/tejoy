@@ -3312,6 +3312,10 @@ footer a:hover {
   color: var(--tj-white) !important;
 }
 
+/* Back-to-top FAB: square corners to match the design system's right-angle
+   language (base theme had border-radius:50% — a circle out of place here). */
+.scroll-to-top { border-radius: 0 !important; }
+
 [class*="blue"],
 [class*="primary"],
 [class*="red"] {

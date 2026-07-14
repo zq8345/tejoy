@@ -44,7 +44,7 @@ export function genRelated(prodEntry, entries) {
   const sameForm = others.filter((p) => p.category !== prodEntry.category && p.form === prodEntry.form).sort(byId);
   const rest = others.filter((p) => p.category !== prodEntry.category && p.form !== prodEntry.form).sort(byId);
   return [...sameCat, ...sameForm, ...rest].slice(0, 4).map((s) => ({
-    href: `/${s.category}/${s.id}.html`,
+    href: `/${s.category}/${s.id}`,
     img: s.thumb || "",
     alt: `${s.title} - tejoy Products`,
     title: s.title,
@@ -60,7 +60,7 @@ export const FORM_KEY = {
 
 export function cardHtml(e) {
   const alt = `${e.title} - tejoy Products`;
-  return `\n              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="${e.category}" data-form="${FORM_KEY[e.form] || ""}">\n                <div class="blog-one__single">\n                  <a href="/${e.category}/${e.id}.html">\n                    <div class="blog-one__img">\n                      <img src="${e.thumb}" alt="${alt}" loading="lazy">\n                    </div>\n                    <div class="blog-content">\n                      <h3 class="blog-one__title">${e.title}</h3>\n                      <p class="blog-one__tt">${e.excerpt || ""}</p>\n                    </div>\n                  </a>\n                </div>\n              </div>`;
+  return `\n              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="${e.category}" data-form="${FORM_KEY[e.form] || ""}">\n                <div class="blog-one__single">\n                  <a href="/${e.category}/${e.id}">\n                    <div class="blog-one__img">\n                      <img src="${e.thumb}" alt="${alt}" loading="lazy">\n                    </div>\n                    <div class="blog-content">\n                      <h3 class="blog-one__title">${e.title}</h3>\n                      <p class="blog-one__tt">${e.excerpt || ""}</p>\n                    </div>\n                  </a>\n                </div>\n              </div>`;
 }
 
 function updateChips(html, id, countFn) {
