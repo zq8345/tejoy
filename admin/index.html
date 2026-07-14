@@ -46,10 +46,12 @@
   .block textarea, .block input { background:#fff; }
   .addblock { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
   .imgs { display:flex; gap:10px; flex-wrap:wrap; }
-  .imgs .im { width:90px; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; position:relative; }
+  .imgs .im { width:120px; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; position:relative; }
   .imgs .im img { width:100%; aspect-ratio:1/1; object-fit:contain; display:block; }
   .imgs .im .x { position:absolute; top:2px; right:2px; background:rgba(0,0,0,.6); color:#fff; border:0; border-radius:4px; cursor:pointer; font-size:11px; padding:2px 5px; }
   .imgs .im .mv { display:flex; justify-content:space-between; padding:2px 4px; }
+  .imgs .im .altin { width:100%; border:0; border-top:1px solid var(--line); border-radius:0; font-size:10px; padding:4px 5px; background:#fff; }
+  .imgs .im .altin:focus { outline:2px solid var(--brand); outline-offset:-2px; }
   .imgs .im.add { border:1px dashed var(--brand); display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; color:var(--brand); min-height:112px; background:#fbfbfe; }
   .imgs .im.add:hover { background:#f0f2fb; }
   .imgs .im.add .plus { font-size:30px; line-height:1; font-weight:300; }
@@ -113,6 +115,7 @@
       <button class="btn primary" id="saveBtn">保存并发布</button>
       <button class="btn ghost" id="cancelBtn">取消</button>
       <span id="saveHint" class="hint"></span>
+      <button class="btn ghost danger" id="deleteBtn" style="margin-left:auto">删除产品</button>
     </div>
   </section>
 </div>
@@ -137,6 +140,8 @@ async function api(path, opts) {
 }
 
 let LIST = [], EDITING = null, IMG_BASE = "https://img.tejoy.com/";
+let DIRTY = false;                       // 编辑区有未保存改动
+function markDirty(){ if(EDITING) DIRTY = true; }
 fetch("/data/site.json").then(r=>r.json()).then(c=>{ if(c.img_base) IMG_BASE = c.img_base; drawImgs(); }).catch(()=>{});
 
 // ---------- 列表 ----------
@@ -180,10 +185,15 @@ function showEditor(p, isNew){
   renderBlocks(htmlToBlocks(e.description_html||""));
   renderImgs(p.images||[]);
   $("#saveHint").textContent = isNew ? "新产品(尚未保存)" : ("产品 id "+p.id);
+  $("#deleteBtn").classList.toggle("hidden", isNew);   // 新产品无可删
   $("#listView").classList.add("hidden"); $("#editView").classList.remove("hidden");
   window.scrollTo(0,0);
+  DIRTY = false;                                        // 载入完成即干净
 }
-function backToList(){ $("#editView").classList.add("hidden"); $("#listView").classList.remove("hidden"); EDITING=null; }
+function backToList(){
+  if(DIRTY && !confirm("有未保存的修改。离开将丢弃这些修改,确定?")) return;
+  $("#editView").classList.add("hidden"); $("#listView").classList.remove("hidden"); EDITING=null; DIRTY=false;
+}
 
 // ----- 分块编辑器(描述) -----
 let BLOCKS = [];
@@ -205,8 +215,8 @@ function drawBlocks(){
     el.oninput = () => { BLOCKS[Number(el.dataset.edit)].text = el.value; };
     el.addEventListener("paste", forcePlainPaste);
   });
-  $("#blocks").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ BLOCKS.splice(Number(b.dataset.del),1); drawBlocks(); });
-  $("#blocks").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const [i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=BLOCKS.length)return; [BLOCKS[i],BLOCKS[j]]=[BLOCKS[j],BLOCKS[i]]; drawBlocks(); });
+  $("#blocks").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ BLOCKS.splice(Number(b.dataset.del),1); markDirty(); drawBlocks(); });
+  $("#blocks").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const [i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=BLOCKS.length)return; [BLOCKS[i],BLOCKS[j]]=[BLOCKS[j],BLOCKS[i]]; markDirty(); drawBlocks(); });
 }
 // 粘贴强制纯文本(从源头掐死原始 HTML / Amazon 乱码)
 function forcePlainPaste(ev){
@@ -217,7 +227,7 @@ function forcePlainPaste(ev){
   el.selectionStart = el.selectionEnd = s + text.length;
   el.dispatchEvent(new Event("input"));
 }
-document.querySelectorAll("[data-add]").forEach(b=> b.onclick=()=>{ BLOCKS.push({type:b.dataset.add, text:""}); drawBlocks(); });
+document.querySelectorAll("[data-add]").forEach(b=> b.onclick=()=>{ BLOCKS.push({type:b.dataset.add, text:""}); markDirty(); drawBlocks(); });
 
 // description_html <-> 块(只产出干净语义)
 function htmlToBlocks(html){
@@ -253,11 +263,13 @@ function drawImgs(){
   if(!$("#imgs")) return;
   $("#imgs").innerHTML = IMGS.map((im,i)=>{
     const src = im.key!==undefined ? (IMG_BASE+im.key) : im.src;  // 预览用配置的 img_base
-    return `<div class="im"><button class="x" data-del="${i}">✕</button><img src="${src}" alt=""><div class="mv"><button class="btn ghost small" data-mv="${i}:-1">◀</button><button class="btn ghost small" data-mv="${i}:1">▶</button></div></div>`;
+    const a = esc(im.alt||"");
+    return `<div class="im"><button class="x" data-del="${i}">✕</button><img src="${src}" alt="${a}"><div class="mv"><button class="btn ghost small" data-mv="${i}:-1">◀</button><button class="btn ghost small" data-mv="${i}:1">▶</button></div><input class="altin" type="text" data-alt="${i}" placeholder="alt 图片说明" value="${a}"></div>`;
   }).join("") + `<div class="im add" id="addImgCard" title="添加图片"><div class="plus">+</div><div class="lbl">添加图片</div></div>`;
   $("#addImgCard").onclick = () => $("#uploadInput").click();
-  $("#imgs").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ IMGS.splice(Number(b.dataset.del),1); drawImgs(); });
-  $("#imgs").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const[i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=IMGS.length)return; [IMGS[i],IMGS[j]]=[IMGS[j],IMGS[i]]; drawImgs(); });
+  $("#imgs").querySelectorAll("[data-del]").forEach(b=> b.onclick=()=>{ IMGS.splice(Number(b.dataset.del),1); markDirty(); drawImgs(); });
+  $("#imgs").querySelectorAll("[data-mv]").forEach(b=> b.onclick=()=>{ const[i,d]=b.dataset.mv.split(":").map(Number); const j=i+d; if(j<0||j>=IMGS.length)return; [IMGS[i],IMGS[j]]=[IMGS[j],IMGS[i]]; markDirty(); drawImgs(); });
+  $("#imgs").querySelectorAll("[data-alt]").forEach(el=> el.oninput=()=>{ IMGS[Number(el.dataset.alt)].alt = el.value; markDirty(); });
 }
 
 // ----- 新增产品 -----
@@ -294,6 +306,7 @@ async function save(){
     const r = isNew
       ? await api("products", { method:"POST", body: JSON.stringify(payload) })
       : await api("products/"+p.id, { method:"PUT", body: JSON.stringify(payload) });
+    DIRTY = false;
     msg("已保存。"+(r.note||"约 1 分钟后部署生效。"), "ok");
     $("#saveHint").textContent = "提交 "+(r.commit||"").slice(0,7)+(r.id?(" · 新 id "+r.id):"");
     await loadList();
@@ -312,11 +325,34 @@ $("#uploadInput").onchange = async (ev) => {
       method:"POST", credentials:"same-origin", headers:{"Content-Type": file.type||"application/octet-stream"}, body: file });
     if(r.status===401||r.status===403){ msg("无权限(Cloudflare Access)。","err"); return; }
     const j = await r.json(); if(!r.ok) throw new Error(j.error||("HTTP "+r.status));
-    IMGS.push({ key: j.key, alt: "" }); drawImgs();
-    $("#uploadHint").textContent = "已添加:"+j.key;
+    IMGS.push({ key: j.key, alt: "" }); markDirty(); drawImgs();
+    $("#uploadHint").textContent = "已添加:"+j.key+"(可在图下填写 alt 说明)";
   } catch(e){ msg("上传失败:"+e.message,"err"); $("#uploadHint").textContent=""; }
   finally { ev.target.value=""; }
 };
+
+// ----- 删除产品 -----
+$("#deleteBtn").onclick = async () => {
+  if(!EDITING || !EDITING.id) return;
+  const name = (EDITING.i18n && EDITING.i18n.en && EDITING.i18n.en.title) || ("id "+EDITING.id);
+  if(!confirm("删除产品「"+name+"」?\n\n此操作不可恢复:详情页、列表卡片、索引都会被移除,约 1 分钟后全站生效。")) return;
+  $("#deleteBtn").disabled = true; $("#saveHint").textContent = "删除中…";
+  try {
+    const r = await api("products/"+EDITING.id, { method:"DELETE" });
+    DIRTY = false;
+    msg("已删除。"+(r.note||"约 1 分钟后部署生效。"), "ok");
+    await loadList(); backToList();
+  } catch(e){ if(e.message!=="auth") msg("删除失败:"+e.message,"err"); $("#saveHint").textContent=""; }
+  finally { $("#deleteBtn").disabled = false; }
+};
+
+// 编辑区任意输入/选择 => 标记未保存(结构性增删移在各自处理里另调 markDirty)
+$("#editView").addEventListener("input", markDirty);
+$("#editView").addEventListener("change", markDirty);
+// 关闭/刷新标签页前,若有未保存改动则拦截
+window.addEventListener("beforeunload", (e) => {
+  if(DIRTY && !$("#editView").classList.contains("hidden")){ e.preventDefault(); e.returnValue = ""; }
+});
 
 $("#search").oninput = renderList;
 $("#backBtn").onclick = backToList;

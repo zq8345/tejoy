@@ -44,7 +44,8 @@ export async function readFile(env, cfg, filePath) {
   return typeof atob === "function" ? decodeURIComponent(escape(atob(j.content.replace(/\n/g, "")))) : Buffer.from(j.content, "base64").toString("utf8");
 }
 
-// Atomically commit files = [{path, content}] on top of the branch head.
+// Atomically commit files on top of the branch head. Each entry is either
+// {path, content} to write, or {path, delete:true} to remove the file.
 export async function commitFiles(env, cfg, files, message) {
   // 1. current head + base tree
   const ref = await gh(env, `/repos/${cfg.owner}/${cfg.name}/git/ref/heads/${cfg.branch}`);
@@ -52,9 +53,13 @@ export async function commitFiles(env, cfg, files, message) {
   const headCommit = await gh(env, `/repos/${cfg.owner}/${cfg.name}/git/commits/${headSha}`);
   const baseTree = headCommit.tree.sha;
 
-  // 2. blobs
+  // 2. blobs (or tombstones: sha:null removes the path from the new tree)
   const tree = [];
   for (const f of files) {
+    if (f.delete) {
+      tree.push({ path: f.path, mode: "100644", type: "blob", sha: null });
+      continue;
+    }
     const blob = await gh(env, `/repos/${cfg.owner}/${cfg.name}/git/blobs`, {
       method: "POST",
       body: JSON.stringify({ content: f.content, encoding: "utf-8" }),

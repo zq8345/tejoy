@@ -89,10 +89,12 @@ export async function verifyAccessJwt(request, env) {
   }
   if (!valid) return { ok: false, status: 401, reason: "bad signature" };
 
-  // Email allowlist.
+  // Email allowlist — fail CLOSED: an unset/empty allowlist denies everyone
+  // (don't rely on CF Access alone; require an explicit ADMIN_EMAILS list).
   const allow = (env.ADMIN_EMAILS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
+  if (!allow.length) return { ok: false, status: 503, reason: "ADMIN_EMAILS not configured" };
   const email = (payload.email || "").toLowerCase();
-  if (allow.length && !allow.includes(email)) return { ok: false, status: 403, reason: "email not allowed" };
+  if (!allow.includes(email)) return { ok: false, status: 403, reason: "email not allowed" };
 
   return { ok: true, email };
 }

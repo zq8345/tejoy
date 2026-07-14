@@ -42,13 +42,37 @@ async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }
   return commitFiles(env, cfg, files, `admin: ${isNew ? "create" : "update"} product ${prod.id} (${email})`);
 }
 
+// Delete a product: remove its JSON + detail page, drop it from the manifest, and
+// regenerate the affected list pages (/products/ + its category) — one atomic commit.
+async function unpublishProduct(env, cfg, ctx, id, { email }) {
+  const existing = ctx.manifest.find((e) => e.id === id);
+  if (!existing) return { notFound: true };
+  const category = existing.category;
+  const manifest = ctx.manifest.filter((e) => e.id !== id);
+  const files = [
+    { path: `data/products/${id}.json`, delete: true },
+    { path: `${category}/${id}.html`, delete: true },
+    { path: `data/products-index.json`, content: JSON.stringify(manifest, null, 2) },
+  ];
+  for (const cat of new Set([LIST_CAT, category])) {
+    const rel = cat ? `${cat}/index.html` : "products/index.html";
+    const h = await readFile(env, cfg, rel);
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+  }
+  return commitFiles(env, cfg, files, `admin: delete product ${id} (${email})`);
+}
+
 const CATEGORIES = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
+const FORMS = ["Cables", "Mounts & Brackets", "Power & Charging", "Networking", "Cases & Protection"];
 
 // Validate + normalize an admin-submitted product. Returns {prod} or {error}.
 function validateProduct(body, id) {
   if (!body || typeof body !== "object") return { error: "body must be an object" };
   // id is authoritative from the caller (URL id for edit, assigned id for create) — not body.
   if (!CATEGORIES.includes(body.category)) return { error: "invalid category" };
+  // form-factor is optional (null/empty = unset); if present it must be a known enum.
+  const form = body.form ? String(body.form) : null;
+  if (form !== null && !FORMS.includes(form)) return { error: "invalid form" };
   const en = body.i18n && body.i18n.en;
   if (!en || typeof en.title !== "string" || !en.title.trim()) return { error: "title required" };
   if (typeof en.description_html !== "string") return { error: "description_html required" };
@@ -58,7 +82,7 @@ function validateProduct(body, id) {
   }
   // Whitelist the shape we persist — ignore any extra client-sent fields.
   const prod = {
-    id, category: body.category, form: body.form ?? null, robots: body.robots ?? null,
+    id, category: body.category, form, robots: body.robots ?? null,
     i18n: { en: {
       title: en.title, summary_html: en.summary_html || "", description_html: en.description_html,
       keywords: en.keywords || "", meta_title: en.meta_title || en.title, meta_description: en.meta_description || "",
@@ -156,6 +180,23 @@ export async function onRequest(context) {
       return json({ ok: true, ...r, note: "detail + affected lists regenerated; deploys in ~1 min" });
     } catch (e) {
       return json({ error: "commit failed", detail: String(e).slice(0, 300) }, 502);
+    }
+  }
+
+  // DELETE /api/admin/products/:id  -> remove product, detail page + regen lists.
+  if (method === "DELETE" && path[0] === "products" && path.length === 2) {
+    const id = Number(path[1].replace(/\D/g, ""));
+    if (!id) return json({ error: "bad id" }, 400);
+    const cfg = ghConfig(env);
+    if (!cfg) return json({ error: "GitHub not configured" }, 503);
+    const ctx = await loadCtx(env, cfg);
+    if (!ctx) return json({ error: "template/config missing" }, 500);
+    try {
+      const r = await unpublishProduct(env, cfg, ctx, id, { email: auth.email });
+      if (r.notFound) return json({ error: "not found" }, 404);
+      return json({ ok: true, ...r, note: "product deleted + lists regenerated; deploys in ~1 min" });
+    } catch (e) {
+      return json({ error: "delete failed", detail: String(e).slice(0, 300) }, 502);
     }
   }
 
