@@ -21,8 +21,11 @@ const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
 const catalog = JSON.parse(fs.readFileSync("data/chrome.json", "utf8"));
 const enabled = locales.enabled;
 
+// `_`-prefixed entries are file-level docs/metadata, not translatable keys.
+const entries = Object.entries(catalog).filter(([k]) => !k.startsWith("_"));
+
 const gaps = [];
-for (const [key, entry] of Object.entries(catalog)) {
+for (const [key, entry] of entries) {
   for (const loc of enabled) {
     const v = entry[loc];
     if (v === undefined || v === null || String(v).trim() === "") gaps.push({ key, loc, en: entry.en });
@@ -40,11 +43,11 @@ if (fs.existsSync(PARTIAL)) {
 const unused = [];
 if (fs.existsSync(PARTIAL)) {
   const p = fs.readFileSync(PARTIAL, "utf8");
-  for (const key of Object.keys(catalog)) if (!p.includes(`{{t.${key}}}`)) unused.push(key);
+  for (const [key] of entries) if (!p.includes(`{{t.${key}}}`)) unused.push(key);
 }
 
 const wl = locales.fallback || [];
-console.log(`i18n-check [${MODE}]  locales=${enabled.join(",")}  keys=${Object.keys(catalog).length}  whitelist=${wl.length}`);
+console.log(`i18n-check [${MODE}]  locales=${enabled.join(",")}  keys=${entries.length}  whitelist=${wl.length}`);
 if (gaps.length) {
   console.log(`\n🔴 缺失 ${gaps.length} 处(未翻译 / 待裁决):`);
   for (const g of gaps) console.log(`   [${g.loc}] ${g.key}  en="${g.en}"`);

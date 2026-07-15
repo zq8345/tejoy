@@ -193,5 +193,8 @@
   "footer.power": {
     "en": "Power",
     "pt-BR": "Energia"
+  },
+  "card.alt.suffix": {
+    "en": "- tejoy Products"
   }
 }
