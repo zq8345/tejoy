@@ -28,8 +28,11 @@ const WHITELIST = [
   // 法定公司名 (注册名必须英文)
   /\bTEJOY\s+STARLINK\s+ACCESSORIES\s+LIMITED\b/gi, /\bTejoy\s+Starlink\s+Accessories\s+Limited\b/gi,
   // 机型 / 产品线 (多词在前)
-  /\bStandard\s+Actuated\b/gi, /\bStandard\s+Circular\b/gi, /\bFlat\s+High\s+Performance\b/gi,
-  /\bHigh\s+Performance\b/gi, /\bPerformance\s*\(?\s*Gen\s*\d\s*\)?/gi, /\bGen\s*\d\b/gi,
+  /\bStandard\s+Actuated\b/gi, /\bStandard\s+Circular\b/gi, /\bFlat\s+High[-\s]Performance\b/gi,
+  /\bHigh[-\s]Performance\b/gi, /\bPerformance\s*\(?\s*Gen\s*\d\s*\)?/gi, /\bGen\s*\d\b/gi,
+  /\bRectangular\s+Satellite\b/gi, /\bMesh\s+Router\b/gi, /\bInternet\s+Kit\b/gi,  // Starlink 型号名
+  // 技术全称 (缩写的展开式 = 合法英文技术术语)
+  /\bPower\s+over\s+Ethernet\b/gi, /\bPower\s+Delivery\b/gi,
   /\bStarlink\s+Mini\b/gi, /\bStarlink\b/gi, /\bMini\b/gi, /\bStandard\b/gi, /\bEnterprise\b/gi,
   /\bPerformance\b/gi, /\bActuated\b/gi, /\bCircular\b/gi, /\bDishy\b/gi, /\bV[23]\b/g,
   // 品牌 / 站名
@@ -49,9 +52,11 @@ const WHITELIST = [
   // pt-BR 通用外来词 / 已入乡随俗 (多词在前)
   /\bpower\s?bank\b/gi, /\bplug[-\s]and[-\s]play\b/gi, /\bplug[-\s]?&[-\s]?play\b/gi,
   /\boff[-\s]grid\b/gi, /\boff[-\s]road\b/gi, /\bnotebook\b/gi, /\bdesign\b/gi, /\bkit\b/gi,
-  /\bcamping\b/gi, /\bmotorhome\b/gi, /\bvan(s)?\b/gi, /\bbooster\b/gi, /\bdock\b/gi,
+  /\bcamping\b/gi, /\bmotorhome\b/gi, /\bvan(s)?\b/gi, /\bbooster\b/gi, /\bboost\b/gi,
+  /\bupgrade\b/gi, /\bdock\b/gi,
   /\bdisplay\b/gi, /\bonline\b/gi, /\bsite\b/gi, /\be-?mail\b/gi, /\blink\b/gi, /\bshop\b/gi,
-  /\bhome\s?office\b/gi, /\bslim\b/gi, /\bflat\b/gi, /\bpack\b/gi, /\bsetup\b/gi, /\bhub\b/gi,
+  /\bhome[-\s]?offices?\b/gi, /\bslim\b/gi, /\bflat\b/gi, /\bpack\b/gi, /\bsetup\b/gi, /\bhub\b/gi,
+  /\bcases?\b/gi,   // pt-BR 通用外来词, 且与我的 chrome 术语 "Cases e Proteção" 一致
   /\bstatus\b/gi, /\bcheck[-\s]?list\b/gi, /\bmarketing\b/gi, /\bweb\b/gi,
   // HTML 实体 / 符号
   /&[a-z]+;/gi, /&#\d+;/g,
