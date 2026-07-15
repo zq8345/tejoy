@@ -207,6 +207,28 @@ meta_title = {本地化 title} + "-" + {机型显示名} + "-Tejoy" + {{t.meta.t
 
 **渲 pt 时**:pt footer 的现有空白会被归一到 en 基线 → 属已批口径(`wsNorm` 内容零回归 + 空白归一清单)。
 
+## 8.7 🔢 计数 token + 括号 `(N)` 的实现决策(已看真标记,照此)
+
+**导航下拉的真实标记**(`products/index.html` header 内):
+```html
+<li><a href="/products/#mounts">Mounts &amp; Brackets <span class="nav-dd__n">19</span></a></li>
+<li><a href="/products/#power">Power &amp; Charging <span class="nav-dd__n">5</span></a></li>
+<li><a href="/products/#cables">Cables <span class="nav-dd__n">33</span></a></li>
+<li><a href="/products/#networking">Networking <span class="nav-dd__n">4</span></a></li>
+<li><a href="/products/#cases">Cases &amp; Protection <span class="nav-dd__n">3</span></a></li>
+<li class="nav-dd__sep"><a href="/products/">All products <span class="nav-dd__n">64</span></a></li>
+```
+- filter key ← href 锚点(`#mounts`/`#power`/`#cables`/`#networking`/`#cases`,`/products/` 本身 = `all`)
+- partial 里渲成:`<span class="nav-dd__n">({{count.mounts}})</span>`
+
+**括号放 span 内**(`>(19)<`)**而不是 span 外**(`>(<span>19</span>)<`):
+1. span 是计数的显示单元,括号属于它 → 拿到 `.nav-dd__n` 的样式(通常是弱化色),视觉一致;括号放外面会用链接正文色,读着像正文的一部分。
+2. ⭐**更硬的理由**:放外面要在 `Label ` 和 `<span>` 之间**插入字符** → **动到行内内容**;放里面只改 span 的**文本节点**,`Label` 与 span 之间那个会渲染的空格**原样不动** → 仍在「只改文本、不碰行内间距」的保证内。
+
+**范围切分**:
+- **R1(chrome)**:导航下拉计数 → `{{count.*}}` + 括号 ✅
+- **R2**:列表页的过滤 chip 计数(`product-chip__n`,由 `regenListPage`/`updateChips` 产出)**不是 chrome**,是页面内容 → 括号在 R2 随 `regenListPage` 一起改。**别在 R1 里越界改它。**
+
 ## 9. 下一步(建造尚未开始)
 
 1. `data/locales.json`(enabled/default/**白名单带 reason** → 交总工过目)
