@@ -121,9 +121,17 @@ const existing = fs.existsSync("data/chrome.json") ? JSON.parse(fs.readFileSync(
 const catalog = {};   // key -> {en, "pt-BR"?, reason?}
 const verdicts = [];  // keys left RED for a human call
 let preserved = 0;
+// One key per unique EN string, site-wide — NOT per block. The same words ("Products",
+// "Industrial") appear in both the nav and the footer and translate identically, so block-scoped
+// keys would mint duplicates: one gets used by the partial, the twin rots unused, and every future
+// language pays to translate the same string twice. Dedupe by value; the first block to claim a
+// string names the key.
+const byValue = {};
 function addKey(block, enVal, ptVal) {
+  if (byValue[enVal]) return byValue[enVal];
   const key = `${block}.${slug(enVal)}`;
-  if (catalog[key]) return key;                                  // identical text -> one key (DRY)
+  byValue[enVal] = key;
+  if (catalog[key]) return key;
   if (key.startsWith("_")) return key;
   if (existing[key]) { catalog[key] = existing[key]; preserved++; return key; }   // human wins
   if (enVal !== ptVal) { catalog[key] = { en: enVal, "pt-BR": ptVal }; return key; }
@@ -155,9 +163,27 @@ const ptProducts = ptLi("footer-products-list"), ptService = ptLi("footer-servic
 console.log(`footer 烘焙对齐: products en ${flEn.products.length} / pt ${ptProducts.length} · service en ${flEn.service.length} / pt ${ptService.length}`);
 flEn.products.forEach(([, label], i) => addKey("footer", label, ptProducts[i]));
 flEn.service.forEach(([, label], i) => addKey("footer", label, ptService[i]));
-// remaining static footer text (company/address/copyright...) aligns 1:1 outside the two lists
-const enFooterStatic = textUnits(en.footer).filter((t) => !isCount(t) && !isStructural(t));
-const ptFooterStatic = textUnits(pt.footer).filter((t) => !isCount(t) && !isStructural(t));
+
+// The footer's REMAINING visible text (company name, address, e-mail, the static "Other menus"
+// items, copyright, XML) must be enumerated too — leaving it out is exactly the leak R1 exists to
+// kill: it would stay hard-coded English inside the partial and no guard would ever mention it.
+// en/pt only align once the en lists are baked, so bake first, then enumerate both.
+// The two list <ul>s are already handled above (their labels are keys; the "- " bullet stays a
+// literal in the template — a bullet is presentation, not something to translate). So enumerate
+// the footer with both lists EMPTIED, or the enumeration mints a second, redundant key per item
+// with the bullet baked into the value ("- Marine" alongside "Marine").
+const emptyLists = (s) => s
+  .replace(/(id="footer-products-list">)[\s\S]*?(<\/ul>)/, "$1$2")
+  .replace(/(id="footer-service-list">)[\s\S]*?(<\/ul>)/, "$1$2");
+const efs = textUnits(emptyLists(en.footer)).filter((t) => !isCount(t) && !isStructural(t));
+const pfs = textUnits(emptyLists(pt.footer)).filter((t) => !isCount(t) && !isStructural(t));
+if (efs.length !== pfs.length) {
+  console.log(`⚠️ footer 烘焙后单元数仍不等 en ${efs.length} / pt ${pfs.length} — 逐项对齐不可靠,以下按值配对失败的会留红:`);
+  console.log("   en:", efs.slice(0, 40).join(" | "));
+  console.log("   pt:", pfs.slice(0, 40).join(" | "));
+} else {
+  for (let i = 0; i < efs.length; i++) addKey("footer", efs[i], pfs[i]);
+}
 
 console.log("\n=== catalog 汇总 ===");
 console.log("  key 总数:", Object.keys(catalog).length);
@@ -165,6 +191,52 @@ console.log("  沿用已有(人工译文/裁决,未被覆盖):", preserved);
 console.log("  新种子(本次白捡):", Object.keys(catalog).length - preserved);
 console.log("  🔴 待裁决(pt-BR 缺失 → guard 报):", verdicts.length);
 for (const v of verdicts) console.log(`     ${v.key}  "${v.value}"`);
+
+// ---------------------------------------------------------------------------------------
+// Emit data/templates/_chrome.html — the partial. Baselines are pinned in r1-findings.md:
+//   §8.6 header/mobilenav/footer all take the EN block as the base (158 en vs 90 pt = least
+//        churn). The footer's two empty <ul>s get the baked <li> string, with NO whitespace
+//        between items — copying the DOM oracle's innerHTML shape exactly, so the rendered
+//        DOM equals what the script injected, byte for byte.
+//   §8.7 counts render as <span class="nav-dd__n">({{count.KEY}})</span> — parens INSIDE the
+//        span, so we only ever write a text node and never touch the inline gap.
+// ---------------------------------------------------------------------------------------
+const keyOf = {};                       // en value -> catalog key
+for (const [k, v] of Object.entries(catalog)) if (v && v.en && !keyOf[v.en]) keyOf[v.en] = k;
+const tok = (t) => (keyOf[t] ? `{{t.${keyOf[t]}}}` : null);
+
+function buildPartial() {
+  // --- header: counts first (they are text nodes we must NOT hand to the generic tokenizer) ---
+  let hdr = en.header;
+  hdr = hdr.replace(/<a href="\/products\/#([a-z]+)">([\s\S]*?)<span class="nav-dd__n">\d+<\/span><\/a>/g,
+    (m, filter, label) => `<a href="{{url./products/#${filter}}}">${label}<span class="nav-dd__n">({{count.${filter}}})</span></a>`);
+  hdr = hdr.replace(/<a href="\/products\/">([\s\S]*?)<span class="nav-dd__n">\d+<\/span><\/a>/g,
+    (m, label) => `<a href="{{url./products/}}">${label}<span class="nav-dd__n">({{count.all}})</span></a>`);
+  // --- lift the switcher out into its own conditional block (per-page: only when hasPt) ---
+  let switcher = "";
+  hdr = hdr.replace(/(\s*)<div class="lang-switch" data-lang-switch>[\s\S]*?<\/div>/, (m, ws) => {
+    switcher = m.trim();
+    return `${ws}{{switcher}}`;
+  });
+  const finish = (s) => tokenizeHrefs(tokenizeAttrs(tokenizeText(s, tok), tok));
+
+  // --- footer: bake the two JS-filled lists into the EN structure ---
+  const liRun = (items, keyFn) => items.map(([href, label]) =>
+    `<li><a href="{{url.${href}}}">- ${tok(label) || label}</a></li>`).join("");   // no gaps between <li>
+  let ftr = en.footer;
+  ftr = ftr.replace(/(<ul class="[^"]*" id="footer-products-list">)[\s\S]*?(<\/ul>)/, (m, o, c) => o + liRun(flEn.products) + c);
+  ftr = ftr.replace(/(<ul class="[^"]*" id="footer-service-list">)[\s\S]*?(<\/ul>)/, (m, o, c) => o + liRun(flEn.service) + c);
+
+  return [
+    "<!-- GENERATED-SOURCE: data/templates/_chrome.html is the single chrome template.",
+    "     Edit copy in data/chrome.json, then run: node scripts/chrome-sync.mjs",
+    "     Do NOT edit chrome inside .html pages — the next sync overwrites it. -->",
+    "<!-- #block:header -->", finish(hdr), "<!-- #endblock -->",
+    "<!-- #block:switcher -->", finish(switcher), "<!-- #endblock -->",
+    "<!-- #block:footer -->", finish(ftr), "<!-- #endblock -->",
+    "<!-- #block:mobilenav -->", finish(en.mobilenav), "<!-- #endblock -->",
+  ].join("\n");
+}
 
 if (process.argv.includes("--write") && !process.argv.includes("--i-know-this-is-migration-only")) {
   console.error("\n⛔ 拒绝写入。这是一次性迁移工具,不是同步器 —— 它把数据流跑反了(HTML→catalog)。");
@@ -191,4 +263,11 @@ if (process.argv.includes("--write")) {
   fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync("data/chrome.json", JSON.stringify(out, null, 2) + "\n");
   console.log("\n已写 data/chrome.json");
+  fs.mkdirSync("data/templates", { recursive: true });
+  const partial = buildPartial();
+  fs.writeFileSync("data/templates/_chrome.html", partial + "\n");
+  console.log("已写 data/templates/_chrome.html —", partial.length, "字节");
+  const leftovers = [...partial.matchAll(/>([^<{]+)</g)].map((m) => m[1].trim())
+    .filter((t) => t && !/^[\s\-–—·|/()]+$/.test(t) && !/^&[a-z]+;$/.test(t));
+  console.log(leftovers.length ? `⚠️ partial 里未 token 化的可见文本 ${leftovers.length}: ${leftovers.slice(0, 8).join(" | ")}` : "✅ partial 里无未 token 化的可见文本");
 }

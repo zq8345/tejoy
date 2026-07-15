@@ -1,0 +1,155 @@
+<!-- GENERATED-SOURCE: data/templates/_chrome.html is the single chrome template.
+     Edit copy in data/chrome.json, then run: node scripts/chrome-sync.mjs
+     Do NOT edit chrome inside .html pages — the next sync overwrites it. -->
+<!-- #block:header -->
+<header class="main-header clearfix">
+    <nav class="main-menu clearfix">
+      <div class="main-menu-wrapper">
+        <div class="main-menu-wrapper__logo"> <a href="{{url./}}"><img src="/static/tejoy-logo-white.png" alt="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions"></a> </div>
+        
+        
+        <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+          <ul class="main-menu__list">
+            <li><a href="{{url./}}">{{t.header.home}}</a></li>
+
+            <li><a href="{{url./products/}}" title="{{t.header.products}}">{{t.header.products}}</a>
+              <ul class="nav-dd-products">
+                <li><a href="{{url./products/#mounts}}">{{t.header.mounts_brackets}} <span class="nav-dd__n">({{count.mounts}})</span></a></li>
+                <li><a href="{{url./products/#power}}">{{t.header.power_charging}} <span class="nav-dd__n">({{count.power}})</span></a></li>
+                <li><a href="{{url./products/#cables}}">{{t.header.cables}} <span class="nav-dd__n">({{count.cables}})</span></a></li>
+                <li><a href="{{url./products/#networking}}">{{t.header.networking}} <span class="nav-dd__n">({{count.networking}})</span></a></li>
+                <li><a href="{{url./products/#cases}}">{{t.header.cases_protection}} <span class="nav-dd__n">({{count.cases}})</span></a></li>
+                <li class="nav-dd__sep"><a href="{{url./products/}}">{{t.header.all_products}} <span class="nav-dd__n">({{count.all}})</span></a></li>
+                <li><a href="{{url./products/}}">{{t.header.shop_by_starlink_model}} <span class="nav-dd__n">&rarr;</span></a></li>
+              </ul>
+            </li>
+
+            <li><a href="{{url./service/}}" title="{{t.header.guides}}">{{t.header.guides}}</a>
+              <ul>
+                <li><a href="{{url./marine/}}">{{t.header.marine}}</a></li>
+                <li><a href="{{url./rv-off-grid/}}">{{t.header.rv_off_grid}}</a></li>
+                <li><a href="{{url./mounts/}}">{{t.header.mounts}}</a></li>
+                <li><a href="{{url./industrial/}}">{{t.header.industrial}}</a></li>
+                <li><a href="{{url./power/}}">{{t.header.power}}</a></li>
+                <li><a href="{{url./hangye/}}">{{t.header.industry_hub}}</a></li>
+              </ul>
+            </li>
+
+            <li><a href="{{url./faq/}}" title="{{t.header.support}}">{{t.header.support}}</a>
+              <ul>
+                <li><a href="{{url./faq/}}">{{t.header.faq}}</a></li>
+                <li><a href="{{url./video/}}">{{t.header.video}}</a></li>
+                <li><a href="{{url./compatibility/}}">{{t.header.compatibility_guide}}</a></li>
+              </ul>
+            </li>
+
+            <li><a href="{{url./about/}}" title="{{t.header.company}}">{{t.header.company}}</a>
+              <ul>
+                <li><a href="{{url./about/}}">{{t.header.about}}</a></li>
+                <li><a href="{{url./contact/}}">{{t.header.contact}}</a></li>
+                <li><a href="{{url./certifications-testing/}}">{{t.header.certifications_testing}}</a></li>
+                <li><a href="{{url./oem-odm-manufacturing/}}">{{t.header.oem_odm_manufacturing}}</a></li>
+                <li><a href="{{url./patents-manufacturing/}}">{{t.header.patents_manufacturing_capacity}}</a></li>
+                <li><a href="{{url./brand-affiliation-faq/}}">{{t.header.brand_affiliation_faq}}</a></li>
+              </ul>
+            </li>
+          </ul>
+          {{switcher}}
+                     <div class="main-menu-wrapper__call">
+
+            
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!-- #endblock -->
+<!-- #block:switcher -->
+<div class="lang-switch" data-lang-switch>
+            <a href="{{url./pt/products/}}" class="lang-switch__link" hreflang="pt-BR" aria-label="Ver esta página em português"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>{{t.header.pt}}</span></a>
+          </div>
+<!-- #endblock -->
+<!-- #block:footer -->
+<footer class="site-footer">
+    <div class="site-footer__middle">
+      <div class="container">
+        <div class="site-footer__middle-inner">
+          <div class="row">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
+              <div class="footer-widget__column footer-widget__newsletter">
+                <h3 class="footer-widget__title">{{t.footer.tejoy_starlink_accessories_limited}}</h3>
+                <div class="text"> {{t.footer.address_no_62_baotian_1st_road_xix}}<br>
+                  {{t.footer.e_mail_hello_tejoy_com}}<br>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-7 pcblock wow fadeInUp" data-wow-delay="100ms">
+              <div class="row">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-products-title">{{t.header.products}}</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-products-list"><li><a href="{{url./standard-circular/}}">- {{t.footer.standard_circular}}</a></li><li><a href="{{url./standard-actuated/}}">- {{t.footer.standard_actuated}}</a></li><li><a href="{{url./standard/}}">- {{t.footer.standard}}</a></li><li><a href="{{url./mini/}}">- {{t.footer.mini}}</a></li><li><a href="{{url./performance-gen-1/}}">- {{t.footer.performance_gen_1}}</a></li><li><a href="{{url./performance-gen-3/}}">- {{t.footer.performance_gen_3}}</a></li><li><a href="{{url./enterprise/}}">- {{t.footer.enterprise}}</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-service-title">{{t.header.guides}}</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="{{url./marine/}}">- {{t.header.marine}}</a></li><li><a href="{{url./rv-off-grid/}}">- {{t.header.rv_off_grid}}</a></li><li><a href="{{url./mounts/}}">- {{t.header.mounts}}</a></li><li><a href="{{url./industrial/}}">- {{t.header.industrial}}</a></li><li><a href="{{url./power/}}">- {{t.header.power}}</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__links clearfix">
+                    <h3 class="footer-widget__title" id="footer-other-title">{{t.footer.other_menus}}</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix">
+                       
+                      <li><a href="{{url./about/}}">{{t.footer.about_us}}</a></li>
+                      
+                      <li><a href="{{url./products/}}">{{t.footer.products}}</a></li>
+                      
+                      <li><a href="{{url./hangye/}}">{{t.footer.industry}}</a></li>
+                      
+                      <li><a href="{{url./service/}}">{{t.footer.guides}}</a></li>
+                      
+                      <li><a href="{{url./faq/}}">{{t.footer.faq}}</a></li>
+                      
+                      <li><a href="{{url./video/}}">{{t.footer.video}}</a></li>
+                      
+                      <li><a href="{{url./contact/}}">{{t.footer.contact_us}}</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="site-footer__bottom-inner">
+              <p class="site-footer__bottom-text">{{t.footer.copyright_2026_tejoy_starlink_acce}}  <a href="{{url./sitemap.xml}}" target="_blank">{{t.footer.xml}}</a>  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- #endblock -->
+<!-- #block:mobilenav -->
+<div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content"> <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+    <div class="logo-box"> <a href="https://tejoy.com/" aria-label="logo image"><img src="/static/tejoy-logo-white.png" width="155" alt="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions"/></a> </div>
+    <div class="mobile-nav__container"></div>
+    <ul class="mobile-nav__contact list-unstyled">
+      <li> <i class="fa fa-envelope"></i> <a href="mailto:hello@tejoy.com">{{t.mobilenav.hello_tejoy_com}}</a> </li>
+</ul>
+    <!-- /.mobile-nav__contact --> 
+  </div>
+  <!-- /.mobile-nav__content --> 
+</div>
+
+<!-- #endblock -->

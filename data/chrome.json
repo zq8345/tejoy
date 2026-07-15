@@ -1,12 +1,11 @@
 {
   "_doc": [
-    "SOURCE OF TRUTH for all chrome copy. HTML is GENERATED from this file — never the other way round.",
-    "  Change nav/footer wording, or add a language:  edit this file  ->  node scripts/chrome-sync.mjs",
-    "  Do NOT edit chrome inside .html files: the next sync overwrites it.",
-    "  scripts/chrome-seed.migration.mjs is a ONE-TIME bootstrap that ran the dataflow backwards. Do not re-run it to sync.",
-    "Values are HTML-ESCAPED text exactly as it appears in the markup: a string containing & < > MUST be written as an entity (\"Mounts &amp; Brackets\"). A literal & produces broken markup and the guard cannot catch it.",
-    "A key with a missing locale value is a GAP on purpose — scripts/i18n-check.mjs reports it. \"Not translated yet\" is never silenced.",
-    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason HERE, not a locales.json whitelist entry: whitelisting auto-passes every future language and silently inherits English, whereas an explicit value makes the guard go red for the next language and forces a real verdict."
+    "Chrome locale catalog. Values are HTML-ESCAPED text exactly as it appears in the markup:",
+    "if a string contains & < > you MUST write the entity (&amp; &lt; &gt;), e.g. \"Mounts &amp; Brackets\".",
+    "Writing a literal & here produces broken markup, and the guard cannot catch it — so mind this when adding a language.",
+    "A key with a missing locale value is a GAP on purpose: the guard reports it. 'Not translated yet' is never silenced.",
+    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
+    "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
   ],
   "header.home": {
     "en": "Home",
@@ -63,7 +62,7 @@
   "header.industrial": {
     "en": "Industrial",
     "pt-BR": "Industrial",
-    "reason": "homograph — pt uses the identical word (confirmed: native-translated /pt/industrial/ h1)"
+    "reason": "homograph — pt uses the identical word (confirmed: i18n window natively translated /pt/industrial/ h1 as \"Industrial\")"
   },
   "header.power": {
     "en": "Power",
@@ -80,7 +79,7 @@
   "header.faq": {
     "en": "FAQ",
     "pt-BR": "FAQ",
-    "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + 'Marca e Afiliação (FAQ)')"
+    "reason": "loanword — FAQ is standard in pt-BR (confirmed: i18n window natively translated /pt/faq/ h1 as \"FAQ\" and \"Brand & Affiliation FAQ\" -> \"Marca e Afiliação (FAQ)\")"
   },
   "header.video": {
     "en": "Video",
@@ -127,14 +126,6 @@
     "pt-BR": "hello@tejoy.com",
     "reason": "fallback: e-mail address / code value"
   },
-  "footer.products": {
-    "en": "Products",
-    "pt-BR": "id=\"footer-products-title\">Produtos"
-  },
-  "footer.guides": {
-    "en": "Guides",
-    "pt-BR": "id=\"footer-service-title\">Guias"
-  },
   "footer.other_menus": {
     "en": "Other menus",
     "pt-BR": "id=\"footer-other-title\">Outros menus"
@@ -174,30 +165,60 @@
     "pt-BR": "Enterprise",
     "reason": "fallback: model name"
   },
-  "footer.marine": {
-    "en": "Marine",
-    "pt-BR": "Náutico"
+  "footer.tejoy_starlink_accessories_limited": {
+    "en": "TEJOY STARLINK ACCESSORIES LIMITED",
+    "pt-BR": "TEJOY STARLINK ACCESSORIES LIMITED",
+    "reason": "fallback: brand / registered legal entity name"
   },
-  "footer.rv_off_grid": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
+  "footer.address_no_62_baotian_1st_road_xix": {
+    "en": "Address:No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong Province, China",
+    "pt-BR": "Endereço: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Baoan, Shenzhen, Guangdong, China"
   },
-  "footer.mounts": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
+  "footer.e_mail_hello_tejoy_com": {
+    "en": "E-mail：hello@tejoy.com",
+    "pt-BR": "E-mail: hello@tejoy.com"
   },
-  "footer.industrial": {
-    "en": "Industrial",
-    "pt-BR": "Industrial",
-    "reason": "homograph — pt uses the identical word (confirmed: native-translated /pt/industrial/ h1)"
+  "footer.about_us": {
+    "en": "- About Us",
+    "pt-BR": "- Sobre"
   },
-  "footer.power": {
-    "en": "Power",
-    "pt-BR": "Energia"
+  "footer.products": {
+    "en": "- Products",
+    "pt-BR": "- Produtos"
+  },
+  "footer.industry": {
+    "en": "- Industry",
+    "pt-BR": "- Setores"
+  },
+  "footer.guides": {
+    "en": "- Guides",
+    "pt-BR": "- Guias"
+  },
+  "footer.faq": {
+    "en": "- FAQ",
+    "pt-BR": "- FAQ",
+    "reason": "loanword — same verdict as header.faq (i18n window natively kept FAQ in /pt/faq/ h1). NOTE: this is a second key for the same word because the \"Other menus\" items carry the \"- \" bullet inside the text node, unlike the baked lists where the bullet is a template literal. See r1-findings.md §8.8."
+  },
+  "footer.video": {
+    "en": "- Video",
+    "pt-BR": "- Vídeos"
+  },
+  "footer.contact_us": {
+    "en": "- Contact Us",
+    "pt-BR": "- Contato"
+  },
+  "footer.copyright_2026_tejoy_starlink_acce": {
+    "en": "Copyright  ©  2026 Tejoy Starlink Accessories Limited All Rights Reserved.\nTejoy manufactures third-party Starlink-compatible accessories. Not affiliated with SpaceX or Starlink.",
+    "pt-BR": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos os direitos reservados.\nA Tejoy fabrica acessórios de terceiros compatíveis com Starlink. Não é afiliada à SpaceX nem à Starlink."
+  },
+  "footer.xml": {
+    "en": "XML",
+    "pt-BR": "XML",
+    "reason": "fallback: format name / code value (sitemap link)"
   },
   "card.alt.suffix": {
     "en": "- tejoy Products",
     "pt-BR": "- Produtos Tejoy",
-    "reason": "signed off by the i18n window (pt source of truth) 2026-07-14 — see chrome-pt-decisions.md. Noun-then-brand per pt word order; brand capitalised (the en side lowercase \"tejoy\" is a historical inconsistency, deliberately not copied into a new language). NOTE: the i18n window recommends deleting this key AND the suffix from the alt template entirely — but as a SEPARATE change after R2, because removing it changes the EN alt output and would break R2 acceptance gate \"en byte-identical\". Tracked in r1-findings.md backlog."
+    "reason": "signed off by the i18n window (pt source of truth) 2026-07-14 — chrome-pt-decisions.md. Used by R2 cardHtml, not by the chrome partial (hence i18n-check lists it as unused — expected). It recommends deleting this key AND the alt suffix entirely, but as a SEPARATE change AFTER R2: removing it changes EN alt output and would break R2 gate \"en byte-identical\". Backlog r1-findings.md §8.5"
   }
 }

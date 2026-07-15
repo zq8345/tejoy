@@ -240,3 +240,14 @@ meta_title = {本地化 title} + "-" + {机型显示名} + "-Tejoy" + {{t.meta.t
 
 **R1 不碰 `render.js`**(那是 R2)。
 **已就位工具**:`scripts/chrome-extract.mjs`(枚举 + 三分类推导器)。
+
+## 8.8 🔹 已知不一致(记账,不在 R1 修):项目符号 `- ` 的两种表示
+
+- **烘焙的两个列表**(products/service):liRun 出 `- {{t.header.marine}}` → **`- ` 是模板字面量、label 是 key**。项目符号是 presentation,不该进翻译。✅ 对的表示法
+- **"Other menus" 的静态 `<li>`**:源 HTML 里 `- About Us` 整串就是一个文本节点 → key 的值带 `- `(`footer.faq` = `"- FAQ"`)
+
+**后果**:同一个词出现两个 key(`header.faq`="FAQ" 与 `footer.faq`="- FAQ")→ 加一种语言要翻两遍 FAQ。**量小(约 7 项)但确实是腐烂的种子。**
+
+**为什么不在 R1 修**:要把 `- ` 从 Other-menus 的 `<li>` 里拆出来,得改这些 `<li>` 的**行内内容结构** → 触碰总工那条"绝不增删行内元素之间空白"的硬条件的边缘,需要单独验证。**不夹带进 R1**(同 §8.5 的原则:内容/结构改动别混进重构,会毁掉重构的验收信号)。
+
+**排法**:R1 之后与 §8.5 的「alt 面清理」一并做——都是"把 presentation 混进了翻译单元"这一类。
