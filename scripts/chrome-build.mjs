@@ -96,11 +96,18 @@ function textUnits(html) {
   return out;
 }
 
+// data/chrome.json is HUMAN-OWNED once it exists: translations and homograph verdicts live
+// there. The builder only SEEDS missing keys — it must never clobber a human's work, or a
+// rebuild would silently destroy translations (and re-open leaks we had already closed).
+const existing = fs.existsSync("data/chrome.json") ? JSON.parse(fs.readFileSync("data/chrome.json", "utf8")) : {};
 const catalog = {};   // key -> {en, "pt-BR"?, reason?}
 const verdicts = [];  // keys left RED for a human call
+let preserved = 0;
 function addKey(block, enVal, ptVal) {
   const key = `${block}.${slug(enVal)}`;
   if (catalog[key]) return key;                                  // identical text -> one key (DRY)
+  if (key.startsWith("_")) return key;
+  if (existing[key]) { catalog[key] = existing[key]; preserved++; return key; }   // human wins
   if (enVal !== ptVal) { catalog[key] = { en: enVal, "pt-BR": ptVal }; return key; }
   const w = wlHit(enVal);
   if (w) { catalog[key] = { en: enVal, "pt-BR": enVal, reason: `fallback: ${w.reason}` }; return key; }
@@ -136,13 +143,22 @@ const ptFooterStatic = textUnits(pt.footer).filter((t) => !isCount(t) && !isStru
 
 console.log("\n=== catalog 汇总 ===");
 console.log("  key 总数:", Object.keys(catalog).length);
-console.log("  已翻(白捡种子):", Object.values(catalog).filter((v) => v["pt-BR"] && !v.reason).length);
-console.log("  白名单 fallback:", Object.values(catalog).filter((v) => v.reason).length);
+console.log("  沿用已有(人工译文/裁决,未被覆盖):", preserved);
+console.log("  新种子(本次白捡):", Object.keys(catalog).length - preserved);
 console.log("  🔴 待裁决(pt-BR 缺失 → guard 报):", verdicts.length);
 for (const v of verdicts) console.log(`     ${v.key}  "${v.value}"`);
 
 if (process.argv.includes("--write")) {
+  const doc = existing._doc || [
+    "Chrome locale catalog. Values are HTML-ESCAPED text exactly as it appears in the markup:",
+    "if a string contains & < > you MUST write the entity (&amp; &lt; &gt;), e.g. \"Mounts &amp; Brackets\".",
+    "Writing a literal & here produces broken markup, and the guard cannot catch it — so mind this when adding a language.",
+    "A key with a missing locale value is a GAP on purpose: the guard reports it. 'Not translated yet' is never silenced.",
+    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
+    "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
+  ];
+  const out = { _doc: doc, ...catalog };
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync("data/chrome.json", JSON.stringify(catalog, null, 2) + "\n");
+  fs.writeFileSync("data/chrome.json", JSON.stringify(out, null, 2) + "\n");
   console.log("\n已写 data/chrome.json");
 }

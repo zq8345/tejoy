@@ -1,4 +1,12 @@
 {
+  "_doc": [
+    "Chrome locale catalog. Values are HTML-ESCAPED text exactly as it appears in the markup:",
+    "if a string contains & < > you MUST write the entity (&amp; &lt; &gt;), e.g. \"Mounts &amp; Brackets\".",
+    "Writing a literal & here produces broken markup, and the guard cannot catch it — so mind this when adding a language.",
+    "A key with a missing locale value is a GAP on purpose: the guard reports it. 'Not translated yet' is never silenced.",
+    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
+    "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
+  ],
   "header.home": {
     "en": "Home",
     "pt-BR": "Início"
@@ -52,7 +60,9 @@
     "pt-BR": "Suportes"
   },
   "header.industrial": {
-    "en": "Industrial"
+    "en": "Industrial",
+    "pt-BR": "Industrial",
+    "reason": "homograph — pt uses the identical word (confirmed: native-translated /pt/industrial/ h1)"
   },
   "header.power": {
     "en": "Power",
@@ -67,7 +77,9 @@
     "pt-BR": "Suporte"
   },
   "header.faq": {
-    "en": "FAQ"
+    "en": "FAQ",
+    "pt-BR": "FAQ",
+    "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + 'Marca e Afiliação (FAQ)')"
   },
   "header.video": {
     "en": "Video",
@@ -174,7 +186,9 @@
     "pt-BR": "Suportes"
   },
   "footer.industrial": {
-    "en": "Industrial"
+    "en": "Industrial",
+    "pt-BR": "Industrial",
+    "reason": "homograph — pt uses the identical word (confirmed: native-translated /pt/industrial/ h1)"
   },
   "footer.power": {
     "en": "Power",
