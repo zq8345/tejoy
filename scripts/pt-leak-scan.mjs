@@ -16,6 +16,10 @@
 import fs from 'fs';
 import path from 'path';
 
+/* ⚠️ 白名单/标记表 = 「考卷」. 改动必须 bump 版本并知会总调度 —— 否则基线不可比,
+   等于自己给自己打分. 基线快照见 scripts/pt-leak-baseline.json */
+export const SCANNER_VERSION = '1.0.0';
+
 const ROOT = process.cwd();
 const PT_DIR = path.join(ROOT, 'pt');
 const AS_JSON = process.argv.includes('--json');
@@ -206,6 +210,7 @@ for (const file of files) {
 /* ─────────── 输出 ─────────── */
 if (AS_JSON) {
   console.log(JSON.stringify({
+    scannerVersion: SCANNER_VERSION,
     scanned: files.length,
     leaks: findings.length, findings: findings.slice(0, MAX),
     linkLeaks: linkFindings.length, linkFindings: linkFindings.slice(0, MAX),

@@ -1,0 +1,661 @@
+{
+  "frozenAt": "BASELINE — do not hand-edit. Regenerate only when SCANNER_VERSION bumps, and tell the orchestrator (changing the whitelist = changing the exam).",
+  "scannerVersion": "1.0.0",
+  "commit": "836f341fa18babc3fa7f3de796fed92d8283a6ab",
+  "commitShort": "836f341f",
+  "ptPagesScanned": 90,
+  "total": 547,
+  "translationLeaks": 501,
+  "byClass": {
+    "a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域": 199,
+    "b_altSuffix — \"- tejoy Products\" 模板串 → chrome catalog key": 256,
+    "c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入\"应逼近0\"": 46,
+    "d_otherText — 其余可见文本 (已逐个核实为真型号名)": 11,
+    "e_links — 该指pt却指英文 → R1 localizeUrl 域": 35
+  },
+  "acceptanceTarget": {
+    "验收口径": "R1+R2 落完后重跑同版本 scanner, translationLeaks (a+b+d+e) 应逼近 0",
+    "translationLeaks 基线": 501,
+    "不计入的 c_galleryAltFilename": 46,
+    "理由": "c 类是 alt 直接写了图片文件名 (英文站同样如此) = 既有数据质量问题, 与翻译无关, R2 不会自动修; 计入会让\"逼近0\"永远达不到"
+  },
+  "byPage": {
+    "pt/products/index.html": {
+      "a_cardTitles": 130,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 130
+    },
+    "pt/performance-gen-3/42.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 16,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 20
+    },
+    "pt/performance-gen-3/43.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 16,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 20
+    },
+    "pt/standard-actuated/index.html": {
+      "a_cardTitles": 19,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 19
+    },
+    "pt/mini/44.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 14,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 18
+    },
+    "pt/enterprise/index.html": {
+      "a_cardTitles": 16,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 16
+    },
+    "pt/performance-gen-3/index.html": {
+      "a_cardTitles": 16,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 16
+    },
+    "pt/standard/672.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 5,
+      "e_links": 0,
+      "total": 9
+    },
+    "pt/standard-circular/index.html": {
+      "a_cardTitles": 7,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 7
+    },
+    "pt/mini/4205.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 3,
+      "e_links": 0,
+      "total": 7
+    },
+    "pt/index.html": {
+      "a_cardTitles": 6,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 6
+    },
+    "pt/enterprise/657.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 1,
+      "e_links": 0,
+      "total": 5
+    },
+    "pt/mini/680.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 1,
+      "e_links": 0,
+      "total": 5
+    },
+    "pt/mini/702.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 1,
+      "e_links": 0,
+      "total": 5
+    },
+    "pt/about/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/compatibility/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/contact/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/marine/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/mounts/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/power/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/rv-off-grid/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 5,
+      "total": 5
+    },
+    "pt/performance-gen-1/index.html": {
+      "a_cardTitles": 4,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/enterprise/650.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/enterprise/658.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/enterprise/669.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/enterprise/675.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4199.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4200.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4201.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4203.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4204.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4206.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/4207.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/656.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/663.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/676.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/678.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/679.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/681.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/682.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/683.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/684.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/685.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/686.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/687.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/688.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/689.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/690.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/691.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/692.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/693.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/694.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/695.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/703.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/performance-gen-1/654.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/performance-gen-3/4202.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/performance-gen-3/697.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/performance-gen-3/700.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/651.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/652.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/660.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/661.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/662.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/671.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/673.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/674.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/677.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/696.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/701.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard/704.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/659.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/665.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/666.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/667.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/668.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-actuated/670.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-circular/655.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/standard-circular/664.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 4,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 4
+    },
+    "pt/mini/index.html": {
+      "a_cardTitles": 1,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 0,
+      "total": 1
+    }
+  },
+  "notes": [
+    "类③(图片里烧死的英文像素) 扫不到, 需重做图, 不在本基线内",
+    "d_otherText 剩余项已逐个核实: Gen 3 Mesh Router (真型号) / Starlink 2M Router Cable (\"Nome do modelo\"字段值) / Internet Kit Satellite (型号短语)",
+    "meta_title 不在本基线口径内: R2 将由生成器派生 (本地化标题 + catalog 后缀 key), JSON 不再存"
+  ]
+}
