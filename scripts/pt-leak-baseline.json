@@ -1,8 +1,8 @@
 {
   "frozenAt": "BASELINE — do not hand-edit. Regenerate only when SCANNER_VERSION bumps, and tell the orchestrator (changing the whitelist = changing the exam).",
   "scannerVersion": "1.0.0",
-  "commit": "836f341fa18babc3fa7f3de796fed92d8283a6ab",
-  "commitShort": "836f341f",
+  "commit": "69966153d7ecbbacbc8e6980b98b31272d3805c3",
+  "commitShort": "69966153",
   "ptPagesScanned": 90,
   "total": 547,
   "translationLeaks": 501,
@@ -652,6 +652,452 @@
       "e_links": 0,
       "total": 1
     }
+  },
+  "ledger": {
+    "c_galleryAltFilename": [
+      {
+        "file": "pt/mini/44.html",
+        "line": 343,
+        "alt": "2 in 1 Starlink Mini Cable (1).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 344,
+        "alt": "2 in 1 Starlink Mini Cable (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 345,
+        "alt": "2 in 1 Starlink Mini Cable (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 346,
+        "alt": "2 in 1 Starlink Mini Cable (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 347,
+        "alt": "2 in 1 Starlink Mini Cable (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 348,
+        "alt": "2 in 1 Starlink Mini Cable (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 349,
+        "alt": "2 in 1 Starlink Mini Cable (4).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 356,
+        "alt": "2 in 1 Starlink Mini Cable (1).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 357,
+        "alt": "2 in 1 Starlink Mini Cable (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 358,
+        "alt": "2 in 1 Starlink Mini Cable (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 359,
+        "alt": "2 in 1 Starlink Mini Cable (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 360,
+        "alt": "2 in 1 Starlink Mini Cable (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 361,
+        "alt": "2 in 1 Starlink Mini Cable (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 362,
+        "alt": "2 in 1 Starlink Mini Cable (4).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 342,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 343,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 344,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 345,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 346,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 347,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 348,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 349,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 356,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 357,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 358,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 359,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 360,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 361,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 362,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 363,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 342,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 343,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 344,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 345,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 346,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 347,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 348,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 349,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 356,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 357,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 358,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 359,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 360,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 361,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 362,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 363,
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+      }
+    ],
+    "e_links": [
+      {
+        "file": "pt/about/index.html",
+        "line": 440,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/about/index.html",
+        "line": 441,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/about/index.html",
+        "line": 444,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/about/index.html",
+        "line": 445,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/about/index.html",
+        "line": 446,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/compatibility/index.html",
+        "line": 295,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/compatibility/index.html",
+        "line": 296,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/compatibility/index.html",
+        "line": 299,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/compatibility/index.html",
+        "line": 300,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/compatibility/index.html",
+        "line": 301,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/contact/index.html",
+        "line": 342,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/contact/index.html",
+        "line": 343,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/contact/index.html",
+        "line": 346,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/contact/index.html",
+        "line": 347,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/contact/index.html",
+        "line": 348,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/marine/index.html",
+        "line": 463,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/marine/index.html",
+        "line": 464,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/marine/index.html",
+        "line": 467,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/marine/index.html",
+        "line": 468,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/marine/index.html",
+        "line": 469,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/mounts/index.html",
+        "line": 454,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/mounts/index.html",
+        "line": 455,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/mounts/index.html",
+        "line": 458,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/mounts/index.html",
+        "line": 459,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/mounts/index.html",
+        "line": 460,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/power/index.html",
+        "line": 408,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/power/index.html",
+        "line": 409,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/power/index.html",
+        "line": 412,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/power/index.html",
+        "line": 413,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/power/index.html",
+        "line": 414,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/rv-off-grid/index.html",
+        "line": 464,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/rv-off-grid/index.html",
+        "line": 465,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/rv-off-grid/index.html",
+        "line": 468,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/rv-off-grid/index.html",
+        "line": 469,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/rv-off-grid/index.html",
+        "line": 470,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      }
+    ]
   },
   "notes": [
     "类③(图片里烧死的英文像素) 扫不到, 需重做图, 不在本基线内",

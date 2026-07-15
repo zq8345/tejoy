@@ -8,7 +8,7 @@
 | 项 | 值 |
 |---|---|
 | scanner 版本 | **v1.0.0** |
-| 基线 commit | **836f341f** (`836f341fa18babc3fa7f3de796fed92d8283a6ab`) |
+| 基线 commit | **69966153** (`69966153d7ecbbacbc8e6980b98b31272d3805c3`) |
 | 扫描范围 | `pt/**/*.html` — **90** 个页面 |
 | 机读版 | `scripts/pt-leak-baseline.json`（含全量逐条 finding） |
 
@@ -249,4 +249,5 @@ const EN_MARKERS = new Set([
 
 | 日期 | scanner 版本 | 改了什么 | 为什么 | 对基线的影响 |
 |---|---|---|---|---|
-| 2026-07-14 | v1.0.0 | 初版冻结 | — | 基线 N=547 / translationLeaks=501 @ 836f341f |
+| 2026-07-14 | v1.0.0 | 初版冻结 @ `836f341f` | — | 基线 N=547 / translationLeaks=501（总调度逐条核实后批准，含独立 curl 复核 c 类剔除的合法性） |
+| 2026-07-14 | v1.0.0（**未 bump**） | 加 `ledger`：c 类 46 条 + e 类 35 条**逐条留档** | 总调度要求「c 类必须挂账、不许消失」；e 类逐条 = R1 `localizeUrl` 的验收靶子 | **数字零变化**（N=547 / translationLeaks=501）。⚠️记录的 commit `836f341f`→`69966153`：重跑发生在当前 HEAD，两者之间 `pt/` **零内容改动**（只加了 scripts/docs），故完全可比。**判定口径（白名单/标记表）一字未动**，所以不 bump 版本。 |

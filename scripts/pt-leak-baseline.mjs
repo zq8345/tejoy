@@ -74,6 +74,13 @@ const snapshot = {
     '理由': 'c 类是 alt 直接写了图片文件名 (英文站同样如此) = 既有数据质量问题, 与翻译无关, R2 不会自动修; 计入会让"逼近0"永远达不到',
   },
   byPage: Object.fromEntries(Object.entries(perPage).sort((a, b) => b[1].total - a[1].total)),
+  /* ⚠️ 挂账明细: c 类虽不计入验收, 但必须逐条留档、不许消失 —— 它是"图片/数据质量"档的待办,
+     alt 直接写成图片文件名对 SEO 和无障碍都是实伤, 内容侧要据此逐张改. e 类同样逐条留档,
+     因为它是 R1 localizeUrl 的验收靶子. */
+  ledger: {
+    c_galleryAltFilename: cls.c_galleryAltFilename.map((f) => ({ file: f.file, line: f.line, alt: f.text })),
+    e_links: cls.e_links.map((f) => ({ file: f.file, line: f.line, href: f.href, should: f.should })),
+  },
   notes: [
     '类③(图片里烧死的英文像素) 扫不到, 需重做图, 不在本基线内',
     'd_otherText 剩余项已逐个核实: Gen 3 Mesh Router (真型号) / Starlink 2M Router Cable ("Nome do modelo"字段值) / Internet Kit Satellite (型号短语)',

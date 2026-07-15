@@ -118,7 +118,8 @@ ${markersSrc}
 
 | 日期 | scanner 版本 | 改了什么 | 为什么 | 对基线的影响 |
 |---|---|---|---|---|
-| 2026-07-14 | v1.0.0 | 初版冻结 | — | 基线 N=${snap.total} / translationLeaks=${snap.translationLeaks} @ ${snap.commitShort} |
+| 2026-07-14 | v1.0.0 | 初版冻结 @ \`836f341f\` | — | 基线 N=547 / translationLeaks=501（总调度逐条核实后批准，含独立 curl 复核 c 类剔除的合法性） |
+| 2026-07-14 | v1.0.0（**未 bump**） | 加 \`ledger\`：c 类 46 条 + e 类 35 条**逐条留档** | 总调度要求「c 类必须挂账、不许消失」；e 类逐条 = R1 \`localizeUrl\` 的验收靶子 | **数字零变化**（N=${snap.total} / translationLeaks=${snap.translationLeaks}）。⚠️记录的 commit \`836f341f\`→\`${snap.commitShort}\`：重跑发生在当前 HEAD，两者之间 \`pt/\` **零内容改动**（只加了 scripts/docs），故完全可比。**判定口径（白名单/标记表）一字未动**，所以不 bump 版本。 |
 `;
 
 fs.writeFileSync(path.join(ROOT, 'i18n-baseline.md'), md);
