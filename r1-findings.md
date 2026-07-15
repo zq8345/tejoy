@@ -251,3 +251,29 @@ meta_title = {本地化 title} + "-" + {机型显示名} + "-Tejoy" + {{t.meta.t
 **为什么不在 R1 修**:要把 `- ` 从 Other-menus 的 `<li>` 里拆出来,得改这些 `<li>` 的**行内内容结构** → 触碰总工那条"绝不增删行内元素之间空白"的硬条件的边缘,需要单独验证。**不夹带进 R1**(同 §8.5 的原则:内容/结构改动别混进重构,会毁掉重构的验收信号)。
 
 **排法**:R1 之后与 §8.5 的「alt 面清理」一并做——都是"把 presentation 混进了翻译单元"这一类。
+
+## 8.9 🔴 严格自证抓到的第三次"枚举不完整"(必须先修再铺)
+
+`chrome-verify.mjs`(逐块比对 + 扣除有意改动)实测:**158/248 通过,90 个 pt 页全部内容回归**。
+
+**pt/about mobilenav 实证**:
+| | BEFORE(现网 pt,正确) | AFTER(我的 sync,**错**) |
+|---|---|---|
+| logo `aria-label` | `Página inicial` | **`logo image`**(英文) |
+| logo `alt` | `Tejoy \| Acessórios Premium para Starlink` | **`Tejoy \| Premium Starlink Accessories, Mounts &amp; Power Solutions`**(英文) |
+| logo `href` | `/pt/` | **`https://tejoy.com/`**(英文站绝对 URL) |
+
+### 根因(两个)
+1. ⭐**catalog 只枚举文本节点,从未枚举可见属性**(`aria-label` / `alt` / `title` / `placeholder`)。
+   属性枚举原本在 `chrome-extract.mjs` 的 `enumUnits()` 里 —— **我删那把"多余的刀"时把它一并删了**,而 seeder 的 `textUnits()` 只扫 `>…<`。**删代码时没核实它是否独有能力。**
+2. `tokenizeHrefs` 只匹配 `href="/..."`(相对),**漏了绝对 URL**(`https://tejoy.com/`)。en 页 logo 用绝对 URL、pt 页用 `/pt/` → 我把 en 的绝对 URL 当字面量烧进 partial。
+
+### 为什么这次值得记
+- **同一类病第三次复发**:①footer 静态文本漏枚举 ②手工新增 key 被静默丢弃 ③可见属性漏枚举。**每次都是"我以为枚举全了"。**
+- ⭐**是 chrome-verify 抓的,不是我看出来的**。宽松的整页 wsNorm 会**全部放行**(删 14KB 本就是内容变更,248 页全归"内容变更",真回归混在里面看不见)。**严格的逐块+扣除有意改动断言,是唯一能问出"除了有意的,还有什么动了?"的问法。**
+- 若没这道自证,**90 个 pt 页的 logo 会变成英文 aria-label/alt + 指向英文站**,而且没有任何人会发现 —— 屏幕阅读器用户和 SEO 首当其冲。
+
+### 修法(下一轮)
+1. seeder 恢复**属性枚举**(`aria-label`/`alt`/`title`/`placeholder`),进 catalog;partial 用 `tokenizeAttrs`
+2. `tokenizeHrefs` 支持绝对 URL:`https://tejoy.com/x` → `{{url./x}}`(交给 localizeUrl 按 locale 派生)
+3. 重跑 seeder → 重铺 → **chrome-verify 必须 248/248 通过才准 commit 铺页结果**
