@@ -141,9 +141,45 @@ function walk(dir, acc = []) {
   return acc;
 }
 
+/* ─────────── 第二类: 指向英文页的链接 (pt 版存在却没指过去) ─────────── */
+/* 盲区来源: 这类泄漏在 href 属性里(不在可见文本面), 且死链检查会放行(英文页真实存在),
+   但用户一点就掉出 pt 站 → 比可见文本更伤漏斗. 只有「pt 版存在却链了英文」才算泄漏:
+   - 切换器 EN 链 = 设计如此(该指英文) → 白名单
+   - 没有 pt 版的页(指南文章/遗留编号页) → 链英文是正确的(防软404) → 不报 */
+function buildPtUrlSet(files) {
+  const s = new Set();
+  for (const f of files) {
+    let u = '/' + path.relative(ROOT, f).split(path.sep).join('/');
+    u = u.replace(/index\.html$/, '').replace(/\.html$/, '');
+    s.add(u); s.add(u.replace(/\/$/, '')); s.add(u.replace(/\/$/, '') + '/');
+  }
+  return s;
+}
+function linkLeaksOf(raw, vis, rel, ptUrls) {
+  const out = [];
+  for (const m of vis.matchAll(/<a\s[^>]*>/gi)) {
+    const tag = m[0];
+    if (/lang-switch__link/i.test(tag)) continue;                 // 切换器 EN 链 = 设计
+    const hm = tag.match(/href="([^"]*)"/i);
+    if (!hm) continue;
+    const href = hm[1];
+    if (!href.startsWith('/')) continue;                          // 外链 / mailto / #锚
+    if (href.startsWith('/pt/') || href === '/pt') continue;       // 已经是 pt
+    if (/^\/(static|skin|favicon|sitemap)/i.test(href)) continue;  // 静态资源
+    const clean = href.split('#')[0].split('?')[0];
+    if (!clean) continue;
+    const ptEquiv = ('/pt' + clean).replace(/\/{2,}/g, '/');
+    const exists = ptUrls.has(ptEquiv) || ptUrls.has(ptEquiv.replace(/\/$/, '')) || ptUrls.has(ptEquiv.replace(/\/$/, '') + '/');
+    if (exists) out.push({ file: rel, line: lineOf(raw, m.index), kind: 'link', href, should: ptEquiv });
+  }
+  return out;
+}
+
 /* ─────────── 扫描 ─────────── */
 const findings = [];
+const linkFindings = [];
 const files = walk(PT_DIR);
+const PT_URLS = buildPtUrlSet(files);
 for (const file of files) {
   const raw = fs.readFileSync(file, 'utf8');
   const vis = blankNonVisible(raw);
@@ -163,13 +199,32 @@ for (const file of files) {
     const hits = englishHits(text);
     if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, hits, text: text.slice(0, 120) });
   }
+  // 3) 第二类: 指向英文页的链接
+  linkFindings.push(...linkLeaksOf(raw, vis, rel, PT_URLS));
 }
 
 /* ─────────── 输出 ─────────── */
 if (AS_JSON) {
-  console.log(JSON.stringify({ scanned: files.length, leaks: findings.length, findings: findings.slice(0, MAX) }, null, 2));
+  console.log(JSON.stringify({
+    scanned: files.length,
+    leaks: findings.length, findings: findings.slice(0, MAX),
+    linkLeaks: linkFindings.length, linkFindings: linkFindings.slice(0, MAX),
+  }, null, 2));
 } else {
   console.log(`pt-leak-scan: 扫描 ${files.length} 个 pt 页`);
+  // ── 第二类: 指向英文页的链接 (用户一点就掉出 pt 站) ──
+  if (linkFindings.length) {
+    const byF = {};
+    for (const f of linkFindings) (byF[f.file] ||= []).push(f);
+    console.log(`\n【类②】指向英文页的链接 (pt 版存在却没指过去) — ${linkFindings.length} 处 / ${Object.keys(byF).length} 文件`);
+    for (const [file, list] of Object.entries(byF)) {
+      const uniq = [...new Set(list.map((x) => x.href))];
+      console.log(`  ❌ ${file}  (${list.length})  → ${uniq.slice(0, 5).join(' ')}${uniq.length > 5 ? ' …' : ''}`);
+    }
+  } else {
+    console.log('✅ 类② 无「该指 pt 却指英文」的链接');
+  }
+  console.log(`\n【类①】可见文本英文残留`);
   if (!findings.length) {
     console.log('✅ 未发现英文残留 (可见文本)');
   } else {
@@ -186,5 +241,7 @@ if (AS_JSON) {
     }
     console.log(`\n泄漏总数: ${findings.length} / 涉及 ${Object.keys(byFile).length} 个文件`);
   }
+  console.log(`\n合计: 类①可见文本 ${findings.length} · 类②英文链接 ${linkFindings.length}`);
+  console.log('(类③=图片里烧死的英文像素, 扫不到, 需重做图)');
 }
-process.exit(findings.length ? 1 : 0);
+process.exit(findings.length || linkFindings.length ? 1 : 0);
