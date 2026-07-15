@@ -196,6 +196,17 @@ meta_title = {本地化 title} + "-" + {机型显示名} + "-Tejoy" + {{t.meta.t
 
 ---
 
+## 8.6 🔧 partial 的结构基线决策(已推演,照此实现)
+
+**header / mobilenav**:取 **en 版作基线**(en 158 页 vs pt 90 页,en 是多数派 → churn 最小)。en/pt 单元数已验证 1:1 对齐(41=41 / 3=3),tokenize 后两边都能渲。
+
+**footer**:⚠️**不能用 pt 作基线**(虽然它结构完整),因为那会把 pt 的空白强加给 158 个 en 页。正确做法:
+- **取 en footer 作基线**(空白=多数派),把两个空 `<ul>` 用**烘焙好的 `<li>` 串**填进去;
+- ⭐**`<li>` 之间不留空白** —— 因为 DOM oracle 实测 JS 产出就是 `<li><a…>- Standard Circular</a></li><li><a…>…`(`innerHTML` 拼接、**无 item 间空白**)。照抄这个形态 → **渲染出的 DOM 与 JS 注入的逐字节相同**,DOM 等价证明自然成立。
+- 若改用 pt 基线或自作主张加缩进 → `<li>` 是 list-item(block),多数场景无碍,但**会偏离 oracle** → 等价证明就得靠"我觉得没事"而不是"字节相等"。**不冒这个险。**
+
+**渲 pt 时**:pt footer 的现有空白会被归一到 en 基线 → 属已批口径(`wsNorm` 内容零回归 + 空白归一清单)。
+
 ## 9. 下一步(建造尚未开始)
 
 1. `data/locales.json`(enabled/default/**白名单带 reason** → 交总工过目)
