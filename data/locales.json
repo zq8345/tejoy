@@ -1,0 +1,44 @@
+{
+  "_doc": "Locale registry for the site chrome. Adding a language = add it to `enabled` and translate the keys in data/chrome.json; the guard (scripts/i18n-check.mjs) tells you when you are done. Routing (href/lang/hreflang/canonical) is NEVER listed here or in the catalog — it is derived from route+locale by the generator.",
+
+  "enabled": ["en", "pt-BR"],
+  "default": "en",
+
+  "_fallback_doc": [
+    "`fallback` = strings allowed to stay in the default locale. This is the ONLY escape hatch that silences the guard, so it is governed:",
+    "  IRON RULE — 'not translated yet' is NEVER a valid reason. Untranslated strings MUST stay red in the guard; that red light is the entire point.",
+    "  Only things that ESSENTIALLY should not be translated belong here: brand names, product model names, spec tokens, code/URL/e-mail values, proper nouns.",
+    "  Every entry carries a `reason`. The guard reports the entry count so growth is visible.",
+    "NOT the same as a homograph: a word whose correct pt translation happens to equal the English (e.g. 'Industrial', 'FAQ') is a REAL translation — it belongs in data/chrome.json with an explicit pt-BR value and reason:'homograph', NOT here."
+  ],
+
+  "fallback": [
+    { "value": "Tejoy", "reason": "brand" },
+    { "value": "TEJOY STARLINK ACCESSORIES LIMITED.", "reason": "brand / registered legal entity name" },
+    { "value": "Starlink", "reason": "third-party brand referenced for compatibility" },
+    { "value": "SpaceX", "reason": "third-party brand" },
+
+    { "value": "Mini", "reason": "model name" },
+    { "value": "Standard", "reason": "model name" },
+    { "value": "Standard Circular", "reason": "model name" },
+    { "value": "Standard Actuated", "reason": "model name" },
+    { "value": "Performance (Gen 1)", "reason": "model name" },
+    { "value": "Performance (Gen 2)", "reason": "model name" },
+    { "value": "Performance (Gen 3)", "reason": "model name" },
+    { "value": "Enterprise", "reason": "model name" },
+
+    { "value": "hello@tejoy.com", "reason": "e-mail address / code value" },
+    { "value": "XML", "reason": "format name / code value (sitemap link)" }
+  ],
+
+  "_model_display_doc": "Single source of truth for model display names (总工 2026-07-14: unify on the SPACED form). The hyphenated form that render.js CATMAP used ('Standard-Actuated') was an artifact of capitalising the URL slug — a trace, not a design. The spaced form is already what the homepage grid, meta_title and the pt h1 wordlist use, and matches Starlink's own naming. Structural constant — NOT translated (pt keeps 'Performance (Gen 3)' verbatim), hence every value also appears in `fallback` above. Consumers: chrome partial, meta_title derivation (R2), CAT_H1, render.js CATMAP (R2, ships as its own user-visible commit).",
+  "model_display": {
+    "mini": "Mini",
+    "standard": "Standard",
+    "standard-circular": "Standard Circular",
+    "standard-actuated": "Standard Actuated",
+    "performance-gen-1": "Performance (Gen 1)",
+    "performance-gen-3": "Performance (Gen 3)",
+    "enterprise": "Enterprise"
+  }
+}

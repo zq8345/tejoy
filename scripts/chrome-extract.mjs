@@ -56,7 +56,10 @@ export function classify(enVal, ptVal, whitelist) {
   return { cls: "NEEDS_VERDICT", en: enVal, pt: null };     // -> catalog key, pt missing -> guard reports
 }
 
-if (import.meta.url === `file:///${process.argv[1].replace(/\\/g, "/")}`) {
+// Run the derivation report when invoked directly (`node scripts/chrome-extract.mjs --report`).
+// NB: don't gate on import.meta.url — this repo lives under a non-ASCII path, which gets
+// percent-encoded in import.meta.url but not in process.argv[1], so that comparison never matches.
+if (process.argv.includes("--report")) {
   const WL = JSON.parse(fs.readFileSync("data/locales.json", "utf8")).fallback || [];
   const en = chromeBlocks(fs.readFileSync("products/index.html", "utf8").replace(/\r/g, ""));
   const pt = chromeBlocks(fs.readFileSync("pt/products/index.html", "utf8").replace(/\r/g, ""));
