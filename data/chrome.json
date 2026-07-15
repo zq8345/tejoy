@@ -62,7 +62,7 @@
   "header.industrial": {
     "en": "Industrial",
     "pt-BR": "Industrial",
-    "reason": "homograph — pt uses the identical word (confirmed: i18n window natively translated /pt/industrial/ h1 as \"Industrial\")"
+    "reason": "homograph — pt uses the identical word (confirmed: native /pt/industrial/ h1)"
   },
   "header.power": {
     "en": "Power",
@@ -79,7 +79,7 @@
   "header.faq": {
     "en": "FAQ",
     "pt-BR": "FAQ",
-    "reason": "loanword — FAQ is standard in pt-BR (confirmed: i18n window natively translated /pt/faq/ h1 as \"FAQ\" and \"Brand & Affiliation FAQ\" -> \"Marca e Afiliação (FAQ)\")"
+    "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + \"Marca e Afiliação (FAQ)\")"
   },
   "header.video": {
     "en": "Video",
@@ -197,7 +197,7 @@
   "footer.faq": {
     "en": "- FAQ",
     "pt-BR": "- FAQ",
-    "reason": "loanword — same verdict as header.faq (i18n window natively kept FAQ in /pt/faq/ h1). NOTE: this is a second key for the same word because the \"Other menus\" items carry the \"- \" bullet inside the text node, unlike the baked lists where the bullet is a template literal. See r1-findings.md §8.8."
+    "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + \"Marca e Afiliação (FAQ)\")"
   },
   "footer.video": {
     "en": "- Video",
@@ -219,6 +219,6 @@
   "card.alt.suffix": {
     "en": "- tejoy Products",
     "pt-BR": "- Produtos Tejoy",
-    "reason": "signed off by the i18n window (pt source of truth) 2026-07-14 — chrome-pt-decisions.md. Used by R2 cardHtml, not by the chrome partial (hence i18n-check lists it as unused — expected). It recommends deleting this key AND the alt suffix entirely, but as a SEPARATE change AFTER R2: removing it changes EN alt output and would break R2 gate \"en byte-identical\". Backlog r1-findings.md §8.5"
+    "reason": "signed by i18n window (chrome-pt-decisions.md); used by R2 cardHtml not the chrome partial"
   }
 }

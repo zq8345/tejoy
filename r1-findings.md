@@ -277,3 +277,21 @@ meta_title = {本地化 title} + "-" + {机型显示名} + "-Tejoy" + {{t.meta.t
 1. seeder 恢复**属性枚举**(`aria-label`/`alt`/`title`/`placeholder`),进 catalog;partial 用 `tokenizeAttrs`
 2. `tokenizeHrefs` 支持绝对 URL:`https://tejoy.com/x` → `{{url./x}}`(交给 localizeUrl 按 locale 派生)
 3. 重跑 seeder → 重铺 → **chrome-verify 必须 248/248 通过才准 commit 铺页结果**
+
+## 8.10 进展与卡点(§8.9 修到一半)
+
+**已修**:
+1. seeder 恢复**可见属性枚举**(`aria-label`/`alt`/`title`/`placeholder` → `allUnits()` = 文本+属性)
+2. `tokenizeHrefs` 支持绝对 URL,且 **token 保留原始形态**(`{{url.https://tejoy.com/}}`)——
+   ⭐**第一版把它降成 `{{url./}}` 是错的**:en logo 本就用绝对 URL,改成 `/` **功能等价但不字节一致** →
+   直接打破"en 零内容回归"这道门。**等价 ≠ 相同,而这道门证明的正是"什么都没变"。**
+   现在 localizeUrl 对默认语言**原样返回**(含绝对 URL),pt 才转 `/pt/`。
+   → **en 158/248 全部通过** ✅
+
+**仍卡**:pt 90 页仍回归 —— pt 页拿到英文 `aria-label="logo image"` + 绝对 URL,
+说明 **mobilenav/header 的属性 key 没进 catalog**(tok() 返回 null → tokenizeAttrs 原样留下)。
+seeder 未报"单元数不等",但 key 总数在 merge 既有 catalog 时是 49、干净重建时是 52 —— **差 3 个正是属性 key**。
+→ 高度怀疑:`existing` merge 分支在 key 已存在时 `return key` **却没设 `byValue[enVal]`**,
+导致 `keyOf` 缺该值 → tok() 查不到。**下一轮先验这个假设再改。**
+
+**当前状态**:页面全部回滚(零改动),脚本已改进但未铺页。**chrome-verify 不到 248/248 绝不 commit 铺页结果**——这条守住了。
