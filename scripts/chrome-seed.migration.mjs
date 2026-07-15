@@ -1,5 +1,23 @@
-// chrome-build — derive data/templates/_chrome.html + data/chrome.json from the EXISTING
-// en/pt chrome, mechanically. Run: node scripts/chrome-build.mjs --write
+// ⛔⛔ ONE-TIME MIGRATION TOOL — DO NOT RUN TO "SYNC" ⛔⛔
+//
+// After R1 the dataflow is:   data/chrome.json  ──generate──>  HTML
+// This script runs it BACKWARDS (HTML ──extract──> catalog). That was correct exactly once: to
+// bootstrap the catalog out of the hand-written chrome. From that moment the HTML is a GENERATED
+// ARTIFACT, so re-extracting from it feeds generated output back in as if it were source — noise
+// at best; at worst it fossilises a generation bug as "the original" and nothing can tell you.
+//
+//   ✅ Changing nav/footer copy, or adding a language?
+//        edit data/chrome.json  ->  node scripts/chrome-sync.mjs   (the resident generator)
+//   ⛔ Do NOT edit chrome inside the .html files — the next sync overwrites it.
+//   ⛔ Do NOT re-run this to "pick up" an HTML edit — that reverses the dataflow.
+//
+// --write is gated behind an explicit --i-know-this-is-migration-only flag, because a comment is
+// a suggestion and a barrier is a rule. Existing catalog entries are also merge-preserved, so even
+// a mistaken run cannot clobber human translations — belt and braces.
+//
+// Run (migration only):
+//   node scripts/chrome-seed.migration.mjs                                          # dry report
+//   node scripts/chrome-seed.migration.mjs --write --i-know-this-is-migration-only
 //
 // Why this shape:
 //  - the pt footer is used as the STRUCTURAL template because it is complete; the en footer's
@@ -148,6 +166,12 @@ console.log("  新种子(本次白捡):", Object.keys(catalog).length - preserve
 console.log("  🔴 待裁决(pt-BR 缺失 → guard 报):", verdicts.length);
 for (const v of verdicts) console.log(`     ${v.key}  "${v.value}"`);
 
+if (process.argv.includes("--write") && !process.argv.includes("--i-know-this-is-migration-only")) {
+  console.error("\n⛔ 拒绝写入。这是一次性迁移工具,不是同步器 —— 它把数据流跑反了(HTML→catalog)。");
+  console.error("   R1 之后 catalog 是唯一真源、HTML 是生成物。改文案请编辑 data/chrome.json 后跑 chrome-sync.mjs。");
+  console.error("   确实在做迁移才加: --write --i-know-this-is-migration-only");
+  process.exit(2);
+}
 if (process.argv.includes("--write")) {
   const doc = existing._doc || [
     "Chrome locale catalog. Values are HTML-ESCAPED text exactly as it appears in the markup:",
@@ -157,7 +181,13 @@ if (process.argv.includes("--write")) {
     "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
     "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
   ];
-  const out = { _doc: doc, ...catalog };
+  // Preserve EVERY existing key, not just the ones this run happens to re-derive. Keys added by
+  // hand (e.g. card.alt.suffix — a card-alt string, not a chrome unit, so the derivation never
+  // yields it) would otherwise be silently dropped on rebuild. Same failure class as clobbering
+  // values: the generator quietly destroying human work. Merge order: derived first, existing
+  // wins, so human values/verdicts always take precedence.
+  const humanOnly = Object.fromEntries(Object.entries(existing).filter(([k]) => !k.startsWith("_")));
+  const out = { _doc: doc, ...catalog, ...humanOnly };
   fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync("data/chrome.json", JSON.stringify(out, null, 2) + "\n");
   console.log("\n已写 data/chrome.json");

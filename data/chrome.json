@@ -1,11 +1,12 @@
 {
   "_doc": [
-    "Chrome locale catalog. Values are HTML-ESCAPED text exactly as it appears in the markup:",
-    "if a string contains & < > you MUST write the entity (&amp; &lt; &gt;), e.g. \"Mounts &amp; Brackets\".",
-    "Writing a literal & here produces broken markup, and the guard cannot catch it — so mind this when adding a language.",
-    "A key with a missing locale value is a GAP on purpose: the guard reports it. 'Not translated yet' is never silenced.",
-    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
-    "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
+    "SOURCE OF TRUTH for all chrome copy. HTML is GENERATED from this file — never the other way round.",
+    "  Change nav/footer wording, or add a language:  edit this file  ->  node scripts/chrome-sync.mjs",
+    "  Do NOT edit chrome inside .html files: the next sync overwrites it.",
+    "  scripts/chrome-seed.migration.mjs is a ONE-TIME bootstrap that ran the dataflow backwards. Do not re-run it to sync.",
+    "Values are HTML-ESCAPED text exactly as it appears in the markup: a string containing & < > MUST be written as an entity (\"Mounts &amp; Brackets\"). A literal & produces broken markup and the guard cannot catch it.",
+    "A key with a missing locale value is a GAP on purpose — scripts/i18n-check.mjs reports it. \"Not translated yet\" is never silenced.",
+    "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason HERE, not a locales.json whitelist entry: whitelisting auto-passes every future language and silently inherits English, whereas an explicit value makes the guard go red for the next language and forces a real verdict."
   ],
   "header.home": {
     "en": "Home",
