@@ -196,6 +196,8 @@
     "pt-BR": "Energia"
   },
   "card.alt.suffix": {
-    "en": "- tejoy Products"
+    "en": "- tejoy Products",
+    "pt-BR": "- Produtos Tejoy",
+    "reason": "signed off by the i18n window (pt source of truth) 2026-07-14 — see chrome-pt-decisions.md. Noun-then-brand per pt word order; brand capitalised (the en side lowercase \"tejoy\" is a historical inconsistency, deliberately not copied into a new language). NOTE: the i18n window recommends deleting this key AND the suffix from the alt template entirely — but as a SEPARATE change after R2, because removing it changes the EN alt output and would break R2 acceptance gate \"en byte-identical\". Tracked in r1-findings.md backlog."
   }
 }
