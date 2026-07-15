@@ -1,0 +1,183 @@
+{
+  "header.home": {
+    "en": "Home",
+    "pt-BR": "Início"
+  },
+  "header.products": {
+    "en": "Products",
+    "pt-BR": "Produtos"
+  },
+  "header.mounts_brackets": {
+    "en": "Mounts &amp; Brackets",
+    "pt-BR": "Suportes e Fixações"
+  },
+  "header.power_charging": {
+    "en": "Power &amp; Charging",
+    "pt-BR": "Energia e Carregamento"
+  },
+  "header.cables": {
+    "en": "Cables",
+    "pt-BR": "Cabos"
+  },
+  "header.networking": {
+    "en": "Networking",
+    "pt-BR": "Redes"
+  },
+  "header.cases_protection": {
+    "en": "Cases &amp; Protection",
+    "pt-BR": "Cases e Proteção"
+  },
+  "header.all_products": {
+    "en": "All products",
+    "pt-BR": "Todos os produtos"
+  },
+  "header.shop_by_starlink_model": {
+    "en": "Shop by Starlink model",
+    "pt-BR": "Comprar por modelo Starlink"
+  },
+  "header.guides": {
+    "en": "Guides",
+    "pt-BR": "Guias"
+  },
+  "header.marine": {
+    "en": "Marine",
+    "pt-BR": "Náutico"
+  },
+  "header.rv_off_grid": {
+    "en": "RV / Off-Grid",
+    "pt-BR": "Motorhome / Off-Grid"
+  },
+  "header.mounts": {
+    "en": "Mounts",
+    "pt-BR": "Suportes"
+  },
+  "header.industrial": {
+    "en": "Industrial"
+  },
+  "header.power": {
+    "en": "Power",
+    "pt-BR": "Energia"
+  },
+  "header.industry_hub": {
+    "en": "Industry Hub",
+    "pt-BR": "Hub por Setor"
+  },
+  "header.support": {
+    "en": "Support",
+    "pt-BR": "Suporte"
+  },
+  "header.faq": {
+    "en": "FAQ"
+  },
+  "header.video": {
+    "en": "Video",
+    "pt-BR": "Vídeos"
+  },
+  "header.compatibility_guide": {
+    "en": "Compatibility Guide",
+    "pt-BR": "Guia de Compatibilidade"
+  },
+  "header.company": {
+    "en": "Company",
+    "pt-BR": "Empresa"
+  },
+  "header.about": {
+    "en": "About",
+    "pt-BR": "Sobre"
+  },
+  "header.contact": {
+    "en": "Contact",
+    "pt-BR": "Contato"
+  },
+  "header.certifications_testing": {
+    "en": "Certifications & Testing",
+    "pt-BR": "Certificações e Testes"
+  },
+  "header.oem_odm_manufacturing": {
+    "en": "OEM/ODM Manufacturing",
+    "pt-BR": "Fabricação OEM/ODM"
+  },
+  "header.patents_manufacturing_capacity": {
+    "en": "Patents & Manufacturing Capacity",
+    "pt-BR": "Patentes e Capacidade Fabril"
+  },
+  "header.brand_affiliation_faq": {
+    "en": "Brand & Affiliation FAQ",
+    "pt-BR": "Marca e Afiliação (FAQ)"
+  },
+  "header.pt": {
+    "en": "PT",
+    "pt-BR": "EN"
+  },
+  "mobilenav.hello_tejoy_com": {
+    "en": "hello@tejoy.com",
+    "pt-BR": "hello@tejoy.com",
+    "reason": "fallback: e-mail address / code value"
+  },
+  "footer.products": {
+    "en": "Products",
+    "pt-BR": "id=\"footer-products-title\">Produtos"
+  },
+  "footer.guides": {
+    "en": "Guides",
+    "pt-BR": "id=\"footer-service-title\">Guias"
+  },
+  "footer.other_menus": {
+    "en": "Other menus",
+    "pt-BR": "id=\"footer-other-title\">Outros menus"
+  },
+  "footer.standard_circular": {
+    "en": "Standard Circular",
+    "pt-BR": "Standard Circular",
+    "reason": "fallback: model name"
+  },
+  "footer.standard_actuated": {
+    "en": "Standard Actuated",
+    "pt-BR": "Standard Actuated",
+    "reason": "fallback: model name"
+  },
+  "footer.standard": {
+    "en": "Standard",
+    "pt-BR": "Standard",
+    "reason": "fallback: model name"
+  },
+  "footer.mini": {
+    "en": "Mini",
+    "pt-BR": "Mini",
+    "reason": "fallback: model name"
+  },
+  "footer.performance_gen_1": {
+    "en": "Performance (Gen 1)",
+    "pt-BR": "Performance (Gen 1)",
+    "reason": "fallback: model name"
+  },
+  "footer.performance_gen_3": {
+    "en": "Performance (Gen 3)",
+    "pt-BR": "Performance (Gen 3)",
+    "reason": "fallback: model name"
+  },
+  "footer.enterprise": {
+    "en": "Enterprise",
+    "pt-BR": "Enterprise",
+    "reason": "fallback: model name"
+  },
+  "footer.marine": {
+    "en": "Marine",
+    "pt-BR": "Náutico"
+  },
+  "footer.rv_off_grid": {
+    "en": "RV / Off-Grid",
+    "pt-BR": "Motorhome / Off-Grid"
+  },
+  "footer.mounts": {
+    "en": "Mounts",
+    "pt-BR": "Suportes"
+  },
+  "footer.industrial": {
+    "en": "Industrial"
+  },
+  "footer.power": {
+    "en": "Power",
+    "pt-BR": "Energia"
+  }
+}
