@@ -6,14 +6,20 @@
  *   Joe 的地盘（后台能改）  ：title / description_html / summary_html / images[].alt
  *   我们的地盘（后台改不到）：meta_title / meta_description / keywords / jsonld_product
  *
- * ⚠️ 关键事实（2026-07-16 实测）：我们那侧的字段**大多是 Joe 那侧的机械派生物**：
- *   meta_title = {title} + "-{分类}-Tejoy | Premium Starlink Accessories…"（5/5 产品吻合）
- *   keywords   = {title} + …（4/5，702 例外）
- *   meta_description / jsonld_product.description = description_html 的截断
- *   → **Joe 改完 title / 正文，这些应当自动干净。跑本脚本验证；若没归零 = 派生链断了。**
- *   → 另：dev 的 R2 里 render.js 明写
- *      "meta_title is deliberately NOT read from data here — it is DERIVED"
- *      所以 meta_title 更不该手改（我手改 title 污染过派生的 meta_title，产出半英半葡）。
+ * ⚠️⚠️ 各字段会不会「跟着源头自动干净」——**逐个不同，别想当然**：
+ *   meta_title       ✅ 会 —— 但**不是因为后台**，是 dev 的 R2 派生它
+ *                    (render.js:20 `meta_title is deliberately NOT read from data — it is DERIVED`)
+ *                    ⛔ **绝不手改**：手改的值会被派生覆盖，或造成半英半葡（我踩过，scanner 抓到我自己的）
+ *   keywords         ❌ 不会 —— 独立存储。**但 Joe 决定整个字段删掉（全站死字段）→ 自动消失**
+ *   meta_description ❌ 不会 —— 独立存储，且 dev 明确 R2 **不派生它**
+ *   jsonld_product   ❌ 不会 —— 后台根本没这个输入框
+ *
+ * ⭐ 我在这里栽过一个**方法层面**的错，写下来免得重蹈：
+ *   我看到 `meta_title` 以 `title` 开头（5/5 吻合），就断定「它是派生的 → Joe 改完自动干净」。
+ *   **错。** 读后台代码才知道：`meta_title: en.meta_title || en.title` ——
+ *   `||` **只在空值时回退**，有值就**原样存**。后台还给这三个字段各配了一个可编辑 textarea。
+ *   → **「曾经是派生生成的」≠「每次编辑时会重新派生」。这是两个不同的断言。**
+ *   → **证据是真的（前缀吻合），推论是假的。要断言「X 由 Y 派生」，必须读那段派生代码。**
  *
  * ⭐ 对账原则：每个品牌「整个 JSON 里出现的总数」必须 = 各字段之和。
  *   差额报成「⚠️未归类字段」—— **匹配不上的要吼出来，不是悄悄跳过。**
