@@ -62,7 +62,7 @@
   "header.industrial": {
     "en": "Industrial",
     "pt-BR": "Industrial",
-    "reason": "homograph — pt uses the identical word (confirmed: i18n window natively translated /pt/industrial/ h1)"
+    "reason": "homograph — pt uses the identical word (confirmed: native /pt/industrial/ h1)"
   },
   "header.power": {
     "en": "Power",
@@ -140,7 +140,7 @@
   },
   "footer.other_menus": {
     "en": "Other menus",
-    "pt-BR": "id=\"footer-other-title\">Outros menus"
+    "pt-BR": "Outros menus"
   },
   "footer.standard_circular": {
     "en": "Standard Circular",
@@ -231,6 +231,6 @@
   "card.alt.suffix": {
     "en": "- tejoy Products",
     "pt-BR": "- Produtos Tejoy",
-    "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml not the chrome partial"
+    "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml"
   }
 }

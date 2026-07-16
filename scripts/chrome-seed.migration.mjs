@@ -170,9 +170,19 @@ for (const blk of ["header", "mobilenav"]) {
 }
 
 // ---- footer: pt is the structural template; en values come from FOOTER_LANGS.en ----
-addKey("footer", flEn.products_title, sliceBetween(pt.footer, 'id="footer-products-title">', "<", false));
-addKey("footer", flEn.service_title, sliceBetween(pt.footer, 'id="footer-service-title">', "<", false));
-addKey("footer", flEn.other_title, sliceBetween(pt.footer, 'id="footer-other-title">', "<", false));
+// NB: sliceBetween keeps the opening anchor (it exists to lift whole blocks). Using it to pull
+// the TEXT between markers stored `id="footer-other-title">Outros menus` as the translation —
+// the anchor baked into the value, which the partial then emitted twice. Text extraction needs
+// its own helper that skips the anchor.
+const textAfter = (s, anchor) => {
+  const i = s.indexOf(anchor); if (i < 0) return null;
+  const from = i + anchor.length;
+  const j = s.indexOf("<", from); if (j < 0) return null;
+  return s.slice(from, j).trim();
+};
+addKey("footer", flEn.products_title, textAfter(pt.footer, 'id="footer-products-title">'));
+addKey("footer", flEn.service_title, textAfter(pt.footer, 'id="footer-service-title">'));
+addKey("footer", flEn.other_title, textAfter(pt.footer, 'id="footer-other-title">'));
 const ptLi = (listId) => {
   const ul = sliceBetween(pt.footer, `id="${listId}">`, "</ul>", false) || "";
   return [...ul.matchAll(/<a href="[^"]*">([^<]*)<\/a>/g)].map((m) => m[1].replace(/^-\s*/, ""));
