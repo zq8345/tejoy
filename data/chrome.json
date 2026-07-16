@@ -327,5 +327,9 @@
     "en": "Your Message",
     "pt-BR": "Sua mensagem",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.ph.company": {
+    "en": "Company Name",
+    "_note": "pt-BR intentionally MISSING — the live pt page renders placeholder=\"Company Name\" in English, i.e. phase2-convert never translated it. This is a pre-existing leak, not my regression, so there is no production value to harvest. I will not invent a pt string: the i18n window signs it (cf. card.alt.suffix). Guard stays red until then; --report mode means it blocks nobody."
   }
 }

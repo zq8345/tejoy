@@ -34,17 +34,17 @@ for (const [key, entry] of entries) {
 
 // Orphan tokens: every {{t.KEY}} used by the partial must exist in the catalog.
 const orphans = [];
-const PARTIAL = "data/templates/_chrome.html";
-if (fs.existsSync(PARTIAL)) {
-  const p = fs.readFileSync(PARTIAL, "utf8");
-  for (const m of p.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]]) orphans.push(m[1]);
-}
+// Every template that consumes tokens — not just the chrome partial. product.html gained
+// {{t.body.*}} tokens in R1 item 7, and a guard that only knew about _chrome.html reported all 21
+// of them as "unused, possibly rotten". A false alarm from the guard is not harmless: it trains
+// people to ignore it, and then the real one goes unread too.
+const TEMPLATES = ["data/templates/_chrome.html", "data/templates/product.html"];
+const PARTIAL = TEMPLATES[0];
+const allTpl = TEMPLATES.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
+for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]]) orphans.push(m[1]);
 // Unused keys: in the catalog but referenced nowhere (rot).
 const unused = [];
-if (fs.existsSync(PARTIAL)) {
-  const p = fs.readFileSync(PARTIAL, "utf8");
-  for (const [key] of entries) if (!p.includes(`{{t.${key}}}`)) unused.push(key);
-}
+for (const [key] of entries) if (!allTpl.includes(`{{t.${key}}}`)) unused.push(key);
 
 const wl = locales.fallback || [];
 console.log(`i18n-check [${MODE}]  locales=${enabled.join(",")}  keys=${entries.length}  whitelist=${wl.length}`);
