@@ -1,113 +1,107 @@
-# 【1】R2 验收 —— scanner 对基线
+# 【1】R2 验收 —— scanner 对基线（最终）
 
 | 项 | 值 |
 |---|---|
 | 被测树 | `C:\开发\tejoy-r1-wt` |
-| 被测分支 | `feat/i18n-chrome-r1` @ **`7286c17d`**（dev 自修后的版本，见 §0） |
+| 被测分支 | `feat/i18n-chrome-r1` @ **`8b3e880e`** |
 | 基线 | scanner **v1.0.0** @ `69966153`（未 bump、未重出） |
 | 前置闸 | ✅ 树干净 · ✅ 扫描期间 HEAD 未变 · ✅ 含基线 commit · ✅ scanner 同版本 · ✅ 页数同为 90 |
 
 ---
 
-## ⚠️ §0 先说一件差点让我误判的事
+## ⭐ 结论：**R2 在它射程内 —— 干净。剩下的全是一个数据模型缺口。**
 
-第一次跑验收时被测的是 **`bc7e889b`**（"R2 lands"），结果 **d 类 11 → 1957**，
-页面上直接印着 **`{{t.body.contact_now}}` / `{{t.body.form.company}}`** ——
-**130 个页面（64 pt + 66 en）全是未替换的模板占位符**，用户看到的就是那行花括号。
+| 类 | 基线 | 现在 | 变化 | 判定 |
+|---|---|---|---|---|
+| **b_altSuffix** | 256 | **0** | **−256** | ✅ **100% 清空**（catalog key 构造消除） |
+| **e_links** | 35 | **0** | −35 | ✅ 保持（R1 战果） |
+| **a_cardTitles** | 199 | **15** | −184 | ✅ 真卡片标题 **184 → 0**；剩 15 是**分类页 `meta_title`**（基线分类器把两种东西混成了一类，见 §2） |
+| **d_otherText** | 11 | **741** | +730 | ⚠️ **738 = `images[].alt`（数据模型缺口）+ 3 = 地板** |
 
-**我正要报「R2 把 130 个页面打坏了」，先查了一眼 HEAD**：
-```
-7286c17d  fix(i18n): render resolves the body-chrome tokens — they ARE the English now   ← dev 自己修了
-bc7e889b  feat(i18n): R2 lands …                                                          ← 我测的那个
-```
-**dev 在我扫描期间自己抓到并修了。** 我若照报，报的是一个**已被撤销的瞬时状态**。
-→ **这是我第三次差点这么干。本报告的被测对象是 `7286c17d`。占位符问题已不存在（en/pt 双侧实测 0 处）。**
+**translationLeaks 501 → 756** —— ⚠️ **这个数不能照字面读**（见 §1）。
 
 ---
 
-## ⭐ 结论：**不通过** —— 但**两格是 dev 的战果，一格是新回归**
+## §1 ⭐ 决定性检验：**把 `images[].alt` 那一类拿掉，d 恰好是地板 3 条**
 
-| 类 | 基线 | 现在 | 变化 | 归谁 | 判定 |
-|---|---|---|---|---|---|
-| **b_altSuffix** | 256 | **0** | **−256** | **R2 catalog key** | ✅ **100% 清空** |
-| **a_cardTitles** | 199 | **15** | **−184** | **R2 生成器** | ✅ 降 92%，**但未归零** |
-| **e_links** | 35 | **0** | −35 | R1 `localizeUrl` | ✅ 保持 |
-| **d_otherText** | 11 | **1061** | **+1050** | ⚠️ **新回归** | ❌ |
-| c_galleryAltFilename *(不计入)* | 46 | 46 | 0 | 图片/数据质量档 | — |
-
-**translationLeaks: 501 → 1076** —— ⚠️ **这个数字不能照字面读**：d 类的 +1050 淹没了 a/b 的 −440。
-
-### ✅ dev 做到的
-- **`b_altSuffix` 256 → 0** —— 我签的 `- Produtos Tejoy` 已由 catalog 生效。**由构造消除，不是翻掉的。**
-- **`a_cardTitles` 199 → 15** —— 降 92%
-
-### ❌ 但 a 没归零（合格线是 a=0）
-剩余 15 条全在 `pt/*/index.html` **分类页**上：
 ```
-pt/enterprise/index.html:115  "Enterprise-Tejoy | Premium Starlink Accessories, Mounts &amp;…"
+d 类 741 条  →  按 kind 拆:  alt 738 · text 3
+
+去掉全部 kind==='alt' 后剩 3 条:
+  [text] pt/enterprise/657.html:374  hits=["router","cable"]  "‎Starlink 2M Router Cable"
+  [text] pt/mini/680.html:380        hits=["satellite"]       "Compatibilidade específica com Starlink Mini…"
+  [text] pt/mini/702.html:380        hits=["power"]           "Chip inteligente e protocolo PD…"
+
+✅ 命中地板: 3 / 3      ❌ 名单外: 0
 ```
-—— 这是**分类页的 `meta_title`**，不是产品卡标题。**需 dev 确认是否在 R2 射程内。**
+
+→ **`d` 的可见文本部分 = 恰好那 3 条已列名的。一条不多，一条不少。**
+→ **R2 把它能碰的可见文本全清干净了。** 那 738 条不是 738 个问题，**是同一个数据模型缺口的 738 次重复投影**。
+
+### 🔴 那 738 条的根因（我早报过，`alt-quality-investigation.md` @ `2be1cd44`）
+```
+images[].alt  ——  语言中立的单一字段，在 i18n 之外
+```
+R2 从 `data/products/*.json` 渲染 pt 页时按原样取用 → **pt 页必然印英文 alt**。
+
+> **不是 dev 写错了代码。补 `i18n[locale].images[].alt` 槽之前，R2 无论怎么写都会印英文。**
+
+⚠️ 且 **`images[].alt` 是 Joe 的地盘**（后台有 alt 输入框）→ **补槽 = 数据模型改动 + 触及 Joe 的地盘 → 得总调度定。**
 
 ---
 
-## 🔴 d 类 11 → 1061：真回归，构成已查清
+## §2 `a` 剩的 15 条：**基线分类器把两种东西混成了一类**（总调度指出，我认）
 
-按 `kind` 拆：**`alt` 738 · `text` 259 · `placeholder` 64**
-
-### 大头（738 `alt`）：**pt 页出现了 14 个英文图库 alt**
+我的基线里 `a_cardTitles` 的判据是 `/\/index\.html$/`（**只看文件路径**），
+于是**分类页上任何东西**都被归成了"卡片标题"。实际这 15 条是：
 ```
-基线  pt/enterprise/650.html  英文 alt（"For Starlink…"）:  0 处
-现在  同一文件                英文 alt:                     14 处
-葡语 alt 两边都是 4  → 不是我的译文被冲掉，是 R2 新渲染出了英文的
+pt/enterprise/index.html:115      "Enterprise-Tejoy | Premium Starlink Accessories…"   ← meta_title
+pt/index.html:274                 "Standard Circular - tejoy product category"          ← 分类卡 alt
+pt/index.html:484                 "TEJOY company background wall"                       ← 图片 alt
+pt/mini/index.html:646            "【XLinkShop】 Para evitar perdas…"                    ← 品牌残留(等 Joe)
+pt/products/index.html:425        "Conversão Ethernet sem interrupções…"               ← ⚠️ 葡语!误报
 ```
-**根因（结构性，我早报过）**：那是 **`images[].alt`** —— **语言中立的单一字段，在 `i18n` 之外**。
-R2 从 `data/products/*.json` 渲染时按原样取用 → **pt 页印出英文 alt**。
+**真正的产品卡标题 184 → 0 ✅** —— 是总调度先看出这个分类问题的，**我的报告里照抄了机器分类，没质疑它**。
 
-⚠️ **这正是 `alt-quality-investigation.md`（`2be1cd44`）的结论**：
-> `images` 不在 `i18n` 里 → 改它 en/pt 同时变，**物理上做不到只改 pt**
-> 要修**必须先加 `i18n[locale].images[].alt` 槽**（数据模型改动）
-
-→ **不是 dev 写错了代码，是数据模型缺一个槽。补槽之前，R2 无论怎么写都会印英文 alt。**
-
-### 中头（259 `text`）+ 小头（64 `placeholder`）：表单正文 chrome
-**范围比看起来小得多** —— 逐条核过：
-
-| | 基线 | 现在 |
-|---|---|---|
-| 标签 `>Nome<` `>Telefone<` `>E-mail<` `>Mensagem<` | 葡语 | **葡语 ✅ 完好** |
-| placeholder `Seu nome` / `Seu telefone` / `Seu e-mail` / `Sua mensagem` | 葡语 | **葡语 ✅ 完好** |
-| **placeholder `Nome da empresa`** | **葡语** | **`Company Name` ❌ 回归** |
-
-→ **5 个 placeholder 里只有 1 个回归**，**标签全部完好**。
-dev 的 body-chrome token 覆盖了标签和 4 个 placeholder，**漏了 `company` 那一个**。
+**注**：`pt/products/index.html:425` 那条是**葡语**（`Conversão Ethernet sem interrupções…`），
+被 `hits` 命中英文标记词 → **假阳性**。这说明基线的 `a` 类里本就掺着噪音。
 
 ---
 
-## 【d 类地板 — 身份判定】❌ 不符
+## 【d 类地板 — 身份判定】
 | 地板 3 条 | 在? |
 |---|---|
 | `Starlink 2M Router Cable`（`pt/enterprise/657.html`） | ✅ |
 | `Starlink Mini Internet Kit Satellite`（`pt/mini/680.html`） | ✅ |
 | `power bank`（`pt/mini/702.html`，假阳性） | ✅ |
 
-**那 3 条全在** —— 但**名单外多出 1050 条**（上面已拆解）。
+**3/3 全在，名单外 0 条**（在排除 `images[].alt` 那一类之后）。
 
-⭐ **这正是身份判定的价值**：若只看计数「d 应为 3 条」，**这次会看到 1061 直接判失败，却说不出哪 3 条还在、多出的是什么**。
-身份判定同时给出了「地板完好」+「多出 1050 条且是什么」—— **计数做不到。**
+⭐ **身份判定在这一轮证明了两次自己**：
+1. 上一轮 d=1061 时，它同时给出「地板完好」+「多出 1050 条且是什么」—— **计数只能给出"失败"**
+2. 这一轮它让我能干净地断言「**去掉 alt 那一类，恰好是那 3 条**」—— **这是"通过/不通过"之外的第三种答案：R2 通过了，缺口在别处**
 
 ---
 
-## 📋 待办（按归属）
+## 📋 剩余待办（按归属）
 
-| # | 问题 | 归谁 | 备注 |
+| # | 问题 | 数量 | 归谁 |
 |---|---|---|---|
-| 1 | `a_cardTitles` 剩 **15**（分类页 `meta_title`） | **dev** | 合格线 a=0 |
-| 2 | `placeholder="Company Name"` 未 token 化 | **dev** | 5 个里漏 1 个 —— 小修 |
-| 3 | 🔴 **pt 页 14 个英文图库 alt** | **数据模型 / 总调度定** | **需先加 `i18n[locale].images[].alt` 槽**；**不是代码 bug，补槽前 R2 怎么写都会印英文**。且 `images[].alt` 是 **Joe 的地盘**（后台有 alt 输入框） |
+| 1 | 🔴 **pt 页英文图库 alt** | **738** | **总调度定** —— 补 `i18n[locale].images[].alt` 槽（数据模型 + Joe 的地盘）。**这是唯一挡着 d 归零的东西** |
+| 2 | 分类页 `meta_title` | ~8 | **dev / R3** |
+| 3 | `pt/mini/index.html` `pt/products/index.html` 的 `【XLinkShop】` | 2 | **等 Joe 审**（正文品牌残留的派生物） |
+| 4 | 基线 `a` 类判据只看路径 → 混入 alt/meta_title/假阳性 | — | **我的**（基线口径问题，不影响本次判定，挂账） |
 
-**我的判断**：#1 #2 是 dev 的收尾；**#3 是结构问题，得总调度定**（补槽 = 数据模型改动，且触及 Joe 的 alt 地盘）。
+---
+
+## 📌 本轮实录（三次差点误判，全部躲过）
+1. **`bc7e889b`**：130 页印着 `{{t.body.contact_now}}` 占位符 → 正要报"R2 打坏 130 页"，查 HEAD 发现 **dev 已自修**（`7286c17d`）
+2. **`7286c17d`**：placeholder `Company Name` 被判"存量泄漏、要我造译文" → **实测现网 4 页全是葡语，真源在 `phase2-convert.js:54`** → **是回归，译文一直都在**
+3. dev 的自我诊断（值得留档）：
+   > *"I checked the live pt page — the right method. But the file I checked was in my working tree, i.e. **it was already my own R2 output**. **I measured my own reflection and filed it as evidence about the original.**"*
+
+**→ 第 3 条是今天所有错的母形：`量到的不是你以为的那个东西`。**
 
 ---
 
 *多语言窗 · 工具 `scripts/pt-leak-vs-baseline.mjs`（四道闸，不可比时拒绝出数）*
-*⚠️ 本轮实录：`bc7e889b` 有 130 页占位符 → dev 自修为 `7286c17d` → **我没拿已撤销的状态判人**（第三次）*
