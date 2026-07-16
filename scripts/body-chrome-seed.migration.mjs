@@ -18,6 +18,10 @@ const PT_PAGE = "pt/enterprise/650.html";
 
 // [key, en, how to find the pt counterpart]  — en text is matched literally in the template.
 // Body chrome only; header/footer/mobilenav belong to chrome-sync.
+// pt seeds — every one VERIFIED present in the live pt page before being trusted. I could have
+// typed these from memory of phase2-convert's CHROME map and they'd have looked identical, but
+// "I remember it" and "I can point at it in production" are different claims, and today has four
+// examples of the first one failing confidently.
 const ITEMS = [
   ["body.banner.title",     'page-header__title">Products<',          'page-header__title">',        "<"],
   ["body.banner.subtitle",  "Starlink-compatible accessories for every terminal generation.", null, null],
