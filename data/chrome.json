@@ -233,6 +233,11 @@
     "pt-BR": "- Produtos Tejoy",
     "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml"
   },
+  "card.alt.category": {
+    "en": "- tejoy product category",
+    "pt-BR": "- categoria de produto tejoy",
+    "_note": "首页机型卡 alt 后缀。pt-BR 的值不是我造的:它已经手写在 pt/index.html 的 Mini/Standard 两张卡上,这里只是把它提上来当唯一真源。"
+  },
   "meta.title.suffix": {
     "en": " | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": " | Acessórios Premium para Starlink, Suportes e Soluções de Energia",

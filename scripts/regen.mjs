@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, excerptOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, setTileAlts, excerptOf } from "../functions/_lib/render.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -95,15 +95,34 @@ const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "perf
 // must match FORM_KEY in render.js — that is the slug's source of truth, these just name it.
 const TYPES = [["cables", "Cables"], ["mounts", "Mounts & Brackets"], ["power", "Power & Charging"],
   ["networking", "Networking"], ["cases", "Cases & Protection"]];
+// One table: [page, which products it scopes, what its <title> is named after]. Every list page
+// goes through it — no page gets to be the exception that keeps a hand-written title.
+const LIST_PAGES = [
+  ["products/index.html", null, { t: "body.banner.title" }],       // common noun -> catalog
+  ...CATS.map((c) => [`${c}/index.html`, c, MODEL[c]]),             // model names are brand terms
+  ...AGGREGATES.map(([rel, cat]) => [rel, cat, MODEL["performance-gen-2"]]),
+  ...TYPES.map(([s, f]) => [`type/${s}/index.html`, { form: f }, f.replace(/&/g, "&amp;")]),
+];
 let lists = 0;
-for (const [rel, cat] of [["products/index.html", null], ...CATS.map((c) => [`${c}/index.html`, c]),
-  ...AGGREGATES, ...TYPES.map(([s, f]) => [`type/${s}/index.html`, { form: f }])]) {
+for (const [rel, cat, name] of LIST_PAGES) {
  for (const locale of LOCALES) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) continue;
   const h0 = fs.readFileSync(p, "utf8");
-  const h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
+  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
+  h1 = setListTitle(h1, name, locale, catalog);
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
  }
 }
 console.log(`list pages regenerated: ${lists} changed`);
+
+// Homepage model tiles: alt derived from each tile's own href, not hand-written 8x per locale.
+let tiles = 0;
+for (const locale of LOCALES) {
+  const p = pageOf(locale, "index.html");
+  if (!fs.existsSync(p)) continue;
+  const h0 = fs.readFileSync(p, "utf8");
+  const h1 = setTileAlts(h0, locale, catalog, MODEL);
+  if (h1 !== h0) { fs.writeFileSync(p, h1); tiles++; }
+}
+console.log(`homepage tile alts: ${tiles} pages changed`);

@@ -42,9 +42,22 @@ const TEMPLATES = ["data/templates/_chrome.html", "data/templates/product.html"]
 const PARTIAL = TEMPLATES[0];
 const allTpl = TEMPLATES.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
 for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]]) orphans.push(m[1]);
-// Unused keys: in the catalog but referenced nowhere (rot).
+// A key has TWO kinds of consumer: a {{t.key}} token in a template, and code in render.js reading
+// catalog["key"] directly (meta.title.suffix, card.alt.suffix, card.alt.category — the derived
+// ones, which by design never appear as a token). Counting only the first kind reported all three
+// as "possibly rotten" — the same false alarm as when this guard only scanned _chrome.html and
+// cried about 21 live keys. A guard that cries wolf teaches people to skip its output, and then
+// the one real warning goes unread too. So: enumerate every consumer, not the convenient one.
+// Every consumer, not just the obvious one: render.js reads catalog["key"], and regen.mjs names
+// keys in its LIST_PAGES table via {t:key}. body.banner.title happens to ALSO be a template token
+// today, so leaving regen.mjs out would not have alarmed yet — it would have waited for the first
+// key that is only ever named there. A gap that is currently masked is still a gap.
+const CODE = ["functions/_lib/render.js", "scripts/regen.mjs"];
+const allCode = CODE.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
+const used = (key) => allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`);
+// Unused keys: in the catalog but referenced by neither a template nor code (rot).
 const unused = [];
-for (const [key] of entries) if (!allTpl.includes(`{{t.${key}}}`)) unused.push(key);
+for (const [key] of entries) if (!used(key)) unused.push(key);
 
 const wl = locales.fallback || [];
 console.log(`i18n-check [${MODE}]  locales=${enabled.join(",")}  keys=${entries.length}  whitelist=${wl.length}`);

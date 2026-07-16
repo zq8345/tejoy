@@ -173,6 +173,46 @@ function updateChips(html, id, countFn) {
   });
 }
 
+// A list page's <title> is DERIVED, never hand-written: `{name}-Tejoy{suffix}`, suffix from the
+// catalog. It was hand-written on all 25 pt pages, and 5 of them still carried the English suffix
+// — the R1 thesis exactly: one catalog beats 159 hand-kept copies. Verified byte-identical against
+// all 7 existing en category pages before being switched on, so it moves no en baseline.
+//
+// `name` is either a literal (model names — "Mini", "Performance (Gen 3)" — are brand terms and do
+// not translate) or {t:key} for a common noun that does ("Products"/"Produtos" is body.banner.title,
+// already in the catalog). Nothing new to sign for pt: both inputs already existed.
+export function listTitleOf(name, locale, catalog) {
+  const sfx = catalog && catalog["meta.title.suffix"];
+  if (!sfx) return null;                                    // no catalog -> caller leaves the page alone
+  const n = typeof name === "object" ? (catalog[name.t] && (catalog[name.t][locale] ?? catalog[name.t].en)) : name;
+  if (!n) return null;
+  return `${n}-Tejoy${sfx[locale] ?? sfx.en}`;
+}
+
+// Homepage model tiles: alt is DERIVED from the tile's own href — `{model} {suffix}` — instead of
+// hand-written 8× per locale. pt had 2 of 7 translated and 5 still English, which is what
+// hand-keeping the same sentence in two places always converges to.
+//
+// The company-wall photo gets alt="" rather than a translation. Its alt only NAMED the image
+// ("TEJOY company background wall") instead of carrying information the adjacent About copy
+// doesn't already carry — the textbook definition of decorative, where empty alt is the correct
+// a11y treatment. So it needs no pt value, in this or any future language: the string stops
+// existing rather than getting translated.
+export function setTileAlts(html, locale, catalog, modelDisplay) {
+  const s = catalog && catalog["card.alt.category"];
+  if (!s || !modelDisplay) return html;
+  const suffix = s[locale] ?? s.en;
+  html = html.replace(/(href="\/(?:pt\/)?([a-z0-9-]+)\/"[\s\S]{0,300}?alt=")([^"]*)(")/g,
+    (m, pre, cat, old, post) => (modelDisplay[cat] ? pre + `${modelDisplay[cat]} ${suffix}` + post : m));
+  return html.replace(/(<img[^>]*tejoy-company-wall\.png[^>]*alt=")[^"]*(")/g, "$1$2");
+}
+
+export function setListTitle(html, name, locale, catalog) {
+  const t = listTitleOf(name, locale, catalog);
+  if (!t) return html;
+  return html.replace(/<title>[^<]*<\/title>/, `<title>${t}</title>`);
+}
+
 // Rebuild #productGrid cards + the model/form chip counts. catFilter=null for /products/,
 // or a category slug for /{category}/. Returns updated html (unchanged if no #productGrid).
 // catFilter accepts a category slug (as before), null for /products/, an ARRAY of slugs (the
