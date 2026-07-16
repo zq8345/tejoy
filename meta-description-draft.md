@@ -353,7 +353,90 @@ Google SERP 大约展示 **155–160 字符**。现在 300 字符 = 一半根本
 |---|---|---|
 | **bug1** 剥标签不留空格→单词黏连 | `4200` `CableExperience` / `4206` `OverviewDesigned` | ✅ 自动消失（新文案是重写的，不是截的） |
 | **bug2** HTML 实体未解码 | `671` `25.6&quot;L x 15.7&quot;W` | ✅ 自动消失 |
-| **bug3** 长度约为 Google 展示上限的两倍 | 52 条全部 290–300 字 | ✅ 新文案 145–155 |
+| **bug3** 长度约为 Google 展示上限的两倍 | 61 条全部 275–300 字 | ✅ 新文案 145–155 |
+
+---
+
+# 批次 3（7 条 × 2 语）—— ⚠️ **12 个里只能写 7 个**
+
+> **写不了的 5 个不是我产能不够 —— 是产品数据本身自相矛盾或从别的 listing 抄串的。**
+> 14 条实测长度全部 145–155（首版 2 条偏短，我自己的检查抓到并补足）。
+
+### `661` · Gen 3 / Mini 4口以太网适配器
+| **EN** | `Four gigabit ports for your Starlink Gen 3 or Mini, tested 72 hours at full load with no speed drops. Wire up a PC, console, NAS and TV all at once.` |
+|---|---|
+| **PT** | `Quatro portas gigabit para seu Starlink Gen 3 ou Mini, testadas 72 horas em carga total sem perda de velocidade. Ligue PC, console, NAS e TV juntos.` |
+| 出处 | `Tested for **72 hours under full load**… **no speed drops**` |
+| ⚠️ | 5 条 bullet 里 4 条是空话，**只有 72 小时满载测试是硬信息**。与 `667` **共用同一句话术** → **只在 `661` 用**，避免两页更像。 |
+
+### `662` · Gen 3 抱管转接夹（单卖）
+| **EN** | `Clamps your Starlink Gen 3 dish to a 1.25–2.5 inch pole you already have. Three-point grip, 360° rotation and 15° tilt — and the ports stay reachable.` |
+|---|---|
+| **PT** | `Prende a antena Starlink Gen 3 a um tubo de 1,25–2,5 pol que você já tem. Três pontos de apoio, giro 360° e inclinação 15° — portas seguem acessíveis.` |
+| 出处 | `**three-points support** design` + `**360° rotation and 15° tilt**` + `Precisely molded… **full ports access**` |
+| 钩子理由 | 「装完发现插不上线」是抱夹的高频退货点 —— 正文写了 `full ports access`，标题没有。 |
+| ⚠️ 区分 | 与 `672` 互抢 `starlink gen 3 mount` → **`662`=已有杆只买夹；`672`=整套含桅杆**。已把 `a pole you already have` 钉进 meta。 |
+| ⚠️ 挂账 | 复制粘贴残留 `cables like **coax**`（Gen3 用网线不是同轴）；管径三处口径不一（`1.25'`/`1.25 inches`/`1.26"`）→ **meta 只用 bullet 的 1.25–2.5 英寸**。 |
+
+### `663` · Mini USB-C 转 DC 线
+| **EN** | `USB-C to DC cable for the Starlink Mini — needs a 100W PD charger (20V/5A). E-MARKER trigger chip with overload and short-circuit protection. 2–15 m.` |
+|---|---|
+| **PT** | `Cabo USB-C para DC do Starlink Mini — exige carregador PD de 100W (20V/5A). Chip E-MARKER com proteção contra sobrecarga e curto-circuito. 2 a 15 m.` |
+| 出处 | `recommend customers use a **100W PD charger**` + `PD 20V trigger chip with **E-MARKER**, **overload protection**, and **short-circuit protection**` |
+| 钩子理由 | ⭐**「必须配 100W PD 头」放最前** —— 拿 65W 头带不动 Mini，**这是这类线最典型的「买了不能用」退货点**。正文写了，标题只字未提。 |
+
+### `664` · 线夹 20 只装
+| **EN** | `Twenty cable clips with the screws already fitted, sized for cable 5/32 to 1/4 inch thick. Inner ridges grip all round so the line cannot slip loose.` |
+|---|---|
+| **PT** | `Vinte presilhas com os parafusos já montados, para cabo de 5/32 a 1/4 de polegada. Ranhuras internas seguram em volta toda, sem o cabo escapar ou afrouxar.` |
+| 出处 | `Fits for Cable Diameter: **5/32" to 1/4"**` + `**pre-installed screws**` + `Added **ridges**… **all-round grip**` |
+| ⚠️ | 正文 `5/32" to 1/4" (3.8-6.3mm)` **换算不准**（5/32"=3.97mm）→ **meta 只写英寸，不替它换算**。标题 `for Starlink Series` 暗示全系列通用**但正文一句都没说适配哪几代** → **我没写「全系列通用」**。 |
+
+### `667` · Gen 2 双口以太网适配器
+| **EN** | `Two gigabit ports for the Starlink Gen 2 router — run a PC and a console, or a NAS and a TV. IP65 housing, gold-plated ports, rated for 24/7 use.` |
+|---|---|
+| **PT** | `Duas portas gigabit para o roteador Starlink Gen 2 — ligue um PC e um console, ou NAS e TV. Carcaça IP65, portas douradas, feito para uso 24 horas.` |
+| 出处 | `**PC+game console** or **NAS + smart TV** simultaneously. Overcome your Starlink Gen2 router's limit` + `**IP65**` + `**gold-plated** ports` + `rated for **24/7**` |
+| ⚠️ 挂账 | 标题和 **`meta_title` 都带错字 `Ntworking`**。 |
+
+### `670` · Gen 2 / High Performance 枢轴支架
+| **EN** | `Pivot mount for Standard Actuated or High Performance Starlink on shingled roofs — drilling required, not for tile or slate. Bring a 5/32 inch bit.` |
+|---|---|
+| **PT** | `Suporte pivotante para Starlink Standard Actuated ou High Performance em telhado asfáltico — exige furação. Não serve para telha cerâmica nem ardósia.` |
+| 出处 | `**shingled roofs, requires drilling**. **Not recommended for tile, slate, and clay**` + `Tools Needed: Drill… **5/32" Drill Bit**` + `Compatibility: Standard Actuated Starlink, **High Performance Starlink**` |
+| 钩子理由 | ⭐**「瓦/石板屋顶装不了」放进 meta** —— 这是**最贵的一次退货**（家里是瓦屋顶就是装不了）。**正文明说，标题只有六个词。** |
+| 📌 | 这页是**标题漏了正文的卖点**（正文还兼容 High Performance）—— 与常见的「标题吹大」**方向相反**。 |
+
+### `672` · Gen 3 枢轴支架整套
+| **EN** | `Complete Gen 3 pivot mount kit: mast, pipe adapter, sealant tape, lag screws, 20 cable clips. For slanted shingled roofs; tested through snow and hail.` |
+|---|---|
+| **PT** | `Kit completo de suporte pivotante Gen 3: mastro, adaptador de tubo, fita vedante, parafusos e 20 presilhas. Para telhado asfáltico inclinado e testado.` |
+| 出处 | `Pivot Mount, Pipe Adapter, **2x Sealant Tape Squares**… **2x Lag Screws**, **20x Cable Routing Clips**… **1X Mast**` + `tested to handle… **snow, hail**, sleet, heavy rain` |
+| 钩子理由 | **屋顶打孔最怕漏水，密封胶带直接送** —— 正文清单里写着，标题没提。 |
+| ⚠️ 挂账 | 正文说 `all necessary hardware`，但清单只有一把内六角扳手 —— **上瓦屋顶必须要电钻，包装没有、也没像 `670` 那样列需自备工具** → **这句我没搬进 meta**。另 **`672` 缺 `670` 那条瓦屋顶警告**，两者同为沥青瓦产品 → 建议补。 |
+
+---
+
+## 🔴 被数据挡住的 5 个（**写不了，待裁**）
+
+> **写哪个数字都是在替一个错误背书。**
+
+| 产品 | 🔴 问题 | 证据 |
+|---|---|---|
+| **`665`** | 标题的长度档**正文一个都没确认** | 标题 `30/75/100/150FT`，**正文通篇反复写 `50ft`（8 次以上）** —— 整段从另一个 50ft 单规格 listing 搬来没改 |
+| **`665`** | 🔴 **诚信红线（与图片那条同源）** | 正文写 `Our Star link cables can be **buried directly**`，而线材是 **CMX/CMR** 级 —— **都不是直埋等级**。→ **正文和图片都在说，不只是图的问题** |
+| **`660`** | 标题与正文对不上三处 | 标题 `Cat 6` vs 正文 `CAT5E FTP`+1000Mbps；正文说兼容 `V3/V4` 但规格表只认 Gen 3；标题 `Waterproof` vs 正文 `water-resistant`（**防水 vs 抗水，退货口径不同**） |
+| **`666` vs `668`** | 🔴 **疑似同一件货开了两个 listing** | 都是 Gen2 SPX↔RJ45、一对装、同样的 `75ft/175ft` 限制。差异只有 `IP67`/`IP68`、`24AWG`/`26AWG` —— **更像文案抄串**。且 `668` 是更细的 26AWG 却在强调「接触电阻会掉压」，组合反常 |
+| **`666`** | 同页自相矛盾 | 既说网线 `under 175ft` 又说 `not exceeding 75ft`。真相在 `668`（分碟→POE 与碟→路由器两种场景），**但 `666` 自己没写这个前提** |
+| **`669`** | 近乎无钩子 + 疑似串稿 | 全文只有 `22AWG` 一个硬数字；标题 `75FT/23M` vs 正文 `flexible lengths`；**是根 power cord 却在讲 bandwidth**；标题带**第三方品牌残留 `linkoostar`** |
+
+## 📌 顺带挂账（不在本次范围）
+`667` 标题+`meta_title` 错字 `Ntworking` · `660` 标题错字 `Sata` · `664` `5/32"→3.8mm` 换算不准（应 3.97）·
+`662` 残留 `coax` + 管径三口径 · `672` 声称 `all necessary hardware` 却没列需自备电钻、且缺瓦屋顶警告 ·
+`44` 拼写 `tradictional`/`enthernet` · `657` 规格表 `Cat 8` 与 26AWG/1200Mbps 对不上 + `Compatible Phone Models` 错填
+
+## 进度
+**已写 27/61** · **挂起 5**（`652` `660` `665` `666` `668`）+ `669` 仅 1 钩子待定 · **剩 28**
 
 ---
 
