@@ -55,11 +55,29 @@ const md = `# i18n 泄漏【基线快照】—— 冻结
 | **d_otherText** 其余可见文本 | ${snap.byClass['d_otherText — 其余可见文本 (已逐个核实为真型号名)']} | 已逐个核实=**真型号名**，无需修 |
 | **e_links** 该指 pt 却指英文 | ${snap.byClass['e_links — 该指pt却指英文 → R1 localizeUrl 域']} | **R1 \`localizeUrl\`** |
 
-### d_otherText 逐条核实结论（不是漏译）
-- \`Gen 3 Mesh Router\` — Starlink 真型号
-- \`Starlink 2M Router Cable\` — 该行就是规格表的「Nome do modelo」字段值
-- \`Internet Kit Satellite\` — 型号短语
-- \`Case\` — 巴西通用外来词，且与 chrome 术语「Cases e Proteção」一致
+### ⚠️ d_otherText 逐条核实结论 —— **原结论是错的，2026-07-15 重核后作废重写**
+
+> **原结论**（已作废）：「已逐个核实 = 真型号名，**无需修**」，并列了
+> \`Gen 3 Mesh Router\` / \`Starlink 2M Router Cable\` / \`Internet Kit Satellite\` / \`Case\`。
+>
+> **错在哪**：那批条目是**旧 scanner 版本**下的结果。调白名单时数字走过 **558 → 741 → 512**，
+> **每次重出了数字，却没重核这段「人的结论」** —— 它跟着 scanner 版本漂走了，
+> 却还穿着「已核实」的外衣。**总调度是信了这句才批的基线。**
+>
+> ⭐ **教训（已立为规矩）**：**冻结数字的同时必须冻结结论，且结论要绑 scanner 版本。**
+> 口径一变，**所有基于旧口径的人工结论一律作废重核，不许继承**。
+> **「已核实」是一个会过期的状态，不是一个永久属性。**
+
+**重核后的真相**（scanner v1.0.0，两棵树逐字相同，R1 没碰）：
+
+| 条数 | 实为 | 归谁 | 处置 |
+|---|---|---|---|
+| **8** | ❌ **真漏译 —— 多语言窗自己的漏**：Phase 2.5 译描述时，译了正文散文却把 \`description_html\` 里**内联 \`<img>\` 的 alt** 原样留成英文（\`4205\`×3 + \`672\`×5，pt-BR 与 en 逐字相同 = 根本没译） | 多语言窗（pt 数据） | ✅ **已修 \`53b15e6\`**（纯 pt 数据，en 零改动，不破 R2 字节一致门） |
+| 2 | ✅ 真型号短语：\`Starlink 2M Router Cable\`(657) / \`Starlink Mini Internet Kit Satellite\`(680) | — | **本就不该降**（归零反而说明型号被译坏了） |
+| 1 | ⚠️ 假阳性：\`carregadores PD/power banks\`(702) —— **power bank 是巴葡通用外来词** | — | **刻意不进白名单**（改白名单 = 改考卷；1 条噪音的代价 << 基线不可比。**尺子没坏就别动尺子**） |
+
+→ **验收地板从 11 修正为 3。基线 JSON 不重出**（\`N=547 / translationLeaks=501\` 是历史冻结快照，
+**不因为我们后来修好了东西就改它 —— 那正是它存在的意义**）。
 
 ### e_links = dev 实测的那 7 页（我的检查独立复现，且**全站无第 8 处**）
 \`pt/about\` \`pt/compatibility\` \`pt/contact\` \`pt/marine\` \`pt/mounts\` \`pt/power\` \`pt/rv-off-grid\`
@@ -85,10 +103,30 @@ ${rows}
 
 任一类非零 → \`exit 1\`（可挂 CI / pre-push）。
 
-## 验收口径
+## 验收口径 —— **身份判定，不是计数**（总调度裁决 2026-07-15）
 
-> R1+R2 落完，用**同版本 scanner** 重跑：**translationLeaks 应从 ${snap.translationLeaks} 逼近 0**。
-> 若期间 bump 了 scanner 版本 → 必须重出基线 + 在下方留痕，否则前后数字不可比。
+> **R2 通过条件**：\`a=0 且 b=0 且 e=0 且 **d 恰好是这 3 条已列名的**\`
+> （\`657 router,cable\` / \`680 satellite\` / \`702 power\`，见上表）。
+>
+> **为什么不是「逼近 0」**：那 2 条真型号名归零**反而说明型号被译坏了**。
+> **为什么不是「~3」**：模糊数会招来「差不多就行」，且**抓不到「修好旧的又漏了新的」**
+> —— d 仍是 3 条但换了内容，**计数完全看不出来**。
+> **若 d 仍是 3 条但换了内容 → 不通过。**
+>
+> 已编进 \`scripts/pt-leak-vs-baseline.mjs\`（身份 = **文件 + 命中词集**，不是文本内容 ——
+> scanner 的 \`f.text\` 是整个文本节点，用短语 \`includes\` 会漏判；第一版就这么错过，实测抓出来了）。
+>
+> 用法：\`node scripts/pt-leak-vs-baseline.mjs --tree <被测树> --md 输出.md\`
+> **四道前置闸**（树干净 + 扫描期 HEAD 不动 / 含基线 commit / scanner 同版本 / 页数 = ${snap.ptPagesScanned}），
+> **不可比时拒绝出数**，而不是出一个会被误读的数。
+>
+> 若 bump 了 scanner 版本 → 必须重出基线 + 在下方留痕 + **所有旧口径下的人工结论一律作废重核**。
+
+### R1 验收结果（scanner v${snap.scannerVersion} @ \`3928fb0d\`，四道闸全过）
+**✅ R1 通过**：本职 \`e_links\` **35 → 0**（100% 清空，由构造杀掉，不是翻掉的）。
+translationLeaks 501 → 466 **不是 R1 的成绩单** —— 剩余 466 = a(199)+b(256)+d(11) **全是 R2 的域**。
+交叉验证：dev 自称修的 7 页 = 本基线 e 类的那 7 页，逐页吻合；且 dev **没碰考卷**（diff 为空，差异纯 CRLF）。
+**⚠️ R2 的真靶子 = 455（a 199 + b 256），不是 466** —— d 的 11 条 R2 杀不掉（8 条是 pt 数据里的漏，已由 \`53b15e6\` 修）。
 
 ---
 
@@ -120,6 +158,7 @@ ${markersSrc}
 |---|---|---|---|---|
 | 2026-07-14 | v1.0.0 | 初版冻结 @ \`836f341f\` | — | 基线 N=547 / translationLeaks=501（总调度逐条核实后批准，含独立 curl 复核 c 类剔除的合法性） |
 | 2026-07-14 | v1.0.0（**未 bump**） | 加 \`ledger\`：c 类 46 条 + e 类 35 条**逐条留档** | 总调度要求「c 类必须挂账、不许消失」；e 类逐条 = R1 \`localizeUrl\` 的验收靶子 | **数字零变化**（N=${snap.total} / translationLeaks=${snap.translationLeaks}）。⚠️记录的 commit \`836f341f\`→\`${snap.commitShort}\`：重跑发生在当前 HEAD，两者之间 \`pt/\` **零内容改动**（只加了 scripts/docs），故完全可比。**判定口径（白名单/标记表）一字未动**，所以不 bump 版本。 |
+| 2026-07-15 | v1.0.0（**未 bump**） | ⚠️ **d 类「逐条核实结论」作废重写**（见上）+ 验收口径由「逼近 0」改为**身份判定**（\`d 恰好是那 3 条\`）+ 地板 **11 → 3** | **原结论是错的**：它描述的是旧 scanner 版本下的另一批条目。调白名单时数字重出过三次（558→741→512），**结论一次都没重核**。总调度是信了那句「已核实=真型号名，无需修」才批的基线。 | **基线数字零变化**（N=${snap.total} / translationLeaks=${snap.translationLeaks} **不重出**）—— 冻结快照就该是历史，不因为后来修好了东西而改动。**判定口径（白名单/标记表）一字未动 → 不 bump**。变的只有①人的结论 ②合格线定义。修复 commit \`53b15e6\`（8 条 pt 内联 alt，en 零改动）。 |
 `;
 
 fs.writeFileSync(path.join(ROOT, 'i18n-baseline.md'), md);
