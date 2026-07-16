@@ -86,8 +86,12 @@ console.log(`manifest: data/products-index.json (${manifest.length} products, wi
 // Regenerate list pages (card grid + chip counts) from the manifest — so a new/edited
 // product shows up on /products/ and its category page. /for/X hubs stay hand-curated.
 const CATS = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
+// Performance (Gen 2) has 0 products of its own. Joe wants the 8th homepage tile back, so the tile
+// must land somewhere real: this page aggregates the Performance family instead of being an empty
+// shell. Not a hardcoded product list — a category predicate, so it tracks the data forever.
+const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "performance-gen-3"]]];
 let lists = 0;
-for (const [rel, cat] of [["products/index.html", null], ...CATS.map((c) => [`${c}/index.html`, c])]) {
+for (const [rel, cat] of [["products/index.html", null], ...CATS.map((c) => [`${c}/index.html`, c]), ...AGGREGATES]) {
  for (const locale of LOCALES) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) continue;

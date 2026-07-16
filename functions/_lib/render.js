@@ -175,8 +175,18 @@ function updateChips(html, id, countFn) {
 
 // Rebuild #productGrid cards + the model/form chip counts. catFilter=null for /products/,
 // or a category slug for /{category}/. Returns updated html (unchanged if no #productGrid).
+// catFilter accepts a category slug (as before), null for /products/, an ARRAY of slugs (the
+// Gen 2 page aggregates the Performance family — it has 0 products of its own and must not be a
+// dead click), or {form} for the /type/ pages. One predicate covers all four so no caller needs a
+// special case, and adding a fifth kind of list page later costs nothing.
 export function regenListPage(html, entries, catFilter, { locale = "en", catalog, urlOf } = {}) {
-  const scope = (catFilter ? entries.filter((e) => e.category === catFilter) : entries.slice())
+  const inScope = (e) => {
+    if (!catFilter) return true;
+    if (Array.isArray(catFilter)) return catFilter.includes(e.category);
+    if (typeof catFilter === "object") return catFilter.form ? e.form === catFilter.form : true;
+    return e.category === catFilter;
+  };
+  const scope = entries.filter(inScope)
     .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
   // NB: must be an arrow, not `scope.map(cardHtml)` — map passes (el, index, array), so the bare
   // reference would feed the INDEX in as `locale`. It would even look fine in en (an unknown
