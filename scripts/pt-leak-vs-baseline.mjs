@@ -134,8 +134,45 @@ for (const x of rows)
 
 const pct = BASE.translationLeaks ? Math.round((1 - now / BASE.translationLeaks) * 100) : 0;
 console.log(`\n⭐ translationLeaks: ${BASE.translationLeaks} → ${now}  (降 ${pct}%)`);
-const verdict = now === 0 ? '✅ 归零' : now <= BASE.translationLeaks * 0.05 ? '✅ 逼近 0 (≤5%)' : now < BASE.translationLeaks ? '⚠️ 降了但未逼近 0' : '❌ 未降';
-console.log(`   判定: ${verdict}\n`);
+
+/* ── d 类地板: 【身份判定, 不是计数判定】(总调度裁决 2026-07-15) ──────────────
+ * 「~0」是错的目标: 那 2 条真型号名归零反而说明型号被译坏了。
+ * 「~3」也是错的: 模糊数会招来「差不多就行」, 且抓不到「修好旧的又漏了新的」
+ *                —— d 仍是 3 条但换了内容, 计数完全看不出来。
+ * 所以合格线 = **恰好是这 3 条已列名的**。 */
+/* ⚠️ 身份 = (文件 + 命中词集), **不是文本内容** —— scanner 的 f.text 是整个文本节点,
+   680 那句真正含 "Internet Kit Satellite" 的短语被裹在一长段 pt 正文里, 拿短语去 includes 会漏判。*/
+const D_FLOOR = [
+  { file: 'pt/enterprise/657.html', hits: 'router,cable', label: 'Starlink 2M Router Cable', why: '真型号名 — 规格表「Nome do modelo」字段值' },
+  { file: 'pt/mini/680.html', hits: 'satellite', label: 'Starlink Mini Internet Kit Satellite', why: '真型号短语 — Starlink 官方品名, 出现在 pt 正文里' },
+  { file: 'pt/mini/702.html', hits: 'power', why: '假阳性 — "carregadores PD/power banks", power bank 是巴葡通用外来词', label: 'power bank(假阳性)' },
+];
+const idOf = (f) => `${f.file}|${[...f.hits].sort().join(',')}`;
+const floorIds = new Set(D_FLOOR.map((x) => `${x.file}|${x.hits.split(',').sort().join(',')}`));
+const matched = new Set();
+const strays = [];
+for (const f of cls.d_otherText) {
+  const k = idOf(f);
+  if (floorIds.has(k)) matched.add(k); else strays.push(f);
+}
+const missing = D_FLOOR.filter((x) => !matched.has(`${x.file}|${x.hits.split(',').sort().join(',')}`));
+const dFloorOk = strays.length === 0 && missing.length === 0;
+
+console.log(`\n【d 类地板 — 身份判定(文件+命中词集)】${dFloorOk ? '✅ 恰好是那 3 条已列名的' : '❌ 不符'}`);
+for (const x of D_FLOOR) {
+  const ok = matched.has(`${x.file}|${x.hits.split(',').sort().join(',')}`);
+  console.log(`   ${ok ? '✅' : '❌ 不见了'} ${x.label}  (${x.file}) — ${x.why}`);
+}
+if (strays.length) {
+  console.log(`   ❌ 名单外多出 ${strays.length} 条 —— 这就是「修好旧的又漏了新的」, 计数抓不到:`);
+  strays.slice(0, 8).forEach((f) => console.log(`        ${f.file}:${f.line} ${JSON.stringify(String(f.text).slice(0, 60))}`));
+}
+
+const scopeOk = cls.a_cardTitles.length === 0 && cls.b_altSuffix.length === 0 && cls.e_links.length === 0;
+const verdict = scopeOk && dFloorOk ? '✅ 通过 (a=0 b=0 e=0, d 恰好是那 3 条)'
+  : scopeOk ? '❌ 不通过 — a/b/e 已清空, 但 d 不是那 3 条'
+  : `❌ 不通过 — 仍剩 a=${cls.a_cardTitles.length} b=${cls.b_altSuffix.length} e=${cls.e_links.length}`;
+console.log(`\n   判定: ${verdict}\n`);
 
 if (now > 0) {
   console.log('剩余未清的(按类):');
@@ -157,7 +194,18 @@ if (MD) {
 | 基线 | scanner v${BASE.scannerVersion} @ \`${BASE.commitShort}\` |
 | 前置闸 | ✅ 含基线commit / ✅ scanner同版本 / ✅ 页数同为 ${r.scanned} |
 
-## ⭐ translationLeaks: **${BASE.translationLeaks} → ${now}** (降 ${pct}%) — ${verdict}
+## ⭐ translationLeaks: **${BASE.translationLeaks} → ${now}** (降 ${pct}%)
+
+### 判定: ${verdict}
+
+**合格线 = 身份判定,不是计数**(总调度裁决):\`a=0 且 b=0 且 e=0 且 d 恰好是这 3 条已列名的\`。
+「~0」错在那 2 条真型号名归零**反而说明型号被译坏了**;「~3」错在模糊数会招来"差不多就行",
+且**抓不到「修好旧的又漏了新的」**——d 仍是 3 条但换了内容,计数完全看不出来。
+
+| d 地板 3 条 | 在? | 为什么它该留着 |
+|---|---|---|
+${D_FLOOR.map((x) => `| \`${x.label}\` (${x.file}) | ${matched.has(`${x.file}|${x.hits.split(',').sort().join(',')}`) ? '✅' : '❌ 不见了'} | ${x.why} |`).join('\n')}
+${strays.length ? `\n❌ **名单外多出 ${strays.length} 条**(= 修好旧的又漏了新的):\n${strays.slice(0, 10).map((f) => `- \`${f.file}:${f.line}\` ${JSON.stringify(String(f.text).slice(0, 60))}`).join('\n')}` : ''}
 
 | 类 | 基线 | 现在 | 变化 | 归谁修 |
 |---|---|---|---|---|
