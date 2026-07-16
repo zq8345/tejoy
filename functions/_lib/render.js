@@ -88,6 +88,17 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   };
   let r = template;
   for (const [k, v] of Object.entries(reps)) r = r.split(`{{${k}}}`).join(v);
+  // Resolve the body-chrome catalog tokens (item 7). Tokenizing the template without teaching the
+  // renderer to read them shipped literal "{{t.body.back}}" onto every page — the tokens ARE the
+  // English now, so an unresolved one is a leak, not a cosmetic bug. Throw rather than leave the
+  // brace on the page: a missing key must fail loudly, not render as markup.
+  r = r.replace(/\{\{t\.([a-z0-9_.]+)\}\}/gi, (m, key) => {
+    const e = catalog && catalog[key];
+    if (!e) throw new Error(`template references catalog key that does not exist: ${key}`);
+    const v = e[locale] ?? e.en;
+    if (v === undefined || v === null || v === "") throw new Error(`catalog ${key} has no value for ${locale} — the guard should have caught this first`);
+    return v;
+  });
   return r;
 }
 
