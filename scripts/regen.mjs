@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, setListTitle, setTileAlts, excerptOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, renderHome, excerptOf } from "../functions/_lib/render.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -116,13 +116,23 @@ for (const [rel, cat, name] of LIST_PAGES) {
 }
 console.log(`list pages regenerated: ${lists} changed`);
 
-// Homepage model tiles: alt derived from each tile's own href, not hand-written 8x per locale.
-let tiles = 0;
+// R3(a) — the homepage is generated now, not hand-written: template + prose catalog + tiles.
+// setTileAlts is gone: the tiles are emitted with their alts already derived, so there is nothing
+// left to go back and patch. Model tiles filter by EXISTENCE — a tile appears only where the page
+// it points at exists in that locale. Not a rule I invented: it predicts pt's current 7 tiles
+// exactly (no /pt/performance-gen-2/, so no tile sending pt users to an English page), and it
+// grows itself — build that page and pt gets its 8th tile with nobody remembering to add it.
+const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
+const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
+const homeTiles = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8"));
+const pageExists = (p, loc) => { const d = dirOf(loc); return !d || fs.existsSync(path.join(REPO, `${d}${p}index.html`)); };
+let homes = 0;
 for (const locale of LOCALES) {
   const p = pageOf(locale, "index.html");
   if (!fs.existsSync(p)) continue;
   const h0 = fs.readFileSync(p, "utf8");
-  const h1 = setTileAlts(h0, locale, catalog, MODEL);
-  if (h1 !== h0) { fs.writeFileSync(p, h1); tiles++; }
+  const h1 = renderHome(homeTpl, { locale, catalog: { ...homeCat, "card.alt.category": catalog["card.alt.category"] },
+    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists });
+  if (h1 !== h0) { fs.writeFileSync(p, h1); homes++; }
 }
-console.log(`homepage tile alts: ${tiles} pages changed`);
+console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.json)`);

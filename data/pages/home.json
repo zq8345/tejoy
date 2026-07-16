@@ -1,0 +1,234 @@
+{
+  "home.hero.title": {
+    "en": "Starlink Accessories One-stop Solution",
+    "pt-BR": "Solução completa em acessórios para Starlink"
+  },
+  "home.hero.subtitle": {
+    "en": "Accessories for every Starlink model — mounts, cables, power adapters, and more.",
+    "pt-BR": "Acessórios para todos os modelos Starlink — suportes, cabos, adaptadores de energia e muito mais."
+  },
+  "home.hero.cta": {
+    "en": "Browse products",
+    "pt-BR": "Ver produtos"
+  },
+  "home.kick.1": {
+    "en": "Shop",
+    "pt-BR": "Loja"
+  },
+  "home.h2.1": {
+    "en": "Our Products",
+    "pt-BR": "Nossos produtos"
+  },
+  "home.sub.1": {
+    "en": "Starlink-compatible accessories for every terminal generation — mounts, cables, power adapters, and more.",
+    "pt-BR": "Acessórios compatíveis com Starlink para todas as gerações de terminal — suportes, cabos, adaptadores de energia e muito mais."
+  },
+  "home.kick.2": {
+    "en": "Why Tejoy",
+    "pt-BR": "Por que a Tejoy"
+  },
+  "home.h2.2": {
+    "en": "Our Advantages",
+    "pt-BR": "Nossos diferenciais"
+  },
+  "home.sub.2": {
+    "en": "Standardized, fully optimized quality control and manufacturing processes, purpose-built for Starlink accessories to deliver consistent, high-quality products.",
+    "pt-BR": "Controle de qualidade e processos de fabricação padronizados e totalmente otimizados, desenvolvidos sob medida para acessórios Starlink, entregando produtos consistentes e de alta qualidade."
+  },
+  "home.h3.1": {
+    "en": "Starlink Accessories Dedicated R&amp;D Team",
+    "pt-BR": "Equipe de P&amp;D dedicada a acessórios Starlink"
+  },
+  "home.p.1": {
+    "en": "We focus on Starlink ecosystem accessories, precisely addressing user pain points and delivering high-fit, high-stability solutions.",
+    "pt-BR": "Focamos nos acessórios do ecossistema Starlink, resolvendo com precisão as dores dos usuários e entregando soluções de alto encaixe e alta estabilidade."
+  },
+  "home.h3.2": {
+    "en": "Customized Starlink Accessories",
+    "pt-BR": "Acessórios Starlink personalizados"
+  },
+  "home.p.2": {
+    "en": "We specialize in tailored Starlink accessories, offering full-process support from technical design to mass production, delivering one-stop solutions for global users.",
+    "pt-BR": "Somos especializados em acessórios Starlink sob medida, com suporte de ponta a ponta — do projeto técnico à produção em larga escala — entregando soluções completas para clientes no mundo todo."
+  },
+  "home.h3.3": {
+    "en": "Patent-backed Quality Control",
+    "pt-BR": "Controle de qualidade com respaldo de patentes"
+  },
+  "home.p.3": {
+    "en": "200+ Starlink accessory patents, standardized production &amp; full-chain QC. Monthly capacity: 400,000–600,000 units, ensuring both quality and on-time delivery.",
+    "pt-BR": "Mais de 200 patentes em acessórios Starlink, produção padronizada e QC em toda a cadeia. Capacidade mensal de 400.000 a 600.000 unidades, garantindo qualidade e entrega no prazo."
+  },
+  "home.h3.4": {
+    "en": "Full-cycle After-sales Support",
+    "pt-BR": "Suporte pós-venda de ciclo completo"
+  },
+  "home.p.4": {
+    "en": "Starlink-specific service system with pre-sales consultation &amp; fast-response after-sales. We stand behind every product with zero tolerance for quality issues.",
+    "pt-BR": "Sistema de atendimento específico para Starlink, com consultoria pré-venda e pós-venda de resposta rápida. Garantimos cada produto, com tolerância zero a problemas de qualidade."
+  },
+  "home.about.eyebrow": {
+    "en": "About Us",
+    "pt-BR": "Sobre a Tejoy"
+  },
+  "home.p.5": {
+    "en": "Tejoy Starlink Accessories Limited designs and manufactures Starlink-compatible mounts, power adapters, cables, protective cases, and deployment accessories for RV, marine, enterprise, and off-grid users. Built around engineering-led manufacturing and quality control, Tejoy supports global buyers with stable production, OEM/ODM capability, and practical accessories for every Starlink terminal generation.",
+    "pt-BR": "A Tejoy Starlink Accessories Limited projeta e fabrica suportes, adaptadores de energia, cabos, cases de proteção e acessórios de instalação compatíveis com Starlink para usuários de motorhome, náutica, empresas e off-grid. Com uma fabricação e um controle de qualidade guiados pela engenharia, a Tejoy atende compradores no mundo todo com produção estável, capacidade OEM/ODM e acessórios práticos para todas as gerações de terminal Starlink."
+  },
+  "home.stat.num.1": {
+    "en": "15 Years",
+    "pt-BR": "15 anos"
+  },
+  "home.stat.text.1": {
+    "en": "Manufacturing Experience",
+    "pt-BR": "de experiência em fabricação"
+  },
+  "home.stat.num.2": {
+    "en": "100+ Units",
+    "pt-BR": "100+ máquinas"
+  },
+  "home.stat.text.2": {
+    "en": "Professional Equipment",
+    "pt-BR": "Equipamentos profissionais"
+  },
+  "home.stat.num.3": {
+    "en": "150+ Staff",
+    "pt-BR": "150+ colaboradores"
+  },
+  "home.stat.text.3": {
+    "en": "Skilled Technicians",
+    "pt-BR": "Técnicos qualificados"
+  },
+  "home.stat.num.4": {
+    "en": "200+ Patents",
+    "pt-BR": "200+ patentes"
+  },
+  "home.stat.text.4": {
+    "en": "Invention & Utility Patents",
+    "pt-BR": "Patentes de invenção e de modelo de utilidade"
+  },
+  "home.about.cta": {
+    "en": "Learn More",
+    "pt-BR": "Saiba mais"
+  },
+  "home.kick.3": {
+    "en": "Learn",
+    "pt-BR": "Aprenda"
+  },
+  "home.h2.3": {
+    "en": "Guides &amp; Resources",
+    "pt-BR": "Guias e recursos"
+  },
+  "home.sub.3": {
+    "en": "Setup guides, buyer advice, and knowledge for getting the most out of your Starlink.",
+    "pt-BR": "Guias de instalação, dicas de compra e conhecimento para aproveitar ao máximo a sua Starlink."
+  },
+  "home.guide.cat.1": {
+    "en": "Power",
+    "pt-BR": "Energia"
+  },
+  "home.guide.date.1": {
+    "en": "Jul 4, 2026",
+    "pt-BR": "4 de jul. de 2026"
+  },
+  "home.h3.5": {
+    "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
+    "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C"
+  },
+  "home.p.6": {
+    "en": "Buyer guide for Starlink power adapters — compare 12V DC, stock AC, and USB-C PD options, with recommendations by use case: RV, off-grid, and home.",
+    "pt-BR": "Guia de compra de adaptadores de energia para Starlink — compare as opções 12V DC, AC original e USB-C PD, com recomendações por caso de uso: motorhome, off-grid e residência."
+  },
+  "home.guide.more.1": {
+    "en": "Read more",
+    "pt-BR": "Leia mais"
+  },
+  "home.guide.cat.2": {
+    "en": "RV &amp; Off-Grid",
+    "pt-BR": "Motorhome &amp; Off-Grid"
+  },
+  "home.guide.date.2": {
+    "en": "Jul 4, 2026",
+    "pt-BR": "4 de jul. de 2026"
+  },
+  "home.h3.6": {
+    "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
+    "pt-BR": "Como instalar a Starlink Mini no motorhome: guia completo"
+  },
+  "home.p.7": {
+    "en": "A complete step-by-step setup for Starlink Mini on the road — equipment checklist, mounting, power, and cable routing.",
+    "pt-BR": "Passo a passo completo para instalar a Starlink Mini na estrada — checklist de equipamentos, fixação, energia e passagem de cabos."
+  },
+  "home.guide.more.2": {
+    "en": "Read more",
+    "pt-BR": "Leia mais"
+  },
+  "home.guide.cat.3": {
+    "en": "Mounts",
+    "pt-BR": "Suportes"
+  },
+  "home.guide.date.3": {
+    "en": "Jul 4, 2026",
+    "pt-BR": "4 de jul. de 2026"
+  },
+  "home.h3.7": {
+    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
+    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?"
+  },
+  "home.p.8": {
+    "en": "A comparison of Tejoy pipe, wall, and flat-roof mounts for Starlink — a decision matrix with real-world scenarios and clear recommendations.",
+    "pt-BR": "Uma comparação entre os suportes de tubo, de parede e para telhado plano da Tejoy para Starlink — uma matriz de decisão com cenários reais e recomendações claras."
+  },
+  "home.guide.more.3": {
+    "en": "Read more",
+    "pt-BR": "Leia mais"
+  },
+  "home.a.1": {
+    "en": "View all guides →",
+    "pt-BR": "Ver todos os guias →"
+  },
+  "home.meta.title": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "home.meta.site_name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
+  },
+  "home.meta.desc": {
+    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+  },
+  "home.meta.keywords": {
+    "en": "Tejoy, Starlink Accessories, Starlink Mounts, Starlink Cables, Starlink Mini Power Adapter, third-party Starlink accessories, Starlink-compatible mounts, Starlink Mini 12V adapter, satellite internet accessories",
+    "pt-BR": "Tejoy, acessórios Starlink, suportes Starlink, cabos Starlink, adaptador de energia Starlink Mini, acessórios Starlink de terceiros, suportes compatíveis com Starlink, adaptador 12V Starlink Mini, acessórios para internet via satélite"
+  },
+  "home.org.desc": {
+    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
+  },
+  "home.org.knows": {
+    "en": "Starlink-compatible accessories",
+    "pt-BR": "acessórios compatíveis com Starlink"
+  },
+  "home.org.knows.2": {
+    "en": "satellite internet accessories",
+    "pt-BR": "acessórios para internet via satélite"
+  },
+  "home.org.knows.3": {
+    "en": "RV connectivity",
+    "pt-BR": "conectividade em motorhome"
+  },
+  "home.org.knows.4": {
+    "en": "off-grid power",
+    "pt-BR": "energia off-grid"
+  },
+  "home.org.knows.5": {
+    "en": "mounting systems",
+    "pt-BR": "sistemas de fixação"
+  },
+  "home.breadcrumb.home": {
+    "en": "Home",
+    "pt-BR": "Início"
+  }
+}

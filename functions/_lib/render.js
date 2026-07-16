@@ -207,6 +207,48 @@ export function setTileAlts(html, locale, catalog, modelDisplay) {
   return html.replace(/(<img[^>]*tejoy-company-wall\.png[^>]*alt=")[^"]*(")/g, "$1$2");
 }
 
+// R3(a) 首页:模板 + 散文目录 + 机型卡 -> 页面。
+//
+// 机型卡按【存在性】过滤,不是按一张写死的清单:一张卡只在它指向的页面于该语种存在时才出现。
+// 这不是我发明的规则 —— 它精确预测了 pt 首页的现状(7 张,正好是有 pt 页的 7 个分类)。en 8 张。
+// 好处是它自己会长:等 /pt/performance-gen-2/ 建出来,pt 首页自动就有第 8 张,没人需要记得。
+export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, exists }) {
+  const sfx = catalog["card.alt.category"];
+  const suffix = sfx[locale] ?? sfx.en;
+  const cards = tiles
+    .filter((t) => exists(`/${t.cat}/`, locale))
+    .map((t) => {
+      const name = modelDisplay[t.cat];
+      return `<div class="product-grid-item">\n            <a href="${urlOf(`/${t.cat}/`, locale)}" class="product-grid-link">\n` +
+        `              <div class="product-grid-img">\n                <img src="${t.img}" alt="${name} ${suffix}" loading="lazy">\n` +
+        `              </div>\n              <div class="product-grid-text"><b>${name}</b></div>\n            </a>\n          </div>`;
+    })
+    .join("\n          \n          ");
+  let out = tpl.split("{{TILES}}").join(cards);
+  // head 里随语种变的:派生,不进目录 —— URL / lang / hreflang 的差异不是翻译(R1 洞②)
+  const home = locale === "en" ? "/" : "/pt/";
+  const reps = {
+    HTML_LANG: locale,
+    CANONICAL: `https://tejoy.com${home}`,
+    CANONICAL_NOSLASH: locale === "en" ? "https://tejoy.com" : `https://tejoy.com${home}`,
+    OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
+  };
+  for (const [k, v] of Object.entries(reps)) out = out.split(`{{${k}}}`).join(v);
+  // body 内链走同一条存在性规则(chrome 早就在用):有该语种的页就加前缀,没有就留原样。
+  // 这不是我为首页新发明的 —— 它精确复现了 pt 首页的现状:/pt/products/ 有前缀,而 /power/4384
+  // 没有,因为那 3 个指南页没有 pt 版。URL 的差异不是翻译,不进目录(R1 洞②)。
+  out = out.replace(/\{\{url\.([^}]+)\}\}/g, (m, p) => urlOf(p, locale));
+  // 缺 key 就抛 —— 一个没解析的 token 印在页面上就是泄漏,静默回退成英文更糟(R1 的教训)
+  out = out.replace(/\{\{t\.([a-z0-9_.]+)\}\}/gi, (m, key) => {
+    const e = catalog[key];
+    if (!e) throw new Error(`home template references a key that does not exist: ${key}`);
+    const v = e[locale] ?? e.en;
+    if (v === undefined || v === null || v === "") throw new Error(`home catalog ${key} has no value for ${locale}`);
+    return v;
+  });
+  return out;
+}
+
 export function setListTitle(html, name, locale, catalog) {
   const t = listTitleOf(name, locale, catalog);
   if (!t) return html;

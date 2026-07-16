@@ -18,7 +18,14 @@ import fs from "fs";
 
 const MODE = process.argv.includes("--strict") ? "strict" : "report";
 const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
-const catalog = JSON.parse(fs.readFileSync("data/chrome.json", "utf8"));
+// R3 起,页面散文也有目录(data/pages/*.json)。guard 必须一起看 —— 它守的是「这个语种还差什么」,
+// 而不是「chrome 还差什么」。漏掉页面目录,西语开进来时 47 条首页文案会静默回退成英文而无人吼。
+// 从目录读,不是列一张会腐烂的清单:新加一桶(信息页/hub/指南)自动进 guard,没人需要记得。
+const PAGES = fs.existsSync("data/pages")
+  ? fs.readdirSync("data/pages").filter((f) => f.endsWith(".json") && f !== "home-tiles.json")
+  : [];
+const catalog = Object.assign({}, JSON.parse(fs.readFileSync("data/chrome.json", "utf8")),
+  ...PAGES.map((f) => JSON.parse(fs.readFileSync(`data/pages/${f}`, "utf8"))));
 const enabled = locales.enabled;
 
 // `_`-prefixed entries are file-level docs/metadata, not translatable keys.
@@ -38,7 +45,7 @@ const orphans = [];
 // {{t.body.*}} tokens in R1 item 7, and a guard that only knew about _chrome.html reported all 21
 // of them as "unused, possibly rotten". A false alarm from the guard is not harmless: it trains
 // people to ignore it, and then the real one goes unread too.
-const TEMPLATES = ["data/templates/_chrome.html", "data/templates/product.html"];
+const TEMPLATES = ["data/templates/_chrome.html", "data/templates/product.html", "data/templates/home.html"];
 const PARTIAL = TEMPLATES[0];
 const allTpl = TEMPLATES.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
 for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]]) orphans.push(m[1]);
