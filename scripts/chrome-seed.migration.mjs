@@ -91,6 +91,11 @@ export function tokenizeAttrs(html, decide) {
 
 // Internal hrefs become routing tokens — resolved from route+locale, never catalog keys.
 export function tokenizeHrefs(html) {
+  // Absolute same-site URLs must tokenize too, or the locale never gets a say: the en logo links
+  // to https://tejoy.com/ while the pt logo links to /pt/. Keep the ORIGINAL form inside the
+  // token — rewriting it to "/" is the same destination but a different byte, and "en zero
+  // content regression" is the evidence this refactor changed nothing. Equivalent != identical.
+  html = html.replace(/href="(https?:\/\/(?:www\.)?tejoy\.com\/[^"]*)"/g, (full, u) => `href="{{url.${u}}}"`);
   return html.replace(/href="(\/[^"]*)"/g, (full, path) => `href="{{url.${path}}}"`);
 }
 
@@ -113,6 +118,19 @@ function textUnits(html) {
   while ((m = re.exec(clean))) { const t = m[1].trim(); if (t) out.push(t); }
   return out;
 }
+// User-visible ATTRIBUTES are user-visible text too: a screen-reader user hears aria-label the
+// way a sighted user reads a heading. Leaving them out of the enumeration is the same leak,
+// aimed at the people least able to route around it. (§8.9 — this capability lived only in
+// chrome-extract.mjs, which I deleted as "redundant" without checking what it uniquely did.)
+const VIS_ATTRS = ["aria-label", "alt", "title", "placeholder"];
+function attrUnits(html) {
+  const clean = html.replace(/<script[\s\S]*?<\/script>/gi, "<script></script>");
+  const out = [];
+  const re = new RegExp(`(${VIS_ATTRS.join("|")})="([^"]*)"`, "g"); let m;
+  while ((m = re.exec(clean))) { const v = m[2].trim(); if (v) out.push(v); }
+  return out;
+}
+const allUnits = (html) => [...textUnits(html), ...attrUnits(html)];
 
 // data/chrome.json is HUMAN-OWNED once it exists: translations and homograph verdicts live
 // there. The builder only SEEDS missing keys — it must never clobber a human's work, or a
@@ -143,7 +161,7 @@ function addKey(block, enVal, ptVal) {
 }
 
 for (const blk of ["header", "mobilenav"]) {
-  const ue = textUnits(en[blk]), up = textUnits(pt[blk]);
+  const ue = allUnits(en[blk]), up = allUnits(pt[blk]);
   if (ue.length !== up.length) { console.log(`⚠️ ${blk} 单元数不等 ${ue.length}/${up.length} — 跳过,需先定位结构差异`); continue; }
   for (let i = 0; i < ue.length; i++) {
     if (isCount(ue[i]) || isStructural(ue[i])) continue;
@@ -175,8 +193,8 @@ flEn.service.forEach(([, label], i) => addKey("footer", label, ptService[i]));
 const emptyLists = (s) => s
   .replace(/(id="footer-products-list">)[\s\S]*?(<\/ul>)/, "$1$2")
   .replace(/(id="footer-service-list">)[\s\S]*?(<\/ul>)/, "$1$2");
-const efs = textUnits(emptyLists(en.footer)).filter((t) => !isCount(t) && !isStructural(t));
-const pfs = textUnits(emptyLists(pt.footer)).filter((t) => !isCount(t) && !isStructural(t));
+const efs = allUnits(emptyLists(en.footer)).filter((t) => !isCount(t) && !isStructural(t));
+const pfs = allUnits(emptyLists(pt.footer)).filter((t) => !isCount(t) && !isStructural(t));
 if (efs.length !== pfs.length) {
   console.log(`⚠️ footer 烘焙后单元数仍不等 en ${efs.length} / pt ${pfs.length} — 逐项对齐不可靠,以下按值配对失败的会留红:`);
   console.log("   en:", efs.slice(0, 40).join(" | "));

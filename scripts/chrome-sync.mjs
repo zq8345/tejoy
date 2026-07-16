@@ -52,7 +52,12 @@ const pageExists = (rel) => {
 };
 export function localizeUrl(p, locale) {
   const dir = LOC_DIR[locale] ?? "";
-  if (!dir) return p;                                       // default locale lives at the root
+  // Default locale: return VERBATIM, absolute URLs included. The en logo really does use
+  // https://tejoy.com/ ; normalising it to "/" is the same destination but a different byte, and
+  // byte-identity is the gate that proves this refactor changed nothing. Equivalent != identical.
+  if (!dir) return p;
+  const abs = p.match(/^https?:\/\/(?:www\.)?tejoy\.com(\/.*)$/);   // absolute same-site -> localize the path
+  if (abs) p = abs[1];
   if (p.startsWith(`/${dir}/`)) return p;                   // already localized
   const m = p.match(/^(\/[^#?]*)([#?].*)?$/);
   if (!m) return p;
