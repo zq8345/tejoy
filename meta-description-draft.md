@@ -134,4 +134,106 @@ Google SERP 大约展示 **155–160 字符**。现在 300 字符 = 一半根本
 
 ---
 
-*多语言窗 · 基于 `2be1cd44` · 零数据改动*
+# 全量铺开（总调度已批声音，2026-07-15）
+
+## ⚠️ 口径先钉死：**52 条，不是 54，也不是 56**
+
+我用 `node -e` 内联跑过两次，得到 **54** 和 **52** —— 因为 bash 双引号里 `$` 被转义，
+**两次的判定正则实际不同**。这就是「数字漂」，我自己又犯了一次。
+→ 口径已钉进 **`scripts/meta-truncation-census.mjs`**（文件里，不在命令行里），两次复跑完全一致：
+
+```
+产品总数 64
+  截断式 meta_description : 52   ← 【3】重写范围
+  独立撰写                 : 12   ← 不动
+  空                       : 0
+```
+
+### ⚠️⚠️ 但有一个**必须人工核**的风险
+
+| 谁 | 说法 |
+|---|---|
+| 总调度 | 「56 个」 |
+| **dev**（独立实测） | **56 派生 + 8 真人文案** |
+| **我**（钉死口径） | **52 截断 + 12 独立撰写** |
+
+**两个独立分类器在 4 个产品上不一致。** 按总调度的红线「**宁可缺，不可编**」——
+**若我把一条真人文案误判成「截断」然后重写，就是在毁掉真文案**（正是 dev 拒绝一刀切派生的理由）。
+→ **那 4 个必须逐条人工核，核完才动。** 已列入下方待办，**未核完不铺那 4 条**。
+
+---
+
+## 批次 1（6 条 × 2 语）
+
+> 规则不变：钩子在前 · 145–155 字 · **卖点必须标出正文出处，一个字不编**。
+
+### `42` · Starlink Performance Gen 3 转 RJ45 适配器（耦合器式）
+| | |
+|---|---|
+| 现状 | `Plug-and-Play Connectivity:The Starlink Ethernet Adapter for Performance Gen 3 provides a seamless connection…`（299字，句中截断） |
+| **EN** | `Connect your Starlink Performance Gen 3 dish to standard Ethernet — no cutting, no crimping. Soldered RJ45 connectors cut contact resistance by 50%.` |
+| **PT** | `Conecte a antena Starlink Performance Gen 3 a cabos Ethernet comuns — sem cortar nem crimpar. Conectores RJ45 soldados reduzem a resistência em 50%.` |
+| 出处 | 正文「eliminates the need for cutting or crimping」+「patented advanced soldering-type RJ45 connectors… reduce contact resistance by **50%**」 |
+
+### `43` · Starlink Performance Gen 3 转 RJ45（一体线式）
+> ⚠️ `42` 与 `43` 是**近似产品**，钩子必须区分开，否则两页互相吃流量。
+> `42` = 耦合器/延长；`43` = **一根线一体成型 + 两端都防水**。
+
+| | |
+|---|---|
+| 现状 | `*Compatibility:Designed specifically for the Starlink Performance Gen 3 dish…`（300字，句中截断） |
+| **EN** | `One cable: Starlink plug on one end, waterproof RJ45 socket on the other. Fits both dish and router — no cutting, no crimping, sealed at both ends.` |
+| **PT** | `Um único cabo: plugue Starlink de um lado, tomada RJ45 à prova d'água do outro. Para antena e roteador — sem cortar nem crimpar, vedado nas duas pontas.` |
+| 出处 | 正文「integrated Starlink plug (for both Dish & Router) and a female RJ45 (T568B) adapter, **all in a single cable**」+「**both the female and male ends** of the cable are fully waterproof」 |
+
+### `4203` · 2 合 1 车载 12–24V 电源线
+| | |
+|---|---|
+| 现状 | `Engineered for Starlink Mini enthusiasts, this 2-in-1 12-24V car adapter power cable transforms…`（298字，句中截断） |
+| **EN** | `Power your Starlink Mini from any 12–24V cigarette lighter. Spring-loaded plug stays put on rough roads. Waterproof DC 5521, 18AWG copper, −20 to 60 °C.` |
+| **PT** | `Alimente seu Starlink Mini em qualquer acendedor 12–24V. O plugue com mola não solta em estrada ruim. DC 5521 à prova d'água, cobre 18AWG, −20 a 60 °C.` |
+| 出处 | 正文「**spring-loaded contact design to prevent loosening during bumpy rides**」+「waterproof DC 5521 plug」+「18AWG copper core」+「−20°C to 60°C」 |
+| 钩子理由 | 「颠簸路上插头不松脱」是**这条线独有的**，标题里完全没说 —— 而它正是车载用户真实的痛点。 |
+
+### `4204` · Starlink Mini 60W 电源套装（家用 + 车载）
+| | |
+|---|---|
+| 现状 | `Engineered for Starlink Mini users, this 60W power supply kit delivers efficient and stable power…`（300字，句中截断） |
+| **EN** | `Two ways to power your Starlink Mini in one kit: a 110–240V wall adapter plus a 12V car charger, both 30V/2A 60W. Waterproof DC cable for the road.` |
+| **PT** | `Duas formas de alimentar o Starlink Mini em um kit: adaptador de tomada 110–240V e carregador veicular 12V, ambos 30V/2A 60W. Cabo DC à prova d'água.` |
+| 出处 | 正文「The kit includes **two** essential components: AC Power Adapter: Accepts **110-240V**… outputs **30V=2A (60W)**」+「**12V DC Car Charger**」+「rugged, **waterproof** DC cable」 |
+
+### `4205` · Starlink Mini 车载 DC-DC 转换器
+| | |
+|---|---|
+| 现状 | `The Mini Car Power Adapter is a high-performance DC-DC converter tailored for Starlink Mini users…`（300字，句中截断） |
+| **EN** | `DC-DC converter that turns any 12–24V vehicle supply into the steady 30V/2A the Starlink Mini needs. Overload protection, no wiring. Truck, RV, boat.` |
+| **PT** | `Conversor DC-DC: transforma 12–24V do veículo nos 30V/2A estáveis que o Starlink Mini exige. Proteção contra sobrecarga, sem fiação. RV, barco, caminhão.` |
+| 出处 | 正文「input range of **12V-24V**… fixed **30V 2A (60W)** output… **without voltage fluctuations**」+「**Overload Protection**」+「**Plug-and-Play**: No complex installation」 |
+| ⚠️ | `4205` 与 `4206`（样板里那条）**都是车载供电**。`4206`=延长线（点烟器→DC），`4205`=**DC-DC 转换器**（升压到 30V）。钩子已按此区分。 |
+
+*（`4200` 见上方样板，已含）*
+
+---
+
+## 进度
+- ✅ 样板 4 条（`4200` / `650` / `4206` / `671`）
+- ✅ 批次 1：`42` `43` `4203` `4204` `4205`
+- ⏳ 剩余 **约 43 条**（52 − 9 已写），分批推进
+- 🔴 **阻塞项**：与 dev 分类不一致的 **4 个产品必须先人工核**（宁可缺不可编）
+
+## 「正文无钩子可用」清单（总调度要求：**宁可缺，不可编**）
+> 目前批次 1 的 6 条**都有真钩子**。此清单随铺开逐条追加 —— **绝不为了填满 52 条而制造钩子**。
+
+*(暂空)*
+
+## 本次重写顺带修掉的既有线上 bug（总调度要求挂账，别让它们悄悄消失）
+| bug | 实例 | 重写后 |
+|---|---|---|
+| **bug1** 剥标签不留空格→单词黏连 | `4200` `CableExperience` / `4206` `OverviewDesigned` | ✅ 自动消失（新文案是重写的，不是截的） |
+| **bug2** HTML 实体未解码 | `671` `25.6&quot;L x 15.7&quot;W` | ✅ 自动消失 |
+| **bug3** 长度约为 Google 展示上限的两倍 | 52 条全部 290–300 字 | ✅ 新文案 145–155 |
+
+---
+
+*多语言窗 · 零数据改动（只写草稿，不碰 JSON —— 会破 R2 的 en 字节一致门）*
