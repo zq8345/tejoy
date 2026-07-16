@@ -102,9 +102,90 @@ body.ph.company  pt-BR = "Nome da empresa"
 
 ---
 
+## `nav.shop_by_type`
+
+```
+nav.shop_by_type  pt-BR = "Comprar por tipo"
+```
+
+**成对依据**：`Shop by Starlink model` → `Comprar por modelo Starlink`（我译的，现网在用）。
+→ **`Shop by type` → `Comprar por tipo`**。同一个动词、同一个介词、同样省略冠词。**这一条可以直接用。**
+
+### ✅ 那 5 条：**确认可复用，别新造**（任务问的第 ② 条）
+
+| en | pt-BR（现网 90 个页面全在用） |
+|---|---|
+| `Cables` | `Cabos` |
+| `Mounts & Brackets` | `Suportes e Fixações` |
+| `Power & Charging` | `Energia e Carregamento` |
+| `Networking` | `Redes` |
+| `Cases & Protection` | `Cases e Proteção` |
+
+**逐条核过**：这 5 个词在 **90 个 pt 页**里都存在，且**语境完全相同** —— 都是 PRODUCTS 下拉里带计数的类型条目。
+→ **可以复用，无语境差异。**
+
+---
+
+## ⚠️ 但我要先说一件事：**「Shop by type」这个槽位可能不该存在 —— 因为它已经在了**
+
+**任务的前提**：「dev 建了 5 个类型页，**但现在没有入口，谁都链不到**；nav 里已有 `Shop by Starlink model`，镜像槽位 `Shop by type` 是它显然的家。」
+
+**我核了 nav 的实际结构（dev 分支 `feat/i18n-chrome-r1`）**：
+
+```
+PRODUCTS 下拉：
+  /products/#mounts        → "Mounts & Brackets (19)"     ┐
+  /products/#power         → "Power & Charging (5)"       │
+  /products/#cables        → "Cables (33)"                ├─ ⭐ 这就是「按类型选」
+  /products/#networking    → "Networking (4)"             │
+  /products/#cases         → "Cases & Protection (3)"     ┘
+  ──────────── 分隔线 ────────────
+  /products/               → "All products (64)"
+  /products/               → "Shop by Starlink model →"   ← 通往【另一个轴】的入口
+```
+
+**pt 侧结构完全一致**（`Cabos` / `Energia e Carregamento` / … / `Comprar por modelo Starlink`）。
+
+### ⭐ 所以：**这个下拉本身就是「Shop by type」**
+那 5 条带计数的链接**就是类型轴**。`Shop by Starlink model →` 之所以需要一个入口条，
+**恰恰是因为 model 轴不在这个下拉里** —— 它在别处。
+
+**再加一个 `Shop by type` + 5 条同名链接** → **同一个下拉里出现两组一模一样的文字，指向不同 URL**：
+```
+Cabos → /pt/products/#cables     （现有）
+Cabos → /pt/type/cables          （新增）
+```
+→ **这正是我这两天一路在标的「自家两页互抢同一个词」** —— 只是这次抢的不是搜索词，是**用户的眼睛**：
+**同一个菜单里两个「Cabos」，用户不知道该点哪个，而它们列的是同一批 33 个产品。**
+
+### 💡 我的建议：**不是加入口，是把现有的 5 条重新指向**
+```
+现在：/pt/products/#cables  （products 页 + 客户端 filter）
+改成：/pt/type/cables       （dev 新建的独立页）
+```
+**一处改动同时解决两件事**：
+1. 那 5 个类型页**有了入口**（任务要解决的问题）
+2. **不产生重复条目**（新方案会产生的问题）
+
+**而且 dev 的独立页比锚点筛选更好**：可爬、有自己的 `title`/`meta`、有 h1（`Starlink Cables`）。
+**锚点筛选可以留在 `/products/` 页上，那是页内功能；nav 该指向真页面。**
+
+**→ 若采纳此建议，`nav.shop_by_type` 这个 key 根本不需要 —— 一条译文都不用加。**
+
+⚠️ **但这是导航结构决定，是 dev / 总调度的地盘，不是我的。**
+**我给出签字值（`Comprar por tipo`）以备采用原方案；同时把这个结构问题摆出来。**
+
+### 📌 一个我没法判的数（留给 dev）
+dev 的 commit 说 `33 cables`，我 grep `blog-one__single` 在 `type/cables/index.html` 上得 **37**。
+**差 4。** 可能是页尾的 related 卡片，也可能是别的。**它说「verified against the data, not eyeballed」，我信；但数字对不上，留个记号。**
+
+---
+
 ## 变更记录
 
 | 日期 | key | 值 | 备注 |
 |---|---|---|---|
 | 2026-07-14 | `card.alt.suffix` | `- Produtos Tejoy` | 签字：多语言窗（pt 真源）。同时建议后续删除该 key 本身，见上。 |
+| 2026-07-16 | `body.ph.company` | `Nome da empresa` | 签字。⚠️ **不是新译文 —— 是保住现网已有的值**：「存量泄漏」前提实测不成立（现网 4 页全葡语，真源在 `phase2-convert.js:54`），**那 64 处是 R2 回归**。 |
+| 2026-07-16 | `nav.shop_by_type` | `Comprar por tipo` | 签字（成对于 `Comprar por modelo Starlink`）。**5 条类型词确认可复用现有 key，无语境差异。** ⚠️ **但建议先看上面的结构问题：那 5 条 nav 链接已存在，加新入口会造成同一下拉里两组同名链接；更好的做法是把现有 5 条从 `/pt/products/#X` 重指到 `/pt/type/X` —— 那样这个 key 不需要存在。** |
 | 2026-07-16 | `body.ph.company` | `Nome da empresa` | 签字：多语言窗。⚠️ **但这不是新译文 —— 是保住现网已有的值**。「存量泄漏」的前提**实测不成立**：现网 4 页全是葡语，`Company Name` 现网 0 次；真源在 `phase2-convert.js:54`。**这 64 处是 R2 的回归。** 另评：placeholder 冗余于 label（建议后续 en+pt 一起改成 `Your Company`/`Sua empresa`，**但别夹带进 R2**）。 |
