@@ -107,6 +107,50 @@
 
 ---
 
+## 4.5 🔴 R2 第一次落地失败(501→2424)—— 根因是 item 7,已回滚
+
+| 类 | 基线 | 落地后 | | |
+|---|---|---|---|---|
+| a_cardTitles | 199 | **15** | −184 | ✅ 我的格子,成了 |
+| b_altSuffix | 256 | **64** | −192 | ✅ 我的格子,成了 |
+| d_otherText | 11 | **2089** | **+2078** | ❌ **我砸的** |
+| e_links | 35 | **256** | **+221** | ❌ **我砸的**(连 R1 的战果一起毁)|
+| **translationLeaks** | 501 | **2424** | | **比基线坏 4 倍** |
+
+**根因 = 我跳过了总工 R1 spec 的 item 7**(白纸黑字:「product.html 里硬编码的英文 chrome 也改成引用 partial —— **否则 render.js 生成的 64 页照样烧英文 chrome**」)。
+以前这个洞看不见:pt 详情页由 phase2-convert 生成,**它的 CHROME[] 顺手译了 body chrome**。R2 一从模板重生成 → **模板的英文 body chrome 全回来**,连 body 里的 `/pt/` 链接一起变回英文 → e_links 爆炸。
+
+### ⭐ 三条必须记住的
+
+**① 一个验收器的宽度 = 你给它的定义的宽度**
+`chrome-verify` 只对**它认识的三块**(header/footer/mobilenav)下断言。我把"chrome"定义成那三块 → **body chrome 可以烂掉而红灯永远不亮**。R1 的 248/248 **在它自己的定义域内是真的**,但那个定义域比我以为的窄。
+
+**② 一个验证者的宽度 = 他所用工具的宽度**(总工的自评,比我的更狠)
+> 「**我跑了你的机器,然后管这叫'独立验证'。机器的定义域是你定的 —— 我的'独立'从第一秒起就继承了你的盲区。**」
+→ 换个人按同一个绿灯,不是独立验证。
+
+**③ 完备性的裁判是扫描器,不是 chrome-verify**
+- `chrome-verify`/`guard` 是**我的**工具、用**我的**定义 → 只能证明"**我定义的那部分**没坏"
+- **多语言的扫描器扫全部可见文本** → **它才是"完备"的定义**
+→ **「恰好 3 条」这条验收线本身就是完备性检查。** 别指望把 chrome-verify 做到完备(**做不到 —— 你永远不知道第 4 个面在哪**);让它对**已知的面**下硬断言,**让扫描器当裁判**。
+→ 但**仍要扩宽 chrome-verify**,理由不是"求完备",而是:**一个窄验收器给出的绿灯,比没有验收器更危险** —— 它至少不该对 body chrome 保持沉默还显示 248/248。
+
+**④ 这次失败证明机器在工作**
+```
+我的窄工具   → 没看见        ❌
+广扫描器     → 当场抓 501→2424 ✅
+我           → 干净回滚       ✅
+```
+**没有那把尺子,2424 处泄漏会带着 chrome-verify 的绿灯上线,总工会跟着签字。** 它刚把自己的建造成本挣回来。
+
+### item 7 的确切靶子(实测,19 处 body 可见文本)
+`Products`(banner 标题)· `Starlink-compatible accessories for every terminal generation`(banner 副标题)· `Contact Now` · `Back` · `Send an Inquiry` · `Interested in this product? Leave us a message and we'll reply as soon as possible.` · 表单标签 `Company Name`/`Name`/`Phone`/`Email`/`E-mail`/`Message`/`Submit` · `Related products` · `Category:` 等
+
+⚠️**item 7 = 字符串 + 链接两件事**(总工点破):body 里的链接必须走 `localizeUrl`,不能硬编码在模板里 ——
+> **否则 R1 那条"存在性驱动路由"被模板绕过去了。规则再对,绕过它的路径还在,就没用。**
+
+---
+
 ## 5. 状态
 
 - ✅ 已量基线(§1)、已定 schema 决策(§2)
