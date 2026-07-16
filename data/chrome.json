@@ -237,5 +237,95 @@
     "en": " | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": " | Acessórios Premium para Starlink, Suportes e Soluções de Energia",
     "reason": "brand suffix for the DERIVED meta_title (render.js metaTitleOf). Not stored per product: a derived value kept as data drifts the moment a title is edited, and the drift is silent — that is how a half-English/half-pt meta_title shipped. Adding a language = translate this one key, not 64 stored strings. pt value is the one the i18n window already used across the pt pages."
+  },
+  "body.banner.title": {
+    "en": "Products",
+    "pt-BR": "Produtos",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.banner.subtitle": {
+    "en": "Starlink-compatible accessories for every terminal generation.",
+    "pt-BR": "Acessórios compatíveis com Starlink para todas as gerações de terminal.",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.contact_now": {
+    "en": "Contact Now",
+    "pt-BR": "Fale conosco agora",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.back": {
+    "en": "Back",
+    "pt-BR": "Voltar",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.send_inquiry": {
+    "en": "Send an Inquiry",
+    "pt-BR": "Envie uma consulta",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.inquiry_blurb": {
+    "en": "Interested in this product? Leave us a message and we'll reply as soon as possible.",
+    "pt-BR": "Tem interesse neste produto? Deixe sua mensagem que responderemos o mais rápido possível.",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.category_label": {
+    "en": "Category: ",
+    "pt-BR": "Categoria: ",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.related_products": {
+    "en": "Related products",
+    "pt-BR": "Produtos relacionados",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.company": {
+    "en": "Company Name",
+    "pt-BR": "Nome da empresa",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.name": {
+    "en": "Name",
+    "pt-BR": "Nome",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.phone": {
+    "en": "Phone",
+    "pt-BR": "Telefone",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.email": {
+    "en": "Email",
+    "pt-BR": "E-mail",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.message": {
+    "en": "Message",
+    "pt-BR": "Mensagem",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.form.submit": {
+    "en": "Submit",
+    "pt-BR": "Enviar",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.ph.name": {
+    "en": "Your Name",
+    "pt-BR": "Seu nome",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.ph.phone": {
+    "en": "Your Phone",
+    "pt-BR": "Seu telefone",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.ph.email": {
+    "en": "Your Email",
+    "pt-BR": "Seu e-mail",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.ph.message": {
+    "en": "Your Message",
+    "pt-BR": "Sua mensagem",
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   }
 }
