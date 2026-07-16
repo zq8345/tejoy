@@ -206,9 +206,6 @@
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://tejoy.com/mini/4203" />
-<link rel="alternate" hreflang="en" href="https://tejoy.com/mini/4203" />
-<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/mini/4203" />
-<link rel="alternate" hreflang="x-default" href="https://tejoy.com/mini/4203" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="2-in-1 12-24V Car Adapter Power Cable for Starlink - Waterproof Cigarette Lighter Accessory-Mini-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
@@ -241,14 +238,6 @@
 <link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=54" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-<style>
-/* Seletor de idioma (EN/PT) — provisório inline no protótipo; migrar para tejoy-redesign.css na fase de rollout global */
-.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
-.lang-switch__link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;transition:all .2s ease}
-.lang-switch__link:hover{background:#fff;color:#111;border-color:#fff}
-.lang-switch__link svg{flex:0 0 auto}
-@media (max-width:1199px){.lang-switch{position:static;grid-column:2;justify-self:end;transform:none;right:auto;margin:0}}
-</style>
 </head>
 <body>
 <div class="page-wrapper">
@@ -325,8 +314,8 @@
     <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp)"> </div>
     <div class="container">
       <div class="page-header__inner left">
-        <p class="page-header__title">Products</p>
-        <p class="page-header__subtitle">Starlink-compatible accessories for every terminal generation.</p>
+        <p class="page-header__title">{{t.body.banner.title}}</p>
+        <p class="page-header__subtitle">{{t.body.banner.subtitle}}</p>
       </div>
     </div>
   </section>
@@ -359,14 +348,14 @@
           </div>
           <div class="col-md-7">
             <div class="text-box">
-              <span class="product-category-tag">Category: Mini</span>
+              <span class="product-category-tag">{{t.body.category_label}}Mini</span>
               <h1 class="title-product">2-in-1 12-24V Car Adapter Power Cable for Starlink - Waterproof Cigarette Lighter Accessory</h1>
               <div class="item-explain">
                 <p>This 2-in-1 car adapter power cable is specifically designed for Starlink Mini devices, enabling seamless power supply from 12-24V vehicle cigarette lighter sockets. With a waterproof DC 5521 plug and durable PVC jacket, it ensures stable connectivity for Starlink users on the go, perfect for cars, RVs, or buses.</p>
               </div>
               <div class="item-inputs">
-                <a class="thm-btn" href="#inquiry" id="contact-now-btn"><span>Contact Now</span></a>
-                <a class="thm-btn is-secondary" href="javascript:history.back(-1)"><span>Back</span></a>
+                <a class="thm-btn" href="#inquiry" id="contact-now-btn"><span>{{t.body.contact_now}}</span></a>
+                <a class="thm-btn is-secondary" href="javascript:history.back(-1)"><span>{{t.body.back}}</span></a>
               </div>
             </div>
           </div>
@@ -383,8 +372,8 @@
               <div class="explain adminbuy_cn"><p>Engineered for Starlink Mini enthusiasts, this 2-in-1 12-24V car adapter power cable transforms your vehicle’s cigarette lighter into a reliable power source for your Starlink setup. The cable features a waterproof DC 5521 plug (compatible with Starlink Mini’s power input) and a rugged 18AWG copper core, supporting efficient power transmission with minimal signal loss.&nbsp; It offers flexible placement options inside cars, RVs, or buses, while the reinforced PVC jacket resists wear, moisture, and extreme temperatures (-20°C to 60°C).</p><p><img src="/static/upload/image/20260522/1779413789128545.jpg" alt="3.jpg"/></p><p>The adapter’s cigarette lighter plug is built with a spring-loaded contact design to prevent loosening during bumpy rides, ensuring uninterrupted power for your Starlink Mini. Its compact, carbon-fiber-textured housing (5.5cm x 3.2cm) fits most vehicle sockets without blocking adjacent ports. For safety, the cable integrates overcurrent and short-circuit protection, automatically cutting power if voltage exceeds 24V or current surpasses 5A.</p><p><img src="/static/upload/image/20260522/1779413886472721.jpg" alt="4.jpg" _propertydelete="" vspace="0"/></p></div>
             </div>
             <div class="product-inquiry" id="inquiry">
-                <h3 class="title-tab">Send an Inquiry</h3>
-                <p class="explain">Interested in this product? Leave us a message and we'll reply as soon as possible.</p>
+                <h3 class="title-tab">{{t.body.send_inquiry}}</h3>
+                <p class="explain">{{t.body.inquiry_blurb}}</p>
                 <div class="add-comments">
                   <form id="tejoy-product-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
                     <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
@@ -395,27 +384,27 @@
                     <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="row gutters-20">
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_company" class="sr-only">Company Name</label>Company Name
+                        <label for="p_company" class="sr-only">{{t.body.form.company}}</label>Company Name
                         <input type="text" name="company" id="p_company" value="" class="form-control" placeholder="Company Name" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_name" class="sr-only">Name</label>Name
-                        <input type="text" name="name" id="p_name" value="" class="form-control" placeholder="Your Name" required />
+                        <label for="p_name" class="sr-only">{{t.body.form.name}}</label>Name
+                        <input type="text" name="name" id="p_name" value="" class="form-control" placeholder="{{t.body.ph.name}}" required />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_phone" class="sr-only">Phone</label>Phone
-                        <input type="tel" name="phone" id="p_phone" value="" class="form-control" placeholder="Your Phone" />
+                        <label for="p_phone" class="sr-only">{{t.body.form.phone}}</label>Phone
+                        <input type="tel" name="phone" id="p_phone" value="" class="form-control" placeholder="{{t.body.ph.phone}}" />
                       </div>
                       <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_email" class="sr-only">Email</label>E-mail
-                        <input type="email" name="email" id="p_email" value="" class="form-control" placeholder="Your Email" required />
+                        <label for="p_email" class="sr-only">{{t.body.form.email}}</label>E-mail
+                        <input type="email" name="email" id="p_email" value="" class="form-control" placeholder="{{t.body.ph.email}}" required />
                       </div>
                       <div class="col-md-12 inner-add-comments-box">
-                        <label for="p_message" class="sr-only">Message</label>Message
-                        <textarea class="form-control" id="p_message" name="message" placeholder="Your Message" required></textarea>
+                        <label for="p_message" class="sr-only">{{t.body.form.message}}</label>Message
+                        <textarea class="form-control" id="p_message" name="message" placeholder="{{t.body.ph.message}}" required></textarea>
                       </div>
                       <div class="col-12 form-group mb-0 pt-2">
-                        <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>Submit</span></button>
+                        <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>{{t.body.form.submit}}</span></button>
                       </div>
                     </div>
                     </form>
@@ -424,7 +413,7 @@
           </div>
 
                     <div class="related-products">
-            <h2 class="related-products__head">Related products</h2>
+            <h2 class="related-products__head">{{t.body.related_products}}</h2>
             <div class="row">
               <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="blog-one__single">
@@ -696,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if (!categoryList) return;
   const listItems = categoryList.querySelectorAll('li');
   const currentPageUrl = window.location.href;
-  const currentCategoryName = document.querySelector('.product-category-tag').textContent.replace('Category: ', '').trim();
+  const currentCategoryName = document.querySelector('.product-category-tag').textContent.replace('{{t.body.category_label}}', '').trim();
 
   listItems.forEach(item => {
     const catLink = item.getAttribute('data-cat-link');

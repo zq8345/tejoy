@@ -49,7 +49,7 @@ export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
   return `${e.title}-${model}-Tejoy${suffix}`;
 }
 
-export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog }) {
+export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf }) {
   const e = mergeI18n(prod, locale);
   const slides = prod.images.map((im) =>
     `\n                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="${resolveImg(im, imgBase)}" alt="${im.alt}" class="img-fluid" loading="lazy"></div>`
@@ -66,9 +66,22 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
     const enDesc = prod.i18n.en.meta_description;
     if (enDesc && e.meta_description && e.meta_description !== enDesc) jsonldProduct = jsonldProduct.split(enDesc).join(e.meta_description);
   }
+  // The template only knows how to be English. Everything phase2-convert used to do for pt on its
+  // way past has to be done here now, or regenerating from the template silently un-does it —
+  // canonical is the dangerous one: a pt page canonical'd to the EN page tells Google not to index
+  // pt at all, and no check I own would go red. (r2-report.md §7 lists the full set.)
+  const path = `/${prod.category}/${prod.id}`;
+  const canonical = `https://tejoy.com${urlOf ? urlOf(path, locale) : path}`;
+  const enUrl = `https://tejoy.com${path}`;
+  const hreflang = urlOf && locale !== "en"
+    ? `\n<link rel="alternate" hreflang="en" href="${enUrl}" />`
+      + `\n<link rel="alternate" hreflang="${locale}" href="${canonical}" />`
+      + `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`
+    : "";
   const reps = {
     META_TITLE: metaTitleOf(e, prod, locale, modelDisplay, catalog), KEYWORDS: e.keywords || "", META_DESC: e.meta_description,
-    ROBOTS_META: robots, CANONICAL: `https://tejoy.com/${prod.category}/${prod.id}`,
+    ROBOTS_META: robots, CANONICAL: canonical, HREFLANG: hreflang,
+    HTML_LANG: locale, OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
     GALLERY_MAIN: slides, GALLERY_THUMB: slides, CATEGORY: (modelDisplay && modelDisplay[prod.category]) || CATMAP[prod.category] || prod.category,
     TITLE: e.title, SUMMARY_BLOCK: summary, DESCRIPTION: e.description_html,
     RELATED: cards, JSONLD_BREADCRUMB: prod.jsonld_breadcrumb || "", JSONLD_PRODUCT: jsonldProduct,

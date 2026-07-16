@@ -63,8 +63,8 @@ for (const id of targets) {
     // Only emit a locale's page where one already exists — regen renders content, it does not
     // decide the site map. Creating pt pages that nothing links to is a different decision.
     if (locale !== DEFAULT && !fs.existsSync(out)) continue;
-    const related = genRelated(entry, entries, locale, catalog);
-    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog });
+    const related = genRelated(entry, entries, locale, catalog, urlOf);
+    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf });
     const opens = (html.match(/<div\b/g) || []).length;
     const closes = (html.match(/<\/div>/g) || []).length;
     if (opens !== closes) { imbalanced++; console.error(`  ⚠️ div imbalance ${locale} ${prod.category}/${id}: ${opens}/${closes}`); }
