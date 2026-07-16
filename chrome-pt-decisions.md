@@ -43,8 +43,68 @@ card.alt.suffix  pt-BR = "- Produtos Tejoy"
 
 ---
 
+## `body.ph.company`
+
+```
+body.ph.company  pt-BR = "Nome da empresa"
+```
+
+### ⚠️ 但先纠一个前提：**这不是「存量泄漏」，是 R2 的回归。而且译文一直都在。**
+
+任务说：「phase2-convert **从来没译过**这个 placeholder…真源里没有葡语值可白捡，所以要你写。」
+
+**我实测了四路，全部相反**：
+
+| | `Nome da empresa`（葡语） | `Company Name`（英文） |
+|---|---|---|
+| **现网**（curl 实测 `pt/enterprise/650` · `pt/mini/4200` · `pt/standard/671` · `pt/performance-gen-3/42`） | ✅ **全部** | **0 次** |
+| **基线（我的树）** | **65 个 pt 页** | **0 个** |
+| **dev 分支 `7286c17d`** | **1 个** | **64 个** |
+
+**真源就在我的 `phase2-convert.js` 第 54 行**：
+```js
+['placeholder="Company Name"', 'placeholder="Nome da empresa"'],
+```
+**我译过它。值一直都在。**
+
+**决定性旁证**：dev 分支上唯一还是葡语的那页是 **`pt/contact/index.html`** ——
+**R2 不重生成它（不是产品页），所以它保住了。** → **其余 64 页的英文是 R2 渲染出来的。**
+
+→ **`d` 的 64 处 placeholder 是回归，不该算进「存量」。** dev 用了对的方法（查现网辨存量 vs 回归），**但结论错了** —— 我不知道它查的是什么，但现网四页我都实测了。
+
+### ✅ 所以：**不需要我造译文，需要 R2 别把它弄丢**
+签的值 = **保住现网已有的那个**：`Nome da empresa`
+
+---
+
+## ⚠️ 顺带评一句结构（总调度邀请我判「placeholder 和 label 是否该一样」，我判）
+
+**先看清 en 侧自己的模式**：
+| label | placeholder |
+|---|---|
+| **`Company Name`** | **`Company Name`** ← **例外：跟 label 一样** |
+| `Name` | `Your Name` |
+| `Phone` | `Your Phone` |
+| `Email` | `Your Email` |
+| `Message` | `Your Message` |
+
+**我当初如实镜像了这个例外**（pt：`Nome da empresa` → `Nome da empresa`；其余四个 → `Seu nome` / `Seu telefone` / `Seu e-mail` / `Sua mensagem`）。
+
+**我的判断：这个 placeholder 本身是冗余的，但现在别动。**
+- **冗余**：label 说「这个字段是什么」，placeholder 说「把**你的**那个填这儿」。
+  其余四个都做到了（`Seu nome`），**只有 company 把 label 又说了一遍 —— 它没增加任何信息**。
+  且 **placeholder 一打字就消失**，本就不该承担 label 的职能。
+- **若要改**，按我自己在 pt 侧建立的模式应是 **`Sua empresa`**（不是 `Seu nome da empresa` —— 那在葡语里很别扭）。
+- **但别现在改**，理由跟我签 `card.alt.suffix` 时一样：
+  > **en 侧有同样的冗余（`Company Name` → `Company Name`）。只改 pt 会让两侧结构分叉；改 en 会动字节基线。**
+  > **把内容改动夹带进重构，会毁掉重构的验收信号。**
+- **排法**：R2 验收通过后，**独立一次改动，en + pt 一起**（`Your Company` / `Sua empresa`），那次自己单独验。
+
+---
+
 ## 变更记录
 
 | 日期 | key | 值 | 备注 |
 |---|---|---|---|
 | 2026-07-14 | `card.alt.suffix` | `- Produtos Tejoy` | 签字：多语言窗（pt 真源）。同时建议后续删除该 key 本身，见上。 |
+| 2026-07-16 | `body.ph.company` | `Nome da empresa` | 签字：多语言窗。⚠️ **但这不是新译文 —— 是保住现网已有的值**。「存量泄漏」的前提**实测不成立**：现网 4 页全是葡语，`Company Name` 现网 0 次；真源在 `phase2-convert.js:54`。**这 64 处是 R2 的回归。** 另评：placeholder 冗余于 label（建议后续 en+pt 一起改成 `Your Company`/`Sua empresa`，**但别夹带进 R2**）。 |
