@@ -24,28 +24,44 @@ import { fileURLToPath } from 'url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
-/* ── 语料：本产品域的【已知干净西语】────────────────────────────────────
- * 刻意堆满这个目录真实会出现的词：cable / red / adaptador / soporte / potencia …
- * ⚠️ 这些句子全部是合法西语，一条泄漏都没有。scanner 报出任何一条都是它的错。 */
+/* ── 语料：本产品域的【已知干净的**墨西哥**西语】────────────────────────
+ * ⚠️ Joe 定了主力市场 = **墨西哥**（2026-07-16），语料随之收窄。
+ * 我自己写的规矩在这儿咬我：**「语料里没有的词，测试证明不了」** ——
+ * 泛拉美语料证明的是别的市场的干净度，不是墨西哥的。
+ *
+ * 墨西哥特征（与泛拉美默认的差异，全部体现在下面）：
+ *   人称   tú（不是 usted）→ 动词是 `conecta`/`alimenta`/`usa`，不是 `conecte`/`alimente`/`use`
+ *   车     carro（不是 auto）· 皮卡 camioneta · 卡车 camión
+ *   小船   lancha（墨西哥最常用）
+ *   电脑   computadora（不是 ordenador）· 手机 celular（不是 móvil）· 开车 manejar（不是 conducir）
+ *   笔电   laptop  ·  收纳 estuche
+ *   数字   25.6"（小数点，同美国）· 1,200 Mbps（逗号千分位）—— **不是** 25,6"
+ * ⚠️ 这些句子全部是合法墨西哥西语，一条泄漏都没有。scanner 报出任何一条都是它的错。 */
 const CLEAN_ES = [
-  // 线缆类（cable = 西语核心词，pt 的 EN_MARKERS 里它是"英文标记词"）
+  // 线缆类（cable / red / router 都是西语核心词，而 pt 的 EN_MARKERS 把它们当英文标记词）
   'Cable de red para Starlink Gen 3 con conector RJ45 impermeable IP67.',
   'El cable es flexible y durable, con material de cobre puro de 23AWG.',
   'Adaptador de red universal compatible con el router Starlink.',
-  'Conecte el cable al panel de control sin cortar ni crimpar el cable original.',
+  'Conecta el cable al panel de control sin cortar ni crimpar el cable original.',
+  'Este cable mide 75 FT (23 m) y soporta 1,200 Mbps sin pérdida de señal.',
   // 支架类
   'Soporte de tubo para antena Starlink, diseño simple y resistente al metal oxidado.',
-  'Instalación en techo horizontal o vertical, con ajuste manual del ángulo.',
-  // 供电类
+  'Instálalo en el techo con ajuste manual del ángulo, horizontal o vertical.',
+  'El estuche mide 25.6" de largo y protege la antena durante el viaje.',
+  // 供电类（墨西哥：carro / camioneta / lancha）
   'Fuente de alimentación con protección contra sobrecarga y cortocircuito.',
-  'Cargador para auto de 12V a 24V, ideal para casa rodante, camión o bote.',
+  'Cargador para carro de 12V a 24V, ideal para casa rodante, camión o lancha.',
+  'Alimenta tu Starlink Mini desde el encendedor de tu camioneta.',
   'La batería externa debe entregar al menos 100 W de potencia real.',
-  // 通用营销（同源词密度最高的地方）
+  'Usa un cargador PD de 100 W; con 65 W el equipo se reinicia solo.',
+  // 通用营销（同源词密度最高的地方 —— -al / -ble / -ción 家族全在这儿）
   'Un producto profesional de calidad industrial, con diseño original y funcional.',
   'Rendimiento estable y confiable en uso normal, sin pérdida de señal.',
   'Solución práctica para instalación personal o comercial, local o internacional.',
-  // 表单 / chrome
-  'Nombre de la empresa', 'Su nombre', 'Su teléfono', 'Su mensaje', 'Enviar consulta',
+  'Conecta tu computadora, tu celular o tu laptop a la red de tu Starlink.',
+  'Es fácil de manejar y no necesitas herramienta especial para instalarlo.',
+  // 表单 / chrome（**tú** 形式 —— 墨西哥电商标准）
+  'Nombre de la empresa', 'Tu nombre', 'Tu teléfono', 'Tu mensaje', 'Envía tu consulta',
   'Comprar por tipo', 'Comprar por modelo Starlink', 'Todos los productos',
   'Cables', 'Soportes y Fijaciones', 'Energía y Carga', 'Redes', 'Estuches y Protección',
 ];
