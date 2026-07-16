@@ -95,7 +95,11 @@ const altOf = (title, locale, catalog) => {
   return `${title} ${suffix}`;
 };
 
-export function genRelated(prodEntry, entries, locale = "en", catalog) {
+// urlOf must be passed for a non-default locale, or every related-product card on a pt page
+// points back at the English site. R1's routing rule was correct; this function simply drove
+// around it — which is how e_links went 35 -> 256 on R2's first landing. A rule with an
+// unblocked bypass is not a rule.
+export function genRelated(prodEntry, entries, locale = "en", catalog, urlOf) {
   const byId = (a, b) => a.id - b.id;
   const others = entries.filter((p) => p.id !== prodEntry.id);
   const sameCat = others.filter((p) => p.category === prodEntry.category).sort(byId);
@@ -103,7 +107,8 @@ export function genRelated(prodEntry, entries, locale = "en", catalog) {
   const rest = others.filter((p) => p.category !== prodEntry.category && p.form !== prodEntry.form).sort(byId);
   return [...sameCat, ...sameForm, ...rest].slice(0, 4).map((s) => {
     const title = entryTitle(s, locale);
-    return { href: `/${s.category}/${s.id}`, img: s.thumb || "", alt: altOf(title, locale, catalog), title };
+    const p = `/${s.category}/${s.id}`;
+    return { href: urlOf ? urlOf(p, locale) : p, img: s.thumb || "", alt: altOf(title, locale, catalog), title };
   });
 }
 

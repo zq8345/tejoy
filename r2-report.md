@@ -219,3 +219,30 @@ en 7 个(compatibility / contact / video / certifications-testing / starlink-com
 
 多语言所有会动 en 输出的活(656 的 4 个 HTML 伪图等)**已备好不推**,等 R2 验收通过再一起落。
 **→ 我的基线 = `72b30e24`,在 R2 验收完之前不再移动。**
+
+---
+
+## 7. 🔴 穷举:模板缺 5 样 phase2-convert 会做的事(R2 收尾清单)
+
+item 7 的教训是「**旁路管线默默做了模板不会做的事,我一次崩一个地发现**」。所以这次**一次性穷举**(对比现网 pt 页 vs 模板):
+
+| head 项 | 现网 pt 页(phase2-convert 产物,真源) | 模板 | 后果(若不接) |
+|---|---|---|---|
+| `<html lang>` | `pt-BR` | **硬编码 `en`** | pt 页声明自己是英文 |
+| `canonical` | `/pt/enterprise/650` | `{{CANONICAL}}` 但拼死 `/${category}/${id}` | 🔴 **pt 页 canonical 指英文页 = 告诉 Google「别索引 pt」→ 整个 pt 站 SEO 作废** |
+| **hreflang trio** | en + pt-BR + x-default 三条 | **完全没有** | 搜索引擎不知道两版互为翻译 |
+| `og:locale` | `pt_BR` | **没有** | 社交分享语言错 |
+| JSON-LD `inLanguage` | `pt-BR` | **硬编码 `en`** | 结构化数据谎报语言 |
+
+**→ R2 收尾必须让这 5 项全部由 locale 派生**,`urlOf` 已在 `genRelated` 接上(e_links 真凶),canonical/og:url 同理。
+
+⭐**这 5 项 + item 7 的 18 条 + genRelated 是同一个形状**:
+> **模板只会做英文版本会做的事。凡是 phase2-convert 顺手替 pt 做过的,模板都不知道 —— 而它们只在我从模板重生成时才暴露。**
+
+**R2 剩余步骤**:接这 5 项 → 扩宽 chrome-verify 到 body chrome + head → R2 落地 → 多语言的 `pt-leak-vs-baseline.mjs` 自证(**a=0 且 b=0**)
+
+## 8. ✅ 基线与 park 清单更新
+- **基线 = `93b6972b`**(多语言撤了 656 的 4 个"图"——实为 XLinkCore 整页 HTML)。总工承诺:**R2 验收完前不再动 en**。
+- ~~`_redirects` 收窄~~ **已由多语言做完并推**(`59b21519`),线上实测 `/about-tejoy → 301` `/about-tejoy/foo → 404`,**从 park 清单划掉**。
+- **重复 meta:别去刨生成器** —— 多语言查完了,**根不存在**:那句话在 JSON-LD `description` 里 228 个文件(`@type: WebSite`,**站点描述全站一致=正确**),被当 `<meta name="description">` 用的只有 21 个,**生成它们的脚本 0 个**。真相是**31 个手写静态页的作者复制了首页那句凑数**。→ 建 `page-meta` catalog(路径→description)并进我的 catalog,**排 R2 之后**。
+  (多语言自己也差点结案:它在 `product.html:133` 找到那句 → 以为是模板硬编码 → **逐行看才发现那是 JSON-LD 里的,不是 meta**。)
