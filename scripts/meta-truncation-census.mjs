@@ -11,15 +11,36 @@
  */
 import fs from 'fs';
 
-const strip = (h) => String(h || '')
-  .replace(/<\/li>/g, ' | ')
-  .replace(/<[^>]*>/g, ' ')
-  .replace(/&nbsp;/g, ' ')
-  .replace(/&quot;/g, '"')
-  .replace(/&#39;/g, "'")
-  .replace(/&amp;/g, '&')
-  .replace(/\s+/g, ' ')
-  .trim();
+/* 实体解码: 命名 + 数字(十进制/十六进制)。
+   ⚠️ v1 只解码了 4 个命名实体, 漏了数字实体 -> 700 的正文里是 `&#12304;`(【) 而 meta 里是已解码的 `【`
+      -> 对不上 -> 误判为「独立撰写」。 */
+const decode = (s) => String(s || '')
+  .replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'")
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d))
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&amp;/g, '&');                                   // &amp; 必须最后, 否则 &amp;#39; 会被二次解码
+
+const stripTags = (h) => decode(String(h || '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
+
+/* ⭐ 归一化到「纯字母数字流」—— 这是 v1 → v2 的关键修复。
+   v1 用 `body.startsWith(meta前60字)`, 被**它自己要检测的那两个 bug 绊倒**:
+     4207: meta 里是 `RV &amp; Starlink`(实体未解码), 正文是 `RV & Starlink`     -> bug2 绊的
+     651 : meta 是 `Data TransferExperience`(剥标签黏连), 正文是 `Data Transfer | Experience` -> bug1 绊的
+     677 : 正文以 `[Perfect craftsmanship]: ` 开头, meta 生成器把这个前缀丢了 -> startsWith 失效
+     700 : 数字实体, 见上
+   剥掉全部非字母数字 -> 黏连/分隔符/实体/标点差异**一次全消**;
+   再用「meta 前 60 字出现在正文前 200 字内」(而非 startsWith) -> 容忍被丢弃的前缀。
+
+   ⭐ 结果 = **61 派生 / 3 真人文案**, 与总调度和 dev 的 56/8 **不一致**。逐条真看后确认 v2 对:
+      他们判为「真人文案」的 8 条里, 有 5 条(4199/4202/4206/675/678)的线上 meta **此刻就带着
+      bug1 黏连** —— `Solutio(nTh)is` / `Gen 3(Th)is` / `Connecto(rSt)arlink` / `Overvie(wDe)signed`
+      (678 有三处)。**正是那个黏连让朴素字符串匹配失败, 于是被误判成「真人写的」。**
+      -> 他俩数字一致不是互相印证, 是**共享同一个盲区**(总调度自己的原话:
+         「数字一模一样反而可能是互相抄的」)。
+      -> **数据的缺陷, 骗过了检测那个缺陷的检测器。** 我 v1 也栽在同一处(52/12), 只是错向不同。
+      真人文案只有 3 条: 4201 / 703 / 704 (meta 与正文开头完全不同, 确为独立撰写)。*/
+const norm = (s) => stripTags(s).toLowerCase().replace(/[^a-z0-9]/g, '');
 
 const files = fs.readdirSync('data/products').filter((f) => f.endsWith('.json')).sort();
 const truncated = [], authored = [], empty = [];
@@ -28,12 +49,12 @@ for (const f of files) {
   const p = JSON.parse(fs.readFileSync('data/products/' + f, 'utf8'));
   const id = f.replace('.json', '');
   const md = (p.i18n.en.meta_description || '').trim();
-  const body = strip(p.i18n.en.description_html);
   if (!md) { empty.push({ id }); continue; }
-  const core = md.replace(/[.…]+$/, '').trim();       // 去尾部省略号
-  const probe = core.slice(0, Math.min(60, core.length));
-  const rec = { id, cat: p.category, len: md.length, title: p.i18n.en.title };
-  if (body.startsWith(probe)) truncated.push(rec); else authored.push(rec);
+  const nMd = norm(md), nBody = norm(p.i18n.en.description_html);
+  const probe = nMd.slice(0, 60);
+  const at = nBody.slice(0, 200).indexOf(probe);
+  const rec = { id, cat: p.category, len: md.length, at, title: p.i18n.en.title };
+  if (probe && at >= 0) truncated.push(rec); else authored.push(rec);
 }
 
 if (process.argv.includes('--json')) {
