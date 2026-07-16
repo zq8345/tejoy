@@ -57,7 +57,14 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   // free). phase2-convert used to achieve the same pt result by string-replacing the English title
   // with the Portuguese one; this does it by rule instead. Same output, no bypass to keep in sync.
   // Joe's explicit alt from the admin wins — the admin has an alt field, so it is his to set.
-  const isDerivable = (a) => !a || a.trim() === "" || /\.(jpe?g|png|webp|gif)\b|images? ?\(\d+\)/i.test(a) || (prod.i18n.en.title || "").startsWith(a.slice(0, 40));
+  // Derivable = empty, a filename, or the title in some dressed-up form. Test it BOTH ways: 670's
+  // alts read "For Starlink Gen 2 Mount, Pivot Mount - tejoy" — the title plus a suffix — so
+  // title.startsWith(alt) is false while alt.startsWith(title) is true. Checking one direction
+  // only left 10 images rendering English alt on pt pages.
+  const enTitle = prod.i18n.en.title || "";
+  const head = (s) => s.slice(0, 40);
+  const isDerivable = (a) => !a || !a.trim() || /\.(jpe?g|png|webp|gif)\b|images? ?\(\d+\)/i.test(a)
+    || enTitle.startsWith(head(a)) || a.startsWith(head(enTitle));
   const altOfImage = (im) => (isDerivable(im.alt) ? e.title : im.alt);
   const slides = prod.images.map((im) =>
     `\n                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="${resolveImg(im, imgBase)}" alt="${altOfImage(im)}" class="img-fluid" loading="lazy"></div>`
