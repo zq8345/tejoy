@@ -238,6 +238,17 @@
 <link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=54" />
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<style>
+/* Seletor de idioma (EN/PT) — provisório inline no protótipo; migrar para tejoy-redesign.css na fase de rollout global */
+.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
+.lang-switch__link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;transition:all .2s ease}
+.lang-switch__link:hover{background:#fff;color:#111;border-color:#fff}
+.lang-switch__link svg{flex:0 0 auto}
+@media (max-width:1199px){.lang-switch{position:static;grid-column:2;justify-self:end;transform:none;right:auto;margin:0}}
+</style>
+<link rel="alternate" hreflang="en" href="https://tejoy.com/mini/4199.html" />
+<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/mini/4199.html" />
+<link rel="alternate" hreflang="x-default" href="https://tejoy.com/mini/4199.html" />
 </head>
 <body>
 <div class="page-wrapper">
