@@ -51,8 +51,16 @@ export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
 
 export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf }) {
   const e = mergeI18n(prod, locale);
+  // Gallery alt is DERIVED from the localized title, not stored (总工 2026-07-14, verified across
+  // all 428: 369 already duplicate the title verbatim, 59 are filenames, 0 are real descriptions —
+  // so deriving loses nothing, fixes the filenames, and makes every future language correct for
+  // free). phase2-convert used to achieve the same pt result by string-replacing the English title
+  // with the Portuguese one; this does it by rule instead. Same output, no bypass to keep in sync.
+  // Joe's explicit alt from the admin wins — the admin has an alt field, so it is his to set.
+  const isDerivable = (a) => !a || a.trim() === "" || /\.(jpe?g|png|webp|gif)\b|images? ?\(\d+\)/i.test(a) || (prod.i18n.en.title || "").startsWith(a.slice(0, 40));
+  const altOfImage = (im) => (isDerivable(im.alt) ? e.title : im.alt);
   const slides = prod.images.map((im) =>
-    `\n                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="${resolveImg(im, imgBase)}" alt="${im.alt}" class="img-fluid" loading="lazy"></div>`
+    `\n                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="${resolveImg(im, imgBase)}" alt="${altOfImage(im)}" class="img-fluid" loading="lazy"></div>`
   ).join("") + "\n                ";
   const cards = related.map((c) =>
     `\n              <div class="col-xl-3 col-lg-4 col-md-6">\n                <div class="blog-one__single">\n                  <a href="${c.href}">\n                    <div class="blog-one__img"><img src="${c.img}" alt="${c.alt}" loading="lazy"></div>\n                    <div class="blog-content"><h3 class="blog-one__title">${c.title}</h3></div>\n                  </a>\n                </div>\n              </div>`
