@@ -90,8 +90,14 @@ const CATS = ["mini", "standard", "standard-actuated", "standard-circular", "per
 // must land somewhere real: this page aggregates the Performance family instead of being an empty
 // shell. Not a hardcoded product list — a category predicate, so it tracks the data forever.
 const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "performance-gen-3"]]];
+// The other axis: a category page fixes the model and chips by form; a /type/ page is its mirror.
+// Slugs live under /type/ because `mounts/` and `power/` are already guide hubs. The form strings
+// must match FORM_KEY in render.js — that is the slug's source of truth, these just name it.
+const TYPES = [["cables", "Cables"], ["mounts", "Mounts & Brackets"], ["power", "Power & Charging"],
+  ["networking", "Networking"], ["cases", "Cases & Protection"]];
 let lists = 0;
-for (const [rel, cat] of [["products/index.html", null], ...CATS.map((c) => [`${c}/index.html`, c]), ...AGGREGATES]) {
+for (const [rel, cat] of [["products/index.html", null], ...CATS.map((c) => [`${c}/index.html`, c]),
+  ...AGGREGATES, ...TYPES.map(([s, f]) => [`type/${s}/index.html`, { form: f }])]) {
  for (const locale of LOCALES) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) continue;

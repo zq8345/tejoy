@@ -196,7 +196,11 @@ export function regenListPage(html, entries, catFilter, { locale = "en", catalog
     /(<div class="row" id="productGrid">)(?:\s*<div class="col-xl-3[^"]*"[^>]*data-cat="[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*<\/div>)*\s*(<\/div>)/,
     (m, open, close) => open + cards + close
   );
-  const countModel = (f) => (f === "all" ? entries.length : entries.filter((e) => e.category === f).length);
+  // Both chip rows count WITHIN scope — a chip's number has to describe the grid under it, or it
+  // lies. Provably a no-op today: on /products/ scope IS entries (catFilter null), and that is the
+  // only page carrying modelChips. It's what makes the /type/ pages, whose scope is one form,
+  // count 33 cables per model instead of reporting all 64 products over a 33-card grid.
+  const countModel = (f) => (f === "all" ? scope.length : scope.filter((e) => e.category === f).length);
   const countForm = (f) => (f === "all" ? scope.length : scope.filter((e) => FORM_KEY[e.form] === f).length);
   html = updateChips(html, "modelChips", countModel);
   html = updateChips(html, "formChips", countForm);

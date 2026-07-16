@@ -48,12 +48,19 @@ const killSwitcher = (s) => (s || "").replace(/<div class="lang-switch" data-lan
 // inline gap = whitespace BETWEEN two tags on the same "line" of markup, i.e. `> <`
 const inlineGaps = (s) => ((s || "").match(/>[ \t]+</g) || []).length;
 
-const before = (p) => { try { return execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26 }).replace(/\r/g, ""); } catch { return null; } };
+// stdio pipe: a page absent from HEAD makes git print "fatal: … exists on disk, but not in HEAD"
+// to stderr. Harmless to the check, but it lands in the operator's terminal looking like a crash —
+// and a line-numbered reader (`sed -n 2p`) then quotes git's panic as if it were the verdict.
+const before = (p) => { try { return execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26, stdio: ["pipe", "pipe", "pipe"] }).replace(/\r/g, ""); } catch { return null; } };
 
 const pages = walk(".");
-let ok = 0; const fails = [], wsOnlyPages = [], inlineDrift = [];
+let ok = 0; const fails = [], wsOnlyPages = [], inlineDrift = [], noBaseline = [];
 for (const p of pages) {
-  const b = before(p); if (b === null) continue;
+  // A page absent from HEAD is NEW: there is no "before", so no regression is even definable, and
+  // excluding it is right. But it must be NAMED, not dropped. Silently skipping is how a gate
+  // prints ✅ over a moving denominator — leaving the reader to notice 248/253 himself in order to
+  // learn that 5 pages were never looked at. Whatever this gate did not verify, it says out loud.
+  const b = before(p); if (b === null) { noBaseline.push(p); continue; }
   const a = fs.readFileSync(p, "utf8").replace(/\r/g, "");
   const B = blocks(b), A = blocks(a);
   const issues = [];
@@ -78,7 +85,13 @@ for (const p of pages) {
   }
 }
 console.log(`chrome-verify  页面 ${pages.length}`);
-console.log(`  ① header / ② footer / ③ mobilenav 内容零回归(扣除有意改动后):${ok} / ${pages.length}  ${fails.length ? "🔴" : "✅"}`);
+// 对账:被检的 + 无基线的 = 总数。让分子分母永远合得上,而不是让读者盯着分母的变化自己推断。
+if (noBaseline.length) {
+  console.log(`  ⓪ 新页(HEAD 里没有 → 无"之前",不存在回归,不计入分子)${noBaseline.length}:`);
+  noBaseline.forEach((p) => console.log("     " + p));
+}
+const base = pages.length - noBaseline.length;
+console.log(`  ① header / ② footer / ③ mobilenav 内容零回归(扣除有意改动后):${ok} / ${base}  ${fails.length ? "🔴" : "✅"}  (${base} 有基线 + ${noBaseline.length} 新页 = ${pages.length})`);
 if (fails.length) { console.log("\n🔴 内容回归:"); fails.slice(0, 12).forEach((f) => console.log("   " + f)); }
 console.log(`  ④ 行内间距(> <)被增删的块:${inlineDrift.length}  ${inlineDrift.length ? "🔴 必须逐条列给总工" : "✅ 一处都没动"}`);
 if (inlineDrift.length) inlineDrift.slice(0, 12).forEach((d) => console.log("   " + d));
