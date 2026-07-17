@@ -155,8 +155,34 @@ if (gaps.length) {
 }
 if (orphans.length) console.log(`\n⚠️ 孤儿 token(partial 用了但 catalog 没有) ${orphans.length}: ${[...new Set(orphans)].join(", ")}`);
 if (unused.length) console.log(`\n⚠️ 无人使用的 key(可能已腐烂) ${unused.length}: ${unused.slice(0, 12).join(", ")}${unused.length > 12 ? " …" : ""}`);
-if (!gaps.length && !orphans.length) console.log("\n✅ 无缺失、无孤儿 token。");
-
+// ⛔ 有【任何】告警时,最后一行不许是绿的。
+//
+// 老写法 `if (!gaps.length && !orphans.length) console.log("✅ 无缺失、无孤儿 token。")` ——
+// unused 不在条件里,于是它能列出 6 条真警报、然后打一个绿勾收尾。多语言【踩进去了】:
+// 「我用 tail -2 看输出,只看到 ✅,以为它没报。」
+//
+// ⭐ 我这个文件里写着「假警报会训练人略过告警,然后真的那条也没人读」——
+//    我防住了假警报,没防住【真警报被自己的 ✅ 盖住】。噪音会淹掉信号,而一句结论性的绿字
+//    会直接【覆盖】它:读报告的人看最后一行,那是他唯一保证会读的一行。
+//
+// fail 的语义不动(unused 仍不阻塞 —— 它是"可能腐烂",不是"这个语种缺东西")。
+// 变的只是:结论行必须诚实地描述整份报告,而不是描述我挑出来的那两类。
+const warns = [gaps.length && `缺失 ${gaps.length}`, orphans.length && `孤儿 ${orphans.length}`,
+  unused.length && `无人使用 ${unused.length}`].filter(Boolean);
 const fail = gaps.length > 0 || orphans.length > 0;
-if (MODE === "strict" && fail) { console.error(`\nFAIL: ${gaps.length} 处缺失 / ${orphans.length} 个孤儿 token(--strict)`); process.exit(1); }
-if (fail) console.log(`\n(--report 模式:不阻塞,exit 0。清空后切 --strict 接 pre-push。)`);
+if (MODE === "strict" && fail) {
+  console.error(`\nFAIL: ${gaps.length} 处缺失 / ${orphans.length} 个孤儿 token(--strict)`);
+  process.exit(1);
+}
+// ⛔ 结论行【必须是最后一行】,而且它必须描述整份报告。
+//
+// 我第一版把它放在了 `(--report 模式:不阻塞,exit 0)` 那句【前面】—— 于是有真缺口时,
+// tail -2 看到的是"不阻塞,exit 0"这句【安抚的话】,告警被挤出了视野。
+// 攻击复现了多语言踩进去的那个动作(它就是用 tail -2 看的),当场抓到。
+// ⭐ 修好"绿勾盖住告警"之后,同一个病立刻从下一行冒出来:任何排在结论后面的话,
+//    都会变成新的最后一行 —— 而最后一行是读报告的人【唯一保证会读】的那行。
+console.log(warns.length
+  ? `\n⚠️ 本次报告有 ${warns.length} 类告警:${warns.join(" · ")}` +
+    (fail ? `\n   (--report 模式不阻塞,exit 0;清空后切 --strict 接 pre-push —— 但它【不是】干净的。)`
+          : `\n   (均不阻塞 —— 但都不是空的。别只看最后一行。)`)
+  : "\n✅ 无缺失、无孤儿、无腐烂 key。");
