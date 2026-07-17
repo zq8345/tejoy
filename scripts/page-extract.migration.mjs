@@ -212,10 +212,20 @@ for (const slug of SLUGS) {
   // 忘了就【反向撒谎】(说是英文,其实是葡语)。一个写的时候对、后来烂掉的值 —— 这是我们
   // 这周踩的每一个坑的形状。」只碰指南卡标题,不做成通用规则。
   {
-    tpl = tpl.replace(/(<h3 class="blog-sidebar__title">\s*<a href="(\/[a-z0-9-]+\/\d+)">\{\{t\.[a-z0-9_.-]+\}\}<\/a>)/g,
+    // ⚠️ 第一版只认 `<h3 class="blog-sidebar__title">` —— 于是 hangye 被【静默漏掉】:它的卡片
+    // 用 water-sport-item / <h3 class="title"> 这套 markup,6 张卡一个 badge 都没拿到。
+    // 抽取时它没打印 badge 那一行,我看见了、没追 —— 是总工点名 hangye 才让我回头查的。
+    // ⭐「没报」可能是「没有」,也可能是「我没看见」。这两件事这周我已经分不清五次了。
+    //
+    // 所以规则改成认【角色】不认某一种 markup:任意 <hN> 里、直接包着一个指向本站文章的 <a>,
+    // 那就是卡片标题。hangye 和其它 hub 用不同的 class,但它们是同一个东西。
+    tpl = tpl.replace(/(<h[1-6][^>]*>\s*<a href="(\/[a-z0-9-]+\/\d+)">\{\{t\.[a-z0-9_.-]+\}\}<\/a>)/g,
       (m, whole, target) => `${whole}{{badge.${target}}}`);
     const n = (tpl.match(/\{\{badge\./g) || []).length;
-    if (n) console.log(`   ${slug}: ${n} 张指南卡注入 {{badge.*}}(按存在性派生,不写死)`);
+    // 对账:注入数必须等于这个页上指向本站文章的卡片标题数 —— 不是"注入了几个"就算几个
+    const want = [...tpl.matchAll(/<h[1-6][^>]*>\s*<a href="\/[a-z0-9-]+\/\d+"/g)].length;
+    if (n !== want) console.log(`   🔴 ${slug}: badge 注入 ${n},卡片标题 ${want} — 差 ${want - n},有卡没拿到 badge`);
+    else if (n) console.log(`   ${slug}: ${n} 张指南卡注入 {{badge.*}}(按存在性派生,不写死)`);
   }
   // body 内链 -> {{url.X}}(存在性规则,不进目录)
   {
