@@ -150,7 +150,12 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     const p = pageOf(locale, path.join(slug, "index.html"));
     if (!fs.existsSync(p)) continue;                       // regen 渲内容,不决定站点地图
     const h0 = fs.readFileSync(p, "utf8");
-    const h1 = renderPage(ptpl, { locale, catalog: { ...pcat, "card.lang_badge": catalog["card.lang_badge"] }, urlOf, path: `/${slug}/` });
+    // chrome 整个并进来,不是逐个把需要的 key 挑出来 —— `{...pcat, "card.lang_badge": ...}`
+    // 是下一张"记得加"的清单,而清单本身就是那个 bug(这周第五次)。
+    // 页面 key 覆盖同名 chrome key(pcat 在后),所以并入不会改变任何现有页面的输出。
+    // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
+    // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
+    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...pcat }, urlOf, path: `/${slug}/` });
     if (h1 !== h0) { fs.writeFileSync(p, h1); pages++; }
   }
 }
