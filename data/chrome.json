@@ -224,6 +224,42 @@
     "pt-BR": "XML",
     "reason": "fallback: format name / code value (sitemap link)"
   },
+  "switcher.aria.to_en": {
+    "en": "View this page in English",
+    "pt-BR": "Ver esta página em inglês",
+    "es-MX": "Ver esta página en inglés",
+    "reason": "约定 A：aria-label 用读者的语言（= 该页 <html lang>）。见 es-switcher-seed.migration.mjs"
+  },
+  "switcher.aria.to_pt": {
+    "en": "View this page in Portuguese",
+    "pt-BR": "Ver esta página em português",
+    "es-MX": "Ver esta página en portugués",
+    "reason": "约定 A。en 值【替换】了原 header.ver_esta_p_gina_em_portugu_s 的葡语值 —— 实测 52/52 切换器链接无独立 lang，那个值在 en 页上正被英语语音引擎读"
+  },
+  "switcher.aria.to_es": {
+    "en": "View this page in Spanish",
+    "pt-BR": "Ver esta página em espanhol",
+    "es-MX": "Ver esta página en español",
+    "reason": "约定 A"
+  },
+  "switcher.code.en": {
+    "en": "EN",
+    "pt-BR": "EN",
+    "es-MX": "EN",
+    "reason": "同形词：国际语言代码，三语同值。显式给值而非白名单 —— 白名单会自动放行未来每种语言"
+  },
+  "switcher.code.pt": {
+    "en": "PT",
+    "pt-BR": "PT",
+    "es-MX": "PT",
+    "reason": "同形词：国际语言代码"
+  },
+  "switcher.code.es": {
+    "en": "ES",
+    "pt-BR": "ES",
+    "es-MX": "ES",
+    "reason": "同形词：国际语言代码"
+  },
   "card.alt.suffix": {
     "en": "- tejoy Products",
     "pt-BR": "- Produtos Tejoy",
