@@ -165,6 +165,34 @@ for (const slug of SLUGS) {
 
   // head 槽位 —— 按槽位替换,不按字符串:en 的 <title> 可能恰好等于 og:site_name,
   // 字符串替换会把它一起吞掉,而 en 正是这个区别不可见的那一侧
+  // JS 在运行时构造的 JSON-LD:`script.textContent = JSON.stringify({…})`,单引号写的,
+  // 所以它【不是】 <script type="application/ld+json">,上面那套 JSON 遍历完全看不见它。
+  // 只有 faq 一个页有。它的 name/description 是随语种变的真文案(pt 侧是葡语的,不派生就会被
+  // en 覆盖);@id 由 route 算 —— 顺带修掉 en 侧一个存量 bug:它写的是 https://tejoy.com/?faq/,
+  // 那个 `?` 本来就在源文件里(不是这条流水线造的,我一度错记在自己账上)。pt 侧是对的。
+  {
+    const at = tpl.indexOf("script.textContent = JSON.stringify(");
+    if (at >= 0) {
+      const end = tpl.indexOf("</script>", at);
+      let seg = tpl.slice(at, end);
+      const eAt = enRaw.indexOf("script.textContent = JSON.stringify(");
+      const eSeg = enRaw.slice(eAt, enRaw.indexOf("</script>", eAt));
+      const pAt = hasPt ? ptRaw.indexOf("script.textContent = JSON.stringify(") : -1;
+      const pSeg = pAt >= 0 ? ptRaw.slice(pAt, ptRaw.indexOf("</script>", pAt)) : "";
+      for (const field of ["name", "description"]) {
+        const re = new RegExp(`('${field}':\\s*')([^']*)(')`);
+        const e = (eSeg.match(re) || [])[2], p = pSeg ? (pSeg.match(re) || [])[2] : undefined;
+        if (e === undefined) continue;
+        const key = `${slug}.jsonld.${field}`;
+        cat[key] = { en: e, ...(p !== undefined ? { "pt-BR": p } : {}) };
+        seg = seg.replace(re, `$1{{t.${key}}}$3`);
+      }
+      seg = seg.replace(/('@id':\s*')[^']*(#[^']*')/, "$1{{CANONICAL}}$2");
+      tpl = tpl.slice(0, at) + seg + tpl.slice(end);
+      console.log(`   ${slug}: JS 构造的 JSON-LD → name/description 进目录,@id 由 route 派生(en 存量 bug 'tejoy.com/?faq/' 顺带修好)`);
+    }
+  }
+
   const headEnd = tpl.indexOf("</head>");
   let head = tpl.slice(0, headEnd), rest = tpl.slice(headEnd);
   const enH = enRaw.slice(0, enRaw.indexOf("</head>")), ptH = hasPt ? ptRaw.slice(0, ptRaw.indexOf("</head>")) : "";
