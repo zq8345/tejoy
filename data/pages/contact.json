@@ -1,7 +1,8 @@
 {
   "contact.page-header-title.1": {
     "en": "Contact Us",
-    "pt-BR": "Contato"
+    "pt-BR": "Contato",
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
   },
   "contact.page-header-subtitle.1": {
     "en": "OEM/ODM inquiries welcome.",
@@ -85,6 +86,7 @@
   },
   "contact.ld.name.3": {
     "en": "Contact Us",
-    "pt-BR": "Contato"
+    "pt-BR": "Contato",
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
   }
 }

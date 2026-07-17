@@ -1,7 +1,8 @@
 {
   "about.page-header-title.1": {
     "en": "About Us",
-    "pt-BR": "Sobre Nós"
+    "pt-BR": "Sobre Nós",
+    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Tejoy)对应不同位置。同词不同位,显式共存不合并。"
   },
   "about.page-header-subtitle.1": {
     "en": "Engineering-led manufacturing since 2010.",
@@ -169,7 +170,8 @@
   },
   "about.span.1": {
     "en": "Contact Us",
-    "pt-BR": "Fale conosco"
+    "pt-BR": "Fale conosco",
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
   },
   "about.meta.title": {
     "en": "About Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
@@ -185,6 +187,7 @@
   },
   "about.ld.name.3": {
     "en": "About Us",
-    "pt-BR": "Sobre"
+    "pt-BR": "Sobre",
+    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Tejoy)对应不同位置。同词不同位,显式共存不合并。"
   }
 }

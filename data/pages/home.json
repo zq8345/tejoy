@@ -69,7 +69,8 @@
   },
   "home.about.eyebrow": {
     "en": "About Us",
-    "pt-BR": "Sobre a Tejoy"
+    "pt-BR": "Sobre a Tejoy",
+    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Tejoy)对应不同位置。同词不同位,显式共存不合并。"
   },
   "home.p.5": {
     "en": "Tejoy Starlink Accessories Limited designs and manufactures Starlink-compatible mounts, power adapters, cables, protective cases, and deployment accessories for RV, marine, enterprise, and off-grid users. Built around engineering-led manufacturing and quality control, Tejoy supports global buyers with stable production, OEM/ODM capability, and practical accessories for every Starlink terminal generation.",
