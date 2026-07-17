@@ -85,7 +85,7 @@ function validateProduct(body, id) {
     id, category: body.category, form, robots: body.robots ?? null,
     i18n: { en: {
       title: en.title, summary_html: en.summary_html || "", description_html: en.description_html,
-      keywords: en.keywords || "", meta_title: en.meta_title || en.title, meta_description: en.meta_description || "",
+      meta_title: en.meta_title || en.title, meta_description: en.meta_description || "",
     } },
     images: body.images.map((im) => (im.key !== undefined ? { key: im.key, alt: im.alt || "" } : { src: im.src, alt: im.alt || "" })),
     jsonld_product: body.jsonld_product ?? null, jsonld_breadcrumb: body.jsonld_breadcrumb ?? null,

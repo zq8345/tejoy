@@ -89,7 +89,6 @@
     <textarea id="f_title" rows="2"></textarea>
     <div class="row2">
       <div><label>Meta 标题(SEO)</label><textarea id="f_meta_title" rows="2"></textarea></div>
-      <div><label>关键词(SEO)</label><textarea id="f_keywords" rows="2"></textarea></div>
     </div>
     <label>Meta 描述(SEO)</label>
     <textarea id="f_meta_description" rows="2"></textarea>
@@ -180,7 +179,7 @@ function showEditor(p, isNew){
   $("#f_form").innerHTML = ['<option value="">—</option>'].concat(FORMS.map(f=>`<option value="${esc(f)}" ${f===p.form?"selected":""}>${FORM_LABEL[f]||f}</option>`)).join("");
   const e = p.i18n.en;
   $("#f_title").value = e.title||""; $("#f_meta_title").value = e.meta_title||"";
-  $("#f_keywords").value = e.keywords||""; $("#f_meta_description").value = e.meta_description||"";
+  $("#f_meta_description").value = e.meta_description||"";
   $("#f_summary").value = summaryToText(e.summary_html||""); $("#f_noindex").checked = !!p.robots;
   renderBlocks(htmlToBlocks(e.description_html||""));
   renderImgs(p.images||[]);
@@ -275,7 +274,7 @@ function drawImgs(){
 // ----- 新增产品 -----
 function openNew(){
   const blank = { id:null, category:"mini", form:null, robots:null,
-    i18n:{ en:{ title:"", summary_html:"", description_html:"", keywords:"", meta_title:"", meta_description:"" } },
+    i18n:{ en:{ title:"", summary_html:"", description_html:"", meta_title:"", meta_description:"" } },
     images:[], jsonld_product:null, jsonld_breadcrumb:null };
   showEditor(blank, true);
 }
@@ -292,7 +291,6 @@ async function save(){
       title: $("#f_title").value.trim(),
       summary_html: summary ? "<p>"+esc(summary).replace(/\n/g,"<br>")+"</p>" : "",
       description_html: blocksToHtml(BLOCKS),
-      keywords: $("#f_keywords").value.trim(),
       meta_title: $("#f_meta_title").value.trim() || $("#f_title").value.trim(),
       meta_description: $("#f_meta_description").value.trim(),
     }},

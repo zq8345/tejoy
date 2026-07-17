@@ -27,7 +27,6 @@ export function mergeI18n(prod, locale) {
   const loc = (prod.i18n && prod.i18n[locale]) || {};
   return {
     title: loc.title ?? en.title,
-    keywords: en.keywords,
     summary_html: loc.summary_html ?? en.summary_html,
     description_html: loc.description_html ?? en.description_html,
     meta_description: loc.meta_description ?? en.meta_description,
@@ -94,7 +93,7 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
       + `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`
     : "";
   const reps = {
-    META_TITLE: metaTitleOf(e, prod, locale, modelDisplay, catalog), KEYWORDS: e.keywords || "", META_DESC: e.meta_description,
+    META_TITLE: metaTitleOf(e, prod, locale, modelDisplay, catalog), META_DESC: e.meta_description,
     ROBOTS_META: robots, CANONICAL: canonical, HREFLANG: hreflang,
     HTML_LANG: locale, OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
     GALLERY_MAIN: slides, GALLERY_THUMB: slides, CATEGORY: (modelDisplay && modelDisplay[prod.category]) || CATMAP[prod.category] || prod.category,
