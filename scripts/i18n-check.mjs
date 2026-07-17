@@ -71,8 +71,11 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json/.test(f)) {
     sources.data.push(f);                                  // 已知的【非文案】数据,点名放行
+    // ⭐ es-glossary.json = 术语表(出处单一真源),不是文案目录:顶层是 forbidden/terms/… ,无 en 字段,
+    //    isCatalog() 已正确判它不是目录。点名放行是【它本就不是文案】,不是"guard 少认一种形状"——
+    //    我核过两者的区别(node -e 跑了 isCatalog),没盲目加白名单。这正是 guard 26f9dd64 那条要逼出的判断。
   } else {
     unknown.push(f);                                       // 认不出 -> 吼,绝不静默跳过
   }
