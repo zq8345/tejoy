@@ -17,7 +17,20 @@
 import fs from "fs";
 
 const MODE = process.argv.includes("--strict") ? "strict" : "report";
-const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
+
+// ⛔ guard 读【自己的配置】的那些文件,不可能同时是它的【检查对象】—— 那是循环:
+//    一把尺子把自己的刻度当成了待测物。所以这不是"记得排除一个文件名",是结构性的:
+//    同一个常量,读配置用它,排除也用它。加一个配置源 = 改这一行,两处自动一致。
+//
+// ⚠️ 这个洞是我自己这轮挖的:我往 locales.json 加了 locale_label = {en:"EN","pt-BR":"PT"} ——
+//    它和真目录条目【形状完全相同】,于是 isCatalog() 认出了整个 locales.json,把 enabled /
+//    default / fallback / model_display 全判成了待翻文案,还报"缺失 8 处"、值是 "undefined"。
+//    ⭐ 形状分不开它们:目录条目是「这个 key 在各语种下的文本」,locale_label 是「各语种自己的
+//    名字」—— 同构,反义。分得开的是【角色】:配置源 vs 检查对象。
+//    (而且那 8 条永远修不好 —— 你没法给 enabled 一个 pt-BR 译文。它会一直红,直到把人训练到
+//     略过告警为止 —— 那句话是我自己写的。)
+const CONFIG_SOURCES = ["data/locales.json"];
+const locales = JSON.parse(fs.readFileSync(CONFIG_SOURCES[0], "utf8"));
 const enabled = locales.enabled;
 
 // ⛔ guard 【自己发现】所有可翻译的数据源,不读一张清单。
@@ -44,6 +57,8 @@ const catalog = {};
 const sources = { catalog: [], product: [], data: [] };
 const unknown = [];
 for (const f of allJson("data")) {
+  // 配置源先判,在任何形状判定【之前】—— 角色优先于形状
+  if (CONFIG_SOURCES.includes(f)) { sources.data.push(f); continue; }
   const o = JSON.parse(fs.readFileSync(f, "utf8"));
   if (isProduct(o)) {
     sources.product.push(f);
@@ -110,7 +125,11 @@ for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]
 // keys in its LIST_PAGES table via {t:key}. body.banner.title happens to ALSO be a template token
 // today, so leaving regen.mjs out would not have alarmed yet — it would have waited for the first
 // key that is only ever named there. A gap that is currently masked is still a gap.
-const CODE = ["functions/_lib/render.js", "scripts/regen.mjs"];
+// ⛔ 每一个读 catalog 的东西都得在这里。chrome-sync 漏了 —— 而它是【常驻的那个生成器】,
+// 全站 chrome 都是它写的。第四次同一个形状:漏一类消费者 = 一批活 key 被报成"已腐烂"。
+// (这次没咬到,只因为 locales.json 被误判成目录时把 locale_label 一起带进来了 —— 一个 bug
+//  恰好遮住了另一个 bug。修好前一个,后一个就会露出来。)
+const CODE = ["functions/_lib/render.js", "scripts/regen.mjs", "scripts/chrome-sync.mjs"];
 const allCode = CODE.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
 // 第三类消费者:产品字段。它们既不是 {{t.key}} token,也不是 catalog["key"] —— render.js 的
 // mergeI18n 直接读 prod.i18n[locale][field]。不认这一类,320 个活值会被报成"已腐烂"(第五次假警报)。
