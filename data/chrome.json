@@ -9,215 +9,315 @@
   ],
   "header.home": {
     "en": "Home",
-    "pt-BR": "Início"
+    "pt-BR": "Início",
+    "es-MX": "Inicio",
+    "reason.es-MX": "判断:西语站首页词的事实标准。coppel 首页用 logo 不用文字，拿不到直接语料"
   },
   "header.products": {
     "en": "Products",
-    "pt-BR": "Produtos"
+    "pt-BR": "Produtos",
+    "es-MX": "Productos",
+    "reason.es-MX": "证据 Starlink MX「Especificaciones del producto」—— producto 坐实，复数为语法"
   },
   "header.mounts_brackets": {
     "en": "Mounts &amp; Brackets",
-    "pt-BR": "Suportes e Fixações"
+    "pt-BR": "Suportes e Fixações",
+    "es-MX": "Soportes y Bases",
+    "reason.es-MX": "判断:mount=soporte / bracket=base。配件领域无官方西语标尺（见规范）"
   },
   "header.power_charging": {
     "en": "Power &amp; Charging",
-    "pt-BR": "Energia e Carregamento"
+    "pt-BR": "Energia e Carregamento",
+    "es-MX": "Energía y Carga",
+    "reason.es-MX": "证据 Starlink MX「entrada de alimentación de CC」—— 电力域坐实；分类名选 Energía 是判断"
   },
   "header.cables": {
     "en": "Cables",
-    "pt-BR": "Cabos"
+    "pt-BR": "Cabos",
+    "es-MX": "Cables",
+    "reason.es-MX": "⚠️同形词（es=en 拼写相同）。分类名「cables」是【真西语词】，证据 Starlink MX「Starlink Cable 15 m」那个 Cable 是【部件名】，两回事 —— 见 §同形词"
   },
   "header.networking": {
     "en": "Networking",
-    "pt-BR": "Redes"
+    "pt-BR": "Redes",
+    "es-MX": "Redes",
+    "reason.es-MX": "证据 Starlink MX「un router wifi integrado」—— 网络域坐实；Redes 为分类名判断"
   },
   "header.cases_protection": {
     "en": "Cases &amp; Protection",
-    "pt-BR": "Cases e Proteção"
+    "pt-BR": "Cases e Proteção",
+    "es-MX": "Estuches y Protección",
+    "reason.es-MX": "🔴 无证据: Estuche 已在规范标红 —— 亚马逊 MX 被否（它是我们数据的来源本身），Starlink MX 配件 PDF 是英文。**该词无官方西语标尺,标红上线**"
   },
   "header.all_products": {
     "en": "All products",
-    "pt-BR": "Todos os produtos"
+    "pt-BR": "Todos os produtos",
+    "es-MX": "Todos los productos",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.shop_by_starlink_model": {
     "en": "Shop by Starlink model",
-    "pt-BR": "Comprar por modelo Starlink"
+    "pt-BR": "Comprar por modelo Starlink",
+    "es-MX": "Comprar por modelo Starlink",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.guides": {
     "en": "Guides",
-    "pt-BR": "Guias"
+    "pt-BR": "Guias",
+    "es-MX": "Guías",
+    "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— ✅ 直接命中"
   },
   "header.marine": {
     "en": "Marine",
-    "pt-BR": "Náutico"
+    "pt-BR": "Náutico",
+    "es-MX": "Marítimo",
+    "reason.es-MX": "证据 Starlink MX「explore Starlink Marítimo」—— ✅✅ Starlink 自己的品类名,逐字采用"
   },
   "header.rv_off_grid": {
     "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
+    "pt-BR": "Motorhome / Off-Grid",
+    "es-MX": "Casa rodante / Sin red",
+    "reason.es-MX": "⚠️冲突: 证据 Starlink MX写「autocaravanas」,但 autocaravana 是【西班牙】用语,墨西哥说 casa rodante。**这里我判墨西哥用法而不抄 Starlink** —— 理由同 tú/usted:Starlink MX 自己混欧西语,那是它的缺点不是榜样"
   },
   "header.mounts": {
     "en": "Mounts",
-    "pt-BR": "Suportes"
+    "pt-BR": "Suportes",
+    "es-MX": "Soportes",
+    "reason.es-MX": "判断:mount=soporte"
   },
   "header.industrial": {
     "en": "Industrial",
     "pt-BR": "Industrial",
+    "es-MX": "Industrial",
+    "reason.es-MX": "⚠️同形词(es=en 拼写相同)。这是【真译文】不是英文残留 —— 按 _fallback_doc,同形词给显式值+reason,不进 locales 白名单",
     "reason": "homograph — pt uses the identical word (confirmed: native /pt/industrial/ h1)"
   },
   "header.power": {
     "en": "Power",
-    "pt-BR": "Energia"
+    "pt-BR": "Energia",
+    "es-MX": "Energía",
+    "reason.es-MX": "证据 Starlink MX「entrada de alimentación de CC」—— 电力域;分类名 Energía 为判断"
   },
   "header.industry_hub": {
     "en": "Industry Hub",
-    "pt-BR": "Hub por Setor"
+    "pt-BR": "Hub por Setor",
+    "es-MX": "Centro por Sector",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.support": {
     "en": "Support",
-    "pt-BR": "Suporte"
+    "pt-BR": "Suporte",
+    "es-MX": "Ayuda",
+    "reason.es-MX": "⭐避撞: support 和 mount 在西语里【同词 soporte】—— 导航里会出现「Soportes」(支架) 和「Soporte」(客服),只差一个 s。**pt 也撞了(Suportes/Suporte)但已上线;es 现在就能躲开** → 客服用 Ayuda"
   },
   "header.faq": {
     "en": "FAQ",
     "pt-BR": "FAQ",
+    "es-MX": "Preguntas frecuentes",
+    "reason.es-MX": "判断:⚠️pt 保留了「FAQ」,但【不能拿 pt 推 es】(我自己立的规矩)。西语站惯例是展开;墨西哥语料未直接抓到,标黄",
     "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + \"Marca e Afiliação (FAQ)\")"
   },
   "header.video": {
     "en": "Video",
-    "pt-BR": "Vídeos"
+    "pt-BR": "Vídeos",
+    "es-MX": "Videos",
+    "reason.es-MX": "⭐墨西哥特征: video【不带重音】(西班牙写 vídeo)。这是 es-MX 与 es-ES 的可见分叉点之一"
   },
   "header.compatibility_guide": {
     "en": "Compatibility Guide",
-    "pt-BR": "Guia de Compatibilidade"
+    "pt-BR": "Guia de Compatibilidade",
+    "es-MX": "Guía de Compatibilidad",
+    "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— Guía 坐实"
   },
   "header.company": {
     "en": "Company",
-    "pt-BR": "Empresa"
+    "pt-BR": "Empresa",
+    "es-MX": "Empresa",
+    "reason.es-MX": "证据 coppel.com「Precio de contado」页脚企业信息区用 Empresa"
   },
   "header.about": {
     "en": "About",
-    "pt-BR": "Sobre"
+    "pt-BR": "Sobre",
+    "es-MX": "Acerca de",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.contact": {
     "en": "Contact",
-    "pt-BR": "Contato"
+    "pt-BR": "Contato",
+    "es-MX": "Contacto",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.certifications_testing": {
     "en": "Certifications & Testing",
-    "pt-BR": "Certificações e Testes"
+    "pt-BR": "Certificações e Testes",
+    "es-MX": "Certificaciones y Pruebas",
+    "reason.es-MX": "证据 Starlink MX「Pruebe Starlink durante 30 días」—— prueba 坐实"
   },
   "header.oem_odm_manufacturing": {
     "en": "OEM/ODM Manufacturing",
-    "pt-BR": "Fabricação OEM/ODM"
+    "pt-BR": "Fabricação OEM/ODM",
+    "es-MX": "Fabricación OEM/ODM",
+    "reason.es-MX": "判断:语法确定;OEM/ODM 是行业代码值,不译"
   },
   "header.patents_manufacturing_capacity": {
     "en": "Patents & Manufacturing Capacity",
-    "pt-BR": "Patentes e Capacidade Fabril"
+    "pt-BR": "Patentes e Capacidade Fabril",
+    "es-MX": "Patentes y Capacidad de Fabricación",
+    "reason.es-MX": "判断:语法确定"
   },
   "header.brand_affiliation_faq": {
     "en": "Brand & Affiliation FAQ",
-    "pt-BR": "Marca e Afiliação (FAQ)"
+    "pt-BR": "Marca e Afiliação (FAQ)",
+    "es-MX": "Marca y Afiliación (FAQ)",
+    "reason.es-MX": "判断:与 header.faq 绑定:此处 FAQ 作括号缩写保留,与 pt 同构"
   },
   "header.tejoy_premium_starlink_accessories": {
     "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink",
+    "es-MX": "Tejoy | Accesorios Premium para Starlink",
+    "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)"
   },
   "mobilenav.hello_tejoy_com": {
     "en": "hello@tejoy.com",
     "pt-BR": "hello@tejoy.com",
+    "es-MX": "hello@tejoy.com",
+    "reason.es-MX": "fallback: e-mail 地址 / 代码值",
     "reason": "fallback: e-mail address / code value"
   },
   "mobilenav.logo_image": {
     "en": "logo image",
-    "pt-BR": "Página inicial"
+    "pt-BR": "Página inicial",
+    "es-MX": "Inicio",
+    "reason.es-MX": "判断:⭐这是 alt 文本。en 的「logo image」是个废 alt(描述了图片是什么,没说它去哪);pt 已改成「Página inicial」= 有用的 alt。es 同构"
   },
   "footer.other_menus": {
     "en": "Other menus",
-    "pt-BR": "Outros menus"
+    "pt-BR": "Outros menus",
+    "es-MX": "Otros menús",
+    "reason.es-MX": "判断:语法确定"
   },
   "footer.standard_circular": {
     "en": "Standard Circular",
     "pt-BR": "Standard Circular",
+    "es-MX": "Standard Circular",
+    "reason.es-MX": "fallback: 型号名(locales.json model_display 单一真源)",
     "reason": "fallback: model name"
   },
   "footer.standard_actuated": {
     "en": "Standard Actuated",
     "pt-BR": "Standard Actuated",
+    "es-MX": "Standard Actuated",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.standard": {
     "en": "Standard",
     "pt-BR": "Standard",
+    "es-MX": "Standard",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.mini": {
     "en": "Mini",
     "pt-BR": "Mini",
+    "es-MX": "Mini",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.performance_gen_1": {
     "en": "Performance (Gen 1)",
     "pt-BR": "Performance (Gen 1)",
+    "es-MX": "Performance (Gen 1)",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.performance_gen_3": {
     "en": "Performance (Gen 3)",
     "pt-BR": "Performance (Gen 3)",
+    "es-MX": "Performance (Gen 3)",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.enterprise": {
     "en": "Enterprise",
     "pt-BR": "Enterprise",
+    "es-MX": "Enterprise",
+    "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
   "footer.tejoy_starlink_accessories_limited": {
     "en": "TEJOY STARLINK ACCESSORIES LIMITED",
     "pt-BR": "TEJOY STARLINK ACCESSORIES LIMITED",
+    "es-MX": "TEJOY STARLINK ACCESSORIES LIMITED",
+    "reason.es-MX": "fallback: 注册法律实体名",
     "reason": "fallback: brand / registered legal entity name"
   },
   "footer.address_no_62_baotian_1st_road_xix": {
     "en": "Address:No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong Province, China",
-    "pt-BR": "Endereço: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Baoan, Shenzhen, Guangdong, China"
+    "pt-BR": "Endereço: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Baoan, Shenzhen, Guangdong, China",
+    "es-MX": "Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China",
+    "reason.es-MX": "判断:⭐只译标签「Address:」,地址本体【保持英文】—— 它是投递用的物理地址,译了没人能用。pt 同此处理"
   },
   "footer.e_mail_hello_tejoy_com": {
     "en": "E-mail：hello@tejoy.com",
-    "pt-BR": "E-mail: hello@tejoy.com"
+    "pt-BR": "E-mail: hello@tejoy.com",
+    "es-MX": "Correo: hello@tejoy.com",
+    "reason.es-MX": "证据 Starlink MX「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**"
   },
   "footer.about_us": {
     "en": "- About Us",
-    "pt-BR": "- Sobre"
+    "pt-BR": "- Sobre",
+    "es-MX": "- Acerca de nosotros",
+    "reason.es-MX": "判断:语法确定"
   },
   "footer.products": {
     "en": "- Products",
-    "pt-BR": "- Produtos"
+    "pt-BR": "- Produtos",
+    "es-MX": "- Productos",
+    "reason.es-MX": "证据 Starlink MXproducto 坐实"
   },
   "footer.industry": {
     "en": "- Industry",
-    "pt-BR": "- Setores"
+    "pt-BR": "- Setores",
+    "es-MX": "- Sectores",
+    "reason.es-MX": "判断:industry(行业板块)= sector;与 header.industry_hub 一致"
   },
   "footer.guides": {
     "en": "- Guides",
-    "pt-BR": "- Guias"
+    "pt-BR": "- Guias",
+    "es-MX": "- Guías",
+    "reason.es-MX": "证据 Starlink MX「Guía de accesorios」"
   },
   "footer.faq": {
     "en": "- FAQ",
     "pt-BR": "- FAQ",
+    "es-MX": "- Preguntas frecuentes",
+    "reason.es-MX": "判断:与 header.faq 绑定",
     "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + \"Marca e Afiliação (FAQ)\")"
   },
   "footer.video": {
     "en": "- Video",
-    "pt-BR": "- Vídeos"
+    "pt-BR": "- Vídeos",
+    "es-MX": "- Videos",
+    "reason.es-MX": "⭐墨西哥特征: 无重音,与 header.video 一致"
   },
   "footer.contact_us": {
     "en": "- Contact Us",
-    "pt-BR": "- Contato"
+    "pt-BR": "- Contato",
+    "es-MX": "- Contacto",
+    "reason.es-MX": "判断:语法确定"
   },
   "footer.copyright_2026_tejoy_starlink_acce": {
     "en": "Copyright  ©  2026 Tejoy Starlink Accessories Limited All Rights Reserved.\nTejoy manufactures third-party Starlink-compatible accessories. Not affiliated with SpaceX or Starlink.",
-    "pt-BR": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos os direitos reservados.\nA Tejoy fabrica acessórios de terceiros compatíveis com Starlink. Não é afiliada à SpaceX nem à Starlink."
+    "pt-BR": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos os direitos reservados.\nA Tejoy fabrica acessórios de terceiros compatíveis com Starlink. Não é afiliada à SpaceX nem à Starlink.",
+    "es-MX": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos los derechos reservados.\nTejoy fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.",
+    "reason.es-MX": "⭐免责声明 —— 证据 Starlink MX「Starlink es una división de SpaceX」句式;accesorios 坐实。**这条是合规文案,含义不能漂**:third-party=de terceros / compatible=compatibles con / not affiliated=no está afiliada"
   },
   "footer.xml": {
     "en": "XML",
     "pt-BR": "XML",
+    "es-MX": "XML",
+    "reason.es-MX": "fallback: 格式名 / 代码值",
     "reason": "fallback: format name / code value (sitemap link)"
   },
   "switcher.aria.to_en": {
@@ -259,111 +359,155 @@
   "card.alt.suffix": {
     "en": "- tejoy Products",
     "pt-BR": "- Produtos Tejoy",
+    "es-MX": "- Productos Tejoy",
+    "reason.es-MX": "判断:与 pt 同构(catalog key,不是每页一份的字符串)",
     "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml"
   },
   "card.alt.category": {
     "en": "- tejoy product category",
     "pt-BR": "- categoria de produto tejoy",
+    "es-MX": "- categoría de producto tejoy",
+    "reason.es-MX": "判断:与 pt 同构",
     "_note": "首页机型卡 alt 后缀。pt-BR 的值不是我造的:它已经手写在 pt/index.html 的 Mini/Standard 两张卡上,这里只是把它提上来当唯一真源。"
   },
   "card.lang_badge": {
     "en": "in English",
     "pt-BR": "em inglês",
+    "es-MX": "en inglés",
+    "reason.es-MX": "判断:⭐es 卡片指向 en 正文时的语言标注。措辞遵循我签 pt 时的同一条:小写、不加括号、不喊叫 ——「它是一句提示,不是一个警告」。由 renderPage 按存在性【派生】,绝不写死",
     "_note": "pt 卡片指向 en 正文时的语言标注。多语言签的措辞:小写、不加括号、不喊叫 —— 「它是一句提示,不是一个警告。用户要的是知道,不是被劝退」。⚠️ 由 renderPage 按存在性【派生】,绝不写死:写死的话 Phase 3 译完后必须有人记得删,忘了就反向撒谎。en 侧永不出现(en 页在 en 里永远存在)。"
   },
   "meta.title.suffix": {
     "en": " | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": " | Acessórios Premium para Starlink, Suportes e Soluções de Energia",
+    "es-MX": " | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "reason.es-MX": "证据 Starlink MXaccesorios 坐实;派生 meta_title 用,不存 64 份",
     "reason": "brand suffix for the DERIVED meta_title (render.js metaTitleOf). Not stored per product: a derived value kept as data drifts the moment a title is edited, and the drift is silent — that is how a half-English/half-pt meta_title shipped. Adding a language = translate this one key, not 64 stored strings. pt value is the one the i18n window already used across the pt pages."
   },
   "body.banner.title": {
     "en": "Products",
     "pt-BR": "Produtos",
+    "es-MX": "Productos",
+    "reason.es-MX": "证据 Starlink MXproducto 坐实",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.banner.subtitle": {
     "en": "Starlink-compatible accessories for every terminal generation.",
     "pt-BR": "Acessórios compatíveis com Starlink para todas as gerações de terminal.",
+    "es-MX": "Accesorios compatibles con Starlink para todas las generaciones de terminal.",
+    "reason.es-MX": "证据 Starlink MXaccesorios + compatibles con 坐实",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.contact_now": {
     "en": "Contact Now",
     "pt-BR": "Fale conosco agora",
+    "es-MX": "Contáctanos ahora",
+    "reason.es-MX": "⭐tú 形式(规范 §二之〇之一:证据 coppel.com su/sus 0 次 + gob.mx su 0 次)",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.back": {
     "en": "Back",
     "pt-BR": "Voltar",
+    "es-MX": "Volver",
+    "reason.es-MX": "判断:语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.send_inquiry": {
     "en": "Send an Inquiry",
     "pt-BR": "Envie uma consulta",
+    "es-MX": "Envía una consulta",
+    "reason.es-MX": "⭐tú 形式。⚠️inquiry=consulta 而【不是 cotización】—— cotización 是\"报价单\",承诺了我们给不了的东西",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.inquiry_blurb": {
     "en": "Interested in this product? Leave us a message and we'll reply as soon as possible.",
     "pt-BR": "Tem interesse neste produto? Deixe sua mensagem que responderemos o mais rápido possível.",
+    "es-MX": "¿Te interesa este producto? Déjanos un mensaje y te responderemos lo antes posible.",
+    "reason.es-MX": "⭐tú 形式(te/déjanos),证据 Starlink MX「lo que te permite personalizar tu servicio」同人称",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.category_label": {
     "en": "Category: ",
     "pt-BR": "Categoria: ",
+    "es-MX": "Categoría: ",
+    "reason.es-MX": "判断:语法确定;尾随空格与 en/pt 一致(它是拼接前缀)",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.related_products": {
     "en": "Related products",
     "pt-BR": "Produtos relacionados",
+    "es-MX": "Productos relacionados",
+    "reason.es-MX": "证据 Starlink MXproducto 坐实",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.company": {
     "en": "Company Name",
     "pt-BR": "Nome da empresa",
+    "es-MX": "Nombre de la empresa",
+    "reason.es-MX": "判断:语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.name": {
     "en": "Name",
     "pt-BR": "Nome",
+    "es-MX": "Nombre",
+    "reason.es-MX": "判断:语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.phone": {
     "en": "Phone",
     "pt-BR": "Telefone",
+    "es-MX": "Teléfono",
+    "reason.es-MX": "判断:语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.email": {
     "en": "Email",
     "pt-BR": "E-mail",
+    "es-MX": "Correo electrónico",
+    "reason.es-MX": "证据 Starlink MX「Reciba novedades de Starlink por correo electrónico」—— ✅✅ 逐字命中,**不是「Email」**",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.message": {
     "en": "Message",
     "pt-BR": "Mensagem",
+    "es-MX": "Mensaje",
+    "reason.es-MX": "判断:语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.form.submit": {
     "en": "Submit",
     "pt-BR": "Enviar",
+    "es-MX": "Enviar",
+    "reason.es-MX": "证据 coppel.com表单动作词;语法确定",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.ph.name": {
     "en": "Your Name",
     "pt-BR": "Seu nome",
+    "es-MX": "Tu nombre",
+    "reason.es-MX": "⭐tú 形式(证据 coppel.com「tu vida」「tu crédito」)",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.ph.phone": {
     "en": "Your Phone",
     "pt-BR": "Seu telefone",
+    "es-MX": "Tu teléfono",
+    "reason.es-MX": "⭐tú 形式",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.ph.email": {
     "en": "Your Email",
     "pt-BR": "Seu e-mail",
+    "es-MX": "Tu correo electrónico",
+    "reason.es-MX": "⭐tú 形式 + 证据 Starlink MXcorreo electrónico",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   },
   "body.ph.message": {
     "en": "Your Message",
     "pt-BR": "Sua mensagem",
+    "es-MX": "Tu mensaje",
+    "reason.es-MX": "⭐tú 形式",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
   }
 }

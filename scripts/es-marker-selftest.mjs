@@ -127,38 +127,31 @@ const COPPEL_GOB = [
 
 const CLEAN_ES = [...STARLINK_MX, ...COPPEL_GOB];
 
-/* ── 取标记词表 ──────────────────────────────────────────────────────── */
-const arg = process.argv.indexOf('--markers');
-let markers, source;
-if (arg > 0) {
-  const raw = fs.readFileSync(process.argv[arg + 1], 'utf8');
-  markers = new Set([...raw.matchAll(/'([a-zà-ÿñ-]+)'/gi)].map((m) => m[1].toLowerCase()));
-  source = process.argv[arg + 1];
-} else {
-  const raw = fs.readFileSync(path.join(HERE, 'pt-leak-scan.mjs'), 'utf8');
-  const m = raw.match(/const EN_MARKERS = new Set\(\[([\s\S]*?)\]\);/);
-  markers = new Set([...m[1].matchAll(/'([a-z-]+)'/g)].map((x) => x[1]));
-  source = 'pt-leak-scan.mjs 的 EN_MARKERS（演示：它对 es 会炸成什么样）';
-}
-
-/* ⚠️ 词边界必须含重音字母 **和 ñ** —— 否则 año / diseño / pequeño 被切断，
-   señal 切成 "se"+"al"（"al" 恰好是英语词！）→ 假阳性从天而降。
-   这正是 pt 那个 "transferência → transfer" bug 的西语版，只是更严重。 */
-const WORD_RE = /[a-zà-ÿñ][a-zà-ÿñ'-]*/gi;
+/* ── 判定：喂给【真尺子】，不是喂给一份词表 ─────────────────────────────
+ *
+ * ⭐⭐ 这里原来有个结构问题，是我造 es 扫描器时才看见的：
+ *   **原版自检只测「词表」，可尺子不只有词表。** 短语白名单、剥离顺序、词边界、
+ *   单词白名单 —— 全在词表【之外】。词表干净 ≠ 尺子干净。
+ *   → 自检必须 import 扫描器的**同一个判定函数**，否则我测的是尺子的倒影，不是尺子。
+ *     这跟 dev 那句「我量了自己的倒影，然后把它当成了关于原件的证据」是同一个形状。
+ *
+ *   ⚠️ 顺带删掉了 `--markers <文件>` 模式：它让「测一份任意词表」看起来也算自检。
+ *      收敛成一条规则 —— **自检的唯一职责：喂干净西语给真尺子，它必须闭嘴。**
+ */
+const { esLeaksIn, EN_MARKERS, WHITELIST_PHRASES } = await import('./es-leak-scan.mjs');
 
 let hits = 0;
 const byWord = {};
-console.log(`\n【es 标记词表 反向自检】`);
-console.log(`标记词来源：${source}（${markers.size} 个词）`);
-console.log(`语料：${CLEAN_ES.length} 条【已知干净的西语】—— 一条泄漏都没有\n`);
+console.log(`\n【es 尺子 反向自检】`);
+console.log(`被测：es-leak-scan.mjs 的 esLeaksIn()（${EN_MARKERS.size} 个标记词 + ${WHITELIST_PHRASES.length} 条短语白名单）`);
+console.log(`语料：${CLEAN_ES.length} 条【已知干净的西语】—— 100% 外部真语料，一条自编的都没有\n`);
 
 for (const line of CLEAN_ES) {
-  const words = line.toLowerCase().match(WORD_RE) || [];
-  const bad = words.filter((w) => markers.has(w));
+  const bad = esLeaksIn(line);
   if (bad.length) {
     hits += bad.length;
     bad.forEach((w) => (byWord[w] = (byWord[w] || 0) + 1));
-    console.log(`  ❌ {${[...new Set(bad)].join(',')}}  ${line.slice(0, 62)}`);
+    console.log(`  ❌ {${bad.join(',')}}  ${line.slice(0, 62)}`);
   }
 }
 
