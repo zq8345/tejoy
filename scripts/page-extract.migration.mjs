@@ -78,14 +78,15 @@ export const visibleText = (html) => nodes(html, 0).map((n) => n.text.trim());
 // ⚠️ 属性这一路我第一版【整个漏了】:ATTRS 只用在骨架比较里,抽取里从没用过 —— 于是
 // pt/video 会印 alt="Factory showcase - tejoy video"。这是 R1 那条教训第三次复发
 // (「属性枚举漏掉 → pt 静默退回英文」)。在一个函数里列出来,不等于在另一个函数里处理了。
-const nodes = (body, off) => {
+const nodes = (body, off, all = false) => {
   const killed = strip(body);
   const out = [];
   // ① 文本节点:任意 `>文本<`,【不】要求前面是开标签 —— `</label>Name` 里的 Name 就在闭标签
   //    后面,而它正是用户读的那半。写成 `<tag …>text<` 会把它整个漏掉(R1 的 seeder / contact / oem-odm)。
   for (const m of killed.matchAll(/>([^<>]+)(?=<)/g)) {
     const t = m[1];
-    if (!isProse(t)) continue;
+    if (!all && !isProse(t)) continue;
+    if (all && !t.trim()) continue;
     const start = m.index + 1;
     const before = killed.slice(Math.max(0, start - 400), start);
     const tagM = [...before.matchAll(/<([a-z0-9]+)([^>]*)>/gi)].pop();
@@ -97,7 +98,7 @@ const nodes = (body, off) => {
   for (const a of ATTRS) {
     for (const m of killed.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))) {
       const v = m[1];
-      if (!isProse(v)) continue;                             // alt="" 是有意的装饰,不是文案
+      if (all ? !v.trim() : !isProse(v)) continue;           // alt="" 是有意的装饰,不是文案
       const start = m.index + m[0].length - 1 - v.length;
       out.push({ start: start + off, end: start + v.length + off, text: v, tag: `@${a}`, cls: "", kind: "attr" });
     }
@@ -171,9 +172,21 @@ for (const slug of SLUGS) {
       continue;
     }
   }
-  const eN = nodes(enRaw.slice(ha, fb), ha);
-  const pN = hasPt ? nodes(ptRaw.slice(ptRaw.indexOf("</header>"), ptRaw.indexOf("<footer")), ptRaw.indexOf("</header>")) : [];
-  if (hasPt && eN.length !== pN.length) { console.log(`🔴 ${slug}: 骨架齐但节点数 ${eN.length} vs ${pN.length} — 停`); continue; }
+  // ⭐「是不是散文」是关于这个【节点】的,而节点有两侧 —— 所以两侧一起判,一侧说是就是。
+  //
+  // 我一直在【从 en 一侧】判,于是漏了 ISO 日期:en 写 "2026-07-04"(无字母、无千位分隔符 →
+  // 判成装饰),pt 写 "4 de jul. de 2026"(有字母 → 散文)。同一个节点,一边给 key 一边不给,
+  // 枚举于是 24 vs 31、配对崩掉。而 "2026-07-04" 【本来就是】随语种变的:它是格式化日期。
+  // 从 en 看它像数据,从 pt 看一眼就知道是日期 —— ⭐ en 又是那个「区别不可见」的一侧,第六次。
+  // 结构已证明逐标签相同(86=86 / 31=31 文本节点),所以按位置合判是安全的。
+  const eAll = nodes(enRaw.slice(ha, fb), ha, true);
+  const pAll = hasPt ? nodes(ptRaw.slice(ptRaw.indexOf("</header>"), ptRaw.indexOf("<footer")), ptRaw.indexOf("</header>"), true) : [];
+  if (hasPt && eAll.length !== pAll.length) { console.log(`🔴 ${slug}: 骨架齐但【全部】节点数 ${eAll.length} vs ${pAll.length} — 结构真的不对齐,停`); continue; }
+  const keepIdx = eAll.map((n, i) => isProse(n.text) || (hasPt && isProse(pAll[i].text)));
+  const eN = eAll.filter((_, i) => keepIdx[i]);
+  const pN = pAll.filter((_, i) => keepIdx[i]);
+  const bothSided = eAll.filter((n, i) => keepIdx[i] && !isProse(n.text)).length;
+  if (bothSided) console.log(`   ${slug}: ${bothSided} 个节点【只有 pt 那侧看得出是文案】(ISO 日期等)— 已按两侧合判纳入`);
 
   // ② 对着页面总量对账 —— 不是"我抓到 N 个"就算 N 个(R3(a) 那次我抓 40、真值 50,
   //    而 en40==pt40 让它看起来是对的:两把同样坏的尺子互相印证)。
@@ -183,7 +196,7 @@ for (const slug of SLUGS) {
   // 对账必须用【同一个】isProse —— 两边各写一套判据,就又是两把尺子互相印证了
   const auditText = [...body0.matchAll(/>([^<>]+)</g)].map((m) => m[1]).filter(isProse).length;
   const auditAttr = ATTRS.reduce((n, a) => n + [...body0.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))].filter((m) => isProse(m[1])).length, 0);
-  const audit = auditText + auditAttr;
+  const audit = eAll.filter((_, i) => keepIdx[i]).length;   // 和枚举【同范围、同判据】:两侧合判后的数
   if (audit !== eN.length) { console.log(`🔴 ${slug}: 提取 ${eN.length} 条,独立数法 ${audit} 条(文本 ${auditText} + 属性 ${auditAttr})— 差额 ${audit - eN.length},枚举不完整,停`); continue; }
 
   const cat = {};

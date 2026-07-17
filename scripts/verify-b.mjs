@@ -24,8 +24,9 @@ const KEEP = { contact: 1, "certifications-testing": 1, compatibility: 1, "oem-o
 // <!-- 一路吞到 hreflang 注释,把中间所有 JSON-LD 块全吃掉 —— 然后我看着自己检查器造出来的
 // 残骸,以为是生成器把 about 的 head 截断了。生成的页面从头到尾都是好的。
 // 一个左边无界的惰性通配符,不是"宽松一点",是一把会吃掉任意长度的剪刀。
+const FOOTER_END = "<!--Site Footer End-->";
 const HL_COMMENT = "<!-- hreflang alternates (en <-> pt paired page) -->";
-const killHL = (s) => s.split(HL_COMMENT).join("")
+const killHL = (s) => s.split(HL_COMMENT).join("").split(FOOTER_END).join("")
   .replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
 
 const intended = (s, slug, isPt) => {
@@ -35,11 +36,15 @@ const intended = (s, slug, isPt) => {
     // ⑤ pt 独有的开发者注释。模板只有一份、从 en 出,所以 pt 会丢掉它。它在 </footer> 之后、
     // 不是 chrome-sync 的锚点(那个用的是 partial 里的 <!-- #block:name -->),对读者不可见。
     s = s.split("<!--Site Footer End-->").join("");
-    // ⑥ ⭐ 这一处【pt 才是有缺陷的那边】—— 头一回。pt/contact 有【两个】author meta:
-    //    顶部多一个 content="tejoy.com"(还坐在 <meta charset> 前面),下面才是正常的
-    //    content="tejoy";en 只有后者。模板从 en 出,正好把这个重复且值不一致的 meta 去掉 = 修复。
-    //    「pt 永远对」也不是规律 —— 规律是【哪边对要逐条问】,这次答案就是 en。
-    if (slug === "contact") s = s.replace(/[ \t]*<meta name="author" content="tejoy\.com" \/>\s*\n?/, "");
+    // ⑥ ⭐ 这一处【pt 才是有缺陷的那边】。pt 有【两个】author meta:顶部多一个
+    //    content="tejoy.com"(还坐在 <meta charset> 前面),下面才是正常的 content="tejoy";
+    //    en(这些页上)只有后者。模板从 en 出,正好把这个重复且值不一致的 meta 去掉 = 修复。
+    //    「pt 永远对」也不是规律 —— 规律是【哪边对要逐条问】。这次答案是 en。
+    //
+    //    ⚠️ 我第一次量它时只查了 11 个信息页,就写下"只有 contact 是这样" —— 范围比结论窄的
+    //    测量不是证据。对 HEAD 全站量:5 个页(index / pt/index / pt/marine / pt/mounts /
+    //    pt/rv-off-grid)。en 首页自己也有一对,但首页模板从它出、两份都保留,所以 (a) 不受影响。
+    s = s.replace(/[ \t]*<meta name="author" content="tejoy\.com" \/>\s*\n?/, "");
   }
   let n = 0;
   s = s.replace(/("item": ")([^"]*)(")/g, (m, a, v, c) => { n++; return n === 1 ? a + home + c : n === 2 ? a + self + c : m; });
@@ -49,8 +54,8 @@ const intended = (s, slug, isPt) => {
   return s;
 };
 
-const PAGES = ["faq", "about", "contact", "service", "certifications-testing", "oem-odm-manufacturing",
-  "patents-manufacturing", "video", "compatibility", "brand-affiliation-faq", "starlink-compatible-accessories"];
+// 按目录读 —— 和 i18n-check 一样,新桶靠存在就进验收,不靠我记得往清单里加
+const PAGES = fs.readdirSync("data/templates").filter((f) => /^page-.+.html$/.test(f)).map((f) => f.replace(/^page-|.html$/g, ""));
 let ok = 0; const bad = [];
 for (const slug of PAGES) {
   for (const isPt of [false, true]) {
