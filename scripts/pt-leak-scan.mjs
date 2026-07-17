@@ -148,8 +148,45 @@ function walk(dir, acc = []) {
 /* ─────────── 第二类: 指向英文页的链接 (pt 版存在却没指过去) ─────────── */
 /* 盲区来源: 这类泄漏在 href 属性里(不在可见文本面), 且死链检查会放行(英文页真实存在),
    但用户一点就掉出 pt 站 → 比可见文本更伤漏斗. 只有「pt 版存在却链了英文」才算泄漏:
-   - 切换器 EN 链 = 设计如此(该指英文) → 白名单
+   - 切换器 EN 链 → ⚠️ **不再跳过, 改为【验证】** (见 switcherLeaksOf)
    - 没有 pt 版的页(指南文章/遗留编号页) → 链英文是正确的(防软404) → 不报 */
+
+/* ⚠️⚠️ 2026-07-16 —— 这里曾是这个项目里最锋利的一个错, 留档:
+ *
+ *   原来:      if (/lang-switch__link/i.test(tag)) continue;   // 切换器 EN 链 = 设计
+ *   我的理由:  「切换器 EN 链 = 设计如此(该指英文) → 白名单」
+ *
+ * 然后 R1 (51626fec "R1 lands", chrome 进 catalog 那一笔) 把它打坏了:
+ *   R1 之前 (8cb5a0cf):  <a href="/marine/"      hreflang="en">    EN   ✅
+ *   R1 之后 (51626fec):  <a href="/pt/products/" hreflang="pt-BR"> EN   ❌
+ * → **全站每个 pt 页, 点 EN 都掉到「葡语的产品页」。它在线上活过了整个 R2 和 R3。**
+ * → **而我的白名单保证我永远发现不了 —— 我自己造的盲区, 恰好就是 bug 落地的地方。**
+ *
+ * ⭐ 教训: **白名单不是「这里不会错」, 是「这里我放弃观察」。我把这两件事当成了一件。**
+ *    **「设计如此」是一个【可测的断言】, 不是一个【豁免的理由】** ——
+ *    **能说出"它该是什么"的地方, 恰恰是最该去验证它真是什么的地方。**
+ *
+ * (同族: !src 静默跳过 177 张 / ?v= 判错 656 / 空 <img/> / 文件存在+200=好图 /
+ *        "meta_title 以 title 开头 = 它由 title 派生" / dev 的「我量了自己的倒影」)
+ */
+function switcherLeaksOf(raw, rel) {
+  const out = [];
+  for (const m of raw.matchAll(/<a\s[^>]*lang-switch__link[^>]*>/gi)) {
+    const tag = m[0];
+    const href = (tag.match(/href="([^"]*)"/i) || [])[1] || '';
+    const hl = (tag.match(/hreflang="([^"]*)"/i) || [])[1] || '';
+    const line = raw.slice(0, m.index).split('\n').length;
+    /* pt 页上的切换器 = 通往 en 的那扇门。它必须: ①指向非 /pt/ 的路径 ②hreflang=en */
+    if (href.startsWith('/pt/') || href === '/pt')
+      out.push({ file: rel, line, kind: 'switcher', hits: ['switcher→pt'], text: tag.slice(0, 96),
+                 href, should: '指向 en 页(非 /pt/)' });
+    else if (hl && !/^en/i.test(hl))
+      out.push({ file: rel, line, kind: 'switcher', hits: ['switcher-hreflang'], text: tag.slice(0, 96),
+                 href, should: 'hreflang="en"' });
+  }
+  return out;
+}
+
 function buildPtUrlSet(files) {
   const s = new Set();
   for (const f of files) {
@@ -163,7 +200,7 @@ function linkLeaksOf(raw, vis, rel, ptUrls) {
   const out = [];
   for (const m of vis.matchAll(/<a\s[^>]*>/gi)) {
     const tag = m[0];
-    if (/lang-switch__link/i.test(tag)) continue;                 // 切换器 EN 链 = 设计
+    if (/lang-switch__link/i.test(tag)) continue;   // 切换器不走这条通用规则 —— 它由 switcherLeaksOf 单独【验证】(见上)
     const hm = tag.match(/href="([^"]*)"/i);
     if (!hm) continue;
     const href = hm[1];
@@ -205,6 +242,7 @@ for (const file of files) {
   }
   // 3) 第二类: 指向英文页的链接
   linkFindings.push(...linkLeaksOf(raw, vis, rel, PT_URLS));
+  linkFindings.push(...switcherLeaksOf(raw, rel));   // ⚠️ 切换器: 验证它真的指 en, 而不是假设(见上方留档)
 }
 
 /* ─────────── 输出 ─────────── */
