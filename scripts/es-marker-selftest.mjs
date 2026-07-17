@@ -62,47 +62,70 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
  *   笔电   laptop  ·  收纳 estuche
  *   数字   25.6"（小数点，同美国）· 1,200 Mbps（逗号千分位）—— **不是** 25,6"
  * ⚠️ 这些句子全部是合法墨西哥西语，一条泄漏都没有。scanner 报出任何一条都是它的错。 */
-/* 【块 A】外部真语料 —— 逐字抓自 coppel.com / gob.mx（2026-07-16）。**有出处。** */
-const REAL_MX = [
-  // coppel.com —— 墨西哥本土零售商的 chrome（墨西哥团队写给墨西哥人）
+/* ═══ 语料 = 100% 外部真语料。**一条自编的都没有。** ═══
+ *
+ * 🔴 审计窗的结构性批评，我反驳不了，所以把自编那块整个删了：
+ *   「**在自编语料上做反向自检，只能证明"这份词表不会误伤【同一个作者写得出的句子】"。**
+ *     **作者的西语盲区 = 语料的盲区 → 测试通过、真站照样翻车。**
+ *     **该工具在结构上无法发现作者不知道的东西。**」
+ *   → 对。我原来那 31 条是我写的，**它只能证明我的西语里没有英文标记词，
+ *      不能证明墨西哥人的西语里没有。** 已全部删除，不是"标注一下继续用"。
+ *
+ * ⭐ 审计自己也栽了同一个坑，值得记：它用自制正则词表数 tú/usted，
+ *   **结果报 tu_count:0 —— 全错**，因为词表漏了 `Disfruta/Olvídate/Regístrate/necesitas`(tú)
+ *   和 `Pruebe/Obtenga/Reciba/Visite`(usted)。**只有逐字读原文才抓到真相。**
+ *   → 它把我的教训推广成了规则：**「任何『我列了 N 个 X』的自检工具，都不能用作通过依据；
+ *      必须用真实语料全文比对。」** —— **这条也管我这个工具本身。**
+ */
+
+/* 【源 A】Starlink 官方墨西哥站 —— 同产品领域 · 母语 · 真人写
+ * 采集：Tejoy-审计窗 2026-07-14，**浏览器真机渲染**（该站纯 JS，我 curl 只拿到 863 字符空壳）
+ * 页面：/mx/residential · /mx/roam · /mx/specifications/4   （站点声明 lang=`es-419`）*/
+const STARLINK_MX = [
+  // tú 形式
+  'Disfruta de streaming en 4K sin interrupciones',
+  'Olvídate del internet de velocidad baja',
+  'Lleva tu internet contigo mientras viajas',
+  'Acampa en las zonas más remotas del mundo',
+  'Conéctate en aguas territoriales y aguas continentales',
+  'lo que te permite personalizar tu servicio según tus necesidades',
+  'viaja a cualquier lugar dentro de tu país de origen',
+  'El kit Starlink llega con todo lo que necesitas para conectarte en minutos',
+  'Al hacer clic en Regístrate, aceptas nuestra Política de privacidad.',
+  // usted 形式（⚠️ 同页并存 —— Starlink 自己不一致，见规范 §二之〇之一）
+  'Obtenga datos ilimitados de baja velocidad después de usar todos sus datos itinerantes.',
+  'Trabaje y diviértase en destinos remotos',
+  'Navegue, transmita y manténgase en línea fácilmente',
+  'Manténgase conectado con internet de alta velocidad en su bote',
+  'Pruebe Starlink durante 30 días y obtenga un reembolso completo si su experiencia no es satisfactoria.',
+  'Reciba novedades de Starlink por correo electrónico',
+  'Starlink es una división de SpaceX. Visite spacex.com',
+  // 硬件 / 规格（⭐ 这几条同时是 router / kit / CC / 数字格式的证据）
+  'un router wifi integrado', 'un router integrado', 'Incluye Router 3',
+  'un kit compacto y portátil', 'El kit Starlink', 'Contenido del kit',
+  'entrada de alimentación de CC', 'Guía de accesorios', 'Especificaciones del producto',
+  'Starlink Cable 15 m (49.2 ft)', 'AC Cable 1.5 m (4.92 ft)', 'Power Supply 1.5 m (4.92 ft)',
+  'Hasta 200 Mb/s', 'velocidades de hasta 400+ Mbps',
+  // 场景词（⭐ vehículo / bote / carretera —— 而 carro/auto/coche 全站 0 次）
+  'siempre tenía miedo de quedarme varado si mi vehículo se rompía',
+  'Esencial para viajar en autocaravanas',
+  'recorridos por carretera', 'viaje por carretera',
+  'explore Starlink Marítimo',
+];
+
+/* 【源 B】coppel.com（墨西哥本土零售，~1600 门店）+ gob.mx（墨西哥政府）
+ * 采集：多语言窗 2026-07-16，curl 静态 HTML（两站均非 SPA）*/
+const COPPEL_GOB = [
+  // coppel.com chrome —— 墨西哥团队写给墨西哥人（不是卖家机翻）
   'MENÚ', 'Iniciar sesión', 'Crear cuenta', 'Carrito', 'Pedidos y devoluciones',
   'Precio de contado', 'Productos Sustentables',
-  // coppel.com —— tú 形式（su/sus 在整站 0 次）
+  // coppel.com —— tú（整站 su/sus 出现 0 次）
   'tu vida', 'tu ciudad', 'tus finanzas', 'tu crédito',
-  // gob.mx —— 墨西哥政府，**连最正式的语域也用 tú**
+  // gob.mx —— **连政府站（最正式语域）也用 tú**
   'tu búsqueda', 'Tu acceso', 'tu Beca',
 ];
 
-/* 【块 B】本产品域 —— ⚠️ **我写的，没有外部来源**（见文件头说明） */
-const CLEAN_ES = [
-  ...REAL_MX,
-  // 线缆类（cable / red / router 都是西语核心词，而 pt 的 EN_MARKERS 把它们当英文标记词）
-  'Cable de red para Starlink Gen 3 con conector RJ45 impermeable IP67.',
-  'El cable es flexible y durable, con material de cobre puro de 23AWG.',
-  'Adaptador de red universal compatible con el router Starlink.',
-  'Conecta el cable al panel de control sin cortar ni crimpar el cable original.',
-  'Este cable mide 75 FT (23 m) y soporta 1,200 Mbps sin pérdida de señal.',
-  // 支架类
-  'Soporte de tubo para antena Starlink, diseño simple y resistente al metal oxidado.',
-  'Instálalo en el techo con ajuste manual del ángulo, horizontal o vertical.',
-  'El estuche mide 25.6" de largo y protege la antena durante el viaje.',
-  // 供电类（墨西哥：carro / camioneta / lancha）
-  'Fuente de alimentación con protección contra sobrecarga y cortocircuito.',
-  'Cargador para carro de 12V a 24V, ideal para casa rodante, camión o lancha.',
-  'Alimenta tu Starlink Mini desde el encendedor de tu camioneta.',
-  'La batería externa debe entregar al menos 100 W de potencia real.',
-  'Usa un cargador PD de 100 W; con 65 W el equipo se reinicia solo.',
-  // 通用营销（同源词密度最高的地方 —— -al / -ble / -ción 家族全在这儿）
-  'Un producto profesional de calidad industrial, con diseño original y funcional.',
-  'Rendimiento estable y confiable en uso normal, sin pérdida de señal.',
-  'Solución práctica para instalación personal o comercial, local o internacional.',
-  'Conecta tu computadora, tu celular o tu laptop a la red de tu Starlink.',
-  'Es fácil de manejar y no necesitas herramienta especial para instalarlo.',
-  // 表单 / chrome（**tú** 形式 —— 墨西哥电商标准）
-  'Nombre de la empresa', 'Tu nombre', 'Tu teléfono', 'Tu mensaje', 'Envía tu consulta',
-  'Comprar por tipo', 'Comprar por modelo Starlink', 'Todos los productos',
-  'Cables', 'Soportes y Fijaciones', 'Energía y Carga', 'Redes', 'Estuches y Protección',
-];
+const CLEAN_ES = [...STARLINK_MX, ...COPPEL_GOB];
 
 /* ── 取标记词表 ──────────────────────────────────────────────────────── */
 const arg = process.argv.indexOf('--markers');
