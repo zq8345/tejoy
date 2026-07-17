@@ -1,0 +1,21 @@
+{
+  "_doc": [
+    "es-MX 产品译文 —— 数据源,由 scripts/es-products-seed.mjs 注入 data/products/*.json 的 i18n['es-MX']。",
+    "只填 title / summary_html / description_html / meta_description。meta_title 不填(派生)。",
+    "扣留名单(679 4206 695 678 691 704)不在此文件,由 seed 脚本硬编码跳过,es 回退英文。",
+    "术语遵循 data/es-glossary.json:tú 人称 · 数字用小数点 · 部件名保留英文 · marine=Marítimo 等。",
+    "meta_description 镜像 en 的截断形态(en 侧数据缺陷,es 如实反映,不在 es 侧偷偷补全——那会让 es 比 en 好、掩盖 en 的问题)。"
+  ],
+
+  "655": {
+    "title": "Kit de Enrutamiento de Cables para Starlink, Kit de Montaje de Cables, Accesorios Starlink, Pasacables de Pared, Pasamuros para Cables para Orificio de Pared de 1 Pulgada y Orificio de Cableado de Muebles -  - Paquete de 2",
+    "description_html": "<ul><li><p>Fácil de instalar: el Kit de Enrutamiento de Cables para Starlink se instala en 3 pasos en poco tiempo. Compatible con orificios de pared de 1 pulgada y orificios de cableado de muebles.</p></li><li><p>Protege y oculta los cables: este Kit de Montaje de Cables sella las aberturas de la pared y protege los cables de bordes filosos y enganches. Es una buena solución para ocultar y organizar bien los cables.</p></li><li><p>Resistente y duradero: los accesorios Starlink están hechos de materiales ABS ecológicos y resistentes. Son resistentes al calor y a los golpes.</p></li><li><p>Amplia aplicación: con este pasacables, puedes pasar los cables de forma segura a través de las paredes donde quieras. Se usa mucho para organizar cables en casa, la oficina y la escuela, ofreciendo un entorno de trabajo ordenado.</p></li><li><p>Fácil de transportar: el pasacables de pared es pequeño y compacto. Se puede llevar fácilmente a cualquier lugar, permitiéndote completar toda la instalación sin ninguna carga.</p></li></ul>",
+    "meta_description": "Fácil de instalar: el Kit de Enrutamiento de Cables para Starlink se instala en 3 pasos en poco tiempo. Compatible con orificios de pared de 1 pulgada y orificios de cableado de muebles. Protege y oculta los cables: este Kit de Montaje de Cables sella las aberturas de la pared y protege los cables de bordes filosos y enganches. Es una buena soluci"
+  },
+
+  "664": {
+    "title": "Kit de Enrutamiento de Cables para Starlink, Tornillos + Abrazaderas para Clip de Cable Serie Starlink, Paquete de 20",
+    "description_html": "<p>Organiza tus cables enredados con 20 unidades de Clips de Montaje para Cable Starlink. Estas abrazaderas de acero y plástico de alta calidad están hechas para durar y resisten la intemperie. Fija fácilmente los cables en su lugar en paredes o escritorios, eliminando el desorden en la colocación de tus cables. Organízate y mantente así con las Abrazaderas para Cable Starlink.</p><p><strong>Características:</strong></p><ul><li><p>El Clip de Tornillo y los Sujetadores para cable Starlink están diseñados para mantener los cables prolijamente fijados a una pared o cualquier superficie</p></li><li><p>Las estrías añadidas ofrecen un agarre firme y envolvente sobre los cables para asegurar que permanezcan en su lugar sin aflojarse ni resbalar</p></li><li><p>Construidos en acero y plástico de alta calidad para mayor durabilidad y para resistir la intemperie por más tiempo</p></li><li><p>Incluye tornillos preinstalados en los clips que te ahorran tiempo y esfuerzo, haciendo la instalación mucho más fácil</p></li><li><p>Se puede usar en aplicaciones interiores y exteriores, manteniendo los cables organizados en paredes, debajo de escritorios o a lo largo de zócalos</p></li></ul><p><strong>Especificaciones:</strong></p><ul><li><p>Dimensión total (LxAnxAl): 1 3/8\" x 3/8\" x 5/16\" (3.5 x 1 x 0.8 cm)</p></li><li><p>Compatible con diámetro de cable: 5/32\" a 1/4\" (3.8-6.3mm)</p></li><li><p>Material: Acero, Plástico</p></li><li><p>Peso neto: 0.01 Lb (0.003 kg)</p></li></ul><p><strong>El paquete incluye:</strong></p><ul><li><p><strong>20x Clips de Tornillo para Cable Individual</strong></p></li></ul>",
+    "meta_description": "Organiza tus cables enredados con 20 unidades de Clips de Montaje para Cable Starlink. Estas abrazaderas de acero y plástico de alta calidad están hechas para durar y resisten la intemperie. Fija fácilmente los cables en su lugar en paredes o escritorios, eliminando el desorden en la colocación de tus cables. Organízate y mantente así con"
+  }
+}
