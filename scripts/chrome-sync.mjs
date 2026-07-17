@@ -49,7 +49,20 @@ const BLOCKS = { header: block("header"), switcher: block("switcher"), footer: b
 // 现在加一个语种 = locales.json 里加一行,代码一个字不用动。
 const LOCALES = locales.enabled;
 const DEFAULT_LOC = locales.default;
-const LOCALE_LABEL = locales.locale_label || {};
+// ⛔ 我加过一个 locales.json 里的 `locale_label = {en:"EN","pt-BR":"PT"}` —— 已删。
+// 多语言在 chrome.json 里签了 `switcher.code.*`,那是【同一个事实的第二个来源】,而且它那套更
+// 通用:语言名可能随读者变("German" vs "Alemão"),我那套假设标签与读者无关(只对语言代码成立)。
+// 同一个事实有两个来源,迟早会分叉 —— 这次分叉的两半都是这一轮里写的。目录是真源,归它。
+//
+// 顺带:那个 locale_label 正是把 locales.json 误判成"目录"的元凶(它和目录条目同构),
+// 删掉它,guard 的 CONFIG_SOURCES 就不再是唯一挡住误判的东西 —— 两道防线,不是一道。
+const pick = (key, readerLocale) => {
+  const e = catalog[key];
+  if (!e) throw new Error(`chrome-sync: catalog 缺 key ${key}`);
+  const v = e[readerLocale];
+  if (v === undefined || v === null || v === "") throw new Error(`chrome-sync: ${key} 缺 ${readerLocale} — guard 应该先拦住`);
+  return v;
+};
 const LOC_DIR = Object.fromEntries(LOCALES.map((loc) => [loc, loc === DEFAULT_LOC ? "" : (locales.dir || {})[loc] || loc.split("-")[0]]));
 const existsCache = new Map();
 const pageExists = (rel) => {
@@ -165,7 +178,16 @@ for (const p of pages) {
     // ⭐ 一个听起来合理的解释,和一个正确的解释,长得一模一样。所以我去查了是哪个页。
     const file = !rel || rel.endsWith("/") ? `${rel}index.html` : `${rel}.html`;
     if (!fs.existsSync(file)) return null;                 // 对侧不存在 → 不出这个链接
-    return { href: dir ? `/${dir}${enPath}` : enPath, hreflang: loc, label: LOCALE_LABEL[loc] || loc };
+    // ⭐ aria 和 label 都是「按【目标】取 key、按【读者】取值」—— 多语言的结构:
+    //    「目标」成了一个维度,不再是隐含常量。加第四种语言 = 加一行,不改结构。
+    // aria 走【约定 A:用读者的语言】。多语言实测推翻了"用目标语言写"这个选项:
+    //    aria-label 是属性值,自己带不了语言 → 屏幕阅读器按元素的 lang 读 → <a> 没有 lang
+    //    → 继承 <html lang="en"> → en 页正在用【英语语音引擎】读葡萄牙语句子,全站 199 处。
+    // 而它否掉 B 的第二条理由更硬:「约定 B 会逼我给 es 尺子开白名单 —— 而白名单不是
+    //    『这里不会错』,是『这里我放弃观察』。」⭐ 一个要求检查工具闭嘴的约定,就是错的。
+    const short = loc.split("-")[0];
+    return { href: dir ? `/${dir}${enPath}` : enPath, hreflang: loc,
+      label: pick(`switcher.code.${short}`, locale), aria: pick(`switcher.aria.to_${short}`, locale) };
   }).filter(Boolean);
   // 73 个 en 页合法地没有任何对侧 → 没有切换器,这是规则的结果,不是特例
   const switcher = others

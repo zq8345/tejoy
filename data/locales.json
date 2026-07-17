@@ -5,11 +5,6 @@
     "pt-BR"
   ],
   "default": "en",
-  "_locale_label_doc": "切换器按钮上显示的语种标签。⭐ 它是【目标语种的属性】—— 每个 locale 自己说自己叫什么,所以加一个语种 = 加一行,不用回头改任何已有值。这替换了 header.pt(它存的是「对面那个语言」:en→'PT' / pt-BR→'EN')—— 那是二元假设的化石,三元下 es 页该显示什么根本无解。",
-  "locale_label": {
-    "en": "EN",
-    "pt-BR": "PT"
-  },
   "_fallback_doc": [
     "`fallback` = strings allowed to stay in the default locale. This is the ONLY escape hatch that silences the guard, so it is governed:",
     "  IRON RULE — 'not translated yet' is NEVER a valid reason. Untranslated strings MUST stay red in the guard; that red light is the entire point.",
