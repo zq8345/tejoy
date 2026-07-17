@@ -122,6 +122,11 @@ console.log(`list pages regenerated: ${lists} changed`);
 // it points at exists in that locale. Not a rule I invented: it predicts pt's current 7 tiles
 // exactly (no /pt/performance-gen-2/, so no tile sending pt users to an English page), and it
 // grows itself — build that page and pt gets its 8th tile with nobody remembering to add it.
+// pages 去重后:共享 key 住在 data/pages/shared.json(⚠️ 不用 _shared:.gitignore 忽略 _*.json,会漏提交)(common.more、JSON-LD 样板…)。
+// 每个页面的 catalog 都要能看见它 —— 顺序 chrome < shared < 本页,本页 key 优先级最高。
+// 从文件读、可缺省:没去重时它不存在,{} 兜底,不影响任何东西。
+const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
+  ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
 const homeTiles = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8"));
@@ -131,7 +136,9 @@ for (const locale of LOCALES) {
   const p = pageOf(locale, "index.html");
   if (!fs.existsSync(p)) continue;
   const h0 = fs.readFileSync(p, "utf8");
-  const h1 = renderHome(homeTpl, { locale, catalog: { ...homeCat, "card.alt.category": catalog["card.alt.category"] },
+  // 全 chrome + shared + home 键(和 page 模板 158 行一致)—— home 要能引 chrome/shared key,
+  // 去重才能把它存的 chrome 副本(meta.title / More / …)重定向到真源。card.alt.category 本就在 chrome。
+  const h1 = renderHome(homeTpl, { locale, catalog: { ...catalog, ...shared, ...homeCat },
     tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists });
   if (h1 !== h0) { fs.writeFileSync(p, h1); homes++; }
 }
@@ -155,7 +162,7 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     // 页面 key 覆盖同名 chrome key(pcat 在后),所以并入不会改变任何现有页面的输出。
     // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
     // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
-    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...pcat }, urlOf, path: `/${slug}/` });
+    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/` });
     if (h1 !== h0) { fs.writeFileSync(p, h1); pages++; }
   }
 }

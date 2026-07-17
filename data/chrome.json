@@ -389,7 +389,8 @@
     "pt-BR": "Produtos",
     "es-MX": "Productos",
     "reason.es-MX": "证据 Starlink MXproducto 坐实",
-    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use",
+    "reason.dupe": "页面横幅标题「Products」,与 header.products(导航标签)同词不同位置/角色。同 About Us 那类:同形不同位,显式共存,不合并。"
   },
   "body.banner.subtitle": {
     "en": "Starlink-compatible accessories for every terminal generation.",

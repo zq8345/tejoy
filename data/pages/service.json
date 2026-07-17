@@ -1,23 +1,11 @@
 {
-  "service.page-header-title.1": {
-    "en": "Service",
-    "pt-BR": "Guias"
-  },
   "service.page-header-subtitle.1": {
     "en": "Application guides and setup advice for Starlink accessories.",
     "pt-BR": "Guias de aplicação e dicas de instalação para acessórios Starlink."
   },
-  "service.a.1": {
-    "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
-    "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C"
-  },
   "service.blog-sidebar-text.1": {
     "en": "Buyer guide for Starlink power adapters. Compare 12V DC, stock AC, and USB-C PD options. Recommendations by use case: RV, off-grid, home, and vehicle installations.",
     "pt-BR": "Guia de compra de adaptadores de energia para Starlink. Compare as opções 12V DC, AC original e USB-C PD. Recomendações por caso de uso: motorhome, off-grid, residência e instalações veiculares."
-  },
-  "service.a.2": {
-    "en": "More",
-    "pt-BR": "Leia mais"
   },
   "service.a.3": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
@@ -27,45 +15,13 @@
     "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
     "pt-BR": "Guia completo passo a passo para instalar a Starlink Mini em viagens de motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento."
   },
-  "service.a.4": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.a.5": {
-    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
-    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?"
-  },
-  "service.blog-sidebar-text.3": {
-    "en": "Comprehensive comparison of Tejoy pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
-    "pt-BR": "Comparação completa entre os suportes de tubo, de parede e para telhado plano da Tejoy para Starlink. Matriz de decisão, cenários reais e perguntas frequentes para ajudar você a escolher a solução de fixação certa."
-  },
-  "service.a.6": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.a.7": {
-    "en": "Shipping and Logistics: How Tejoy Delivers Worldwide",
-    "pt-BR": "Envio e logística: como a Tejoy entrega no mundo todo"
-  },
   "service.blog-sidebar-text.4": {
     "en": "Global shipping and logistics guide for Tejoy. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
     "pt-BR": "Guia global de envio e logística da Tejoy. Opções de expresso, frete aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio."
   },
-  "service.a.8": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.a.9": {
-    "en": "Quality Control Standards for Starlink-Compatible Accessories",
-    "pt-BR": "Padrões de controle de qualidade para acessórios compatíveis com Starlink"
-  },
   "service.blog-sidebar-text.5": {
     "en": "Complete quality control standards for Tejoy Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
     "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações."
-  },
-  "service.a.10": {
-    "en": "More",
-    "pt-BR": "Leia mais"
   },
   "service.a.11": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
@@ -75,10 +31,6 @@
     "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies from a 15-year manufacturer.",
     "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de um fabricante com 15 anos de experiência."
   },
-  "service.a.12": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
   "service.a.13": {
     "en": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts",
     "pt-BR": "Guia de pedidos em grande volume: MOQ, prazo de produção e preços para suportes Starlink"
@@ -86,10 +38,6 @@
   "service.blog-sidebar-text.7": {
     "en": "Complete bulk ordering guide for Tejoy Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
     "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de produção, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores."
-  },
-  "service.a.14": {
-    "en": "More",
-    "pt-BR": "Leia mais"
   },
   "service.a.15": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
@@ -99,140 +47,28 @@
     "en": "Installation guide for Tejoy Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
     "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Compartimento à prova de intempéries IP66 para emendas de cabos Starlink, alojamento de adaptador 12V e gerenciamento de cabos ao ar livre."
   },
-  "service.a.16": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.a.17": {
-    "en": "How to Install a Starlink Mount Without Drilling: Non-Permanent Solutions",
-    "pt-BR": "Como instalar um suporte Starlink sem furar: soluções não permanentes"
-  },
   "service.blog-sidebar-text.9": {
     "en": "Guide to installing Starlink without drilling. No-drill methods for renters: railing mounts, window sill mounts, weighted bases, tripods, and cable routing without wall penetration.",
     "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes de guarda-corpo, suportes de peitoril, bases com peso, tripés e passagem de cabos sem perfurar a parede."
-  },
-  "service.a.18": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.a.19": {
-    "en": "Starlink Wall Mount vs Roof Mount: Pros and Cons for Home Users",
-    "pt-BR": "Suporte de parede vs suporte de telhado para Starlink: prós e contras para uso residencial"
   },
   "service.blog-sidebar-text.10": {
     "en": "Comprehensive comparison of Starlink wall mount vs roof mount for home users. Pros and cons, decision guide, case studies, and FAQ for choosing the right residential mounting solution.",
     "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em residências. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial ideal."
   },
-  "service.a.20": {
-    "en": "More",
-    "pt-BR": "Leia mais"
-  },
-  "service.sidebar-title.1": {
-    "en": "Service",
-    "pt-BR": "Guias"
-  },
-  "service.title.1": {
-    "en": "Marine",
-    "pt-BR": "Náutico"
-  },
-  "service.a.21": {
-    "en": "Marine",
-    "pt-BR": "Náutico"
-  },
-  "service.title.2": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
-  },
-  "service.a.22": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
-  },
-  "service.title.3": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
-  },
-  "service.a.23": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
-  },
-  "service.title.4": {
-    "en": "Industrial",
-    "pt-BR": "Industrial"
-  },
-  "service.a.24": {
-    "en": "Industrial",
-    "pt-BR": "Industrial"
-  },
-  "service.title.5": {
-    "en": "Power",
-    "pt-BR": "Energia"
-  },
-  "service.a.25": {
-    "en": "Power",
-    "pt-BR": "Energia"
-  },
   "service.sidebar-title.2": {
     "en": "News",
     "pt-BR": "Novidades"
-  },
-  "service.a.26": {
-    "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
-    "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C"
   },
   "service.a.27": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
     "pt-BR": "Como instalar a Starlink Mini para acampar de motorhome: guia completo"
   },
-  "service.a.28": {
-    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
-    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?"
-  },
   "service.meta.title": {
     "en": "Service-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Guias-Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia"
   },
-  "service.meta.site_name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia"
-  },
   "service.meta.desc": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
-  },
-  "service.ld.description": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
-  },
-  "service.ld.knowsAbout": {
-    "en": "Starlink-compatible accessories",
-    "pt-BR": "acessórios compatíveis com Starlink"
-  },
-  "service.ld.knowsAbout.2": {
-    "en": "satellite internet accessories",
-    "pt-BR": "acessórios para internet via satélite"
-  },
-  "service.ld.knowsAbout.3": {
-    "en": "RV connectivity",
-    "pt-BR": "conectividade em motorhome"
-  },
-  "service.ld.knowsAbout.4": {
-    "en": "off-grid power",
-    "pt-BR": "energia off-grid"
-  },
-  "service.ld.knowsAbout.5": {
-    "en": "mounting systems",
-    "pt-BR": "sistemas de fixação"
-  },
-  "service.ld.name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia"
-  },
-  "service.ld.name.2": {
-    "en": "Home",
-    "pt-BR": "Início"
-  },
-  "service.ld.name.3": {
-    "en": "Service",
-    "pt-BR": "Guias"
   }
 }

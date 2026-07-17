@@ -15,21 +15,9 @@
     "en": "Contact Information",
     "pt-BR": "Informações de Contato"
   },
-  "contact.contact-info-card-name.1": {
-    "en": "TEJOY STARLINK ACCESSORIES LIMITED",
-    "pt-BR": "TEJOY STARLINK ACCESSORIES LIMITED"
-  },
   "contact.contact-info-card-intro.1": {
     "en": "Independent manufacturer of Starlink-compatible mounts, power adapters, cables and protective cases. OEM/ODM and wholesale inquiries welcome.",
     "pt-BR": "Fabricante independente de suportes, adaptadores de energia, cabos e cases de proteção compatíveis com Starlink. Consultas OEM/ODM e de atacado são bem-vindas."
-  },
-  "contact.contact-info-list-label.1": {
-    "en": "Email",
-    "pt-BR": "E-mail"
-  },
-  "contact.contact-info-list-value.1": {
-    "en": "hello@tejoy.com",
-    "pt-BR": "hello@tejoy.com"
   },
   "contact.contact-info-list-label.2": {
     "en": "Headquarters",
@@ -59,69 +47,13 @@
     "en": "Leave a Message Online",
     "pt-BR": "Deixe uma mensagem online"
   },
-  "contact.sr-only.1": {
-    "en": "Company Name",
-    "pt-BR": "Nome da empresa"
-  },
-  "contact.sr-only.2": {
-    "en": "Company Name",
-    "pt-BR": "Nome da empresa"
-  },
-  "contact.placeholder.1": {
-    "en": "Company Name",
-    "pt-BR": "Nome da empresa"
-  },
-  "contact.sr-only.3": {
-    "en": "Name",
-    "pt-BR": "Nome"
-  },
-  "contact.sr-only.4": {
-    "en": "Name",
-    "pt-BR": "Nome"
-  },
-  "contact.placeholder.2": {
-    "en": "Your Name",
-    "pt-BR": "Seu nome"
-  },
-  "contact.sr-only.5": {
-    "en": "Phone",
-    "pt-BR": "Telefone"
-  },
-  "contact.sr-only.6": {
-    "en": "Phone",
-    "pt-BR": "Telefone"
-  },
   "contact.placeholder.3": {
     "en": "Your Phone Number",
     "pt-BR": "Seu telefone"
   },
-  "contact.sr-only.7": {
-    "en": "Email",
-    "pt-BR": "E-mail"
-  },
-  "contact.sr-only.8": {
-    "en": "Email",
-    "pt-BR": "E-mail"
-  },
   "contact.placeholder.4": {
     "en": "Your Email Address",
     "pt-BR": "Seu e-mail"
-  },
-  "contact.sr-only.9": {
-    "en": "Message",
-    "pt-BR": "Mensagem"
-  },
-  "contact.sr-only.10": {
-    "en": "Message",
-    "pt-BR": "Mensagem"
-  },
-  "contact.placeholder.5": {
-    "en": "Your Message",
-    "pt-BR": "Sua mensagem"
-  },
-  "contact.span.1": {
-    "en": "Submit",
-    "pt-BR": "Enviar"
   },
   "contact.js.1": {
     "en": "Sending…",
@@ -143,49 +75,13 @@
     "en": "Contact Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Contato - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
   },
-  "contact.meta.site_name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
-  },
   "contact.meta.desc": {
     "en": "Contact Tejoy for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@tejoy.com; we typically reply within one business day.",
     "pt-BR": "Entre em contato com a Tejoy para acessórios OEM/ODM compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases. E-mail hello@tejoy.com; normalmente respondemos em até 1 dia útil."
   },
-  "contact.ld.description": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
-  },
-  "contact.ld.knowsAbout": {
-    "en": "Starlink-compatible accessories",
-    "pt-BR": "acessórios compatíveis com Starlink"
-  },
-  "contact.ld.knowsAbout.2": {
-    "en": "satellite internet accessories",
-    "pt-BR": "acessórios para internet via satélite"
-  },
-  "contact.ld.knowsAbout.3": {
-    "en": "RV connectivity",
-    "pt-BR": "conectividade em motorhome"
-  },
-  "contact.ld.knowsAbout.4": {
-    "en": "off-grid power",
-    "pt-BR": "energia off-grid"
-  },
-  "contact.ld.knowsAbout.5": {
-    "en": "mounting systems",
-    "pt-BR": "sistemas de fixação"
-  },
-  "contact.ld.name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
-  },
   "contact.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
-  },
-  "contact.ld.name.2": {
-    "en": "Home",
-    "pt-BR": "Início"
   },
   "contact.ld.name.3": {
     "en": "Contact Us",

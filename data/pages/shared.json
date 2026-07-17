@@ -1,0 +1,162 @@
+{
+  "shared.professional_equipment": {
+    "en": "Professional Equipment",
+    "pt-BR": "Equipamentos profissionais"
+  },
+  "shared.fcc": {
+    "en": "FCC",
+    "pt-BR": "FCC"
+  },
+  "shared.ce": {
+    "en": "CE",
+    "pt-BR": "CE"
+  },
+  "shared.rohs": {
+    "en": "RoHS",
+    "pt-BR": "RoHS"
+  },
+  "shared.tejoy_is_a_leading_third_party_manufactu": {
+    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
+  },
+  "shared.starlink_compatible_accessories": {
+    "en": "Starlink-compatible accessories",
+    "pt-BR": "acessórios compatíveis com Starlink"
+  },
+  "shared.satellite_internet_accessories": {
+    "en": "satellite internet accessories",
+    "pt-BR": "acessórios para internet via satélite"
+  },
+  "shared.rv_connectivity": {
+    "en": "RV connectivity",
+    "pt-BR": "conectividade em motorhome"
+  },
+  "shared.off_grid_power": {
+    "en": "off-grid power",
+    "pt-BR": "energia off-grid"
+  },
+  "shared.mounting_systems": {
+    "en": "mounting systems",
+    "pt-BR": "sistemas de fixação"
+  },
+  "shared.certified": {
+    "en": "✅ Certified",
+    "pt-BR": "✅ Certificado"
+  },
+  "shared.starlink_mini": {
+    "en": "Starlink Mini",
+    "pt-BR": "Starlink Mini"
+  },
+  "shared.performance": {
+    "en": "Performance",
+    "pt-BR": "Performance"
+  },
+  "shared.compatibility": {
+    "en": "Compatibility",
+    "pt-BR": "Compatibilidade"
+  },
+  "shared.industry": {
+    "en": "Industry",
+    "pt-BR": "Setores"
+  },
+  "shared.jul_4_2026": {
+    "en": "Jul 4, 2026",
+    "pt-BR": "4 de jul. de 2026"
+  },
+  "shared.starlink_compatible_power_adapters_buyer": {
+    "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
+    "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C"
+  },
+  "shared.read_more": {
+    "en": "Read more",
+    "pt-BR": "Leia mais"
+  },
+  "shared.tejoy_pipe_mount_vs_wall_mount_vs_flat_r": {
+    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
+    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?"
+  },
+  "shared.shipping_and_logistics_how_tejoy_deliver": {
+    "en": "Shipping and Logistics: How Tejoy Delivers Worldwide",
+    "pt-BR": "Envio e logística: como a Tejoy entrega no mundo todo"
+  },
+  "shared.common.more": {
+    "en": "More",
+    "pt-BR": "Leia mais"
+  },
+  "shared.quality_control_standards_for_starlink_c": {
+    "en": "Quality Control Standards for Starlink-Compatible Accessories",
+    "pt-BR": "Padrões de controle de qualidade para acessórios compatíveis com Starlink"
+  },
+  "shared.service": {
+    "en": "Service",
+    "pt-BR": "Guias"
+  },
+  "shared.must_have_starlink_marine_accessories_fo": {
+    "en": "Must-Have Starlink Marine Accessories for Reliable Yacht Internet Connectivity",
+    "pt-BR": "Acessórios náuticos Starlink indispensáveis para uma conexão de internet confiável em iates"
+  },
+  "shared.discover_the_must_have_starlink_marine_a": {
+    "en": "Discover the must-have Starlink Marine Accessories for yachts and boats. Learn how reliable marine satellite internet enhances navigation, communication, and entertainment at sea.",
+    "pt-BR": "Conheça os acessórios náuticos Starlink indispensáveis para iates e barcos. Veja como a internet via satélite marítima confiável melhora a navegação, a comunicação e o entretenimento no mar."
+  },
+  "shared.how_to_choose_the_right_starlink_marine_": {
+    "en": "How to Choose the Right Starlink Marine Accessories for Reliable Offshore Internet",
+    "pt-BR": "Como escolher os acessórios náuticos Starlink certos para uma internet offshore confiável"
+  },
+  "shared.essential_starlink_marine_accessories_fo": {
+    "en": "Essential Starlink Marine Accessories for Fishing Boats: Your Complete Connectivity Kit",
+    "pt-BR": "Acessórios náuticos Starlink essenciais para barcos de pesca: seu kit completo de conectividade"
+  },
+  "shared.2026_04_30": {
+    "en": "2026-04-30",
+    "pt-BR": "30 de abr. de 2026"
+  },
+  "shared.2026_04_29": {
+    "en": "2026-04-29",
+    "pt-BR": "29 de abr. de 2026"
+  },
+  "shared.comprehensive_comparison_of_tejoy_pipe_m": {
+    "en": "Comprehensive comparison of Tejoy pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
+    "pt-BR": "Comparação completa entre os suportes de tubo, de parede e para telhado plano da Tejoy para Starlink. Matriz de decisão, cenários reais e perguntas frequentes para ajudar você a escolher a solução de fixação certa."
+  },
+  "shared.how_to_install_a_starlink_mount_without_": {
+    "en": "How to Install a Starlink Mount Without Drilling: Non-Permanent Solutions",
+    "pt-BR": "Como instalar um suporte Starlink sem furar: soluções não permanentes"
+  },
+  "shared.starlink_wall_mount_vs_roof_mount_pros_a": {
+    "en": "Starlink Wall Mount vs Roof Mount: Pros and Cons for Home Users",
+    "pt-BR": "Suporte de parede vs suporte de telhado para Starlink: prós e contras para uso residencial"
+  },
+  "shared.2026_07_04": {
+    "en": "2026-07-04",
+    "pt-BR": "4 de jul. de 2026"
+  },
+  "shared.how_to_choose_a_starlink_mini_12v_power_": {
+    "en": "How to Choose a Starlink Mini 12V Power Adapter for Your Setup",
+    "pt-BR": "Como escolher um adaptador de energia 12V para a Starlink Mini na sua configuração"
+  },
+  "shared.2026_06_28": {
+    "en": "2026-06-28",
+    "pt-BR": "28 de jun. de 2026"
+  },
+  "shared.tejoy_starlink_mini_power_guide_12v_adap": {
+    "en": "Tejoy Starlink Mini Power Guide - 12V Adapters & DC Cables",
+    "pt-BR": "Guia de energia Tejoy para Starlink Mini — adaptadores 12V e cabos DC"
+  },
+  "shared.2026_02_06": {
+    "en": "2026-02-06",
+    "pt-BR": "6 de fev. de 2026"
+  },
+  "shared.winterizing_your_starlink_mini_cold_weat": {
+    "en": "Winterizing Your Starlink Mini: Cold Weather Accessories Guide",
+    "pt-BR": "Preparando sua Starlink Mini para o inverno: guia de acessórios para frio intenso"
+  },
+  "shared.best_starlink_mini_cable_management_for_": {
+    "en": "Best Starlink Mini Cable Management for RV Roof Mounts: Complete Guide",
+    "pt-BR": "Melhor gestão de cabos da Starlink Mini para suportes de teto em motorhome: guia completo"
+  },
+  "shared.complete_range_of_tejoy_accessories_comp": {
+    "en": "Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases.",
+    "pt-BR": "Linha completa de acessórios Tejoy compatíveis com os terminais Starlink Mini, Standard, Performance e Enterprise. Suportes, energia, cabos e cases."
+  }
+}

@@ -1,9 +1,4 @@
 {
-  "video.page-header-title.1": {
-    "en": "Video",
-    "pt-BR": "Vídeos",
-    "es-MX": "Videos"
-  },
   "video.page-header-subtitle.1": {
     "en": "Product demos and setup guides.",
     "pt-BR": "Demonstrações de produtos e guias de instalação.",
@@ -24,59 +19,9 @@
     "pt-BR": "Vídeos - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
     "es-MX": "Videos - Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
   },
-  "video.meta.site_name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
-  },
   "video.meta.desc": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
     "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
-  },
-  "video.ld.description": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink.",
-    "es-MX": "Tejoy es un fabricante líder de accesorios de terceros compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Independiente de SpaceX y Starlink."
-  },
-  "video.ld.knowsAbout": {
-    "en": "Starlink-compatible accessories",
-    "pt-BR": "acessórios compatíveis com Starlink",
-    "es-MX": "accesorios compatibles con Starlink"
-  },
-  "video.ld.knowsAbout.2": {
-    "en": "satellite internet accessories",
-    "pt-BR": "acessórios para internet via satélite",
-    "es-MX": "accesorios para internet satelital"
-  },
-  "video.ld.knowsAbout.3": {
-    "en": "RV connectivity",
-    "pt-BR": "conectividade em motorhome",
-    "es-MX": "conectividad para casa rodante"
-  },
-  "video.ld.knowsAbout.4": {
-    "en": "off-grid power",
-    "pt-BR": "energia off-grid",
-    "es-MX": "energía sin red eléctrica"
-  },
-  "video.ld.knowsAbout.5": {
-    "en": "mounting systems",
-    "pt-BR": "sistemas de fixação",
-    "es-MX": "sistemas de soporte"
-  },
-  "video.ld.name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
-  },
-  "video.ld.name.2": {
-    "en": "Home",
-    "pt-BR": "Início",
-    "es-MX": "Inicio"
-  },
-  "video.ld.name.3": {
-    "en": "Video",
-    "pt-BR": "Vídeos",
-    "es-MX": "Videos"
   }
 }

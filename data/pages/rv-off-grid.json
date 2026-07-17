@@ -1,8 +1,4 @@
 {
-  "rv-off-grid.page-header-title.1": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
-  },
   "rv-off-grid.page-header-subtitle.1": {
     "en": "Starlink accessories for RVs, camping and off-grid setups.",
     "pt-BR": "Acessórios Starlink para motorhomes, camping e setups off-grid."
@@ -11,97 +7,41 @@
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
     "pt-BR": "Como instalar a Starlink Mini para camping em motorhome: guia completo"
   },
-  "rv-off-grid.time.1": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.1": {
     "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
     "pt-BR": "Guia passo a passo completo para instalar a Starlink Mini no camping em motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento."
-  },
-  "rv-off-grid.a.2": {
-    "en": "More",
-    "pt-BR": "Mais"
-  },
-  "rv-off-grid.a.3": {
-    "en": "Winterizing Your Starlink Mini: Cold Weather Accessories Guide",
-    "pt-BR": "Preparando sua Starlink Mini para o inverno: guia de acessórios para frio intenso"
-  },
-  "rv-off-grid.time.2": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
   },
   "rv-off-grid.blog-sidebar-text.2": {
     "en": "Complete winterization guide for Starlink Mini. Cold weather accessories, snow and ice management, battery considerations, and maintenance schedule for sub-zero operation.",
     "pt-BR": "Guia completo de preparação da Starlink Mini para o inverno. Acessórios para frio, manejo de neve e gelo, cuidados com a bateria e cronograma de manutenção para operação em temperaturas abaixo de zero."
   },
-  "rv-off-grid.a.4": {
-    "en": "More",
-    "pt-BR": "Mais"
-  },
-  "rv-off-grid.a.5": {
-    "en": "Best Starlink Mini Cable Management for RV Roof Mounts: Complete Guide",
-    "pt-BR": "Melhor gestão de cabos da Starlink Mini para suportes de teto em motorhome: guia completo"
-  },
-  "rv-off-grid.time.3": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.3": {
     "en": "Professional cable management guide for Starlink Mini RV roof mounts. Waterproof entry methods, cable routing options, and maintenance checklist.",
     "pt-BR": "Guia profissional de gestão de cabos para suportes de teto da Starlink Mini em motorhome. Métodos de entrada à prova d'água, opções de passagem de cabos e checklist de manutenção."
-  },
-  "rv-off-grid.a.6": {
-    "en": "More",
-    "pt-BR": "Mais"
   },
   "rv-off-grid.a.7": {
     "en": "How to Power Starlink Mini with Solar Panels: Complete 12V DC Setup Guide",
     "pt-BR": "Como alimentar a Starlink Mini com painéis solares: guia completo de instalação 12V DC"
   },
-  "rv-off-grid.time.4": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.4": {
     "en": "Complete guide to powering Starlink Mini with solar panels. System sizing, wiring diagram, component list, and step-by-step setup for off-grid 12V DC solar power.",
     "pt-BR": "Guia completo para alimentar a Starlink Mini com painéis solares. Dimensionamento do sistema, diagrama de ligação, lista de componentes e instalação passo a passo para energia solar 12V DC off-grid."
-  },
-  "rv-off-grid.a.8": {
-    "en": "More",
-    "pt-BR": "Mais"
   },
   "rv-off-grid.a.9": {
     "en": "Starlink Mini Pipe Mount Installation Guide: Step-by-Step for RV and Roof",
     "pt-BR": "Guia de instalação do suporte de tubo da Starlink Mini: passo a passo para motorhome e telhado"
   },
-  "rv-off-grid.time.5": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.5": {
     "en": "Complete installation guide for Tejoy Universal Pipe Mount on Starlink Mini. Step-by-step instructions, tools list, compatibility check, and professional tips for RV and roof mounting.",
     "pt-BR": "Guia de instalação completo do Suporte de Tubo Universal da Tejoy para Starlink Mini. Instruções passo a passo, lista de ferramentas, verificação de compatibilidade e dicas profissionais para fixação em motorhome e telhado."
-  },
-  "rv-off-grid.a.10": {
-    "en": "More",
-    "pt-BR": "Mais"
   },
   "rv-off-grid.a.11": {
     "en": "Best Starlink Mini Accessories for RV and Off-Grid Use in 2026",
     "pt-BR": "Melhores acessórios da Starlink Mini para uso em motorhome e off-grid em 2026"
   },
-  "rv-off-grid.time.6": {
-    "en": "2026-06-28",
-    "pt-BR": "28 de jun. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.6": {
     "en": "Complete guide to the best Starlink Mini accessories for RV and off-grid use. 12V power adapters, roof mounts, cables and more for your mobile Starlink setup.",
     "pt-BR": "Guia completo dos melhores acessórios da Starlink Mini para uso em motorhome e off-grid. Adaptadores de energia 12V, suportes de teto, cabos e muito mais para o seu setup Starlink móvel."
-  },
-  "rv-off-grid.a.12": {
-    "en": "More",
-    "pt-BR": "Mais"
   },
   "rv-off-grid.a.13": {
     "en": "Essential Security Solutions for Starlink RV Accessories: Mounts, Locks & Protective Cases",
@@ -115,10 +55,6 @@
     "en": "Discover the best security solutions in Starlink RV accessories, from robust locking mounts and protective cases to tamper-proof bolts. Learn how Tejoy and other budget-friendly options can safeguard your mobile internet setup against t···",
     "pt-BR": "Descubra as melhores soluções de segurança em acessórios Starlink para motorhome, de suportes com trava reforçados e cases de proteção a parafusos invioláveis. Veja como a Tejoy e outras opções econômicas podem proteger o seu setup de internet móvel contra r···"
   },
-  "rv-off-grid.a.14": {
-    "en": "More",
-    "pt-BR": "Mais"
-  },
   "rv-off-grid.a.15": {
     "en": "A Complete Guide to Starlink RV 12V Accessories and Compatibility",
     "pt-BR": "Guia completo dos acessórios 12V e compatibilidade da Starlink para motorhome"
@@ -131,25 +67,13 @@
     "en": "Ensure seamless internet on your travels with our guide to Starlink RV 12V accessories. Discover the importance of 12V compatibility, key components for your setup, and how Tejoy provides reliable, high-performance solutions for your RV···",
     "pt-BR": "Garanta internet sem interrupções nas suas viagens com o nosso guia de acessórios 12V da Starlink para motorhome. Descubra a importância da compatibilidade 12V, os componentes essenciais do seu setup e como a Tejoy oferece soluções confiáveis e de alto desempenho para o seu motorh···"
   },
-  "rv-off-grid.a.16": {
-    "en": "More",
-    "pt-BR": "Mais"
-  },
   "rv-off-grid.a.17": {
     "en": "How to Choose the Best Starlink RV Accessories for Your Setup",
     "pt-BR": "Como escolher os melhores acessórios Starlink de motorhome para o seu setup"
   },
-  "rv-off-grid.time.9": {
-    "en": "2026-02-06",
-    "pt-BR": "6 de fev. de 2026"
-  },
   "rv-off-grid.blog-sidebar-text.9": {
     "en": "Complete guide to Starlink RV accessories including setup requirements, must-have accessories, installation steps, common mistakes, and best practices to maximize your Starlink RV internet performance while traveling.",
     "pt-BR": "Guia completo de acessórios Starlink para motorhome, incluindo requisitos de instalação, acessórios indispensáveis, etapas de montagem, erros comuns e boas práticas para maximizar o desempenho da sua internet Starlink em viagem."
-  },
-  "rv-off-grid.a.18": {
-    "en": "More",
-    "pt-BR": "Mais"
   },
   "rv-off-grid.a.19": {
     "en": "Essential Starlink RV Accessories for Full-Time RVers | Setup & Guide",
@@ -163,54 +87,6 @@
     "en": "Discover the essential Starlink RV accessories for full-time RVers. Learn about portable satellite dish, mounting kit, Wi-Fi router and power generator, plus setup guide and price comparison for stable on-the-go internet.",
     "pt-BR": "Descubra os acessórios Starlink essenciais para quem vive de motorhome em tempo integral. Conheça a antena de satélite portátil, o kit de fixação, o roteador Wi-Fi e o gerador de energia, além de um guia de instalação e comparação de preços para internet estável em movimento."
   },
-  "rv-off-grid.a.20": {
-    "en": "More",
-    "pt-BR": "Mais"
-  },
-  "rv-off-grid.sidebar-title.1": {
-    "en": "Service",
-    "pt-BR": "Guias"
-  },
-  "rv-off-grid.title.1": {
-    "en": "Marine",
-    "pt-BR": "Náutico"
-  },
-  "rv-off-grid.a.21": {
-    "en": "Marine",
-    "pt-BR": "Náutico"
-  },
-  "rv-off-grid.title.2": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
-  },
-  "rv-off-grid.a.22": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
-  },
-  "rv-off-grid.title.3": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
-  },
-  "rv-off-grid.a.23": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
-  },
-  "rv-off-grid.title.4": {
-    "en": "Industrial",
-    "pt-BR": "Industrial"
-  },
-  "rv-off-grid.a.24": {
-    "en": "Industrial",
-    "pt-BR": "Industrial"
-  },
-  "rv-off-grid.title.5": {
-    "en": "Power",
-    "pt-BR": "Energia"
-  },
-  "rv-off-grid.a.25": {
-    "en": "Power",
-    "pt-BR": "Energia"
-  },
   "rv-off-grid.sidebar-title.2": {
     "en": "News",
     "pt-BR": "Notícias"
@@ -219,76 +95,16 @@
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
     "pt-BR": "Como instalar a Starlink Mini para camping em motorhome: guia completo"
   },
-  "rv-off-grid.sidebar-post-content-meta.1": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
-  "rv-off-grid.a.27": {
-    "en": "Winterizing Your Starlink Mini: Cold Weather Accessories Guide",
-    "pt-BR": "Preparando sua Starlink Mini para o inverno: guia de acessórios para frio intenso"
-  },
-  "rv-off-grid.sidebar-post-content-meta.2": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
-  "rv-off-grid.a.28": {
-    "en": "Best Starlink Mini Cable Management for RV Roof Mounts: Complete Guide",
-    "pt-BR": "Melhor gestão de cabos da Starlink Mini para suportes de teto em motorhome: guia completo"
-  },
-  "rv-off-grid.sidebar-post-content-meta.3": {
-    "en": "2026-07-04",
-    "pt-BR": "4 de jul. de 2026"
-  },
   "rv-off-grid.meta.title": {
     "en": "RV / Off-Grid-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Motorhome / Off-Grid - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
-  },
-  "rv-off-grid.meta.site_name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
   },
   "rv-off-grid.meta.desc": {
     "en": "RV accessories, camping setups, solar-powered solutions, off-grid living",
     "pt-BR": "Acessórios Starlink para motorhome, setups de camping, soluções com energia solar e vida off-grid."
   },
-  "rv-off-grid.ld.description": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
-  },
-  "rv-off-grid.ld.knowsAbout": {
-    "en": "Starlink-compatible accessories",
-    "pt-BR": "acessórios compatíveis com Starlink"
-  },
-  "rv-off-grid.ld.knowsAbout.2": {
-    "en": "satellite internet accessories",
-    "pt-BR": "acessórios para internet via satélite"
-  },
-  "rv-off-grid.ld.knowsAbout.3": {
-    "en": "RV connectivity",
-    "pt-BR": "conectividade em motorhome"
-  },
-  "rv-off-grid.ld.knowsAbout.4": {
-    "en": "off-grid power",
-    "pt-BR": "energia off-grid"
-  },
-  "rv-off-grid.ld.knowsAbout.5": {
-    "en": "mounting systems",
-    "pt-BR": "sistemas de fixação"
-  },
-  "rv-off-grid.ld.name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
-  },
   "rv-off-grid.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
-  },
-  "rv-off-grid.ld.name.2": {
-    "en": "Home",
-    "pt-BR": "Início"
-  },
-  "rv-off-grid.ld.name.3": {
-    "en": "RV / Off-Grid",
-    "pt-BR": "Motorhome / Off-Grid"
   }
 }

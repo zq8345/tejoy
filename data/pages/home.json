@@ -87,10 +87,6 @@
     "en": "100+ Units",
     "pt-BR": "100+ máquinas"
   },
-  "home.stat.text.2": {
-    "en": "Professional Equipment",
-    "pt-BR": "Equipamentos profissionais"
-  },
   "home.stat.num.3": {
     "en": "150+ Staff",
     "pt-BR": "150+ colaboradores"
@@ -123,33 +119,13 @@
     "en": "Setup guides, buyer advice, and knowledge for getting the most out of your Starlink.",
     "pt-BR": "Guias de instalação, dicas de compra e conhecimento para aproveitar ao máximo a sua Starlink."
   },
-  "home.guide.cat.1": {
-    "en": "Power",
-    "pt-BR": "Energia"
-  },
-  "home.guide.date.1": {
-    "en": "Jul 4, 2026",
-    "pt-BR": "4 de jul. de 2026"
-  },
-  "home.h3.5": {
-    "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
-    "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C"
-  },
   "home.p.6": {
     "en": "Buyer guide for Starlink power adapters — compare 12V DC, stock AC, and USB-C PD options, with recommendations by use case: RV, off-grid, and home.",
     "pt-BR": "Guia de compra de adaptadores de energia para Starlink — compare as opções 12V DC, AC original e USB-C PD, com recomendações por caso de uso: motorhome, off-grid e residência."
   },
-  "home.guide.more.1": {
-    "en": "Read more",
-    "pt-BR": "Leia mais"
-  },
   "home.guide.cat.2": {
     "en": "RV &amp; Off-Grid",
     "pt-BR": "Motorhome &amp; Off-Grid"
-  },
-  "home.guide.date.2": {
-    "en": "Jul 4, 2026",
-    "pt-BR": "4 de jul. de 2026"
   },
   "home.h3.6": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
@@ -159,72 +135,16 @@
     "en": "A complete step-by-step setup for Starlink Mini on the road — equipment checklist, mounting, power, and cable routing.",
     "pt-BR": "Passo a passo completo para instalar a Starlink Mini na estrada — checklist de equipamentos, fixação, energia e passagem de cabos."
   },
-  "home.guide.more.2": {
-    "en": "Read more",
-    "pt-BR": "Leia mais"
-  },
-  "home.guide.cat.3": {
-    "en": "Mounts",
-    "pt-BR": "Suportes"
-  },
-  "home.guide.date.3": {
-    "en": "Jul 4, 2026",
-    "pt-BR": "4 de jul. de 2026"
-  },
-  "home.h3.7": {
-    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
-    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?"
-  },
   "home.p.8": {
     "en": "A comparison of Tejoy pipe, wall, and flat-roof mounts for Starlink — a decision matrix with real-world scenarios and clear recommendations.",
     "pt-BR": "Uma comparação entre os suportes de tubo, de parede e para telhado plano da Tejoy para Starlink — uma matriz de decisão com cenários reais e recomendações claras."
-  },
-  "home.guide.more.3": {
-    "en": "Read more",
-    "pt-BR": "Leia mais"
   },
   "home.a.1": {
     "en": "View all guides →",
     "pt-BR": "Ver todos os guias →"
   },
-  "home.meta.title": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
-  },
-  "home.meta.site_name": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
-  },
   "home.meta.desc": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
-  },
-  "home.org.desc": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
-  },
-  "home.org.knows": {
-    "en": "Starlink-compatible accessories",
-    "pt-BR": "acessórios compatíveis com Starlink"
-  },
-  "home.org.knows.2": {
-    "en": "satellite internet accessories",
-    "pt-BR": "acessórios para internet via satélite"
-  },
-  "home.org.knows.3": {
-    "en": "RV connectivity",
-    "pt-BR": "conectividade em motorhome"
-  },
-  "home.org.knows.4": {
-    "en": "off-grid power",
-    "pt-BR": "energia off-grid"
-  },
-  "home.org.knows.5": {
-    "en": "mounting systems",
-    "pt-BR": "sistemas de fixação"
-  },
-  "home.breadcrumb.home": {
-    "en": "Home",
-    "pt-BR": "Início"
   }
 }
