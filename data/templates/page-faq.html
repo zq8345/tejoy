@@ -1,27 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{HTML_LANG}}">
 <head>
-<meta name="description" content="Complete range of Tejoy Starlink-compatible accessories: mounts, power adapters, cables, protective cases for Mini, Standard, Performance & Enterprise terminals.">
-<style>
-/* XLC-Style Generic Page — full-width hero + clean content */
-.xlc-section{padding:60px 0}
-.xlc-body{max-width:960px;margin:0 auto;font-size:16px;line-height:1.8;color:#444}
-.xlc-body h2{font-size:26px;font-weight:700;color:#17161a;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid #e3e3e3}
-.xlc-body h3{font-size:20px;font-weight:600;color:#17161a;margin:24px 0 10px}
-.xlc-body p{margin:0 0 14px}
-.xlc-body ul{margin:0 0 18px;padding-left:24px}
-.xlc-body li{margin-bottom:6px}
-.xlc-body table{width:100%;margin:18px 0;border-collapse:collapse}
-.xlc-body table th{background:#2b3aa1;color:#fff;padding:10px 14px;font-weight:600}
-.xlc-body table td{padding:10px 14px;border:1px solid #e3e3e3}
-.xlc-body blockquote{margin:20px 0;padding:16px 22px;background:#f0f2fa;border-left:4px solid #2b3aa1;border-radius:6px;font-size:15px;color:#333}
-.xlc-body img{max-width:100%;height:auto;border-radius:8px;margin:16px 0}
-.xlc-body .table-responsive{overflow-x:auto}
-</style>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions</title>
+<title>{{t.faq.meta.title}}</title>
+<meta name="description" content="{{t.faq.meta.desc}}">
 <meta name="author" content="tejoy" />
 
 <!-- Organization + WebSite JSON-LD Structured Data -->
@@ -39,8 +23,8 @@
     "width": 600,
     "height": 60
   },
-  "description": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-  "knowsAbout": ["Starlink-compatible accessories", "satellite internet accessories", "RV connectivity", "off-grid power", "mounting systems"],
+  "description": "{{t.faq.ld.description}}",
+  "knowsAbout": ["{{t.faq.ld.knowsAbout}}", "{{t.faq.ld.knowsAbout.2}}", "{{t.faq.ld.knowsAbout.3}}", "{{t.faq.ld.knowsAbout.4}}", "{{t.faq.ld.knowsAbout.5}}"],
   "foundingDate": "2010",
   "numberOfEmployees": "150",
   "areaServed": "Worldwide",
@@ -56,12 +40,12 @@
   "@type": "WebSite",
   "@id": "https://tejoy.com/#website",
   "url": "https://tejoy.com",
-  "name": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-  "description": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+  "name": "{{t.faq.ld.name}}",
+  "description": "{{t.faq.meta.desc}}",
   "publisher": {
     "@id": "https://tejoy.com/#organization"
   },
-  "inLanguage": "en"
+  "inLanguage": "{{HTML_LANG}}"
 }
 </script>
 
@@ -74,14 +58,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://tejoy.com"
+      "name": "{{t.faq.ld.name.2}}",
+      "item": "{{HOME_URL}}"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Starlink Compatible Accessories",
-      "item": "https://tejoy.com/starlink-compatible-accessories/"
+      "name": "FAQ",
+      "item": "{{CANONICAL}}"
     }
   ]
 }
@@ -132,23 +116,20 @@
 
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://tejoy.com/starlink-compatible-accessories/" />
-<!-- hreflang alternates (en <-> pt paired page) -->
-<link rel="alternate" hreflang="en" href="https://tejoy.com/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="x-default" href="https://tejoy.com/starlink-compatible-accessories/" />
+<link rel="canonical" href="{{CANONICAL}}" />
+{{HREFLANG}}
 <!-- Open Graph -->
-<meta property="og:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta property="og:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
-<meta property="og:url" content="https://tejoy.com/starlink-compatible-accessories/" />
+<meta property="og:title" content="{{t.faq.meta.title}}" />
+<meta property="og:description" content="{{t.faq.meta.desc}}" />
+<meta property="og:url" content="{{CANONICAL}}" />
 <meta property="og:image" content="/static/tejoy-logo-black.png" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+<meta property="og:type" content="website" />{{OG_LOCALE}}
+<meta property="og:site_name" content="{{t.faq.meta.site_name}}" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta name="twitter:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
+<meta name="twitter:title" content="{{t.faq.meta.title}}" />
+<meta name="twitter:description" content="{{t.faq.meta.desc}}" />
 <meta name="twitter:image" content="/static/tejoy-logo-black.png" />
 
 
@@ -247,27 +228,355 @@
   <div class="stricky-header stricked-menu main-menu">
     <div class="sticky-header__content"></div>
   </div>
-
   
   <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp)"> </div>
+    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150284268926.webp)"> </div>
     <div class="container">
       <div class="page-header__inner left">
-        <h1 class="page-header__title">Tejoy Starlink-Compatible Accessories - Mounts, Power, Cables</h1>
-        <p class="page-header__subtitle">Mounts, power adapters, cables and protective cases.</p>
+        <h1 class="page-header__title">{{t.faq.page-header-title.1}}</h1>
+        <p class="page-header__subtitle">{{t.faq.page-header-subtitle.1}}</p>
       </div>
     </div>
   </section>
   
-
-  <section class="xlc-section">
+  
+  
+  <section class="blog-sidebar huibg">
     <div class="container">
-      <div class="xlc-body">
-        <h2>Complete Range of Starlink-Compatible Accessories</h2><p>Tejoy offers comprehensive accessories compatible with all major Starlink terminal types.</p><h2>Compatibility</h2><table class="table table-bordered"><tbody><tr class="firstRow"><th>Terminal</th><th>Mounts</th><th>Power</th><th>Cables</th><th>Protective</th></tr><tr><td>Starlink Mini</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Circular</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Actuated</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Performance</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Enterprise</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr></tbody></table><h2>Product Categories</h2><h3>Mounts</h3><p>Pipe, wall, roof, adjustable angle, ground, and RV mounts.</p><h3>Power Adapters</h3><p>12V DC adapters for vehicle/RV, DC extension cables.</p><h3>Cables &amp; Connectivity</h3><p>Waterproof outdoor Ethernet, DC power cables, cable management.</p><h3>Protective Accessories</h3><p>Weatherproof covers, protective cases, cable entry seals.</p>
+      <div class="row">
+        <div class="col-xl-9 col-lg-9">
+          <div class="blog-sidebar__left">
+          
+
+
+<style>
+/* FAQ 手风琴样式（默认全部展开 + 可点击收缩 + 展开显示分隔线） */
+.faq-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.faq-item {
+  background: #f7f7f7;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+/* 标题样式（深色加粗） */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 25px;
+  font-weight: 600;
+  color: #111;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+/* 箭头图标 */
+.faq-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  transform: rotate(180deg);
+}
+/* 展开时显示的分隔线 */
+.faq-line {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0 25px;
+  display: block;
+}
+/* 内容样式（浅色） */
+.faq-answer {
+  padding: 20px 25px 25px;
+  color: #666;
+  line-height: 1.7;
+  font-size: 15px;
+  max-height: 999px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 收缩状态 */
+.faq-answer.close {
+  max-height: 0;
+  padding: 0 25px;
+}
+.faq-icon.close {
+  transform: rotate(0deg);
+}
+.faq-line.close {
+  display: none;
+}
+</style>
+
+<div class="blog-sidebar__content">
+  <div class="faq-list">
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.1}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p>{{t.faq.p.1}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.2}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p>{{t.faq.p.2}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.3}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.3}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.4}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.4}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.5}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.5}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.6}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.6}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.7}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.7}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.8}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.8}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.9}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.9}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.10}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.10}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.11}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.11}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.12}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.12}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.13}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.13}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.14}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.14}}</p></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+        <span>{{t.faq.span.15}}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      
+      <!-- 展开时显示的分隔线 -->
+      <div class="faq-line"></div>
+      
+      <div class="faq-answer">
+        <p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; list-style: none; white-space-collapse: preserve">{{t.faq.p.15}}</p></p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+// 点击展开/收缩功能
+function toggleFaq(el) {
+  const icon = el.querySelector('.faq-icon');
+  const line = el.nextElementSibling;
+  const answer = line.nextElementSibling;
+  
+  icon.classList.toggle('close');
+  line.classList.toggle('close');
+  answer.classList.toggle('close');
+  el.setAttribute('aria-expanded', answer.classList.contains('close') ? 'false' : 'true');
+}
+</script>
+
+
+
+
+
+            
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-3">
+          <div class="sidebar">
+            <div class="sidebar__single sidebar__search">
+              
+            </div>
+            <div class="sidebar__single sidebar__category">
+              <h3 class="sidebar__title">{{t.faq.sidebar-title.1}}</h3>
+              <ul class="sidebar__category-list list-unstyled">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
+  
+  
+  
+  
   <footer class="site-footer">
     <div class="site-footer__middle">
       <div class="container">
@@ -381,6 +690,44 @@ Tejoy manufactures third-party Starlink-compatible accessories. Not affiliated w
 
 
 
+  
+  <!-- Structured Data: FAQPage (dynamic) -->
+  <script>
+  // FAQPage Schema - dynamically built from rendered FAQ items
+  (function() {
+    var faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length === 0) return;
+    var questions = [];
+    faqItems.forEach(function(item) {
+      var qEl = item.querySelector('.faq-question span');
+      var aEl = item.querySelector('.faq-answer p');
+      if (qEl && aEl) {
+        questions.push({
+          '@type': 'Question',
+          'name': qEl.textContent.trim(),
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': aEl.textContent.trim()
+          }
+        });
+      }
+    });
+    if (questions.length > 0) {
+      var script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        '@id': '{{CANONICAL}}#faqpage',
+        'name': '{{t.faq.jsonld.name}}',
+        'description': '{{t.faq.jsonld.description}}',
+        'mainEntity': questions
+      });
+      document.head.appendChild(script);
+    }
+  })();
+  </script>
+  </div>
 </div>
 <div class="mobile-nav__wrapper">
   <div class="mobile-nav__overlay mobile-nav__toggler"></div>

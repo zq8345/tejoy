@@ -45,8 +45,18 @@ const orphans = [];
 // {{t.body.*}} tokens in R1 item 7, and a guard that only knew about _chrome.html reported all 21
 // of them as "unused, possibly rotten". A false alarm from the guard is not harmless: it trains
 // people to ignore it, and then the real one goes unread too.
-const TEMPLATES = ["data/templates/_chrome.html", "data/templates/product.html", "data/templates/home.html"];
-const PARTIAL = TEMPLATES[0];
+// ⛔ 按目录读,不列清单 —— 和上面的 data/pages 一样。
+//
+// 这条假警报我已经修过两次实例、没修过类,于是它第三次复发:
+//   第一次:只扫 _chrome.html            → 21 个活 key 被报"可能已腐烂"
+//   第二次:只数 {{t.key}} token 消费者   → 3 个被【代码】读的 key 被误报
+//   第三次:硬编码三个模板名,page-*.html 不在里面 → 281 条
+// 每次我都补一个名字进清单,而清单本身就是那个 bug。⭐ 一张需要人记得去更新的清单,
+// 就是一个迟早会红成噪音的 guard —— 而我自己写过:假警报会训练人略过告警,然后真的那条也没人读。
+const TEMPLATES = fs.existsSync("data/templates")
+  ? fs.readdirSync("data/templates").filter((f) => f.endsWith(".html")).map((f) => `data/templates/${f}`)
+  : [];
+const PARTIAL = "data/templates/_chrome.html";
 const allTpl = TEMPLATES.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
 for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]]) orphans.push(m[1]);
 // A key has TWO kinds of consumer: a {{t.key}} token in a template, and code in render.js reading

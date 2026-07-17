@@ -1,27 +1,118 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{HTML_LANG}}">
 <head>
-<meta name="description" content="Complete range of Tejoy Starlink-compatible accessories: mounts, power adapters, cables, protective cases for Mini, Standard, Performance & Enterprise terminals.">
-<style>
-/* XLC-Style Generic Page — full-width hero + clean content */
-.xlc-section{padding:60px 0}
-.xlc-body{max-width:960px;margin:0 auto;font-size:16px;line-height:1.8;color:#444}
-.xlc-body h2{font-size:26px;font-weight:700;color:#17161a;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid #e3e3e3}
-.xlc-body h3{font-size:20px;font-weight:600;color:#17161a;margin:24px 0 10px}
-.xlc-body p{margin:0 0 14px}
-.xlc-body ul{margin:0 0 18px;padding-left:24px}
-.xlc-body li{margin-bottom:6px}
-.xlc-body table{width:100%;margin:18px 0;border-collapse:collapse}
-.xlc-body table th{background:#2b3aa1;color:#fff;padding:10px 14px;font-weight:600}
-.xlc-body table td{padding:10px 14px;border:1px solid #e3e3e3}
-.xlc-body blockquote{margin:20px 0;padding:16px 22px;background:#f0f2fa;border-left:4px solid #2b3aa1;border-radius:6px;font-size:15px;color:#333}
-.xlc-body img{max-width:100%;height:auto;border-radius:8px;margin:16px 0}
-.xlc-body .table-responsive{overflow-x:auto}
+<style type="text/css">
+  /* ── 卡片等高方案 ── */
+  .blog-sidebar .row {
+    display: flex;
+    flex-wrap: wrap;
+  .blog-sidebar .col-lg-4 {
+    display: flex;
+    margin-bottom: 30px;
+  .video-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 15px rgba(0,0,0,.08);
+  .video-item .item-thumbnail {
+    width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    position: relative;
+  .video-item .item-thumbnail img {
+    width: 100%;
+    display: block;
+  .video-item .txt {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: 100%;
+    padding: 12px 15px;
+    text-align: center;
+  .video-item .txt a {
+    font-size: 15px;
+    color: #023692;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    /* 限制2行 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  /* 播放按钮保持原样 */
+  .video-item .item-thumbnail .yuan {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    margin: 0 0 0 -18px;
+    padding-top: 20px;
+    border-radius: 50%;
+    background: transparent;
+    text-align: center;
+    transform: scale(1);
+    opacity: 1;
+    text-decoration: none;
+    box-shadow: 0 0 0 2px hsla(0,0%,100%,.75);
+    color: #fff;
+  .video-item .item-thumbnail .link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    transition: background-color .2s ease;
+  .video-item .item-thumbnail:hover .link-overlay {
+    background: rgba(20,22,23,.75);
+    text-decoration: none;
+  .video-item .item-thumbnail .link-overlay:before {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    margin: 0 0 0 -18px;
+    padding-top: 20px;
+    border-radius: 50%;
+    background: transparent;
+    text-align: center;
+    transform: scale(.8);
+    opacity: 0;
+    transition: opacity .2s ease;
+    text-decoration: none;
+    box-shadow: 0 0 0 2px hsla(0,0%,100%,.75);
+    color: #fff;
+  /* 加大翻页按钮尺寸 */
+  .pagination .page-link {
+    padding: 12px 20px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    margin: 0 4px !important;
+    border-radius: 4px !important;
+  .pagination .page-link:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+  @media (max-width: 767px) {
+    .pagination .hidden-sm {
+      display: none !important;
 </style>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions</title>
+<title>{{t.video.meta.title}}</title>
+<meta name="description" content="{{t.video.meta.desc}}">
 <meta name="author" content="tejoy" />
 
 <!-- Organization + WebSite JSON-LD Structured Data -->
@@ -39,8 +130,8 @@
     "width": 600,
     "height": 60
   },
-  "description": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-  "knowsAbout": ["Starlink-compatible accessories", "satellite internet accessories", "RV connectivity", "off-grid power", "mounting systems"],
+  "description": "{{t.video.ld.description}}",
+  "knowsAbout": ["{{t.video.ld.knowsAbout}}", "{{t.video.ld.knowsAbout.2}}", "{{t.video.ld.knowsAbout.3}}", "{{t.video.ld.knowsAbout.4}}", "{{t.video.ld.knowsAbout.5}}"],
   "foundingDate": "2010",
   "numberOfEmployees": "150",
   "areaServed": "Worldwide",
@@ -56,12 +147,12 @@
   "@type": "WebSite",
   "@id": "https://tejoy.com/#website",
   "url": "https://tejoy.com",
-  "name": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-  "description": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+  "name": "{{t.video.ld.name}}",
+  "description": "{{t.video.meta.desc}}",
   "publisher": {
     "@id": "https://tejoy.com/#organization"
   },
-  "inLanguage": "en"
+  "inLanguage": "{{HTML_LANG}}"
 }
 </script>
 
@@ -74,14 +165,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://tejoy.com"
+      "name": "{{t.video.ld.name.2}}",
+      "item": "{{HOME_URL}}"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Starlink Compatible Accessories",
-      "item": "https://tejoy.com/starlink-compatible-accessories/"
+      "name": "{{t.video.ld.name.3}}",
+      "item": "{{CANONICAL}}"
     }
   ]
 }
@@ -132,23 +223,20 @@
 
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://tejoy.com/starlink-compatible-accessories/" />
-<!-- hreflang alternates (en <-> pt paired page) -->
-<link rel="alternate" hreflang="en" href="https://tejoy.com/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="x-default" href="https://tejoy.com/starlink-compatible-accessories/" />
+<link rel="canonical" href="{{CANONICAL}}" />
+{{HREFLANG}}
 <!-- Open Graph -->
-<meta property="og:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta property="og:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
-<meta property="og:url" content="https://tejoy.com/starlink-compatible-accessories/" />
+<meta property="og:title" content="{{t.video.meta.title}}" />
+<meta property="og:description" content="{{t.video.meta.desc}}" />
+<meta property="og:url" content="{{CANONICAL}}" />
 <meta property="og:image" content="/static/tejoy-logo-black.png" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+<meta property="og:type" content="website" />{{OG_LOCALE}}
+<meta property="og:site_name" content="{{t.video.meta.site_name}}" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta name="twitter:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
+<meta name="twitter:title" content="{{t.video.meta.title}}" />
+<meta name="twitter:description" content="{{t.video.meta.desc}}" />
 <meta name="twitter:image" content="/static/tejoy-logo-black.png" />
 
 
@@ -247,28 +335,42 @@
   <div class="stricky-header stricked-menu main-menu">
     <div class="sticky-header__content"></div>
   </div>
-
   
   <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp)"> </div>
+    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150245270907.webp)"> </div>
     <div class="container">
       <div class="page-header__inner left">
-        <h1 class="page-header__title">Tejoy Starlink-Compatible Accessories - Mounts, Power, Cables</h1>
-        <p class="page-header__subtitle">Mounts, power adapters, cables and protective cases.</p>
+        <h1 class="page-header__title">{{t.video.page-header-title.1}}</h1>
+        <p class="page-header__subtitle">{{t.video.page-header-subtitle.1}}</p>
       </div>
     </div>
   </section>
   
-
-  <section class="xlc-section">
-    <div class="container">
-      <div class="xlc-body">
-        <h2>Complete Range of Starlink-Compatible Accessories</h2><p>Tejoy offers comprehensive accessories compatible with all major Starlink terminal types.</p><h2>Compatibility</h2><table class="table table-bordered"><tbody><tr class="firstRow"><th>Terminal</th><th>Mounts</th><th>Power</th><th>Cables</th><th>Protective</th></tr><tr><td>Starlink Mini</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Circular</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Actuated</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Performance</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Enterprise</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr></tbody></table><h2>Product Categories</h2><h3>Mounts</h3><p>Pipe, wall, roof, adjustable angle, ground, and RV mounts.</p><h3>Power Adapters</h3><p>12V DC adapters for vehicle/RV, DC extension cables.</p><h3>Cables &amp; Connectivity</h3><p>Waterproof outdoor Ethernet, DC power cables, cable management.</p><h3>Protective Accessories</h3><p>Weatherproof covers, protective cases, cable entry seals.</p>
+  <section class="blog-sidebar huibg">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-4">
+        <div class="video-item">
+          <div class="item-thumbnail"> 
+            <a href="{{url./video/39}}"> 
+              <img src="/static/upload/image/20260205/1770262268930794.jpg" alt="{{t.video.alt.1}}" loading="lazy" />
+              <div class="yuan fa fa-play"></div>
+              <div class="link-overlay fa fa-play"></div>
+            </a> 
+          </div>
+          <div class="txt"> 
+            <a href="{{url./video/39}}">{{t.video.a.1}}</a>
+          </div>
+        </div>
       </div>
+      
     </div>
-  </section>
-
-  <footer class="site-footer">
+    <!-- 核心逻辑：仅总页数>1时显示翻页按钮 -->
+    
+  </div>
+</div>
+<footer class="site-footer">
     <div class="site-footer__middle">
       <div class="container">
         <div class="site-footer__middle-inner">

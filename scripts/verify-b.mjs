@@ -31,6 +31,16 @@ const killHL = (s) => s.split(HL_COMMENT).join("")
 const intended = (s, slug, isPt) => {
   const self = `https://tejoy.com${isPt ? "/pt/" : "/"}${slug}/`;
   const home = isPt ? "https://tejoy.com/pt/" : "https://tejoy.com";
+  if (isPt) {
+    // ⑤ pt 独有的开发者注释。模板只有一份、从 en 出,所以 pt 会丢掉它。它在 </footer> 之后、
+    // 不是 chrome-sync 的锚点(那个用的是 partial 里的 <!-- #block:name -->),对读者不可见。
+    s = s.split("<!--Site Footer End-->").join("");
+    // ⑥ ⭐ 这一处【pt 才是有缺陷的那边】—— 头一回。pt/contact 有【两个】author meta:
+    //    顶部多一个 content="tejoy.com"(还坐在 <meta charset> 前面),下面才是正常的
+    //    content="tejoy";en 只有后者。模板从 en 出,正好把这个重复且值不一致的 meta 去掉 = 修复。
+    //    「pt 永远对」也不是规律 —— 规律是【哪边对要逐条问】,这次答案就是 en。
+    if (slug === "contact") s = s.replace(/[ \t]*<meta name="author" content="tejoy\.com" \/>\s*\n?/, "");
+  }
   let n = 0;
   s = s.replace(/("item": ")([^"]*)(")/g, (m, a, v, c) => { n++; return n === 1 ? a + home + c : n === 2 ? a + self + c : m; });
   s = s.replace(/('@id':\s*')[^']*(#[^']*')/, (m, a, c) => a + self + c);

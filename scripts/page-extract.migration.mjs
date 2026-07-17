@@ -211,6 +211,35 @@ for (const slug of SLUGS) {
 
   // head 槽位 —— 按槽位替换,不按字符串:en 的 <title> 可能恰好等于 og:site_name,
   // 字符串替换会把它一起吞掉,而 en 正是这个区别不可见的那一侧
+  // 内联 <script> 里【显示给用户】的字符串。strip() 把 script 整个抹掉,所以这一类从没进过枚举 ——
+  // pt/contact 于是会印 'Sending…' 而不是 'Enviando…',那是用户按下提交后真的会看到的字。
+  //
+  // ⚠️ 这里【不】能改成"只 key en/pt 有差异的" —— 那是 R1 洞①:按"是否已翻译"决定 key 集,
+  // 会把两边都是英文的现存泄漏永久冻结。JS 里的"可见性"同样是可计算的:
+  //   ⭐ 赋给 textContent / innerHTML 的字符串,按定义就是显示给用户的。
+  // 这是可见性规则,不是差异规则。选择器、类名、URL 不会被它碰到。
+  {
+    const VIS = /(\.(?:textContent|innerHTML)\s*=\s*)(["'])((?:(?!\2)[^\\]|\\.)*)(\2)/g;
+    const grabVis = (s) => [...s.matchAll(VIS)].map((m) => m[3]);
+    const eV = grabVis(enRaw), pV = hasPt ? grabVis(ptRaw) : [];
+    if (eV.length && hasPt && eV.length !== pV.length) console.log(`   ⚠️ ${slug}: textContent 赋值 en ${eV.length} / pt ${pV.length} — 数量不符,跳过这一类`);
+    else if (eV.length) {
+      let k = 0;
+      const before = tpl;
+      tpl = tpl.replace(VIS, (m, lhs, q, v, q2) => {
+        if (!isProse(v)) return m;
+        const key = `${slug}.js.${++k}`;
+        cat[key] = { en: v, ...(hasPt ? { "pt-BR": pV[k - 1] } : {}) };
+        return `${lhs}${q}{{t.${key}}}${q2}`;
+      });
+      if (k) {
+        // 插入必须【在产物里找得到】—— 断言产物,不是断言函数返回了(总工:沉默的成功 = 最贵的失败)
+        if (before === tpl) { console.log(`   🔴 ${slug}: textContent token 没进模板 — 停`); continue; }
+        console.log(`   ${slug}: 内联 JS 里显示给用户的字符串 ${k} 条 → 进目录(pt 不再被 en 覆盖)`);
+      }
+    }
+  }
+
   // JS 在运行时构造的 JSON-LD:`script.textContent = JSON.stringify({…})`,单引号写的,
   // 所以它【不是】 <script type="application/ld+json">,上面那套 JSON 遍历完全看不见它。
   // 只有 faq 一个页有。它的 name/description 是随语种变的真文案(pt 侧是葡语的,不派生就会被

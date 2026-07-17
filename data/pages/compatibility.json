@@ -1,0 +1,146 @@
+{
+  "compatibility.page-header-title.1": {
+    "en": "Tejoy Starlink Accessories Compatibility Guide",
+    "pt-BR": "Guia de Compatibilidade dos Acessórios Tejoy para Starlink"
+  },
+  "compatibility.page-header-subtitle.1": {
+    "en": "Which Starlink terminals our accessories fit.",
+    "pt-BR": "Com quais terminais Starlink os nossos acessórios são compatíveis."
+  },
+  "compatibility.h2.1": {
+    "en": "Which Tejoy Accessories Work With Your Starlink Terminal?",
+    "pt-BR": "Quais acessórios Tejoy funcionam com o seu terminal Starlink?"
+  },
+  "compatibility.p.1": {
+    "en": "This compatibility guide helps you find the right Tejoy accessories for your Starlink terminal model. All Tejoy products are designed and tested for compatibility with genuine Starlink hardware.",
+    "pt-BR": "Este guia de compatibilidade ajuda você a encontrar os acessórios Tejoy certos para o modelo do seu terminal Starlink. Todos os produtos Tejoy são projetados e testados para compatibilidade com o hardware Starlink original."
+  },
+  "compatibility.strong.1": {
+    "en": "Note:",
+    "pt-BR": "Observação:"
+  },
+  "compatibility.strong.2": {
+    "en": "Tejoy products are third-party accessories compatible with Starlink terminals. We are not affiliated with SpaceX or Starlink.",
+    "pt-BR": "os produtos Tejoy são acessórios de terceiros compatíveis com terminais Starlink. Não somos afiliados à SpaceX nem à Starlink."
+  },
+  "compatibility.h2.2": {
+    "en": "Compatibility Matrix",
+    "pt-BR": "Matriz de Compatibilidade"
+  },
+  "compatibility.th.1": {
+    "en": "Product Category",
+    "pt-BR": "Categoria de Produto"
+  },
+  "compatibility.th.2": {
+    "en": "Starlink Mini",
+    "pt-BR": "Starlink Mini"
+  },
+  "compatibility.th.3": {
+    "en": "Standard Circular",
+    "pt-BR": "Standard Circular"
+  },
+  "compatibility.th.4": {
+    "en": "Standard Actuated",
+    "pt-BR": "Standard Actuated"
+  },
+  "compatibility.th.5": {
+    "en": "Standard",
+    "pt-BR": "Standard"
+  },
+  "compatibility.th.6": {
+    "en": "Performance",
+    "pt-BR": "Performance"
+  },
+  "compatibility.th.7": {
+    "en": "Enterprise",
+    "pt-BR": "Enterprise"
+  },
+  "compatibility.td.1": {
+    "en": "Pipe Mounts",
+    "pt-BR": "Suportes de Tubo"
+  },
+  "compatibility.td.2": {
+    "en": "Wall Mounts",
+    "pt-BR": "Suportes de Parede"
+  },
+  "compatibility.td.3": {
+    "en": "Roof Mounts",
+    "pt-BR": "Suportes para Telhado"
+  },
+  "compatibility.td.4": {
+    "en": "12V Power Adapters",
+    "pt-BR": "Adaptadores de Energia 12V"
+  },
+  "compatibility.td.5": {
+    "en": "DC Power Cables",
+    "pt-BR": "Cabos de Energia DC"
+  },
+  "compatibility.td.6": {
+    "en": "Ethernet Cables",
+    "pt-BR": "Cabos Ethernet"
+  },
+  "compatibility.td.7": {
+    "en": "Protective Cases",
+    "pt-BR": "Cases de Proteção"
+  },
+  "compatibility.h2.3": {
+    "en": "Need Help Choosing?",
+    "pt-BR": "Precisa de ajuda para escolher?"
+  },
+  "compatibility.p.2": {
+    "en": "Contact our support team with your terminal model and installation scenario for the right accessories.",
+    "pt-BR": "Entre em contato com a nossa equipe de suporte informando o modelo do seu terminal e o cenário de instalação para receber os acessórios ideais."
+  },
+  "compatibility.meta.title": {
+    "en": "Tejoy Starlink Accessories Compatibility Guide-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Guia de Compatibilidade dos Acessórios Tejoy para Starlink-Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "compatibility.meta.site_name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "compatibility.meta.desc": {
+    "en": "Complete Tejoy Starlink accessories compatibility guide. Find compatible mounts, cables, and power adapters for Mini, Standard, Performance and Enterprise terminals.",
+    "pt-BR": "Guia completo de compatibilidade dos acessórios Tejoy para Starlink. Encontre suportes, cabos e adaptadores de energia compatíveis com terminais Mini, Standard, Performance e Enterprise."
+  },
+  "compatibility.ld.description": {
+    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
+  },
+  "compatibility.ld.knowsAbout": {
+    "en": "Starlink-compatible accessories",
+    "pt-BR": "acessórios compatíveis com Starlink"
+  },
+  "compatibility.ld.knowsAbout.2": {
+    "en": "satellite internet accessories",
+    "pt-BR": "acessórios para internet via satélite"
+  },
+  "compatibility.ld.knowsAbout.3": {
+    "en": "RV connectivity",
+    "pt-BR": "conectividade em motorhome"
+  },
+  "compatibility.ld.knowsAbout.4": {
+    "en": "off-grid power",
+    "pt-BR": "energia off-grid"
+  },
+  "compatibility.ld.knowsAbout.5": {
+    "en": "mounting systems",
+    "pt-BR": "sistemas de fixação"
+  },
+  "compatibility.ld.name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "compatibility.ld.description.2": {
+    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+  },
+  "compatibility.ld.name.2": {
+    "en": "Home",
+    "pt-BR": "Início"
+  },
+  "compatibility.ld.name.3": {
+    "en": "Compatibility",
+    "pt-BR": "Compatibilidade"
+  }
+}

@@ -1,27 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{HTML_LANG}}">
 <head>
-<meta name="description" content="Complete range of Tejoy Starlink-compatible accessories: mounts, power adapters, cables, protective cases for Mini, Standard, Performance & Enterprise terminals.">
-<style>
-/* XLC-Style Generic Page — full-width hero + clean content */
-.xlc-section{padding:60px 0}
-.xlc-body{max-width:960px;margin:0 auto;font-size:16px;line-height:1.8;color:#444}
-.xlc-body h2{font-size:26px;font-weight:700;color:#17161a;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid #e3e3e3}
-.xlc-body h3{font-size:20px;font-weight:600;color:#17161a;margin:24px 0 10px}
-.xlc-body p{margin:0 0 14px}
-.xlc-body ul{margin:0 0 18px;padding-left:24px}
-.xlc-body li{margin-bottom:6px}
-.xlc-body table{width:100%;margin:18px 0;border-collapse:collapse}
-.xlc-body table th{background:#2b3aa1;color:#fff;padding:10px 14px;font-weight:600}
-.xlc-body table td{padding:10px 14px;border:1px solid #e3e3e3}
-.xlc-body blockquote{margin:20px 0;padding:16px 22px;background:#f0f2fa;border-left:4px solid #2b3aa1;border-radius:6px;font-size:15px;color:#333}
-.xlc-body img{max-width:100%;height:auto;border-radius:8px;margin:16px 0}
-.xlc-body .table-responsive{overflow-x:auto}
-</style>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions</title>
+<title>{{t.service.meta.title}}</title>
+<meta name="description" content="{{t.service.meta.desc}}">
 <meta name="author" content="tejoy" />
 
 <!-- Organization + WebSite JSON-LD Structured Data -->
@@ -39,8 +23,8 @@
     "width": 600,
     "height": 60
   },
-  "description": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-  "knowsAbout": ["Starlink-compatible accessories", "satellite internet accessories", "RV connectivity", "off-grid power", "mounting systems"],
+  "description": "{{t.service.ld.description}}",
+  "knowsAbout": ["{{t.service.ld.knowsAbout}}", "{{t.service.ld.knowsAbout.2}}", "{{t.service.ld.knowsAbout.3}}", "{{t.service.ld.knowsAbout.4}}", "{{t.service.ld.knowsAbout.5}}"],
   "foundingDate": "2010",
   "numberOfEmployees": "150",
   "areaServed": "Worldwide",
@@ -56,12 +40,12 @@
   "@type": "WebSite",
   "@id": "https://tejoy.com/#website",
   "url": "https://tejoy.com",
-  "name": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-  "description": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+  "name": "{{t.service.ld.name}}",
+  "description": "{{t.service.meta.desc}}",
   "publisher": {
     "@id": "https://tejoy.com/#organization"
   },
-  "inLanguage": "en"
+  "inLanguage": "{{HTML_LANG}}"
 }
 </script>
 
@@ -74,14 +58,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://tejoy.com"
+      "name": "{{t.service.ld.name.2}}",
+      "item": "{{HOME_URL}}"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Starlink Compatible Accessories",
-      "item": "https://tejoy.com/starlink-compatible-accessories/"
+      "name": "{{t.service.ld.name.3}}",
+      "item": "{{CANONICAL}}"
     }
   ]
 }
@@ -132,23 +116,20 @@
 
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://tejoy.com/starlink-compatible-accessories/" />
-<!-- hreflang alternates (en <-> pt paired page) -->
-<link rel="alternate" hreflang="en" href="https://tejoy.com/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/starlink-compatible-accessories/" />
-<link rel="alternate" hreflang="x-default" href="https://tejoy.com/starlink-compatible-accessories/" />
+<link rel="canonical" href="{{CANONICAL}}" />
+{{HREFLANG}}
 <!-- Open Graph -->
-<meta property="og:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta property="og:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
-<meta property="og:url" content="https://tejoy.com/starlink-compatible-accessories/" />
+<meta property="og:title" content="{{t.service.meta.title}}" />
+<meta property="og:description" content="{{t.service.meta.desc}}" />
+<meta property="og:url" content="{{CANONICAL}}" />
 <meta property="og:image" content="/static/tejoy-logo-black.png" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+<meta property="og:type" content="website" />{{OG_LOCALE}}
+<meta property="og:site_name" content="{{t.service.meta.site_name}}" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
-<meta name="twitter:description" content="Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases." />
+<meta name="twitter:title" content="{{t.service.meta.title}}" />
+<meta name="twitter:description" content="{{t.service.meta.desc}}" />
 <meta name="twitter:image" content="/static/tejoy-logo-black.png" />
 
 
@@ -178,6 +159,37 @@
 </style>
 </head>
 <body>
+<style>
+/* 分页按钮 */
+.pagebar {
+    margin-top: 40px !important;
+    text-align: center;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.pagination .page-item {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    min-width: 50px;
+    text-align: center;
+}
+.pagination .page-item:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+</style>
 <div class="page-wrapper">
 
 <header class="main-header clearfix">
@@ -247,27 +259,170 @@
   <div class="stricky-header stricked-menu main-menu">
     <div class="sticky-header__content"></div>
   </div>
-
   
   <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp)"> </div>
+    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp)"> </div>
     <div class="container">
       <div class="page-header__inner left">
-        <h1 class="page-header__title">Tejoy Starlink-Compatible Accessories - Mounts, Power, Cables</h1>
-        <p class="page-header__subtitle">Mounts, power adapters, cables and protective cases.</p>
+        <h1 class="page-header__title">{{t.service.page-header-title.1}}</h1>
+        <p class="page-header__subtitle">{{t.service.page-header-subtitle.1}}</p>
       </div>
     </div>
   </section>
-  
-
-  <section class="xlc-section">
+    <section class="blog-sidebar huibg">
     <div class="container">
-      <div class="xlc-body">
-        <h2>Complete Range of Starlink-Compatible Accessories</h2><p>Tejoy offers comprehensive accessories compatible with all major Starlink terminal types.</p><h2>Compatibility</h2><table class="table table-bordered"><tbody><tr class="firstRow"><th>Terminal</th><th>Mounts</th><th>Power</th><th>Cables</th><th>Protective</th></tr><tr><td>Starlink Mini</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Circular</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard Actuated</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Standard</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Performance</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr><tr><td>Enterprise</td><td>✅</td><td style="word-break: break-all">✅</td><td>✅</td><td>✅</td></tr></tbody></table><h2>Product Categories</h2><h3>Mounts</h3><p>Pipe, wall, roof, adjustable angle, ground, and RV mounts.</p><h3>Power Adapters</h3><p>12V DC adapters for vehicle/RV, DC extension cables.</p><h3>Cables &amp; Connectivity</h3><p>Waterproof outdoor Ethernet, DC power cables, cable management.</p><h3>Protective Accessories</h3><p>Weatherproof covers, protective cases, cable entry seals.</p>
+      <div class="row">
+        <div class="col-xl-9 col-lg-9">
+          <div class="blog-sidebar__left">
+            <div class="blog-sidebar__content"> 
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./power/4384}}">{{t.service.a.1}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.1}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./power/4384}}">{{t.service.a.2}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./rv-off-grid/4383}}">{{t.service.a.3}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.2}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./rv-off-grid/4383}}">{{t.service.a.4}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./mounts/4382}}">{{t.service.a.5}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.3}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./mounts/4382}}">{{t.service.a.6}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./industrial/4381}}">{{t.service.a.7}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.4}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./industrial/4381}}">{{t.service.a.8}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./industrial/4380}}">{{t.service.a.9}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.5}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./industrial/4380}}">{{t.service.a.10}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./industrial/4379}}">{{t.service.a.11}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.6}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./industrial/4379}}">{{t.service.a.12}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./industrial/4378}}">{{t.service.a.13}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.7}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./industrial/4378}}">{{t.service.a.14}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./mounts/4377}}">{{t.service.a.15}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.8}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./mounts/4377}}">{{t.service.a.16}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./mounts/4376}}">{{t.service.a.17}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.9}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./mounts/4376}}">{{t.service.a.18}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="blog-sidebar__content-single">
+                <div class="blog-sidebar__content-box">
+                  <h3 class="blog-sidebar__title"> <a href="{{url./mounts/4375}}">{{t.service.a.19}}</a> </h3>
+                  <p class="time">2026-07-04</p>
+                  <p class="blog-sidebar__text">{{t.service.blog-sidebar-text.10}}</p>
+                  <div class="blog-sidebar__read-more-btn"> <a href="{{url./mounts/4375}}">{{t.service.a.20}}</a> </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+	
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3">
+          <div class="sidebar">
+            <div class="sidebar__single sidebar__search">
+              
+            </div>
+            <div class="sidebar__single sidebar__category">
+              <h3 class="sidebar__title">{{t.service.sidebar-title.1}}</h3>
+              <ul class="sidebar__category-list list-unstyled">
+                
+                <li class=""><a href="{{url./marine/}}" title="{{t.service.title.1}}">{{t.service.a.21}} <span class="icon-arrow-right"></span></a></li>
+                
+                <li class=""><a href="{{url./rv-off-grid/}}" title="{{t.service.title.2}}">{{t.service.a.22}} <span class="icon-arrow-right"></span></a></li>
+                
+                <li class=""><a href="{{url./mounts/}}" title="{{t.service.title.3}}">{{t.service.a.23}} <span class="icon-arrow-right"></span></a></li>
+                
+                <li class=""><a href="{{url./industrial/}}" title="{{t.service.title.4}}">{{t.service.a.24}} <span class="icon-arrow-right"></span></a></li>
+                
+                <li class=""><a href="{{url./power/}}" title="{{t.service.title.5}}">{{t.service.a.25}} <span class="icon-arrow-right"></span></a></li>
+                
+              </ul>
+            </div>
+            <div class="sidebar__single sidebar__post">
+              <h3 class="sidebar__title">{{t.service.sidebar-title.2}}</h3>
+              <ul class="sidebar__post-list list-unstyled">
+                
+                <li>
+                  <div class="sidebar__post-content">
+                    <h3> <a href="{{url./power/4384}}">{{t.service.a.26}}</a> <a href="{{url./power/4384}}" class="sidebar__post-content-meta">2026-07-04</a> </h3>
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="sidebar__post-content">
+                    <h3> <a href="{{url./rv-off-grid/4383}}">{{t.service.a.27}}</a> <a href="{{url./rv-off-grid/4383}}" class="sidebar__post-content-meta">2026-07-04</a> </h3>
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="sidebar__post-content">
+                    <h3> <a href="{{url./mounts/4382}}">{{t.service.a.28}}</a> <a href="{{url./mounts/4382}}" class="sidebar__post-content-meta">2026-07-04</a> </h3>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
   <footer class="site-footer">
     <div class="site-footer__middle">
       <div class="container">

@@ -1,0 +1,178 @@
+{
+  "certifications-testing.page-header-title.1": {
+    "en": "Tejoy Certifications, Testing & Manufacturing Quality",
+    "pt-BR": "Certificações, Testes e Qualidade de Fabricação Tejoy"
+  },
+  "certifications-testing.page-header-subtitle.1": {
+    "en": "FCC, CE and RoHS tested; in-house manufacturing.",
+    "pt-BR": "Testado segundo FCC, CE e RoHS; fabricação própria."
+  },
+  "certifications-testing.h2.1": {
+    "en": "Our Commitment to Quality",
+    "pt-BR": "Nosso compromisso com a qualidade"
+  },
+  "certifications-testing.p.1": {
+    "en": "At Tejoy, quality is embedded in our manufacturing process. Every product undergoes rigorous testing to meet international standards.",
+    "pt-BR": "Na Tejoy, a qualidade está incorporada ao nosso processo de fabricação. Cada produto passa por testes rigorosos para atender aos padrões internacionais."
+  },
+  "certifications-testing.h2.2": {
+    "en": "Certifications & Standards",
+    "pt-BR": "Certificações e padrões"
+  },
+  "certifications-testing.th.1": {
+    "en": "Certification",
+    "pt-BR": "Certificação"
+  },
+  "certifications-testing.th.2": {
+    "en": "Scope",
+    "pt-BR": "Escopo"
+  },
+  "certifications-testing.th.3": {
+    "en": "Status",
+    "pt-BR": "Status"
+  },
+  "certifications-testing.td.1": {
+    "en": "ISO 9001",
+    "pt-BR": "ISO 9001"
+  },
+  "certifications-testing.td.2": {
+    "en": "Quality Management System",
+    "pt-BR": "Sistema de gestão da qualidade"
+  },
+  "certifications-testing.td.3": {
+    "en": "✅ Certified",
+    "pt-BR": "✅ Certificado"
+  },
+  "certifications-testing.td.4": {
+    "en": "RoHS",
+    "pt-BR": "RoHS"
+  },
+  "certifications-testing.td.5": {
+    "en": "Restriction of Hazardous Substances",
+    "pt-BR": "Restrição de substâncias perigosas"
+  },
+  "certifications-testing.td.6": {
+    "en": "✅ Compliant",
+    "pt-BR": "✅ Em conformidade"
+  },
+  "certifications-testing.td.7": {
+    "en": "CE",
+    "pt-BR": "CE"
+  },
+  "certifications-testing.td.8": {
+    "en": "European Standards",
+    "pt-BR": "Padrões europeus"
+  },
+  "certifications-testing.td.9": {
+    "en": "✅ Certified",
+    "pt-BR": "✅ Certificado"
+  },
+  "certifications-testing.td.10": {
+    "en": "FCC",
+    "pt-BR": "FCC"
+  },
+  "certifications-testing.td.11": {
+    "en": "US Emission Standards",
+    "pt-BR": "Padrões de emissão dos EUA"
+  },
+  "certifications-testing.td.12": {
+    "en": "✅ Certified",
+    "pt-BR": "✅ Certificado"
+  },
+  "certifications-testing.h2.3": {
+    "en": "Quality Process",
+    "pt-BR": "Processo de qualidade"
+  },
+  "certifications-testing.h3.1": {
+    "en": "1. Incoming Material Inspection",
+    "pt-BR": "1. Inspeção de materiais recebidos"
+  },
+  "certifications-testing.p.2": {
+    "en": "All raw materials verified against specification with full traceability.",
+    "pt-BR": "Todas as matérias-primas são verificadas conforme a especificação, com rastreabilidade completa."
+  },
+  "certifications-testing.h3.2": {
+    "en": "2. In-Process QC",
+    "pt-BR": "2. Controle de qualidade em processo"
+  },
+  "certifications-testing.p.3": {
+    "en": "Inspection checkpoints at each manufacturing stage.",
+    "pt-BR": "Pontos de inspeção em cada etapa da fabricação."
+  },
+  "certifications-testing.h3.3": {
+    "en": "3. Final Testing",
+    "pt-BR": "3. Teste final"
+  },
+  "certifications-testing.p.4": {
+    "en": "Every product tested with real Starlink terminals before packaging.",
+    "pt-BR": "Cada produto é testado com terminais Starlink reais antes da embalagem."
+  },
+  "certifications-testing.h3.4": {
+    "en": "4. Environmental Testing",
+    "pt-BR": "4. Testes ambientais"
+  },
+  "certifications-testing.p.5": {
+    "en": "Temperature, UV, and waterproofing tests for outdoor products.",
+    "pt-BR": "Testes de temperatura, UV e impermeabilização para produtos de uso externo."
+  },
+  "certifications-testing.h3.5": {
+    "en": "5. Mechanical Stress Testing",
+    "pt-BR": "5. Teste de estresse mecânico"
+  },
+  "certifications-testing.p.6": {
+    "en": "Load rating and reliability verification for mounts and structural components.",
+    "pt-BR": "Verificação da capacidade de carga e da confiabilidade de suportes e componentes estruturais."
+  },
+  "certifications-testing.meta.title": {
+    "en": "Tejoy Certifications, Testing & Manufacturing Quality-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Certificações, Testes e Qualidade de Fabricação Tejoy-Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "certifications-testing.meta.site_name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "certifications-testing.meta.desc": {
+    "en": "Tejoy certifications: FCC, CE, RoHS compliance. Multi-stage testing for durability, weather resistance, and compatibility with Starlink terminals.",
+    "pt-BR": "Certificações da Tejoy: conformidade FCC, CE e RoHS. Testes em várias etapas para durabilidade, resistência às intempéries e compatibilidade com terminais Starlink."
+  },
+  "certifications-testing.ld.description": {
+    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
+  },
+  "certifications-testing.ld.knowsAbout": {
+    "en": "Starlink-compatible accessories",
+    "pt-BR": "acessórios compatíveis com Starlink"
+  },
+  "certifications-testing.ld.knowsAbout.2": {
+    "en": "satellite internet accessories",
+    "pt-BR": "acessórios para internet via satélite"
+  },
+  "certifications-testing.ld.knowsAbout.3": {
+    "en": "RV connectivity",
+    "pt-BR": "conectividade em motorhome"
+  },
+  "certifications-testing.ld.knowsAbout.4": {
+    "en": "off-grid power",
+    "pt-BR": "energia off-grid"
+  },
+  "certifications-testing.ld.knowsAbout.5": {
+    "en": "mounting systems",
+    "pt-BR": "sistemas de fixação"
+  },
+  "certifications-testing.ld.name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "certifications-testing.ld.description.2": {
+    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+  },
+  "certifications-testing.ld.name.2": {
+    "en": "Home",
+    "pt-BR": "Início"
+  },
+  "certifications-testing.ld.name.3": {
+    "en": "Certifications & Testing",
+    "pt-BR": "Certificações e Testes"
+  }
+}

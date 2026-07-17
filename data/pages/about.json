@@ -1,0 +1,242 @@
+{
+  "about.page-header-title.1": {
+    "en": "About Us",
+    "pt-BR": "Sobre Nós"
+  },
+  "about.page-header-subtitle.1": {
+    "en": "Engineering-led manufacturing since 2010.",
+    "pt-BR": "Fabricação guiada pela engenharia desde 2010."
+  },
+  "about.p.1": {
+    "en": "Tejoy Starlink Accessories Limited is an engineering-led manufacturer of Starlink-compatible accessories, based in the Guangdong–Hong Kong–Macao Greater Bay Area. Under one integrated R&amp;D, production and sales operation, we design and build a full range of peripherals for Starlink terminals — waterproof network and power cables, mounts and brackets, power adapters, protective cases, and signal-expansion hardware.",
+    "pt-BR": "A Tejoy Starlink Accessories Limited é uma fabricante de acessórios compatíveis com Starlink guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau. Sob uma operação integrada de P&amp;D, produção e vendas, projetamos e fabricamos uma linha completa de periféricos para terminais Starlink — cabos de rede e de energia à prova d'água, suportes e fixações, adaptadores de energia, cases de proteção e hardware de expansão de sinal."
+  },
+  "about.p.2": {
+    "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals, giving global buyers a stable, durable, and precisely fitted one-stop supply. Tejoy is an independent, third-party manufacturer and is",
+    "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar. A Tejoy é uma fabricante independente e terceirizada e"
+  },
+  "about.strong.1": {
+    "en": "not affiliated with SpaceX or Starlink",
+    "pt-BR": "não é afiliada à SpaceX nem à Starlink"
+  },
+  "about.alt.1": {
+    "en": "Tejoy manufacturing facility",
+    "pt-BR": "Fábrica de fabricação da Tejoy"
+  },
+  "about.tj-kick.1": {
+    "en": "At a glance",
+    "pt-BR": "Em resumo"
+  },
+  "about.tj-h2.1": {
+    "en": "Tejoy by the Numbers",
+    "pt-BR": "A Tejoy em números"
+  },
+  "about.tj-sub.1": {
+    "en": "Fifteen years of manufacturing focused on Starlink-compatible accessories.",
+    "pt-BR": "Quinze anos de fabricação focada em acessórios compatíveis com Starlink."
+  },
+  "about.xlc-stat-label.1": {
+    "en": "Years Experience",
+    "pt-BR": "Anos de experiência"
+  },
+  "about.xlc-stat-label.2": {
+    "en": "Professional Equipment",
+    "pt-BR": "Equipamentos profissionais"
+  },
+  "about.xlc-stat-label.3": {
+    "en": "Skilled Staff",
+    "pt-BR": "Técnicos qualificados"
+  },
+  "about.xlc-stat-label.4": {
+    "en": "Patents",
+    "pt-BR": "Patentes"
+  },
+  "about.tj-kick.2": {
+    "en": "Production",
+    "pt-BR": "Produção"
+  },
+  "about.tj-h2.2": {
+    "en": "Manufacturing Capability",
+    "pt-BR": "Capacidade de fabricação"
+  },
+  "about.tj-sub.2": {
+    "en": "Scaled, automated production with in-house quality control.",
+    "pt-BR": "Produção automatizada em escala com controle de qualidade interno."
+  },
+  "about.p.3": {
+    "en": "From a 5,000 m² standardized production facility, Tejoy runs modern automated production lines and professional testing equipment, with a monthly output of 400,000–600,000 units. In-house quality control checks every batch against specification — so buyers get scale, consistency, and reliable lead times.",
+    "pt-BR": "A partir de uma fábrica padronizada de 5.000 m², a Tejoy opera linhas de produção automatizadas modernas e equipamentos de teste profissionais, com produção mensal de 400.000 a 600.000 unidades. O controle de qualidade interno inspeciona cada lote conforme a especificação — assim os compradores ganham escala, consistência e prazos de entrega confiáveis."
+  },
+  "about.about-caps-k.1": {
+    "en": "5,000 m²",
+    "pt-BR": "5.000 m²"
+  },
+  "about.about-caps-v.1": {
+    "en": "Standardized production facility",
+    "pt-BR": "Fábrica padronizada"
+  },
+  "about.about-caps-k.2": {
+    "en": "400,000–600,000",
+    "pt-BR": "400.000–600.000"
+  },
+  "about.about-caps-v.2": {
+    "en": "Units per month",
+    "pt-BR": "Unidades por mês"
+  },
+  "about.about-caps-k.3": {
+    "en": "Automated",
+    "pt-BR": "Automatizadas"
+  },
+  "about.about-caps-v.3": {
+    "en": "Production &amp; testing lines",
+    "pt-BR": "Linhas de produção e teste"
+  },
+  "about.about-caps-k.4": {
+    "en": "In-house QC",
+    "pt-BR": "QC interno"
+  },
+  "about.about-caps-v.4": {
+    "en": "Every batch checked to spec",
+    "pt-BR": "Cada lote inspecionado conforme a especificação"
+  },
+  "about.alt.2": {
+    "en": "Tejoy production facility",
+    "pt-BR": "Fábrica de produção da Tejoy"
+  },
+  "about.tj-kick.3": {
+    "en": "Compliance",
+    "pt-BR": "Conformidade"
+  },
+  "about.tj-h2.3": {
+    "en": "Certifications &amp; Testing",
+    "pt-BR": "Certificações e Testes"
+  },
+  "about.tj-sub.3": {
+    "en": "Products tested to international standards.",
+    "pt-BR": "Produtos testados segundo padrões internacionais."
+  },
+  "about.about-certs-badge.1": {
+    "en": "FCC",
+    "pt-BR": "FCC"
+  },
+  "about.about-certs-badge.2": {
+    "en": "CE",
+    "pt-BR": "CE"
+  },
+  "about.about-certs-badge.3": {
+    "en": "RoHS",
+    "pt-BR": "RoHS"
+  },
+  "about.a.1": {
+    "en": "View certifications, testing &amp; quality &rarr;",
+    "pt-BR": "Ver certificações, testes e qualidade &rarr;"
+  },
+  "about.tj-kick.4": {
+    "en": "Worldwide",
+    "pt-BR": "No mundo todo"
+  },
+  "about.tj-h2.4": {
+    "en": "Global Reach",
+    "pt-BR": "Alcance global"
+  },
+  "about.tj-sub.4": {
+    "en": "Exported to multiple countries and regions, with US warehousing and DDP delivery for consistent, reliable supply.",
+    "pt-BR": "Exportado para diversos países e regiões, com armazenagem nos EUA e entrega DDP para um fornecimento consistente e confiável."
+  },
+  "about.tj-v.1": {
+    "en": "$20&ndash;30M",
+    "pt-BR": "US$ 20&ndash;30M"
+  },
+  "about.tj-l.1": {
+    "en": "Annual export revenue",
+    "pt-BR": "Faturamento anual de exportação"
+  },
+  "about.tj-v.2": {
+    "en": "US warehouse",
+    "pt-BR": "Armazém nos EUA"
+  },
+  "about.tj-l.2": {
+    "en": "Local stock &amp; DDP",
+    "pt-BR": "Estoque local e DDP"
+  },
+  "about.tj-v.3": {
+    "en": "DHL &middot; FedEx",
+    "pt-BR": "DHL &middot; FedEx"
+  },
+  "about.tj-l.3": {
+    "en": "Worldwide delivery",
+    "pt-BR": "Entrega no mundo todo"
+  },
+  "about.tj-v.4": {
+    "en": "Multiple regions",
+    "pt-BR": "Várias regiões"
+  },
+  "about.tj-l.4": {
+    "en": "Countries served",
+    "pt-BR": "Países atendidos"
+  },
+  "about.h3.1": {
+    "en": "Partner With Tejoy",
+    "pt-BR": "Seja parceiro da Tejoy"
+  },
+  "about.p.4": {
+    "en": "Contact our sales team for product inquiries, OEM/ODM projects, or distribution partnerships.",
+    "pt-BR": "Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição."
+  },
+  "about.span.1": {
+    "en": "Contact Us",
+    "pt-BR": "Fale conosco"
+  },
+  "about.meta.title": {
+    "en": "About Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Sobre Nós - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "about.meta.site_name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink"
+  },
+  "about.meta.desc": {
+    "en": "Tejoy is an independent, third-party manufacturer of Starlink-compatible accessories — mounts, power adapters, cables, and protective cases. 15+ years of engineering-led manufacturing, 200+ patents, OEM/ODM available. Not affiliated with SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante independente e terceirizada de acessórios compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de fabricação guiada pela engenharia, 200+ patentes, OEM/ODM disponível. Não afiliada à SpaceX nem à Starlink."
+  },
+  "about.ld.description": {
+    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink."
+  },
+  "about.ld.knowsAbout": {
+    "en": "Starlink-compatible accessories",
+    "pt-BR": "acessórios compatíveis com Starlink"
+  },
+  "about.ld.knowsAbout.2": {
+    "en": "satellite internet accessories",
+    "pt-BR": "acessórios para internet via satélite"
+  },
+  "about.ld.knowsAbout.3": {
+    "en": "RV connectivity",
+    "pt-BR": "conectividade em motorhome"
+  },
+  "about.ld.knowsAbout.4": {
+    "en": "off-grid power",
+    "pt-BR": "energia off-grid"
+  },
+  "about.ld.knowsAbout.5": {
+    "en": "mounting systems",
+    "pt-BR": "sistemas de fixação"
+  },
+  "about.ld.name": {
+    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+  },
+  "about.ld.description.2": {
+    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+  },
+  "about.ld.name.2": {
+    "en": "Home",
+    "pt-BR": "Início"
+  },
+  "about.ld.name.3": {
+    "en": "About Us",
+    "pt-BR": "Sobre"
+  }
+}
