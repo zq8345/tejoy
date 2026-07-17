@@ -65,7 +65,15 @@ const leaves = (o, path = "") => {
   if (o && typeof o === "object") return Object.entries(o).flatMap(([k, v]) => leaves(v, path ? `${path}.${k}` : k));
   return [];
 };
-const DERIVED = ["url", "@id", "item", "inLanguage", "sameAs", "logo", "image"];
+// 这些叶子随语种变是【预期的】,由 renderPage 派生,不进目录 —— URL/lang 的差异不是翻译。
+const DERIVED = ["url", "@id", "inLanguage", "sameAs", "logo", "image"];
+// ⭐ breadcrumb 的 item 曾在 DERIVED 里 —— 于是它被整个跳过、留着 en 的字面量,而 en 的字面量
+// 是【错的】:en/faq 的 position 2 指向首页而不是 /faq/(pt 那份是对的)。
+// 总工划的线:改变页面【说什么】= 内容改动,要签字;让页面【把同一件事说对】、且正确答案
+// 可计算 = 结构修复,免费,就该在重构里做。breadcrumb 指向哪 = 由 route 算出来的,跟 canonical
+// 一模一样,它没有"内容"可言,只有对和错 —— 而 pt 已经证明了正确答案存在。
+// 我当初拿"别把内容改动夹带进重构"挡了它,是把该做的判成了不该做的。
+const BREADCRUMB = { 0: "{{HOME_URL}}", 1: "{{CANONICAL}}" };
 const SLOTS = [
   ["meta.title", /(<title>)([^<]*)(<\/title>)/],
   ["meta.title", /(<meta property="og:title" content=")([^"]*)(")/],
@@ -172,6 +180,7 @@ for (const slug of SLUGS) {
   for (let b = 0; b < eB.length && hasPt; b++) {
     if (!pB[b]) { console.log(`🔴 ${slug}: JSON-LD 块数 en ${eB.length} / pt ${pB.length} — 停`); ldOK = false; break; }
     let raw = eB[b][2];
+    let cursor = 0;                          // breadcrumb 按【出现顺序】替,不按值 —— 两个 item 可能相等
     const done = new Map();
     let E, P;
     try { E = leaves(JSON.parse(eB[b][2])); P = leaves(JSON.parse(pB[b][2])); }
@@ -180,6 +189,23 @@ for (const slug of SLUGS) {
     for (let i = 0; i < E.length && ldOK; i++) {
       const [pa, e] = E[i], [pa2, v] = P[i];
       if (pa !== pa2) { console.log(`🔴 ${slug}: JSON-LD 路径错位 ${pa} vs ${pa2} — 停`); ldOK = false; break; }
+      // breadcrumb 的 item 先判:按【位置】派生(position 1 = 首页,position 2 = 本页)。
+      // en/pt 相同时也要替 —— en 那份本身就是错的,「两边相同」只说明两边一样错。
+      //
+      // ⚠️ 必须按【出现顺序】用游标替,不能 split/join 值:en/faq 的 position 1 和 2 值完全相同
+      // (都是 https://tejoy.com,正是那个 bug),split 会把两处都替成 position 1 的 token。
+      // 这是「重复不可见的那一侧」第三次找上门了 —— 前两次是 og:site_name==title、
+      // 和首页的 HOME_URL==CANONICAL。凡是两个东西恰好相等的地方,按值操作就会把它们合并掉。
+      const bc = pa.match(/^itemListElement\[(\d+)\]\.item$/);
+      if (bc && BREADCRUMB[bc[1]]) {
+        const needle = `"item": ${JSON.stringify(e)}`;
+        const at = raw.indexOf(needle, cursor);
+        if (at < 0) { console.log(`🔴 ${slug}: breadcrumb item[${bc[1]}] 在原文里找不到 — 替换会静默失败,停`); ldOK = false; break; }
+        const repl = `"item": ${JSON.stringify(BREADCRUMB[bc[1]])}`;
+        raw = raw.slice(0, at) + repl + raw.slice(at + needle.length);
+        cursor = at + repl.length;
+        continue;
+      }
       if (e === v) continue;
       const last = pa.split(".").pop().replace(/\[\d+\]$/, "");
       if (DERIVED.includes(last)) continue;
