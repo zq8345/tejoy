@@ -15,7 +15,7 @@ export function resolveImg(im, imgBase) {
 
 // Field-level locale merge: every field falls back to en when the locale lacks it
 // (i18n[locale][field] ?? en[field]) — including title (a pt title still carries tokens like
-// Type-C/RJ45/AWG and the model name). keywords is en-only, outside the pt-BR contract.
+// Type-C/RJ45/AWG and the model name).
 //
 // meta_title is deliberately NOT read from data here — it is DERIVED (see metaTitleOf). A derived
 // value stored as data drifts the moment someone edits the title, and the drift is invisible:
@@ -231,10 +231,11 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
 // (a) 是为首页定制的;(b) 有 11 个页、(c)(d)(e) 还有 71 个 —— 同一套机器,参数化一次用四桶。
 export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
   let out = tpl;
-  // head 里随语种变的:派生,不进目录 —— URL / lang / hreflang 的差异不是翻译(R1 洞②)
-  // 每个页用【它自己的】路径。第一版我把首页的 canonical 逻辑当成了通用的,于是 11 个信息页的
-  // canonical 全指向了 https://tejoy.com/ —— 一个把 11 个页全部规范化到首页的 SEO 灾难。
-  // 门抓到了,因为它比的是内容不是外观。
+  // ⛔ canonical 必须是【每页自己的】路径。第一版我把首页的逻辑当成了通用的(写死 "/"),于是
+  // 11 个信息页的 canonical 全指向 https://tejoy.com/ —— 等于告诉 Google 这 11 个页不该被单独
+  // 收录。它不报错、不白屏、页面看着完全正常,只会在几周后表现为"这些页从搜索结果消失了",
+  // 而那时没人会联想到这次重构。(c)(d)(e) 复用这台机器,所以它是断言,不是"我记得"。
+  if (!path.startsWith("/") || !path.endsWith("/")) throw new Error(`renderPage: path 必须形如 "/slug/",拿到 ${JSON.stringify(path)}`);
   const self = locale === "en" ? path : "/pt" + path;
   const enUrl = `https://tejoy.com${path}`;
   const reps = {
@@ -262,11 +263,24 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
   // 缺 key 就抛 —— 一个没解析的 token 印在页面上就是泄漏,静默回退成英文更糟(R1 的教训)
   out = out.replace(/\{\{t\.([a-z0-9_.-]+)\}\}/gi, (m, key) => {
     const e = catalog[key];
-    if (!e) throw new Error(`home template references a key that does not exist: ${key}`);
+    if (!e) throw new Error(`renderPage: 模板引用了不存在的 key: ${key}`);
     const v = e[locale] ?? e.en;
-    if (v === undefined || v === null || v === "") throw new Error(`home catalog ${key} has no value for ${locale}`);
+    if (v === undefined || v === null || v === "") throw new Error(`renderPage: catalog ${key} 在 ${locale} 下没有值`);
     return v;
   });
+  return assertNoTokens(out, locale);
+}
+
+// ⛔ 否定式:输出里【只要还剩任何 {{...}}】就炸 —— 不是"我认得出、但解析不了的才炸"。
+//
+// 上一版正好相反,于是它漏掉了自己:token 正则是 [a-z0-9_.],而 slug 里有连字符,
+// {{t.certifications-testing.meta.keywords}} 于是原样印在了页面上 —— 那道专门为
+// 「未解析 token = 泄漏」建的抛错保护【一次都没触发】,因为它不认识那是个 token。
+// 网只网得住它看得见的东西。所以别再让网去认东西:凡是没被解析掉的花括号,一律炸。
+// 这样下一个我还没想到的 token 形状(拼错的、新加的、大小写的)也会炸,而不是安静通过。
+export function assertNoTokens(out, locale) {
+  const left = out.match(/\{\{[^}]*\}\}/g);
+  if (left) throw new Error(`renderPage: 输出里还剩 ${left.length} 个未解析的 token(${locale}): ${[...new Set(left)].slice(0, 5).join(" ")}`);
   return out;
 }
 

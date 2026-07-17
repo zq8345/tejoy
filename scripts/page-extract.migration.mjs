@@ -14,13 +14,6 @@
 //   4. 验收 = 生成回来 wsNorm 内容零回归,且字节差异逐处证明只是空白。
 import fs from "fs";
 
-if (!process.argv.includes("--i-know-this-is-migration-only")) {
-  console.error("refusing: 这个脚本会重写模板。确认后加 --i-know-this-is-migration-only");
-  process.exit(2);
-}
-const SLUGS = process.argv.slice(2).filter((a) => !a.startsWith("--"));
-if (!SLUGS.length) { console.error("usage: … --i-know-this-is-migration-only <slug> [slug…]"); process.exit(2); }
-
 const ATTRS = ["alt", "title", "aria-label", "placeholder"];
 const strip = (s) => s.replace(/<script[\s\S]*?<\/script>/g, (m) => " ".repeat(m.length))
   .replace(/<style[\s\S]*?<\/style>/g, (m) => " ".repeat(m.length))
@@ -42,9 +35,16 @@ const skel = (s) => {
 // 是对账门抓到的,不是我看出来的 —— 这就是为什么枚举必须对着总量对账,而不是数自己抓到了几个。
 //
 // 一条规则代替一串特例:不含字母 = 装饰或数据,语言无关(→ × • 纯数字…)。
+// 导出的一等公民,不是埋在脚本里的私有逻辑 —— 这样它才测得到。
+// 总工:「它复发了,说明第一次只修了实例、没修类。」上一次(R1 的 seeder)我只改了那处调用,
+// 规则本身没被钉住,于是 R3(b) 的 contact / oem-odm 又栽在同一个地方。scripts/render.test.mjs 钉它。
+export const visibleText = (html) => nodes(html, 0).map((n) => n.text.trim());
+
 const nodes = (body, off) => {
   const killed = strip(body);
   const out = [];
+  // ⛔ 任意 `>文本<`,【不】要求前面是开标签 —— `</label>Name` 里的 Name 就在闭标签后面,
+  // 而它正是用户读的那半。写成 `<tag …>text<` 会把它整个漏掉。
   for (const m of killed.matchAll(/>([^<>]+)(?=<)/g)) {
     const t = m[1];
     if (!t.trim() || !/\p{L}/u.test(t)) continue;
@@ -76,6 +76,15 @@ const SLOTS = [
   ["meta.desc", /(<meta name="twitter:description" content=")([^"]*)(")/],
   ["meta.keywords", /(<meta name="keywords" content=")([^"]*)(")/],
 ];
+
+// 闸门在【主流程】里,不在模块顶层 —— 顶层的话,测试一 import 它就退出了。
+// 但闸门本身不能弱化:它保护的是"这个脚本会重写模板",误跑一次会把已 token 化的页再抽一遍、
+// 把 {{t.*}} 当散文抽进目录。一次性的东西就该长得像一次性的。
+const SLUGS = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+if (SLUGS.length && !process.argv.includes("--i-know-this-is-migration-only")) {
+  console.error("refusing: 这个脚本会重写模板。确认后加 --i-know-this-is-migration-only");
+  process.exit(2);
+}
 
 for (const slug of SLUGS) {
   const enF = `${slug}/index.html`, ptF = `pt/${slug}/index.html`;
