@@ -27,7 +27,16 @@ const KEEP = { contact: 1, "certifications-testing": 1, compatibility: 1, "oem-o
 // 一个左边无界的惰性通配符,不是"宽松一点",是一把会吃掉任意长度的剪刀。
 const FOOTER_END = "<!--Site Footer End-->";
 const HL_COMMENT = "<!-- hreflang alternates (en <-> pt paired page) -->";
+// ⑦ 语言标注 —— 这【不是】结构修复,是一个【有意新增】的可见元素(多语言判、总工批):
+//    「卡片用葡语描述英文文章不是撒谎,那是图书馆目录。缺的只有一句『这本书是英文的』。」
+//    所以它点名减掉,和其它有意改动一样,不是整类排除。
+// ⚠️ 只按 <span class="tj-lang-badge"> 减,【不能】按 "em inglês" 这个字符串减 ——
+//    chrome 里语言切换器的 aria-label="Ver esta página em inglês" 也含这几个字。
+//    我数 badge 时就撞上了它:数出 31 个,查清才知道第 31 个是那个 aria-label。
+//    按字符串减,会把 chrome 里那句一起吃掉,然后门会为一个不存在的问题变绿。
+const BADGE = /\s*<span class="tj-lang-badge">[^<]*<\/span>/g;
 const killHL = (s) => s.split(HL_COMMENT).join("").split(FOOTER_END).join("")
+  .replace(BADGE, "")
   .replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
 
 const intended = (s, slug, isPt) => {
