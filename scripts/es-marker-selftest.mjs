@@ -24,10 +24,35 @@ import { fileURLToPath } from 'url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
-/* ── 语料：本产品域的【已知干净的**墨西哥**西语】────────────────────────
- * ⚠️ Joe 定了主力市场 = **墨西哥**（2026-07-16），语料随之收窄。
- * 我自己写的规矩在这儿咬我：**「语料里没有的词，测试证明不了」** ——
- * 泛拉美语料证明的是别的市场的干净度，不是墨西哥的。
+/* ── 语料：【墨西哥西语】——分两块，出处必须写清 ─────────────────────────
+ *
+ * 🔴 总调度点破的（我该自己想到）：**我原来 31 条语料是我自己写的 = 自己出题自己打分**，
+ *    正是我一路在抓的那个形状。
+ *
+ * 🔴 而他建议的「亚马逊墨西哥」**必须否掉，证据是硬的**：
+ *    亚马逊 MX 上卖同类货的 **STARGEAR**，它的文案在**我们自己的 702 号正文里出现 4 次**；
+ *    我们的 666/668 正是它卖的那种 SPX→RJ45 Gen 2 转接头。
+ *    → **亚马逊 MX 不是独立来源，它就是我们数据的来源本身。**
+ *    → 而且那些 listing 是中国卖家的机翻（`plato rectangular` = dish 字面直译、`Acessories` 拼错）。
+ *    → **拿它当"干净的墨西哥西语"= 用同一个污染源验证它自己 = 我量了自己的倒影，只是绕了一圈。**
+ *
+ * ✅ 【块 A】外部真语料 —— 真的墨西哥人写给墨西哥人的（2026-07-16 实测抓取）
+ *    来源 1：**coppel.com**（墨西哥本土零售商，~1600 家门店）
+ *    来源 2：**gob.mx**（墨西哥政府）
+ *    ⚠️ Starlink 官方站抓不到 —— 全站 SPA（curl 剥标签后只有 863 字符 "JavaScript must be enabled"）
+ *
+ *    ⭐ 这两个源同时坐实了三条**事实**（不是我的判断）：
+ *      tú vs usted : coppel `tu/tus` 5 次、`su/sus` **0 次**；gob.mx `tu Beca`/`tu búsqueda`、`su` **0 次**
+ *                    → **连政府站（最正式语域）都用 tú。`tú` 是可查的事实。**
+ *      数字格式    : coppel 小数点 `6.85` **40 次**、小数逗号 **0 次**；逗号千分位 `1,400` 28 次
+ *                    → **`25.6"` / `1,200 Mbps` 坐实**
+ *      chrome 用词 : `MENÚ` `Iniciar sesión` `Crear cuenta` `Carrito` `Pedidos y devoluciones` `Precio de contado`
+ *
+ * ⚠️ 【块 B】本产品域的句子 —— **我写的，没有外部来源**
+ *    Starlink 配件这个品类，**我拿不到可信的墨西哥语料**（官方站 SPA、亚马逊是污染源）。
+ *    → **块 B 如实标为"我写的"，不假装它是证据。** 它仍有用（覆盖 cable/red/router 等核心词），
+ *      但**它证明的是"我的西语里没有英文标记词"，不是"墨西哥人的西语里没有"**。
+ *    → 若日后拿到真商品语料，**块 B 应被替换而不是补充**。
  *
  * 墨西哥特征（与泛拉美默认的差异，全部体现在下面）：
  *   人称   tú（不是 usted）→ 动词是 `conecta`/`alimenta`/`usa`，不是 `conecte`/`alimente`/`use`
@@ -37,7 +62,20 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
  *   笔电   laptop  ·  收纳 estuche
  *   数字   25.6"（小数点，同美国）· 1,200 Mbps（逗号千分位）—— **不是** 25,6"
  * ⚠️ 这些句子全部是合法墨西哥西语，一条泄漏都没有。scanner 报出任何一条都是它的错。 */
+/* 【块 A】外部真语料 —— 逐字抓自 coppel.com / gob.mx（2026-07-16）。**有出处。** */
+const REAL_MX = [
+  // coppel.com —— 墨西哥本土零售商的 chrome（墨西哥团队写给墨西哥人）
+  'MENÚ', 'Iniciar sesión', 'Crear cuenta', 'Carrito', 'Pedidos y devoluciones',
+  'Precio de contado', 'Productos Sustentables',
+  // coppel.com —— tú 形式（su/sus 在整站 0 次）
+  'tu vida', 'tu ciudad', 'tus finanzas', 'tu crédito',
+  // gob.mx —— 墨西哥政府，**连最正式的语域也用 tú**
+  'tu búsqueda', 'Tu acceso', 'tu Beca',
+];
+
+/* 【块 B】本产品域 —— ⚠️ **我写的，没有外部来源**（见文件头说明） */
 const CLEAN_ES = [
+  ...REAL_MX,
   // 线缆类（cable / red / router 都是西语核心词，而 pt 的 EN_MARKERS 把它们当英文标记词）
   'Cable de red para Starlink Gen 3 con conector RJ45 impermeable IP67.',
   'El cable es flexible y durable, con material de cobre puro de 23AWG.',
