@@ -238,6 +238,11 @@
     "pt-BR": "- categoria de produto tejoy",
     "_note": "首页机型卡 alt 后缀。pt-BR 的值不是我造的:它已经手写在 pt/index.html 的 Mini/Standard 两张卡上,这里只是把它提上来当唯一真源。"
   },
+  "card.lang_badge": {
+    "en": "in English",
+    "pt-BR": "em inglês",
+    "_note": "pt 卡片指向 en 正文时的语言标注。多语言签的措辞:小写、不加括号、不喊叫 —— 「它是一句提示,不是一个警告。用户要的是知道,不是被劝退」。⚠️ 由 renderPage 按存在性【派生】,绝不写死:写死的话 Phase 3 译完后必须有人记得删,忘了就反向撒谎。en 侧永不出现(en 页在 en 里永远存在)。"
+  },
   "meta.title.suffix": {
     "en": " | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": " | Acessórios Premium para Starlink, Suportes e Soluções de Energia",

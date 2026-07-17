@@ -206,6 +206,17 @@ for (const slug of SLUGS) {
     const n = eN[i];
     tpl = tpl.slice(0, n.start) + n.text.match(/^\s*/)[0] + `{{t.${keys[i]}}}` + n.text.match(/\s*$/)[0] + tpl.slice(n.end);
   }
+  // ⭐ 指南卡的语言标注:在标题链接【后面】注入 {{badge.<目标>}},由 renderPage 按存在性派生。
+  // 必须在 {{url.*}} 之前做 —— 这时 href 还是真实路径,取得到目标。
+  // 写死是不行的。多语言:「手写 30 个 'em inglês' → Phase 3 译完后必须有人记得删那 30 个 →
+  // 忘了就【反向撒谎】(说是英文,其实是葡语)。一个写的时候对、后来烂掉的值 —— 这是我们
+  // 这周踩的每一个坑的形状。」只碰指南卡标题,不做成通用规则。
+  {
+    tpl = tpl.replace(/(<h3 class="blog-sidebar__title">\s*<a href="(\/[a-z0-9-]+\/\d+)">\{\{t\.[a-z0-9_.-]+\}\}<\/a>)/g,
+      (m, whole, target) => `${whole}{{badge.${target}}}`);
+    const n = (tpl.match(/\{\{badge\./g) || []).length;
+    if (n) console.log(`   ${slug}: ${n} 张指南卡注入 {{badge.*}}(按存在性派生,不写死)`);
+  }
   // body 内链 -> {{url.X}}(存在性规则,不进目录)
   {
     const a2 = tpl.indexOf("</header>"), b2 = tpl.indexOf("<footer");

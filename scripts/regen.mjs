@@ -150,7 +150,7 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     const p = pageOf(locale, path.join(slug, "index.html"));
     if (!fs.existsSync(p)) continue;                       // regen 渲内容,不决定站点地图
     const h0 = fs.readFileSync(p, "utf8");
-    const h1 = renderPage(ptpl, { locale, catalog: pcat, urlOf, path: `/${slug}/` });
+    const h1 = renderPage(ptpl, { locale, catalog: { ...pcat, "card.lang_badge": catalog["card.lang_badge"] }, urlOf, path: `/${slug}/` });
     if (h1 !== h0) { fs.writeFileSync(p, h1); pages++; }
   }
 }

@@ -260,6 +260,26 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
   // 这不是我为首页新发明的 —— 它精确复现了 pt 首页的现状:/pt/products/ 有前缀,而 /power/4384
   // 没有,因为那 3 个指南页没有 pt 版。URL 的差异不是翻译,不进目录(R1 洞②)。
   out = out.replace(/\{\{url\.([^}]+)\}\}/g, (m, p) => urlOf(p, locale));
+  // ⭐ 语言标注:【派生】,不写死。多语言的理由,而且它是这周每个坑的形状:
+  //   「手写 30 个 'em inglês' → Phase 3 译完后必须有人记得删掉那 30 个 → 忘了就【反向撒谎】
+  //    (说是英文,其实是葡语)。一个写的时候对、后来烂掉的值。」
+  // 规则和首页机型卡按存在性过滤是【同一条】:目标页在读者的语种里不存在 → 标注;存在 → 没有。
+  // en 那侧永远存在 → 永远没有标注,不需要任何特例。Phase 3 一落地,标注自动消失、链接自动切,
+  // 没人需要记得任何事。
+  //
+  // 「卡片用葡语描述英文文章不是撒谎 —— 那是图书馆目录:用读者的语言告诉他这本书讲什么。
+  //   缺的只有一句『这本书是英文的』。」措辞由多语言签(pt 真源),机制是这里的。
+  // 不需要新接线:urlOf 本身【就是】存在性规则 —— 它把 p 原样还回来,就意味着"该语种没有这个页"。
+  // 复用它,而不是再造一个 exists 参数:同一个事实只该有一个来源,两个来源迟早会分叉。
+  out = out.replace(/\{\{badge\.([^}]+)\}\}/g, (m, p) => {
+    if (locale === "en") return "";                       // en 侧一切都在 en 里 —— 规则自然,不是特例
+    if (urlOf(p, locale) !== p) return "";                // 该语种有这个页 -> 不标注
+    const b = catalog["card.lang_badge"];
+    if (!b) throw new Error("renderPage: 模板要 {{badge.*}} 但 catalog 里没有 card.lang_badge");
+    const v = b[locale] ?? b.en;
+    if (!v) throw new Error(`renderPage: card.lang_badge 在 ${locale} 下没有值`);
+    return ` <span class="tj-lang-badge">${v}</span>`;
+  });
   // 缺 key 就抛 —— 一个没解析的 token 印在页面上就是泄漏,静默回退成英文更糟(R1 的教训)
   out = out.replace(/\{\{t\.([a-z0-9_.-]+)\}\}/gi, (m, key) => {
     const e = catalog[key];
