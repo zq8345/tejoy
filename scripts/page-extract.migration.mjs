@@ -13,6 +13,21 @@
 //   3. 模板不是手写的,是页面本身把文本换成 token → markup 由构造保证同构。
 //   4. 验收 = 生成回来 wsNorm 内容零回归,且字节差异逐处证明只是空白。
 import fs from "fs";
+import { execSync } from "child_process";
+
+// ⛔ 抽取【永远】读 git HEAD,不读工作区。
+//
+// 我栽在这上面栽了三次,这是第三次也是最贵的一次:我先跑了一轮 regen(它把英文数字写进了
+// pt/about、把一段残骸 `<head> >` 写进了 contact),然后重新抽取 —— 抽取器读磁盘,于是把
+// 【我自己上一轮的错误输出】当成了原文。pt 的 "400.000–600.000" 被我的 "400,000–600,000"
+// 顶掉,contact 的残骸被抽进模板从此永久固化。两个"顽固 bug"其实是同一件事:
+//
+//   【一个被你重新生成过的基线,不是基线。】
+//
+// 前两次:总工用 git show 抓到我拿自己的输出证明 placeholder 是"存量";我用工作区文件"证明"
+// pt/faq 的 JSON-LD 也是英文。三次都是同一个形状 —— 所以这次不靠"我记得先 revert",
+// 靠读一个我改不动的源。
+const baseline = (p) => execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26 }).replace(/\r\n/g, "\n");
 
 const ATTRS = ["alt", "title", "aria-label", "placeholder"];
 const strip = (s) => s.replace(/<script[\s\S]*?<\/script>/g, (m) => " ".repeat(m.length))
@@ -38,6 +53,22 @@ const skel = (s) => {
 // 导出的一等公民,不是埋在脚本里的私有逻辑 —— 这样它才测得到。
 // 总工:「它复发了,说明第一次只修了实例、没修类。」上一次(R1 的 seeder)我只改了那处调用,
 // 规则本身没被钉住,于是 R3(b) 的 contact / oem-odm 又栽在同一个地方。scripts/render.test.mjs 钉它。
+// 是不是散文 —— 决定它要不要一个 key。
+//
+// 我原来的规则是「不含字母 = 不是散文」,想用一条规则代替一串特例(→ × • 数字…)。方向对,
+// 【边界画错了】:数字【是】随语种变的。pt/about 写 "400.000–600.000"(葡语千位分隔符是点),
+// en 写 "400,000–600,000" —— 我的规则把它判成装饰、不给 key,于是模板拿 en 的那份盖掉了 pt。
+// 数字不是装饰,只有【纯符号】才是。
+//
+// 所以:含字母 → 散文;或含数字且带分隔符/单位 → 散文(它有本地化形态);其余(→ × • 单个数字)
+// → 装饰。一条规则代替特例是对的,但规则得画在真实的分界上,不是画在我第一眼觉得顺手的地方。
+export const isProse = (s) => {
+  const t = (s || "").trim();
+  if (!t) return false;
+  if (/\p{L}/u.test(t)) return true;                    // 有字母 = 文案
+  return /\d[\d.,  ]*[.,  ]\d/.test(t);       // 带千位/小数分隔符的数字 = 有本地化形态
+};
+
 export const visibleText = (html) => nodes(html, 0).map((n) => n.text.trim());
 
 // 可见单元 = 文本节点 ∪ 可见属性。按【可见性】枚举,不按"en/pt 是否不同" ——
@@ -54,7 +85,7 @@ const nodes = (body, off) => {
   //    后面,而它正是用户读的那半。写成 `<tag …>text<` 会把它整个漏掉(R1 的 seeder / contact / oem-odm)。
   for (const m of killed.matchAll(/>([^<>]+)(?=<)/g)) {
     const t = m[1];
-    if (!t.trim() || !/\p{L}/u.test(t)) continue;
+    if (!isProse(t)) continue;
     const start = m.index + 1;
     const before = killed.slice(Math.max(0, start - 400), start);
     const tagM = [...before.matchAll(/<([a-z0-9]+)([^>]*)>/gi)].pop();
@@ -66,7 +97,7 @@ const nodes = (body, off) => {
   for (const a of ATTRS) {
     for (const m of killed.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))) {
       const v = m[1];
-      if (!v.trim() || !/\p{L}/u.test(v)) continue;          // alt="" 是有意的装饰,不是文案
+      if (!isProse(v)) continue;                             // alt="" 是有意的装饰,不是文案
       const start = m.index + m[0].length - 1 - v.length;
       out.push({ start: start + off, end: start + v.length + off, text: v, tag: `@${a}`, cls: "", kind: "attr" });
     }
@@ -89,6 +120,20 @@ const DERIVED = ["url", "@id", "inLanguage", "sameAs", "logo", "image"];
 // 一模一样,它没有"内容"可言,只有对和错 —— 而 pt 已经证明了正确答案存在。
 // 我当初拿"别把内容改动夹带进重构"挡了它,是把该做的判成了不该做的。
 const BREADCRUMB = { 0: "{{HOME_URL}}", 1: "{{CANONICAL}}" };
+// 重复 description 留哪一份 —— 总工逐页读了两条值的全文后裁的 7 条,不是我总结的规律。
+//   contact                          [2]  第 1 条是首页通稿(pt/contact 只有一条,就是第 2 条)
+//   certifications-testing           [2]  第 2 条具体(multi-stage testing / weather resistance)
+//   compatibility                    [2]  第 2 条点名 Mini/Standard/Performance/Enterprise = 真实搜索词
+//   oem-odm-manufacturing            [2]  第 2 条多 "MOQ 100+ pieces" = 真实 B2B 限定词
+//   patents-manufacturing            [2]  第 2 条信息密度更高
+//   starlink-compatible-accessories  [1]  ⚠️唯一反例:第 1 条同时点名配件类型+机型
+//   video                            [1]  两条完全相同(都是首页通稿)→ 取任一。⚠️它根本没有属于
+//                                         自己的 description = 内容缺口,归 Joe,我不自己造。
+const KEEP_DESC = {
+  contact: { "meta.desc": 1 }, "certifications-testing": { "meta.desc": 1 }, compatibility: { "meta.desc": 1 },
+  "oem-odm-manufacturing": { "meta.desc": 1 }, "patents-manufacturing": { "meta.desc": 1 },
+  "starlink-compatible-accessories": { "meta.desc": 0 }, video: { "meta.desc": 0 },
+};
 const SLOTS = [
   ["meta.title", /(<title>)([^<]*)(<\/title>)/],
   ["meta.title", /(<meta property="og:title" content=")([^"]*)(")/],
@@ -113,8 +158,8 @@ for (const slug of SLUGS) {
   const enF = `${slug}/index.html`, ptF = `pt/${slug}/index.html`;
   if (!fs.existsSync(enF)) { console.log(`🔴 ${slug}: en 页不存在 — 跳过`); continue; }
   const hasPt = fs.existsSync(ptF);
-  const enRaw = fs.readFileSync(enF, "utf8").replace(/\r\n/g, "\n");
-  const ptRaw = hasPt ? fs.readFileSync(ptF, "utf8").replace(/\r\n/g, "\n") : null;
+  const enRaw = baseline(enF);                    // ⛔ 读 HEAD,不读工作区 —— 见文件顶部
+  const ptRaw = hasPt ? baseline(ptF) : null;
   const ha = enRaw.indexOf("</header>"), fb = enRaw.indexOf("<footer");
 
   // ① 证明骨架对齐 —— 按位置配对是这个证明的推论,不是假设
@@ -135,8 +180,9 @@ for (const slug of SLUGS) {
   //    ⚠️ 对账必须【和枚举同范围】:只对文本对账,会一边说"26=26 ✅"、一边对属性一无所知 ——
   //    那正是最会骗人的一种绿。范围不一致的对账,只是换个方式自证。
   const body0 = strip(enRaw.slice(ha, fb));
-  const auditText = [...body0.matchAll(/>([^<>]+)</g)].map((m) => m[1]).filter((t) => /\p{L}/u.test(t)).length;
-  const auditAttr = ATTRS.reduce((n, a) => n + [...body0.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))].filter((m) => /\p{L}/u.test(m[1])).length, 0);
+  // 对账必须用【同一个】isProse —— 两边各写一套判据,就又是两把尺子互相印证了
+  const auditText = [...body0.matchAll(/>([^<>]+)</g)].map((m) => m[1]).filter(isProse).length;
+  const auditAttr = ATTRS.reduce((n, a) => n + [...body0.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))].filter((m) => isProse(m[1])).length, 0);
   const audit = auditText + auditAttr;
   if (audit !== eN.length) { console.log(`🔴 ${slug}: 提取 ${eN.length} 条,独立数法 ${audit} 条(文本 ${auditText} + 属性 ${auditAttr})— 差额 ${audit - eN.length},枚举不完整,停`); continue; }
 
@@ -218,14 +264,30 @@ for (const slug of SLUGS) {
     //   ("Tejoy is a leading manufacturer…"),第 2 条才是 contact 自己的 —— 默认规则在这里恰好
     //   保留烂的那条。而这个答案不是我选的:pt/contact 只有一条 description,就是第 2 条。
     //   ⚠️ 同一个动作也修好了 ②:那条通稿正好坐在 <meta charset> 前面,丢掉它 head 顺序就对了。
-    const keep = ({ contact: { "meta.desc": 1 } }[slug] || {})[name] ?? 0;
+    // 总工逐页读了两条值的全文才裁的,7 条写死在表里 —— 他点名「别做成通用规则」:
+    // [2] 几乎总是更好的那条(像是后来补 SEO 时加的、补的人没删旧的),但 slc-accessories 是反例。
+    // 规律不等于规则。表里是裁决,不是我总结的模式。
+    const keep = (KEEP_DESC[slug] || {})[name] ?? 0;
+    // ⚠️ 丢就丢【整个标签】。槽位正则只捕到结束引号为止(`<meta … content="V"`),
+    // 直接 replace(d[0], "") 会把标签体删掉、把闭合的 `>` 留在原地 —— contact 于是生成出
+    // `<head> >`,about 的 head 更是整段崩掉。删一半的标签比不删更糟。
+    const dropTag = (h, m) => {
+      const at = h.indexOf(m[0]);
+      if (at < 0) return h;
+      const end = h.indexOf(">", at + m[0].length) + 1;
+      if (end <= 0) return h;
+      let a = at; while (a > 0 && /[ \t]/.test(h[a - 1])) a--;
+      let b = end; while (b < h.length && /[ \t]/.test(h[b])) b++;
+      if (h[b] === "\n") b++;
+      return h.slice(0, a) + h.slice(b);
+    };
     if (eM.length > 1) {
       const dropped = eM.filter((_, i) => i !== keep);
-      for (const d of dropped) head = head.replace(d[0], "");
-      console.log(`   ${slug}: ${name} 重复 ${eM.length} 份 → 留第 ${keep + 1} 份${keep ? " ⭐(点名例外:第 1 份是首页通稿)" : ""},丢 ${dropped.length} 份`);
+      for (const d of dropped) head = dropTag(head, d);
+      console.log(`   ${slug}: ${name} 重复 ${eM.length} 份 → 留第 ${keep + 1} 份${keep ? " ⭐(点名例外)" : ""},丢 ${dropped.length} 份`);
       eM = [eM[keep]];
       // pt 侧逐个对,不假设它的顺序跟 en 一样(总工点名要求)
-      if (hasPt && pM.length > 1) { const pd = pM.filter((_, i) => i !== keep); for (const d of pd) head = head.replace(d[0], ""); pM = [pM[keep]]; }
+      if (hasPt && pM.length > 1) { pM = [pM[keep]]; }
     }
     if (hasPt && pM.length && eM.length !== pM.length) { console.log(`🔴 ${slug}: ${name} 去重后 en ${eM.length} / pt ${pM.length} — 停`); continue; }
     for (let k = 0; k < eM.length; k++) {
