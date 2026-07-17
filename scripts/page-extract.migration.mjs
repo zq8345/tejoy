@@ -14,20 +14,10 @@
 //   4. 验收 = 生成回来 wsNorm 内容零回归,且字节差异逐处证明只是空白。
 import fs from "fs";
 import { execSync } from "child_process";
+import { baseline } from "./_baseline.mjs";
 
-// ⛔ 抽取【永远】读 git HEAD,不读工作区。
-//
-// 我栽在这上面栽了三次,这是第三次也是最贵的一次:我先跑了一轮 regen(它把英文数字写进了
-// pt/about、把一段残骸 `<head> >` 写进了 contact),然后重新抽取 —— 抽取器读磁盘,于是把
-// 【我自己上一轮的错误输出】当成了原文。pt 的 "400.000–600.000" 被我的 "400,000–600,000"
-// 顶掉,contact 的残骸被抽进模板从此永久固化。两个"顽固 bug"其实是同一件事:
-//
-//   【一个被你重新生成过的基线,不是基线。】
-//
-// 前两次:总工用 git show 抓到我拿自己的输出证明 placeholder 是"存量";我用工作区文件"证明"
-// pt/faq 的 JSON-LD 也是英文。三次都是同一个形状 —— 所以这次不靠"我记得先 revert",
-// 靠读一个我改不动的源。
-const baseline = (p) => execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26 }).replace(/\r\n/g, "\n");
+// ⛔ 抽取永远读【基线】,不读工作区 —— 读法和四次事故的账都在 scripts/_baseline.mjs 里。
+// 它现在是一个共享函数,不是一条我要在每个新脚本里重新想起来的纪律(第 4 次证明了我记不住)。
 
 const ATTRS = ["alt", "title", "aria-label", "placeholder"];
 const strip = (s) => s.replace(/<script[\s\S]*?<\/script>/g, (m) => " ".repeat(m.length))

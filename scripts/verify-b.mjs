@@ -7,6 +7,7 @@
 // 检查器和被检对象一样需要被当成代码对待。
 import fs from "fs";
 import { execSync } from "child_process";
+import { baseline } from "./_baseline.mjs";
 
 const ws = (s) => s.replace(/\r\n/g, "\n").replace(/>\s+</g, "><").replace(/\s+/g, " ").trim();
 
@@ -61,7 +62,7 @@ for (const slug of PAGES) {
   for (const isPt of [false, true]) {
     const f = `${isPt ? "pt/" : ""}${slug}/index.html`;
     if (!fs.existsSync(f)) continue;
-    const head = execSync(`git show HEAD:"${f}"`, { encoding: "utf8", maxBuffer: 1 << 26 });
+    const head = baseline(f);   // 走共享基线读法,不自己拼 git show
     const want = ws(killHL(intended(head, slug, isPt)));
     const got = ws(killHL(fs.readFileSync(f, "utf8")));
     if (want === got) { ok++; continue; }
