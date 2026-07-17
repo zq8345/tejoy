@@ -44,7 +44,13 @@ const BLOCKS = { header: block("header"), switcher: block("switcher"), footer: b
 // This also subsumes the "guide article pages stay English" rule for free: /marine/4382 has no
 // pt/marine/4382.html, so it is not prefixed — no soft-404, no special case, nothing to update
 // when Phase 3 finally translates those articles (they get prefixed the moment they exist).
-const LOC_DIR = { en: "", "pt-BR": "pt" };
+// ⚠️ 目录名从 locales.json 来,不写死在这里 —— `{ en:"", "pt-BR":"pt" }` 是下一个二元化石:
+// 加 es 的人得记得回来改这一行,而"得记得"正是这周每个 bug 的形状。
+// 现在加一个语种 = locales.json 里加一行,代码一个字不用动。
+const LOCALES = locales.enabled;
+const DEFAULT_LOC = locales.default;
+const LOCALE_LABEL = locales.locale_label || {};
+const LOC_DIR = Object.fromEntries(LOCALES.map((loc) => [loc, loc === DEFAULT_LOC ? "" : (locales.dir || {})[loc] || loc.split("-")[0]]));
 const existsCache = new Map();
 const pageExists = (rel) => {
   if (!existsCache.has(rel)) existsCache.set(rel, fs.existsSync(rel));
@@ -128,14 +134,43 @@ for (const p of pages) {
   const raw = fs.readFileSync(p, "utf8");
   const crlf = raw.includes("\r\n");
   const html0 = raw.replace(/\r/g, "");
-  const isPt = p.startsWith("pt/");
-  const locale = isPt ? "pt-BR" : "en";
-  const enPath = "/" + (isPt ? p.slice(3) : p).replace(/index\.html$/, "").replace(/\.html$/, "");
-  const ptPath = "/pt" + enPath;
-  const hasPt = isPt || fs.existsSync("pt/" + p);
-  // switcher: only when a counterpart exists (68 en pages legitimately have none — verified)
-  const swVars = isPt ? { href: enPath, hreflang: "en", label: "EN" } : { href: ptPath, hreflang: "pt-BR", label: "PT" };
-  const switcher = hasPt ? renderBlock(BLOCKS.switcher, locale, swVars).replace(/\{\{sw\.([a-z]+)\}\}/g, (m, k) => swVars[k]) : "";
+  // ⚠️ locale 由【目录】反查,不是 `startsWith("pt/")`。
+  //
+  // 那是这个文件里最后一个二元化石,而且是攻击测试抓到的:我临时把 es-MX 加进 locales.json、
+  // 造了一个 /es/faq/,结果它一个切换器链接都没有 —— 因为 es 页被 `isPt ? "pt-BR" : "en"`
+  // 判成了 en,路径随之全错。⭐ 没有那次攻击,我会报"三语化完成",然后它在第一个 es 页上就是坏的。
+  // 现在:目录 → locale 由 LOC_DIR 反查,加一个语种仍然是 locales.json 加一行。
+  const seg1 = p.split("/")[0];
+  const locale = LOCALES.find((loc) => LOC_DIR[loc] && LOC_DIR[loc] === seg1) ?? DEFAULT_LOC;
+  const dirSelf = LOC_DIR[locale];
+  const enPath = "/" + (dirSelf ? p.slice(dirSelf.length + 1) : p).replace(/index\.html$/, "").replace(/\.html$/, "");
+
+  // ⭐ 切换器 = 【语言列表】,不是单链。
+  //
+  // 老结构 `swVars = { href, hreflang, label }` 只装得下【一个】对侧 —— 二元下"对面"唯一,
+  // 所以它看起来够用。三元下"对面"有两个:es 页要同时给出 EN 和 PT,en 页要同时给出 PT 和 ES。
+  // 单链结构在那里不是"不好看",是【无解】。总工:「es 页上 {{t.header.pt}} 显示什么?
+  // EN?PT?两个都要?—— 无解,不是选词问题。」
+  //
+  // 现在:对每个 enabled locale(除自己),对侧页存在就出一个链接。加一个语种不用改这里。
+  //   · href / hreflang → 存在性规则(和 canonical / breadcrumb / badge 同一条,不新造)
+  //   · label → locale_label,【目标语种自己说自己叫什么】,不是"对面"的属性
+  const others = LOCALES.filter((loc) => loc !== locale).map((loc) => {
+    const dir = LOC_DIR[loc] ?? "";
+    const rel = dir ? `${dir}${enPath}` : enPath.slice(1);
+    // ⚠️ 根路径:enPath === "/" 时 rel 是空串,`rel + ".html"` 算出 ".html" —— 一个不存在的文件,
+    // 于是 pt 首页丢掉了切换器,而它的对侧 index.html 明明就在。
+    // 是切换器计数从 180 掉到 179 把它暴露的;我差一点把这个掉数当成"改进"解释过去
+    // (「老逻辑没检查对侧存在性,所以少一个是修好了」—— 听起来完全合理,而且是错的)。
+    // ⭐ 一个听起来合理的解释,和一个正确的解释,长得一模一样。所以我去查了是哪个页。
+    const file = !rel || rel.endsWith("/") ? `${rel}index.html` : `${rel}.html`;
+    if (!fs.existsSync(file)) return null;                 // 对侧不存在 → 不出这个链接
+    return { href: dir ? `/${dir}${enPath}` : enPath, hreflang: loc, label: LOCALE_LABEL[loc] || loc };
+  }).filter(Boolean);
+  // 73 个 en 页合法地没有任何对侧 → 没有切换器,这是规则的结果,不是特例
+  const switcher = others
+    .map((o) => renderBlock(BLOCKS.switcher, locale, o).replace(/\{\{sw\.([a-z]+)\}\}/g, (m, k) => o[k]))
+    .join("\n          ");
 
   let html = html0;
   for (const [name, a, b, inc] of ANCHORS) {
