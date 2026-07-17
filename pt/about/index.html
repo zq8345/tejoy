@@ -254,8 +254,16 @@
               </ul>
             </li>
           </ul>
-          <div class="lang-switch" data-lang-switch>
-            <a href="/pt/products/" class="lang-switch__link" hreflang="pt-BR" aria-label="Ver esta página em inglês"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span></a>
+          <!-- 🔴 P0 修复:href 和 hreflang 是【逐页】的,必须走 {{sw.*}}。
+     R1 的 chrome-build 从 /products/ 那一页抓的切换器,把那一页的 href 和 hreflang 当成常量
+     烤进了这个共享 partial —— 于是【每一个页】的切换器都指向 /pt/products/、hreflang 都是
+     pt-BR。两个方向都坏:pt 页点 EN 掉进葡语产品页,en 页点 PT 也掉进同一个页。
+     chrome-sync 里逐页算 swVars 的代码一直都在(第 137 行),partial 里没有 token 去接它 ——
+     ⭐ 又是"线接了一头、另一头没接",和 R1 item 7 一模一样,只是方向反了:那次我 token 化了
+     模板却没教渲染器读,这次我写了渲染器却没在模板里放 token。
+     label 和 aria 不用改:目录本来就按 locale 翻转(header.pt: en="PT" / pt-BR="EN")。 -->
+<div class="lang-switch" data-lang-switch>
+            <a href="/about/" class="lang-switch__link" hreflang="en" aria-label="Ver esta página em inglês"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span></a>
           </div>
                      <div class="main-menu-wrapper__call">
 
