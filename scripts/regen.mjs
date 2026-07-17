@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, setListTitle, renderHome, excerptOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, renderHome, renderPage, excerptOf } from "../functions/_lib/render.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -136,3 +136,22 @@ for (const locale of LOCALES) {
   if (h1 !== h0) { fs.writeFileSync(p, h1); homes++; }
 }
 console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.json)`);
+
+// R3(b)… — every other templated page. Driven by what's on disk (data/templates/page-*.html), not
+// by a list here: bucket (c)/(d)/(e) land in the pipeline by existing, with nobody remembering to
+// register them. Same contract as everything else — regen emits content, chrome-sync owns chrome.
+let pages = 0;
+const tdir = path.join(REPO, "data", "templates");
+for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
+  const slug = f.replace(/^page-|\.html$/g, "");
+  const pcat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", `${slug}.json`), "utf8"));
+  const ptpl = fs.readFileSync(path.join(tdir, f), "utf8");
+  for (const locale of LOCALES) {
+    const p = pageOf(locale, path.join(slug, "index.html"));
+    if (!fs.existsSync(p)) continue;                       // regen 渲内容,不决定站点地图
+    const h0 = fs.readFileSync(p, "utf8");
+    const h1 = renderPage(ptpl, { locale, catalog: pcat, urlOf, path: `/${slug}/` });
+    if (h1 !== h0) { fs.writeFileSync(p, h1); pages++; }
+  }
+}
+console.log(`templated pages: ${pages} regenerated (data/templates/page-*.html)`);

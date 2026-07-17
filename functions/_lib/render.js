@@ -107,7 +107,7 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   // renderer to read them shipped literal "{{t.body.back}}" onto every page — the tokens ARE the
   // English now, so an unresolved one is a leak, not a cosmetic bug. Throw rather than leave the
   // brace on the page: a missing key must fail loudly, not render as markup.
-  r = r.replace(/\{\{t\.([a-z0-9_.]+)\}\}/gi, (m, key) => {
+  r = r.replace(/\{\{t\.([a-z0-9_.-]+)\}\}/gi, (m, key) => {
     const e = catalog && catalog[key];
     if (!e) throw new Error(`template references catalog key that does not exist: ${key}`);
     const v = e[locale] ?? e.en;
@@ -224,14 +224,35 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
         `              </div>\n              <div class="product-grid-text"><b>${name}</b></div>\n            </a>\n          </div>`;
     })
     .join("\n          \n          ");
-  let out = tpl.split("{{TILES}}").join(cards);
+  return renderPage(tpl.split("{{TILES}}").join(cards), { locale, catalog, urlOf });
+}
+
+// R3 的通用页渲染:模板 + 散文目录 -> 页面。首页只是它多一个 {{TILES}} 的特例。
+// (a) 是为首页定制的;(b) 有 11 个页、(c)(d)(e) 还有 71 个 —— 同一套机器,参数化一次用四桶。
+export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
+  let out = tpl;
   // head 里随语种变的:派生,不进目录 —— URL / lang / hreflang 的差异不是翻译(R1 洞②)
-  const home = locale === "en" ? "/" : "/pt/";
+  // 每个页用【它自己的】路径。第一版我把首页的 canonical 逻辑当成了通用的,于是 11 个信息页的
+  // canonical 全指向了 https://tejoy.com/ —— 一个把 11 个页全部规范化到首页的 SEO 灾难。
+  // 门抓到了,因为它比的是内容不是外观。
+  const self = locale === "en" ? path : "/pt" + path;
+  const enUrl = `https://tejoy.com${path}`;
   const reps = {
     HTML_LANG: locale,
-    CANONICAL: `https://tejoy.com${home}`,
-    CANONICAL_NOSLASH: locale === "en" ? "https://tejoy.com" : `https://tejoy.com${home}`,
+    CANONICAL: `https://tejoy.com${self}`,
+    // breadcrumb 的 position 1 指【首页】,position 2 才指本页 —— 两件不同的东西,我第一版
+    // 把它们合成了一个 token,于是 /faq/ 的面包屑第一级指向了 /faq/ 自己。
+    // 首页恰好两者相同,所以这个错在 (a) 里完全不可见 —— 又一次:重复不可见的那一侧最会骗人。
+    HOME_URL: locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/",
+    CANONICAL_NOSLASH: self === "/" ? (locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/") : `https://tejoy.com${self}`,
     OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
+    // hreflang 和 og:locale 一样是派生的 —— 它们是 en/pt head 之间【预期内】的结构差异,
+    // 不是分歧。我第一版的骨架检查把它们算成"不齐",11/11 全红;减掉派生项后真分歧只剩 2 个。
+    // 太粗的尺子会把 9 个好页判成坏的,和把坏页判成好的一样浪费别人的判断。
+    HREFLANG: locale === "en" ? "" :
+      `\n<link rel="alternate" hreflang="en" href="${enUrl}" />` +
+      `\n<link rel="alternate" hreflang="${locale}" href="https://tejoy.com${self}" />` +
+      `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
   };
   for (const [k, v] of Object.entries(reps)) out = out.split(`{{${k}}}`).join(v);
   // body 内链走同一条存在性规则(chrome 早就在用):有该语种的页就加前缀,没有就留原样。
@@ -239,7 +260,7 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
   // 没有,因为那 3 个指南页没有 pt 版。URL 的差异不是翻译,不进目录(R1 洞②)。
   out = out.replace(/\{\{url\.([^}]+)\}\}/g, (m, p) => urlOf(p, locale));
   // 缺 key 就抛 —— 一个没解析的 token 印在页面上就是泄漏,静默回退成英文更糟(R1 的教训)
-  out = out.replace(/\{\{t\.([a-z0-9_.]+)\}\}/gi, (m, key) => {
+  out = out.replace(/\{\{t\.([a-z0-9_.-]+)\}\}/gi, (m, key) => {
     const e = catalog[key];
     if (!e) throw new Error(`home template references a key that does not exist: ${key}`);
     const v = e[locale] ?? e.en;
