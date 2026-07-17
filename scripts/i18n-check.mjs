@@ -18,15 +18,56 @@ import fs from "fs";
 
 const MODE = process.argv.includes("--strict") ? "strict" : "report";
 const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
-// R3 起,页面散文也有目录(data/pages/*.json)。guard 必须一起看 —— 它守的是「这个语种还差什么」,
-// 而不是「chrome 还差什么」。漏掉页面目录,西语开进来时 47 条首页文案会静默回退成英文而无人吼。
-// 从目录读,不是列一张会腐烂的清单:新加一桶(信息页/hub/指南)自动进 guard,没人需要记得。
-const PAGES = fs.existsSync("data/pages")
-  ? fs.readdirSync("data/pages").filter((f) => f.endsWith(".json") && f !== "home-tiles.json")
-  : [];
-const catalog = Object.assign({}, JSON.parse(fs.readFileSync("data/chrome.json", "utf8")),
-  ...PAGES.map((f) => JSON.parse(fs.readFileSync(`data/pages/${f}`, "utf8"))));
 const enabled = locales.enabled;
+
+// ⛔ guard 【自己发现】所有可翻译的数据源,不读一张清单。
+//
+// 这条我修了三次实例、每次都往清单里加一个名字,而清单本身就是那个 bug。第四次它咬得最狠:
+//   只扫 _chrome.html(21 条假警报)→ 只数 token 消费者(3 条)→ TEMPLATES 硬编码(281 条)
+//   → 【整个 data/products/ 不在视野里:320 个值,64 产品 × 5 字段】
+// 而 guard 一路对总工报"无缺失"—— 它没在说谎,它只是【只报告它找到的】。
+// 总工拿着 980 这个数跟 Joe 汇报了,那是尺子自己的数,不是真数。
+//
+// 所以不加第五个目录名。改成:递归扫 data/ 下每一个 JSON,认出它的形状;
+// ⭐【认不出、但看起来含 i18n 结构的,一律报错】—— 让"漏掉一个目录"变得不可能,
+// 而不是"这次记得加上"。这跟总工那条否定式 token 保护是同一条:让它认不出的东西也炸。
+const allJson = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+  e.isDirectory() ? allJson(`${d}/${e.name}`) : e.name.endsWith(".json") ? [`${d}/${e.name}`] : []);
+
+// 形状①:扁平目录 { "some.key": { en: "...", "pt-BR": "..." } }
+const isCatalog = (o) => o && typeof o === "object" && !Array.isArray(o) &&
+  Object.entries(o).some(([k, v]) => !k.startsWith("_") && v && typeof v === "object" && !Array.isArray(v) && "en" in v);
+// 形状②:产品 { i18n: { en: {...}, "pt-BR": {...} } }
+const isProduct = (o) => o && o.i18n && typeof o.i18n === "object" && "en" in o.i18n;
+
+const catalog = {};
+const sources = { catalog: [], product: [], data: [] };
+const unknown = [];
+for (const f of allJson("data")) {
+  const o = JSON.parse(fs.readFileSync(f, "utf8"));
+  if (isProduct(o)) {
+    sources.product.push(f);
+    // 产品走同一条 pt ?? en 契约:en 有的字段,每个 enabled locale 都该有
+    for (const [field, en] of Object.entries(o.i18n.en)) {
+      if (typeof en !== "string" || !en.trim()) continue;
+      catalog[`product.${o.id}.${field}`] = Object.fromEntries(
+        enabled.map((loc) => [loc, loc === locales.default ? en : (o.i18n[loc] || {})[field]]));
+    }
+  } else if (isCatalog(o)) {
+    sources.catalog.push(f);
+    for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json/.test(f)) {
+    sources.data.push(f);                                  // 已知的【非文案】数据,点名放行
+  } else {
+    unknown.push(f);                                       // 认不出 -> 吼,绝不静默跳过
+  }
+}
+if (unknown.length) {
+  console.error(`🔴 guard 认不出这些 data JSON 的形状 —— 它们可能含有没人在看的译文:`);
+  unknown.forEach((f) => console.error(`   ${f}`));
+  console.error(`   (要么它们不是文案数据 → 加进上面那条点名放行;要么 guard 少认一种形状 → 补上。别静默跳过。)`);
+  process.exit(2);
+}
 
 // `_`-prefixed entries are file-level docs/metadata, not translatable keys.
 const entries = Object.entries(catalog).filter(([k]) => !k.startsWith("_"));
@@ -71,7 +112,18 @@ for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]
 // key that is only ever named there. A gap that is currently masked is still a gap.
 const CODE = ["functions/_lib/render.js", "scripts/regen.mjs"];
 const allCode = CODE.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
-const used = (key) => allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`);
+// 第三类消费者:产品字段。它们既不是 {{t.key}} token,也不是 catalog["key"] —— render.js 的
+// mergeI18n 直接读 prod.i18n[locale][field]。不认这一类,320 个活值会被报成"已腐烂"(第五次假警报)。
+// ⭐ 但这一类【不能】整类放行:mergeI18n 返回哪些字段,是可以从源码算出来的。
+//    算出来才发现 meta_title 【真的】没人读 —— 它是派生的(metaTitleOf),存在数据里是死的。
+//    整类放行会把这个真发现一起盖掉:一个太宽的白名单,和一个太窄的枚举一样会骗人。
+const mergeSrc = (allCode.match(/export function mergeI18n[\s\S]*?\n\}/) || [""])[0];
+const PRODUCT_FIELDS = new Set([...mergeSrc.matchAll(/^\s{4}(\w+):/gm)].map((m) => m[1]));
+const used = (key) => {
+  const p = key.match(/^product\.\d+\.(\w+)$/);
+  if (p) return PRODUCT_FIELDS.has(p[1]);
+  return allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`);
+};
 // Unused keys: in the catalog but referenced by neither a template nor code (rot).
 const unused = [];
 for (const [key] of entries) if (!used(key)) unused.push(key);
