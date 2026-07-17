@@ -246,13 +246,14 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
     HOME_URL: locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/",
     CANONICAL_NOSLASH: self === "/" ? (locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/") : `https://tejoy.com${self}`,
     OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
-    // hreflang 和 og:locale 一样是派生的 —— 它们是 en/pt head 之间【预期内】的结构差异,
-    // 不是分歧。我第一版的骨架检查把它们算成"不齐",11/11 全红;减掉派生项后真分歧只剩 2 个。
-    // 太粗的尺子会把 9 个好页判成坏的,和把坏页判成好的一样浪费别人的判断。
-    HREFLANG: locale === "en" ? "" :
-      `\n<link rel="alternate" hreflang="en" href="${enUrl}" />` +
-      `\n<link rel="alternate" hreflang="${locale}" href="https://tejoy.com${self}" />` +
-      `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
+    // hreflang 三条链接由 route 算出来:en 自己、pt 对应页、x-default。【两个语种都发】——
+    // hreflang 本来就是互指的,只在一侧挂等于没挂。现网 en 侧【时有时无】(en/about 就没有),
+    // pt 侧齐全:又是 pt 对、en 残缺,和 breadcrumb 同一个形状。派生顺带把 en 缺的补齐 ——
+    // 按总工那条线,正确答案可计算 = 结构修复,免费,该做。
+    HREFLANG: `<!-- hreflang alternates (en <-> pt paired page) -->\n` +
+      `<link rel="alternate" hreflang="en" href="${enUrl}" />\n` +
+      `<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt${path}" />\n` +
+      `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
   };
   for (const [k, v] of Object.entries(reps)) out = out.split(`{{${k}}}`).join(v);
   // body 内链走同一条存在性规则(chrome 早就在用):有该语种的页就加前缀,没有就留原样。

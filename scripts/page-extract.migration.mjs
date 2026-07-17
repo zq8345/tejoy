@@ -40,23 +40,38 @@ const skel = (s) => {
 // 规则本身没被钉住,于是 R3(b) 的 contact / oem-odm 又栽在同一个地方。scripts/render.test.mjs 钉它。
 export const visibleText = (html) => nodes(html, 0).map((n) => n.text.trim());
 
+// 可见单元 = 文本节点 ∪ 可见属性。按【可见性】枚举,不按"en/pt 是否不同" ——
+// 后者是 R1 洞①:用"是否已翻译"决定 key 集,会把两边都是英文的现存泄漏【永久冻结】,
+// 而且冻得无声无息。可见 = 要 key,不管它今天碰巧是什么语言。
+//
+// ⚠️ 属性这一路我第一版【整个漏了】:ATTRS 只用在骨架比较里,抽取里从没用过 —— 于是
+// pt/video 会印 alt="Factory showcase - tejoy video"。这是 R1 那条教训第三次复发
+// (「属性枚举漏掉 → pt 静默退回英文」)。在一个函数里列出来,不等于在另一个函数里处理了。
 const nodes = (body, off) => {
   const killed = strip(body);
   const out = [];
-  // ⛔ 任意 `>文本<`,【不】要求前面是开标签 —— `</label>Name` 里的 Name 就在闭标签后面,
-  // 而它正是用户读的那半。写成 `<tag …>text<` 会把它整个漏掉。
+  // ① 文本节点:任意 `>文本<`,【不】要求前面是开标签 —— `</label>Name` 里的 Name 就在闭标签
+  //    后面,而它正是用户读的那半。写成 `<tag …>text<` 会把它整个漏掉(R1 的 seeder / contact / oem-odm)。
   for (const m of killed.matchAll(/>([^<>]+)(?=<)/g)) {
     const t = m[1];
     if (!t.trim() || !/\p{L}/u.test(t)) continue;
     const start = m.index + 1;
-    // 往回找最近的标签,只为取个命名线索;取不到也不影响正确性
     const before = killed.slice(Math.max(0, start - 400), start);
     const tagM = [...before.matchAll(/<([a-z0-9]+)([^>]*)>/gi)].pop();
     const tag = tagM ? tagM[1] : "t";
     const cls = tagM ? ((tagM[2].match(/class="([^"]*)"/) || [])[1] || "").split(" ")[0] : "";
-    out.push({ start: start + off, end: start + t.length + off, text: t, tag, cls });
+    out.push({ start: start + off, end: start + t.length + off, text: t, tag, cls, kind: "text" });
   }
-  return out;
+  // ② 可见属性:屏幕阅读器读它们,它们和正文一样是文案
+  for (const a of ATTRS) {
+    for (const m of killed.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))) {
+      const v = m[1];
+      if (!v.trim() || !/\p{L}/u.test(v)) continue;          // alt="" 是有意的装饰,不是文案
+      const start = m.index + m[0].length - 1 - v.length;
+      out.push({ start: start + off, end: start + v.length + off, text: v, tag: `@${a}`, cls: "", kind: "attr" });
+    }
+  }
+  return out.sort((x, y) => x.start - y.start);              // 按文档顺序,en/pt 才配得上
 };
 
 const leaves = (o, path = "") => {
@@ -116,13 +131,23 @@ for (const slug of SLUGS) {
   if (hasPt && eN.length !== pN.length) { console.log(`🔴 ${slug}: 骨架齐但节点数 ${eN.length} vs ${pN.length} — 停`); continue; }
 
   // ② 对着页面总量对账 —— 不是"我抓到 N 个"就算 N 个(R3(a) 那次我抓 40、真值 50,
-  //    而 en40==pt40 让它看起来是对的:两把同样坏的尺子互相印证)
-  const audit = [...strip(enRaw.slice(ha, fb)).matchAll(/>([^<>]+)</g)].map((m) => m[1]).filter((t) => /\p{L}/u.test(t)).length;
-  if (audit !== eN.length) { console.log(`🔴 ${slug}: 提取 ${eN.length} 条,独立数法 ${audit} 条 — 差额 ${audit - eN.length},枚举不完整,停`); continue; }
+  //    而 en40==pt40 让它看起来是对的:两把同样坏的尺子互相印证)。
+  //    ⚠️ 对账必须【和枚举同范围】:只对文本对账,会一边说"26=26 ✅"、一边对属性一无所知 ——
+  //    那正是最会骗人的一种绿。范围不一致的对账,只是换个方式自证。
+  const body0 = strip(enRaw.slice(ha, fb));
+  const auditText = [...body0.matchAll(/>([^<>]+)</g)].map((m) => m[1]).filter((t) => /\p{L}/u.test(t)).length;
+  const auditAttr = ATTRS.reduce((n, a) => n + [...body0.matchAll(new RegExp(`\\b${a}="([^"]*)"`, "g"))].filter((m) => /\p{L}/u.test(m[1])).length, 0);
+  const audit = auditText + auditAttr;
+  if (audit !== eN.length) { console.log(`🔴 ${slug}: 提取 ${eN.length} 条,独立数法 ${audit} 条(文本 ${auditText} + 属性 ${auditAttr})— 差额 ${audit - eN.length},枚举不完整,停`); continue; }
 
   const cat = {};
   const seq = {};
-  const keyOf = (n) => { const b = n.cls || n.tag; seq[b] = (seq[b] || 0) + 1; return `${slug}.${b}.${seq[b]}`; };
+  // key 名只用 [a-z0-9_.-] —— 和 token 正则同一个字符集。
+  // 我第一版把属性命名成 `@alt`,`@` 不在正则里 → token 解析不到 → {{t.about.@alt.1}} 会原样印在页上。
+  // ⭐ 而这次是【否定式保护】当场抓住的(「输出里还剩任何 {{...}} 就炸」)—— 老那版
+  // 「匹配得到但解析不了才炸」根本不认识它,会让它安静地发出去。总工那条改动立刻就付了回报。
+  const slugify = (s) => s.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase() || "t";
+  const keyOf = (n) => { const b = slugify(n.cls || n.tag); seq[b] = (seq[b] || 0) + 1; return `${slug}.${b}.${seq[b]}`; };
   const keys = eN.map(keyOf);
   eN.forEach((n, i) => { cat[keys[i]] = { en: n.text.trim(), ...(hasPt ? { "pt-BR": pN[i].text.trim() } : {}) }; });
 
@@ -157,11 +182,26 @@ for (const slug of SLUGS) {
   const slotSeq = {};
   for (const [name, re] of SLOTS) {
     const g = new RegExp(re.source, "g");
-    const eM = [...enH.matchAll(g)], pM = hasPt ? [...ptH.matchAll(new RegExp(re.source, "g"))] : [];
+    let eM = [...enH.matchAll(g)], pM = hasPt ? [...ptH.matchAll(new RegExp(re.source, "g"))] : [];
     if (!eM.length) continue;                             // 该页没有这个 meta,正常
-    if (hasPt && eM.length !== pM.length) { console.log(`🔴 ${slug}: ${name} 在 en 出现 ${eM.length} 次、pt ${pM.length} 次 — 结构不对齐,停`); continue; }
+    // ③ 重复 meta 去重(总工裁,他把 6 个页的两条值都看过了):
+    //   规则 = 取【更专属于本页】的那条;两条都专属时取第一条 —— 浏览器和 Google 本来就取第一条,
+    //   所以那是零行为变化。DROP_KEEP 是点名的例外,不是"我记得":contact 的第 1 条是【首页通稿】
+    //   ("Tejoy is a leading manufacturer…"),第 2 条才是 contact 自己的 —— 默认规则在这里恰好
+    //   保留烂的那条。而这个答案不是我选的:pt/contact 只有一条 description,就是第 2 条。
+    //   ⚠️ 同一个动作也修好了 ②:那条通稿正好坐在 <meta charset> 前面,丢掉它 head 顺序就对了。
+    const keep = ({ contact: { "meta.desc": 1 } }[slug] || {})[name] ?? 0;
+    if (eM.length > 1) {
+      const dropped = eM.filter((_, i) => i !== keep);
+      for (const d of dropped) head = head.replace(d[0], "");
+      console.log(`   ${slug}: ${name} 重复 ${eM.length} 份 → 留第 ${keep + 1} 份${keep ? " ⭐(点名例外:第 1 份是首页通稿)" : ""},丢 ${dropped.length} 份`);
+      eM = [eM[keep]];
+      // pt 侧逐个对,不假设它的顺序跟 en 一样(总工点名要求)
+      if (hasPt && pM.length > 1) { const pd = pM.filter((_, i) => i !== keep); for (const d of pd) head = head.replace(d[0], ""); pM = [pM[keep]]; }
+    }
+    if (hasPt && pM.length && eM.length !== pM.length) { console.log(`🔴 ${slug}: ${name} 去重后 en ${eM.length} / pt ${pM.length} — 停`); continue; }
     for (let k = 0; k < eM.length; k++) {
-      const e = eM[k][2], p = hasPt ? pM[k][2] : undefined;
+      const e = eM[k][2], p = hasPt && pM[k] ? pM[k][2] : undefined;
       let key = `${slug}.${name}`;
       // 合并当且仅当【逐字节相同】—— 核出来的,不是设出来的
       if (cat[key] && cat[key].en !== e.trim()) { slotSeq[name] = (slotSeq[name] || 1) + 1; key = `${slug}.${name}.${slotSeq[name]}`; }
@@ -231,6 +271,14 @@ for (const slug of SLUGS) {
     head = head.split(from).join(to);
   }
   if (!ldOK) continue;
+
+  // hreflang → 由 route 派生。en 侧【时有时无】(en/about 根本没有),pt 侧齐全 —— 又是 pt 对、
+  // en 残缺,和 breadcrumb 同一个形状。而 hreflang 三条链接完全由 route 算出来:自己、对语种、
+  // x-default。按总工那条线,它是【结构修复】不是内容改动 —— 正确答案可计算,那就该算,免费。
+  // 模板从 en 出,不派生的话 pt 会丢掉它已有的 hreflang(真 SEO 回归);而派生顺带把 en 缺的补上。
+  head = head.replace(/[ \t]*<!--\s*hreflang alternates[^>]*-->\s*\n?/g, "")
+    .replace(/(?:[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>\s*\n?)+/g, "{{HREFLANG}}\n");
+  if (!/\{\{HREFLANG\}\}/.test(head)) console.log(`   ⚠️ ${slug}: 没找到 hreflang 块 — 该页 en/pt 都没有?`);
 
   head = head.replace(/<html lang="en">/, '<html lang="{{HTML_LANG}}">')
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="{{CANONICAL}}" />`)
