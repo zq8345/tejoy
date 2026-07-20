@@ -28,7 +28,11 @@
  */
 import fs from 'fs';
 
-const BLOCKED = new Set(['679', '4206', '695', '678', '691', '704']);
+/* ⭐ 从【单一真源】读,不再在这里硬编码一份。
+ *   原来这里有一份写死的 id 清单,靠注释说明理由 —— **同一个事实两个来源,迟早漂,
+ *   而且注释不会报红**。理由现在和 id 一起存在 data/es-hold.json,
+ *   由 scripts/es-hold-check.mjs 双向强制(列了必须没 es / 没 es 必须列)。 */
+const BLOCKED = new Set(JSON.parse(fs.readFileSync('data/es-hold.json', 'utf8')).hold.map((h) => String(h.id)));
 const FIELDS = ['title', 'summary_html', 'description_html', 'meta_description']; // 镜像 en,不含 meta_title
 const TR_PATH = 'data/es-product-translations.json';
 const DIR = 'data/products';
