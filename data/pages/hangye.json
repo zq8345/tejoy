@@ -1,86 +1,107 @@
 {
   "hangye.page-header-subtitle.1": {
     "en": "Starlink accessories by industry and use case.",
-    "pt-BR": "Acessórios Starlink por setor e caso de uso."
+    "pt-BR": "Acessórios Starlink por setor e caso de uso.",
+    "es-MX": "Accesorios Starlink por industria y caso de uso."
   },
   "hangye.alt.1": {
     "en": "Marine & Boating Communications - tejoy application",
-    "pt-BR": "Comunicações Náuticas e para Embarcações - aplicação tejoy"
+    "pt-BR": "Comunicações Náuticas e para Embarcações - aplicação tejoy",
+    "es-MX": "Comunicaciones Marítimas y para Botes - aplicación tejoy"
   },
   "hangye.a.1": {
     "en": "Marine & Boating Communications",
-    "pt-BR": "Comunicações Náuticas e para Embarcações"
+    "pt-BR": "Comunicações Náuticas e para Embarcações",
+    "es-MX": "Comunicaciones Marítimas y para Botes"
   },
   "hangye.p.1": {
     "en": "For Starlink users who have the most demanding equipment requirements, peripheral accessories are ev···",
-    "pt-BR": "Para usuários Starlink com os requisitos de equipamento mais exigentes, os acessórios periféricos são essenc···"
+    "pt-BR": "Para usuários Starlink com os requisitos de equipamento mais exigentes, os acessórios periféricos são essenc···",
+    "es-MX": "Para usuarios de Starlink con los requisitos de equipo más exigentes, los accesorios periféricos son esenc···"
   },
   "hangye.alt.2": {
     "en": "Outdoor Work & Emergency Communications - tejoy application",
-    "pt-BR": "Trabalho ao Ar Livre e Comunicações de Emergência - aplicação tejoy"
+    "pt-BR": "Trabalho ao Ar Livre e Comunicações de Emergência - aplicação tejoy",
+    "es-MX": "Trabajo al Aire Libre y Comunicaciones de Emergencia - aplicación tejoy"
   },
   "hangye.a.2": {
     "en": "Outdoor Work & Emergency Communications",
-    "pt-BR": "Trabalho ao Ar Livre e Comunicações de Emergência"
+    "pt-BR": "Trabalho ao Ar Livre e Comunicações de Emergência",
+    "es-MX": "Trabajo al Aire Libre y Comunicaciones de Emergencia"
   },
   "hangye.p.2": {
     "en": "Outdoor working environments are relatively harsh, so we have optimized the equipment protection ins···",
-    "pt-BR": "Os ambientes de trabalho ao ar livre são relativamente hostis, por isso otimizamos a proteção dos equipam···"
+    "pt-BR": "Os ambientes de trabalho ao ar livre são relativamente hostis, por isso otimizamos a proteção dos equipam···",
+    "es-MX": "Los entornos de trabajo al aire libre son relativamente hostiles, por eso optimizamos la protección del equip···"
   },
   "hangye.alt.3": {
     "en": "Remote Office & Rural Internet - tejoy application",
-    "pt-BR": "Escritório Remoto e Internet Rural - aplicação tejoy"
+    "pt-BR": "Escritório Remoto e Internet Rural - aplicação tejoy",
+    "es-MX": "Oficina Remota e Internet Rural - aplicación tejoy"
   },
   "hangye.a.3": {
     "en": "Remote Office & Rural Internet",
-    "pt-BR": "Escritório Remoto e Internet Rural"
+    "pt-BR": "Escritório Remoto e Internet Rural",
+    "es-MX": "Oficina Remota e Internet Rural"
   },
   "hangye.p.3": {
     "en": "For users in remote areas, the demand for network speed and port expansion, as well as fixed install···",
-    "pt-BR": "Para usuários em áreas remotas, a demanda por velocidade de rede e expansão de portas, bem como por insta···"
+    "pt-BR": "Para usuários em áreas remotas, a demanda por velocidade de rede e expansão de portas, bem como por insta···",
+    "es-MX": "Para usuarios en zonas remotas, la demanda de velocidad de red y expansión de puertos, así como de insta···"
   },
   "hangye.alt.4": {
     "en": "Travel & Personal Portable Use - tejoy application",
-    "pt-BR": "Viagem e Uso Pessoal Portátil - aplicação tejoy"
+    "pt-BR": "Viagem e Uso Pessoal Portátil - aplicação tejoy",
+    "es-MX": "Viajes y Uso Personal Portátil - aplicación tejoy"
   },
   "hangye.a.4": {
     "en": "Travel & Personal Portable Use",
-    "pt-BR": "Viagem e Uso Pessoal Portátil"
+    "pt-BR": "Viagem e Uso Pessoal Portátil",
+    "es-MX": "Viajes y Uso Personal Portátil"
   },
   "hangye.p.4": {
     "en": "This product series is compact, portable, and easily fits into a backpack. It can be quickly disasse···",
-    "pt-BR": "Esta série de produtos é compacta, portátil e cabe facilmente em uma mochila. Pode ser rapidamente desmont···"
+    "pt-BR": "Esta série de produtos é compacta, portátil e cabe facilmente em uma mochila. Pode ser rapidamente desmont···",
+    "es-MX": "Esta serie de productos es compacta, portátil y cabe fácilmente en una mochila. Se puede desmontar rápidam···"
   },
   "hangye.alt.5": {
     "en": "System Integration & Deployment - tejoy application",
-    "pt-BR": "Integração e Implantação de Sistemas - aplicação tejoy"
+    "pt-BR": "Integração e Implantação de Sistemas - aplicação tejoy",
+    "es-MX": "Integración e Implementación de Sistemas - aplicación tejoy"
   },
   "hangye.a.5": {
     "en": "System Integration & Deployment",
-    "pt-BR": "Integração e Implantação de Sistemas"
+    "pt-BR": "Integração e Implantação de Sistemas",
+    "es-MX": "Integración e Implementación de Sistemas"
   },
   "hangye.p.5": {
     "en": "From installation, power supply, signal transmission, port adaptation, and storage, we provide a com···",
-    "pt-BR": "Da instalação, alimentação, transmissão de sinal e adaptação de portas até o armazenamento, oferecemos uma sol···"
+    "pt-BR": "Da instalação, alimentação, transmissão de sinal e adaptação de portas até o armazenamento, oferecemos uma sol···",
+    "es-MX": "Desde la instalación, la alimentación, la transmisión de señal y la adaptación de puertos hasta el almacenamiento, ofrecemos una sol···"
   },
   "hangye.alt.6": {
     "en": "RV & Camping Applications - tejoy application",
-    "pt-BR": "Aplicações para Motorhome e Camping - aplicação tejoy"
+    "pt-BR": "Aplicações para Motorhome e Camping - aplicação tejoy",
+    "es-MX": "Aplicaciones para Casa Rodante y Camping - aplicación tejoy"
   },
   "hangye.a.6": {
     "en": "RV & Camping Applications",
-    "pt-BR": "Aplicações para Motorhome e Camping"
+    "pt-BR": "Aplicações para Motorhome e Camping",
+    "es-MX": "Aplicaciones para Casa Rodante y Camping"
   },
   "hangye.p.6": {
     "en": "The demand from car and camping customers is characterized by a strong need for stable, safe, and re···",
-    "pt-BR": "A demanda de clientes de veículos e camping se caracteriza por uma forte necessidade de conexão estável, segura e con···"
+    "pt-BR": "A demanda de clientes de veículos e camping se caracteriza por uma forte necessidade de conexão estável, segura e con···",
+    "es-MX": "La demanda de los clientes de vehículos y camping se caracteriza por una fuerte necesidad de una conexión estable, segura y con···"
   },
   "hangye.meta.title": {
     "en": "Industry-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Setores | Tejoy — Acessórios Premium para Starlink, Suportes e Soluções de Energia"
+    "pt-BR": "Setores | Tejoy — Acessórios Premium para Starlink, Suportes e Soluções de Energia",
+    "es-MX": "Industria-Tejoy | Accesorios Premium para Starlink, Soportes &amp; Soluciones de Energía"
   },
   "hangye.meta.desc": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink, incluidos soportes, adaptadores de alimentación, cables y estuches de protección. Más de 15 años de experiencia, 200+ patentes. OEM/ODM disponible. No afiliada a SpaceX."
   }
 }

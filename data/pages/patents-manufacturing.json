@@ -1,118 +1,147 @@
 {
   "patents-manufacturing.page-header-title.1": {
     "en": "Tejoy Patents & Manufacturing Capacity - 200+ Patents",
-    "pt-BR": "Patentes e Capacidade Fabril da Tejoy - Mais de 200 Patentes"
+    "pt-BR": "Patentes e Capacidade Fabril da Tejoy - Mais de 200 Patentes",
+    "es-MX": "Patentes y Capacidad de Fabricación de Tejoy - Más de 200 Patentes"
   },
   "patents-manufacturing.page-header-subtitle.1": {
     "en": "200+ patents and scaled in-house production.",
-    "pt-BR": "Mais de 200 patentes e produção interna em larga escala."
+    "pt-BR": "Mais de 200 patentes e produção interna em larga escala.",
+    "es-MX": "Más de 200 patentes y producción propia a gran escala."
   },
   "patents-manufacturing.h2.1": {
     "en": "Engineering Excellence Backed by Patents",
-    "pt-BR": "Excelência em engenharia respaldada por patentes"
+    "pt-BR": "Excelência em engenharia respaldada por patentes",
+    "es-MX": "Excelencia en ingeniería respaldada por patentes"
   },
   "patents-manufacturing.p.1": {
     "en": "Tejoy holds over",
-    "pt-BR": "A Tejoy detém mais de"
+    "pt-BR": "A Tejoy detém mais de",
+    "es-MX": "Tejoy cuenta con más de"
   },
   "patents-manufacturing.strong.1": {
     "en": "200 patents",
-    "pt-BR": "200 patentes"
+    "pt-BR": "200 patentes",
+    "es-MX": "200 patentes"
   },
   "patents-manufacturing.strong.2": {
     "en": "covering mounting systems, cable connectors, power adapters, and protective enclosures.",
-    "pt-BR": "que cobrem sistemas de fixação, conectores de cabo, adaptadores de energia e cases de proteção."
+    "pt-BR": "que cobrem sistemas de fixação, conectores de cabo, adaptadores de energia e cases de proteção.",
+    "es-MX": "que cubren sistemas de montaje, conectores de cable, adaptadores de alimentación y carcasas de protección."
   },
   "patents-manufacturing.h2.2": {
     "en": "Patent Portfolio",
-    "pt-BR": "Portfólio de patentes"
+    "pt-BR": "Portfólio de patentes",
+    "es-MX": "Portafolio de patentes"
   },
   "patents-manufacturing.th.1": {
     "en": "Category",
-    "pt-BR": "Categoria"
+    "pt-BR": "Categoria",
+    "es-MX": "Categoría"
   },
   "patents-manufacturing.th.2": {
     "en": "Count",
-    "pt-BR": "Quantidade"
+    "pt-BR": "Quantidade",
+    "es-MX": "Cantidad"
   },
   "patents-manufacturing.th.3": {
     "en": "Focus",
-    "pt-BR": "Foco"
+    "pt-BR": "Foco",
+    "es-MX": "Enfoque"
   },
   "patents-manufacturing.td.1": {
     "en": "Invention Patents",
-    "pt-BR": "Patentes de invenção"
+    "pt-BR": "Patentes de invenção",
+    "es-MX": "Patentes de invención"
   },
   "patents-manufacturing.td.2": {
     "en": "Connector design, mounting mechanisms",
-    "pt-BR": "Projeto de conectores, mecanismos de fixação"
+    "pt-BR": "Projeto de conectores, mecanismos de fixação",
+    "es-MX": "Diseño de conectores, mecanismos de montaje"
   },
   "patents-manufacturing.td.3": {
     "en": "Utility Patents",
-    "pt-BR": "Patentes de modelo de utilidade"
+    "pt-BR": "Patentes de modelo de utilidade",
+    "es-MX": "Patentes de modelo de utilidad"
   },
   "patents-manufacturing.td.4": {
     "en": "Structural improvements, weatherproofing",
-    "pt-BR": "Melhorias estruturais, resistência às intempéries"
+    "pt-BR": "Melhorias estruturais, resistência às intempéries",
+    "es-MX": "Mejoras estructurales, resistencia a la intemperie"
   },
   "patents-manufacturing.td.5": {
     "en": "Design Patents",
-    "pt-BR": "Patentes de design"
+    "pt-BR": "Patentes de design",
+    "es-MX": "Patentes de diseño"
   },
   "patents-manufacturing.td.6": {
     "en": "Product appearance, packaging",
-    "pt-BR": "Aparência do produto, embalagem"
+    "pt-BR": "Aparência do produto, embalagem",
+    "es-MX": "Apariencia del producto, empaque"
   },
   "patents-manufacturing.h2.3": {
     "en": "Manufacturing Capacity",
-    "pt-BR": "Capacidade fabril"
+    "pt-BR": "Capacidade fabril",
+    "es-MX": "Capacidad de fabricación"
   },
   "patents-manufacturing.li.1": {
     "en": "5,000 sqm production plant",
-    "pt-BR": "Fábrica de produção de 5.000 m²"
+    "pt-BR": "Fábrica de produção de 5.000 m²",
+    "es-MX": "Planta de producción de 5,000 m²"
   },
   "patents-manufacturing.li.2": {
     "en": "100+ production and testing equipment units",
-    "pt-BR": "Mais de 100 equipamentos de produção e testes"
+    "pt-BR": "Mais de 100 equipamentos de produção e testes",
+    "es-MX": "Más de 100 equipos de producción y pruebas"
   },
   "patents-manufacturing.strong.3": {
     "en": "Monthly Output:",
-    "pt-BR": "Produção mensal:"
+    "pt-BR": "Produção mensal:",
+    "es-MX": "Producción mensual:"
   },
   "patents-manufacturing.strong.4": {
     "en": "400,000-600,000 units",
-    "pt-BR": "400.000 a 600.000 unidades"
+    "pt-BR": "400.000 a 600.000 unidades",
+    "es-MX": "400,000-600,000 unidades"
   },
   "patents-manufacturing.strong.5": {
     "en": "Annual Export:",
-    "pt-BR": "Exportação anual:"
+    "pt-BR": "Exportação anual:",
+    "es-MX": "Exportación anual:"
   },
   "patents-manufacturing.strong.6": {
     "en": "$20-30M USD",
-    "pt-BR": "US$ 20 a 30 milhões"
+    "pt-BR": "US$ 20 a 30 milhões",
+    "es-MX": "$20-30 millones USD"
   },
   "patents-manufacturing.strong.7": {
     "en": "Team:",
-    "pt-BR": "Equipe:"
+    "pt-BR": "Equipe:",
+    "es-MX": "Equipo:"
   },
   "patents-manufacturing.strong.8": {
     "en": "150+ employees, 20+ R&D engineers",
-    "pt-BR": "mais de 150 colaboradores, mais de 20 engenheiros de P&amp;D"
+    "pt-BR": "mais de 150 colaboradores, mais de 20 engenheiros de P&amp;D",
+    "es-MX": "más de 150 empleados, más de 20 ingenieros de I+D"
   },
   "patents-manufacturing.meta.title": {
     "en": "Tejoy | Patents & Manufacturing Capacity - 200+ Patents-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Patentes e Capacidade Fabril - Mais de 200 Patentes - Tejoy | Acessórios Premium para Starlink"
+    "pt-BR": "Tejoy | Patentes e Capacidade Fabril - Mais de 200 Patentes - Tejoy | Acessórios Premium para Starlink",
+    "es-MX": "Tejoy | Patentes y Capacidad de Fabricación - Más de 200 Patentes-Tejoy | Accesorios Premium para Starlink, Soportes &amp; Soluciones de Energía"
   },
   "patents-manufacturing.meta.desc": {
     "en": "Tejoy manufacturing: 200+ patents, 400K-600K monthly capacity, 150+ employees, 15+ years of experience in Starlink-compatible accessory manufacturing.",
-    "pt-BR": "Fabricação Tejoy: mais de 200 patentes, capacidade mensal de 400 mil a 600 mil unidades, mais de 150 colaboradores e 15+ anos de experiência na fabricação de acessórios compatíveis com Starlink."
+    "pt-BR": "Fabricação Tejoy: mais de 200 patentes, capacidade mensal de 400 mil a 600 mil unidades, mais de 150 colaboradores e 15+ anos de experiência na fabricação de acessórios compatíveis com Starlink.",
+    "es-MX": "Fabricación Tejoy: más de 200 patentes, capacidad mensual de 400 mil a 600 mil unidades, más de 150 empleados y más de 15 años de experiencia fabricando accesorios compatibles con Starlink."
   },
   "patents-manufacturing.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de alimentación, cables y estuches de protección. Más de 15 años de experiencia y más de 200 patentes. OEM/ODM disponible. No está afiliada a SpaceX."
   },
   "patents-manufacturing.ld.name.3": {
     "en": "Patents & Manufacturing",
-    "pt-BR": "Patentes e Capacidade Fabril"
+    "pt-BR": "Patentes e Capacidade Fabril",
+    "es-MX": "Patentes y Fabricación"
   }
 }

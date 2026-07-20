@@ -1,74 +1,92 @@
 {
   "starlink-compatible-accessories.page-header-title.1": {
     "en": "Tejoy Starlink-Compatible Accessories - Mounts, Power, Cables",
-    "pt-BR": "Acessórios Tejoy compatíveis com Starlink — Suportes, Energia, Cabos"
+    "pt-BR": "Acessórios Tejoy compatíveis com Starlink — Suportes, Energia, Cabos",
+    "es-MX": "Accesorios Tejoy compatibles con Starlink - Soportes, Energía, Cables"
   },
   "starlink-compatible-accessories.page-header-subtitle.1": {
     "en": "Mounts, power adapters, cables and protective cases.",
-    "pt-BR": "Suportes, adaptadores de energia, cabos e cases de proteção."
+    "pt-BR": "Suportes, adaptadores de energia, cabos e cases de proteção.",
+    "es-MX": "Soportes, adaptadores de energía, cables y estuches de protección."
   },
   "starlink-compatible-accessories.h2.1": {
     "en": "Complete Range of Starlink-Compatible Accessories",
-    "pt-BR": "Linha completa de acessórios compatíveis com Starlink"
+    "pt-BR": "Linha completa de acessórios compatíveis com Starlink",
+    "es-MX": "Línea completa de accesorios compatibles con Starlink"
   },
   "starlink-compatible-accessories.p.1": {
     "en": "Tejoy offers comprehensive accessories compatible with all major Starlink terminal types.",
-    "pt-BR": "A Tejoy oferece acessórios completos, compatíveis com todos os principais tipos de terminal Starlink."
+    "pt-BR": "A Tejoy oferece acessórios completos, compatíveis com todos os principais tipos de terminal Starlink.",
+    "es-MX": "Tejoy ofrece accesorios completos, compatibles con todos los tipos principales de terminal Starlink."
   },
   "starlink-compatible-accessories.th.1": {
     "en": "Terminal",
-    "pt-BR": "Terminal"
+    "pt-BR": "Terminal",
+    "es-MX": "Terminal"
   },
   "starlink-compatible-accessories.th.5": {
     "en": "Protective",
-    "pt-BR": "Proteção"
+    "pt-BR": "Proteção",
+    "es-MX": "Protección"
   },
   "starlink-compatible-accessories.h2.3": {
     "en": "Product Categories",
-    "pt-BR": "Categorias de produtos"
+    "pt-BR": "Categorias de produtos",
+    "es-MX": "Categorías de productos"
   },
   "starlink-compatible-accessories.p.2": {
     "en": "Pipe, wall, roof, adjustable angle, ground, and RV mounts.",
-    "pt-BR": "Suportes de tubo, de parede, para telhado, de ângulo ajustável, de solo e para motorhome."
+    "pt-BR": "Suportes de tubo, de parede, para telhado, de ângulo ajustável, de solo e para motorhome.",
+    "es-MX": "Soportes de tubo, de pared, para techo, de ángulo ajustable, de piso y para casa rodante."
   },
   "starlink-compatible-accessories.h3.2": {
     "en": "Power Adapters",
-    "pt-BR": "Adaptadores de energia"
+    "pt-BR": "Adaptadores de energia",
+    "es-MX": "Adaptadores de energía"
   },
   "starlink-compatible-accessories.p.3": {
     "en": "12V DC adapters for vehicle/RV, DC extension cables.",
-    "pt-BR": "Adaptadores 12V DC para veículo/motorhome e cabos de extensão DC."
+    "pt-BR": "Adaptadores 12V DC para veículo/motorhome e cabos de extensão DC.",
+    "es-MX": "Adaptadores de 12V CC para vehículo o casa rodante y cables de extensión de CC."
   },
   "starlink-compatible-accessories.h3.3": {
     "en": "Cables &amp; Connectivity",
-    "pt-BR": "Cabos e conectividade"
+    "pt-BR": "Cabos e conectividade",
+    "es-MX": "Cables &amp; conectividad"
   },
   "starlink-compatible-accessories.p.4": {
     "en": "Waterproof outdoor Ethernet, DC power cables, cable management.",
-    "pt-BR": "Ethernet externo à prova d'água, cabos de energia DC e organização de cabos."
+    "pt-BR": "Ethernet externo à prova d'água, cabos de energia DC e organização de cabos.",
+    "es-MX": "Ethernet impermeable para exteriores, cables de alimentación de CC y organización de cables."
   },
   "starlink-compatible-accessories.h3.4": {
     "en": "Protective Accessories",
-    "pt-BR": "Acessórios de proteção"
+    "pt-BR": "Acessórios de proteção",
+    "es-MX": "Accesorios de protección"
   },
   "starlink-compatible-accessories.p.5": {
     "en": "Weatherproof covers, protective cases, cable entry seals.",
-    "pt-BR": "Capas resistentes às intempéries, cases de proteção e vedações de entrada de cabo."
+    "pt-BR": "Capas resistentes às intempéries, cases de proteção e vedações de entrada de cabo.",
+    "es-MX": "Cubiertas resistentes a la intemperie, estuches de protección y sellos de entrada de cable."
   },
   "starlink-compatible-accessories.meta.title": {
     "en": "Tejoy | Starlink-Compatible Accessories - Mounts, Power, Cables-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios compatíveis com Starlink — Suportes, Energia, Cabos"
+    "pt-BR": "Tejoy | Acessórios compatíveis com Starlink — Suportes, Energia, Cabos",
+    "es-MX": "Tejoy | Accesorios compatibles con Starlink - Soportes, Energía, Cables-Tejoy | Accesorios Starlink premium, soportes &amp; soluciones de energía"
   },
   "starlink-compatible-accessories.meta.desc": {
     "en": "Complete range of Tejoy Starlink-compatible accessories: mounts, power adapters, cables, protective cases for Mini, Standard, Performance & Enterprise terminals.",
-    "pt-BR": "Linha completa de acessórios Tejoy compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção para terminais Mini, Standard, Performance e Enterprise."
+    "pt-BR": "Linha completa de acessórios Tejoy compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção para terminais Mini, Standard, Performance e Enterprise.",
+    "es-MX": "Línea completa de accesorios Tejoy compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección para terminales Mini, Standard, Performance y Enterprise."
   },
   "starlink-compatible-accessories.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. 15+ años de experiencia, 200+ patentes. OEM/ODM disponible. No afiliada a SpaceX."
   },
   "starlink-compatible-accessories.ld.name.3": {
     "en": "Starlink Compatible Accessories",
-    "pt-BR": "Acessórios compatíveis com Starlink"
+    "pt-BR": "Acessórios compatíveis com Starlink",
+    "es-MX": "Accesorios compatibles con Starlink"
   }
 }

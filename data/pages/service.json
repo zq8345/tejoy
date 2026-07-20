@@ -1,74 +1,92 @@
 {
   "service.page-header-subtitle.1": {
     "en": "Application guides and setup advice for Starlink accessories.",
-    "pt-BR": "Guias de aplicação e dicas de instalação para acessórios Starlink."
+    "pt-BR": "Guias de aplicação e dicas de instalação para acessórios Starlink.",
+    "es-MX": "Guías de aplicación y consejos de instalación para accesorios Starlink."
   },
   "service.blog-sidebar-text.1": {
     "en": "Buyer guide for Starlink power adapters. Compare 12V DC, stock AC, and USB-C PD options. Recommendations by use case: RV, off-grid, home, and vehicle installations.",
-    "pt-BR": "Guia de compra de adaptadores de energia para Starlink. Compare as opções 12V DC, AC original e USB-C PD. Recomendações por caso de uso: motorhome, off-grid, residência e instalações veiculares."
+    "pt-BR": "Guia de compra de adaptadores de energia para Starlink. Compare as opções 12V DC, AC original e USB-C PD. Recomendações por caso de uso: motorhome, off-grid, residência e instalações veiculares.",
+    "es-MX": "Guía de compra de adaptadores de energía para Starlink. Compara las opciones de 12V CC, AC original y USB-C PD. Recomendaciones por caso de uso: casa rodante, sin red eléctrica, hogar e instalaciones en vehículos."
   },
   "service.a.3": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
-    "pt-BR": "Como instalar a Starlink Mini para acampar de motorhome: guia completo"
+    "pt-BR": "Como instalar a Starlink Mini para acampar de motorhome: guia completo",
+    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
   },
   "service.blog-sidebar-text.2": {
     "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
-    "pt-BR": "Guia completo passo a passo para instalar a Starlink Mini em viagens de motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento."
+    "pt-BR": "Guia completo passo a passo para instalar a Starlink Mini em viagens de motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento.",
+    "es-MX": "Guía completa paso a paso para instalar la Starlink Mini en viajes en casa rodante. Lista de verificación de equipo, montaje, alimentación, paso de cables y solución de problemas para tener internet confiable en cualquier campamento."
   },
   "service.blog-sidebar-text.4": {
     "en": "Global shipping and logistics guide for Tejoy. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
-    "pt-BR": "Guia global de envio e logística da Tejoy. Opções de expresso, frete aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio."
+    "pt-BR": "Guia global de envio e logística da Tejoy. Opções de expresso, frete aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio.",
+    "es-MX": "Guía global de envíos y logística de Tejoy. Opciones de mensajería exprés, flete aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío."
   },
   "service.blog-sidebar-text.5": {
     "en": "Complete quality control standards for Tejoy Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
-    "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações."
+    "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações.",
+    "es-MX": "Estándares completos de control de calidad para los accesorios Starlink de Tejoy. Proceso de control de calidad en 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones."
   },
   "service.a.11": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
-    "pt-BR": "Fabricação de acessórios Starlink sob medida: do protótipo à produção"
+    "pt-BR": "Fabricação de acessórios Starlink sob medida: do protótipo à produção",
+    "es-MX": "Fabricación de accesorios Starlink a la medida: del prototipo a la producción"
   },
   "service.blog-sidebar-text.6": {
     "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies from a 15-year manufacturer.",
-    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de um fabricante com 15 anos de experiência."
+    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de um fabricante com 15 anos de experiência.",
+    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio de un fabricante con 15 años de experiencia."
   },
   "service.a.13": {
     "en": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts",
-    "pt-BR": "Guia de pedidos em grande volume: MOQ, prazo de produção e preços para suportes Starlink"
+    "pt-BR": "Guia de pedidos em grande volume: MOQ, prazo de produção e preços para suportes Starlink",
+    "es-MX": "Guía de pedidos al mayoreo: MOQ, tiempo de entrega y precios de soportes Starlink"
   },
   "service.blog-sidebar-text.7": {
     "en": "Complete bulk ordering guide for Tejoy Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
-    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de produção, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores."
+    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de produção, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores.",
+    "es-MX": "Guía completa de pedidos al mayoreo de los accesorios Starlink de Tejoy. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores."
   },
   "service.a.15": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
-    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos ao ar livre"
+    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos ao ar livre",
+    "es-MX": "Instalación de la caja de conexiones Starlink para organizar cables en exteriores"
   },
   "service.blog-sidebar-text.8": {
     "en": "Installation guide for Tejoy Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
-    "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Compartimento à prova de intempéries IP66 para emendas de cabos Starlink, alojamento de adaptador 12V e gerenciamento de cabos ao ar livre."
+    "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Compartimento à prova de intempéries IP66 para emendas de cabos Starlink, alojamento de adaptador 12V e gerenciamento de cabos ao ar livre.",
+    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Tejoy. Gabinete IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y organización de cables en exteriores."
   },
   "service.blog-sidebar-text.9": {
     "en": "Guide to installing Starlink without drilling. No-drill methods for renters: railing mounts, window sill mounts, weighted bases, tripods, and cable routing without wall penetration.",
-    "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes de guarda-corpo, suportes de peitoril, bases com peso, tripés e passagem de cabos sem perfurar a parede."
+    "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes de guarda-corpo, suportes de peitoril, bases com peso, tripés e passagem de cabos sem perfurar a parede.",
+    "es-MX": "Guía para instalar Starlink sin taladrar. Métodos sin perforación para quienes rentan: soportes para barandal, soportes para repisa de ventana, bases con contrapeso, trípodes y paso de cables sin perforar la pared."
   },
   "service.blog-sidebar-text.10": {
     "en": "Comprehensive comparison of Starlink wall mount vs roof mount for home users. Pros and cons, decision guide, case studies, and FAQ for choosing the right residential mounting solution.",
-    "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em residências. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial ideal."
+    "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em residências. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial ideal.",
+    "es-MX": "Comparación completa entre el soporte de pared y el soporte de techo para Starlink en casa. Ventajas y desventajas, guía de decisión, casos de estudio y preguntas frecuentes para elegir la solución de montaje residencial ideal."
   },
   "service.sidebar-title.2": {
     "en": "News",
-    "pt-BR": "Novidades"
+    "pt-BR": "Novidades",
+    "es-MX": "Novedades"
   },
   "service.a.27": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
-    "pt-BR": "Como instalar a Starlink Mini para acampar de motorhome: guia completo"
+    "pt-BR": "Como instalar a Starlink Mini para acampar de motorhome: guia completo",
+    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
   },
   "service.meta.title": {
     "en": "Service-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Guias-Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia"
+    "pt-BR": "Guias-Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia",
+    "es-MX": "Guías-Tejoy | Accesorios premium para Starlink, soportes &amp; soluciones de energía"
   },
   "service.meta.desc": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. 15+ años de experiencia, 200+ patentes. OEM/ODM disponible. Sin afiliación con SpaceX."
   }
 }

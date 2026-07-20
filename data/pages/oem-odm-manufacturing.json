@@ -1,114 +1,142 @@
 {
   "oem-odm-manufacturing.page-header-title.1": {
     "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing",
-    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink"
+    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink",
+    "es-MX": "Fabricación OEM/ODM de accesorios compatibles con Starlink"
   },
   "oem-odm-manufacturing.page-header-subtitle.1": {
     "en": "Custom manufacturing for Starlink accessory brands.",
-    "pt-BR": "Fabricação sob medida para marcas de acessórios Starlink."
+    "pt-BR": "Fabricação sob medida para marcas de acessórios Starlink.",
+    "es-MX": "Fabricación personalizada para marcas de accesorios Starlink."
   },
   "oem-odm-manufacturing.h2.1": {
     "en": "Your Partner in Starlink Accessory Manufacturing",
-    "pt-BR": "Seu parceiro na fabricação de acessórios Starlink"
+    "pt-BR": "Seu parceiro na fabricação de acessórios Starlink",
+    "es-MX": "Tu aliado en la fabricación de accesorios Starlink"
   },
   "oem-odm-manufacturing.p.1": {
     "en": "Tejoy offers comprehensive OEM and ODM manufacturing services for Starlink-compatible accessories. 15+ years experience, 200+ patents.",
-    "pt-BR": "A Tejoy oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes."
+    "pt-BR": "A Tejoy oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes.",
+    "es-MX": "Tejoy ofrece servicios completos de fabricación OEM y ODM para accesorios compatibles con Starlink. Más de 15 años de experiencia y 200+ patentes."
   },
   "oem-odm-manufacturing.h2.2": {
     "en": "OEM Services",
-    "pt-BR": "Serviços OEM"
+    "pt-BR": "Serviços OEM",
+    "es-MX": "Servicios OEM"
   },
   "oem-odm-manufacturing.strong.1": {
     "en": "Custom Dimensions",
-    "pt-BR": "Dimensões personalizadas"
+    "pt-BR": "Dimensões personalizadas",
+    "es-MX": "Medidas personalizadas"
   },
   "oem-odm-manufacturing.strong.2": {
     "en": "— Adjust cable length, connector types, bracket sizes",
-    "pt-BR": "— Ajuste o comprimento dos cabos, os tipos de conector e os tamanhos dos suportes"
+    "pt-BR": "— Ajuste o comprimento dos cabos, os tipos de conector e os tamanhos dos suportes",
+    "es-MX": "— Ajusta el largo del cable, los tipos de conector y el tamaño de las bases"
   },
   "oem-odm-manufacturing.strong.3": {
     "en": "Custom Packaging",
-    "pt-BR": "Embalagem personalizada"
+    "pt-BR": "Embalagem personalizada",
+    "es-MX": "Empaque personalizado"
   },
   "oem-odm-manufacturing.strong.4": {
     "en": "— Retail-ready with your branding",
-    "pt-BR": "— Pronta para o varejo, com a sua marca"
+    "pt-BR": "— Pronta para o varejo, com a sua marca",
+    "es-MX": "— Listo para venta al menudeo, con tu marca"
   },
   "oem-odm-manufacturing.strong.5": {
     "en": "Specification Tuning",
-    "pt-BR": "Ajuste de especificações"
+    "pt-BR": "Ajuste de especificações",
+    "es-MX": "Ajuste de especificaciones"
   },
   "oem-odm-manufacturing.strong.6": {
     "en": "— Materials, colors, performance parameters",
-    "pt-BR": "— Materiais, cores e parâmetros de desempenho"
+    "pt-BR": "— Materiais, cores e parâmetros de desempenho",
+    "es-MX": "— Materiales, colores y parámetros de desempeño"
   },
   "oem-odm-manufacturing.strong.7": {
     "en": "Quality Testing",
-    "pt-BR": "Testes de qualidade"
+    "pt-BR": "Testes de qualidade",
+    "es-MX": "Pruebas de calidad"
   },
   "oem-odm-manufacturing.strong.8": {
     "en": "— Full standard testing process",
-    "pt-BR": "— Processo completo de testes padronizados"
+    "pt-BR": "— Processo completo de testes padronizados",
+    "es-MX": "— Proceso completo de pruebas estandarizadas"
   },
   "oem-odm-manufacturing.h2.3": {
     "en": "ODM Services",
-    "pt-BR": "Serviços ODM"
+    "pt-BR": "Serviços ODM",
+    "es-MX": "Servicios ODM"
   },
   "oem-odm-manufacturing.strong.9": {
     "en": "Concept Development",
-    "pt-BR": "Desenvolvimento de conceito"
+    "pt-BR": "Desenvolvimento de conceito",
+    "es-MX": "Desarrollo de concepto"
   },
   "oem-odm-manufacturing.strong.10": {
     "en": "— Our R&D team handles design from your idea",
-    "pt-BR": "— Nossa equipe de P&amp;D cuida do projeto a partir da sua ideia"
+    "pt-BR": "— Nossa equipe de P&amp;D cuida do projeto a partir da sua ideia",
+    "es-MX": "— Nuestro equipo de I+D se encarga del diseño a partir de tu idea"
   },
   "oem-odm-manufacturing.strong.11": {
     "en": "Prototyping",
-    "pt-BR": "Prototipagem"
+    "pt-BR": "Prototipagem",
+    "es-MX": "Prototipado"
   },
   "oem-odm-manufacturing.strong.12": {
     "en": "— Rapid prototypes for functional testing",
-    "pt-BR": "— Protótipos rápidos para testes funcionais"
+    "pt-BR": "— Protótipos rápidos para testes funcionais",
+    "es-MX": "— Prototipos rápidos para pruebas funcionales"
   },
   "oem-odm-manufacturing.strong.13": {
     "en": "Mass Production",
-    "pt-BR": "Produção em larga escala"
+    "pt-BR": "Produção em larga escala",
+    "es-MX": "Producción en masa"
   },
   "oem-odm-manufacturing.strong.14": {
     "en": "— Seamless prototype to volume manufacturing",
-    "pt-BR": "— Transição perfeita do protótipo à produção em volume"
+    "pt-BR": "— Transição perfeita do protótipo à produção em volume",
+    "es-MX": "— Transición fluida del prototipo a la producción en volumen"
   },
   "oem-odm-manufacturing.h2.4": {
     "en": "Why Tejoy?",
-    "pt-BR": "Por que a Tejoy?"
+    "pt-BR": "Por que a Tejoy?",
+    "es-MX": "¿Por qué Tejoy?"
   },
   "oem-odm-manufacturing.li.1": {
     "en": "400,000-600,000 units monthly capacity",
-    "pt-BR": "Capacidade mensal de 400.000 a 600.000 unidades"
+    "pt-BR": "Capacidade mensal de 400.000 a 600.000 unidades",
+    "es-MX": "Capacidad mensual de 400,000 a 600,000 unidades"
   },
   "oem-odm-manufacturing.li.2": {
     "en": "20+ engineers, 200+ patents",
-    "pt-BR": "Mais de 20 engenheiros e 200+ patentes"
+    "pt-BR": "Mais de 20 engenheiros e 200+ patentes",
+    "es-MX": "Más de 20 ingenieros y 200+ patentes"
   },
   "oem-odm-manufacturing.li.3": {
     "en": "ISO 9001, RoHS, CE, FCC certified",
-    "pt-BR": "Certificações ISO 9001, RoHS, CE e FCC"
+    "pt-BR": "Certificações ISO 9001, RoHS, CE e FCC",
+    "es-MX": "Certificaciones ISO 9001, RoHS, CE y FCC"
   },
   "oem-odm-manufacturing.li.4": {
     "en": "US warehousing, worldwide DDP shipping",
-    "pt-BR": "Armazenagem nos EUA e envio DDP para o mundo todo"
+    "pt-BR": "Armazenagem nos EUA e envio DDP para o mundo todo",
+    "es-MX": "Almacenamiento en EE. UU. y envíos DDP a todo el mundo"
   },
   "oem-odm-manufacturing.meta.title": {
     "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink-Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink-Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "Fabricación OEM/ODM de Accesorios Compatibles con Starlink-Tejoy | Accesorios Premium para Starlink: Soportes y Soluciones de Energía"
   },
   "oem-odm-manufacturing.meta.desc": {
     "en": "Tejoy OEM/ODM manufacturing services for Starlink-compatible accessories. Custom branding, packaging, and specifications. MOQ 100+ pieces.",
-    "pt-BR": "Serviços de fabricação OEM/ODM da Tejoy para acessórios compatíveis com Starlink. Marca, embalagem e especificações personalizadas. MOQ a partir de 100 peças."
+    "pt-BR": "Serviços de fabricação OEM/ODM da Tejoy para acessórios compatíveis com Starlink. Marca, embalagem e especificações personalizadas. MOQ a partir de 100 peças.",
+    "es-MX": "Servicios de fabricación OEM/ODM de Tejoy para accesorios compatibles con Starlink. Marca, empaque y especificaciones personalizadas. MOQ desde 100 piezas."
   },
   "oem-odm-manufacturing.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de alimentación, cables y estuches protectores. Más de 15 años de experiencia y 200+ patentes. OEM/ODM disponible. No afiliada a SpaceX."
   }
 }

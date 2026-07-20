@@ -1,66 +1,82 @@
 {
   "industrial.page-header-subtitle.1": {
     "en": "Rugged Starlink accessories for industrial deployments.",
-    "pt-BR": "Acessórios Starlink robustos para implantações industriais."
+    "pt-BR": "Acessórios Starlink robustos para implantações industriais.",
+    "es-MX": "Accesorios Starlink resistentes para instalaciones industriales."
   },
   "industrial.blog-sidebar-text.1": {
     "en": "Global shipping and logistics guide for Tejoy. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
-    "pt-BR": "Guia global de envio e logística da Tejoy. Opções de frete expresso, aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio."
+    "pt-BR": "Guia global de envio e logística da Tejoy. Opções de frete expresso, aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio.",
+    "es-MX": "Guía global de envío y logística de Tejoy. Opciones de flete exprés, aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío."
   },
   "industrial.blog-sidebar-text.2": {
     "en": "Complete quality control standards for Tejoy Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
-    "pt-BR": "Padrões completos de controle de qualidade dos acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produtos, classificação de defeitos e conformidade com certificações."
+    "pt-BR": "Padrões completos de controle de qualidade dos acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produtos, classificação de defeitos e conformidade com certificações.",
+    "es-MX": "Estándares completos de control de calidad de los accesorios Starlink de Tejoy. Proceso de QC de 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones."
   },
   "industrial.a.5": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
-    "pt-BR": "Fabricação de Acessórios Starlink Personalizados: Do Protótipo à Produção"
+    "pt-BR": "Fabricação de Acessórios Starlink Personalizados: Do Protótipo à Produção",
+    "es-MX": "Fabricación de accesorios Starlink personalizados: del prototipo a la producción"
   },
   "industrial.blog-sidebar-text.3": {
     "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies from a 15-year manufacturer.",
-    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de uma fabricante com 15 anos de experiência."
+    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de uma fabricante com 15 anos de experiência.",
+    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio de un fabricante con 15 años de experiencia."
   },
   "industrial.a.7": {
     "en": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts",
-    "pt-BR": "Guia de Pedidos em Grande Volume: MOQ, Prazo de Entrega e Preços para Suportes Starlink"
+    "pt-BR": "Guia de Pedidos em Grande Volume: MOQ, Prazo de Entrega e Preços para Suportes Starlink",
+    "es-MX": "Guía de pedidos por volumen: MOQ, tiempo de entrega y precios para soportes Starlink"
   },
   "industrial.blog-sidebar-text.4": {
     "en": "Complete bulk ordering guide for Tejoy Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
-    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de entrega, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores."
+    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de entrega, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores.",
+    "es-MX": "Guía completa de pedidos por volumen de los accesorios Starlink de Tejoy. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores."
   },
   "industrial.a.9": {
     "en": "OEM Starlink-Compatible Accessories: What Buyers Should Verify",
-    "pt-BR": "Acessórios OEM Compatíveis com Starlink: O Que os Compradores Devem Verificar"
+    "pt-BR": "Acessórios OEM Compatíveis com Starlink: O Que os Compradores Devem Verificar",
+    "es-MX": "Accesorios OEM compatibles con Starlink: qué deben verificar los compradores"
   },
   "industrial.blog-sidebar-text.5": {
     "en": "Guide to choosing an OEM manufacturer for Starlink-compatible accessories. What to verify: capacity, QC, customization, IP, and logistics.",
-    "pt-BR": "Guia para escolher uma fabricante OEM de acessórios compatíveis com Starlink. O que verificar: capacidade, QC, personalização, propriedade intelectual e logística."
+    "pt-BR": "Guia para escolher uma fabricante OEM de acessórios compatíveis com Starlink. O que verificar: capacidade, QC, personalização, propriedade intelectual e logística.",
+    "es-MX": "Guía para elegir un fabricante OEM de accesorios compatibles con Starlink. Qué verificar: capacidad, QC, personalización, propiedad intelectual y logística."
   },
   "industrial.a.11": {
     "en": "Next-Generation Power Supplies: High-Efficiency, Stable Power Solutions for Modern Industries",
-    "pt-BR": "Fontes de Alimentação de Nova Geração: Soluções de Energia Estáveis e de Alta Eficiência para as Indústrias Modernas"
+    "pt-BR": "Fontes de Alimentação de Nova Geração: Soluções de Energia Estáveis e de Alta Eficiência para as Indústrias Modernas",
+    "es-MX": "Fuentes de alimentación de nueva generación: soluciones de energía estables y de alta eficiencia para las industrias modernas"
   },
   "industrial.blog-sidebar-text.6": {
     "en": "Explore how next-generation power supplies enhance efficiency and equipment stability. This guide covers high-efficiency power solutions, key technologies, market applications, and setup best practices for reliable industrial performance.",
-    "pt-BR": "Descubra como as fontes de alimentação de nova geração aumentam a eficiência e a estabilidade dos equipamentos. Este guia aborda soluções de energia de alta eficiência, tecnologias-chave, aplicações de mercado e melhores práticas de instalação para um desempenho industrial confiável."
+    "pt-BR": "Descubra como as fontes de alimentação de nova geração aumentam a eficiência e a estabilidade dos equipamentos. Este guia aborda soluções de energia de alta eficiência, tecnologias-chave, aplicações de mercado e melhores práticas de instalação para um desempenho industrial confiável.",
+    "es-MX": "Descubre cómo las fuentes de alimentación de nueva generación mejoran la eficiencia y la estabilidad de los equipos. Esta guía cubre soluciones de energía de alta eficiencia, tecnologías clave, aplicaciones de mercado y mejores prácticas de instalación para un desempeño industrial confiable."
   },
   "industrial.sidebar-title.2": {
     "en": "News",
-    "pt-BR": "Notícias"
+    "pt-BR": "Notícias",
+    "es-MX": "Noticias"
   },
   "industrial.a.20": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
-    "pt-BR": "Fabricação de Acessórios Starlink Personalizados: Do Protótipo à Produção"
+    "pt-BR": "Fabricação de Acessórios Starlink Personalizados: Do Protótipo à Produção",
+    "es-MX": "Fabricación de accesorios Starlink personalizados: del prototipo a la producción"
   },
   "industrial.meta.title": {
     "en": "Industrial-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Industrial - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+    "pt-BR": "Industrial - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "Industrial-Tejoy | Accesorios Starlink premium, soportes &amp; soluciones de energía"
   },
   "industrial.meta.desc": {
     "en": "Industrial mounting systems, heavy-duty solutions, commercial applications",
-    "pt-BR": "Sistemas de fixação industrial, soluções de alta resistência e aplicações comerciais para Starlink."
+    "pt-BR": "Sistemas de fixação industrial, soluções de alta resistência e aplicações comerciais para Starlink.",
+    "es-MX": "Sistemas de montaje industrial, soluciones de alta resistencia, aplicaciones comerciales"
   },
   "industrial.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink, incluidos soportes, adaptadores de corriente, cables y estuches de protección. 15+ años de experiencia, 200+ patentes. OEM/ODM disponible. No afiliado a SpaceX."
   }
 }

@@ -1,82 +1,102 @@
 {
   "mounts.page-header-subtitle.1": {
     "en": "Mounting brackets and hardware for Starlink terminals.",
-    "pt-BR": "Suportes e ferragens de fixação para terminais Starlink."
+    "pt-BR": "Suportes e ferragens de fixação para terminais Starlink.",
+    "es-MX": "Bases de montaje y herrajes para terminales Starlink."
   },
   "mounts.a.3": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
-    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos"
+    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos",
+    "es-MX": "Instalación de la caja de conexiones Starlink para el manejo de cables en exteriores"
   },
   "mounts.blog-sidebar-text.2": {
     "en": "Installation guide for Tejoy Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
-    "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Invólucro à prova de intempéries IP66 para emendas de cabos Starlink, alojamento do adaptador 12V e gerenciamento de cabos em ambientes externos."
+    "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Invólucro à prova de intempéries IP66 para emendas de cabos Starlink, alojamento do adaptador 12V e gerenciamento de cabos em ambientes externos.",
+    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Tejoy. Caja IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y manejo de cables en exteriores."
   },
   "mounts.blog-sidebar-text.3": {
     "en": "Guide to installing Starlink without drilling. No-drill methods for renters: railing mounts, window sill mounts, weighted bases, tripods, and cable routing without wall penetration.",
-    "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes para guarda-corpo, suportes para peitoril de janela, bases com peso, tripés e passagem de cabos sem perfurar a parede."
+    "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes para guarda-corpo, suportes para peitoril de janela, bases com peso, tripés e passagem de cabos sem perfurar a parede.",
+    "es-MX": "Guía para instalar Starlink sin taladrar. Métodos sin perforación para quienes rentan: soportes para barandal, soportes para repisa de ventana, bases con peso, trípodes y paso de cables sin perforar la pared."
   },
   "mounts.blog-sidebar-text.4": {
     "en": "Comprehensive comparison of Starlink wall mount vs roof mount for home users. Pros and cons, decision guide, case studies, and FAQ for choosing the right residential mounting solution.",
-    "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em uso residencial. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial certa."
+    "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em uso residencial. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial certa.",
+    "es-MX": "Comparación completa entre el soporte de pared y el soporte de techo de Starlink para uso doméstico. Ventajas y desventajas, guía de decisión, casos de estudio y preguntas frecuentes para elegir la solución de montaje residencial adecuada."
   },
   "mounts.a.9": {
     "en": "Flat Roof Mounting Solutions for Starlink Terminals: Complete Guide",
-    "pt-BR": "Soluções de fixação em telhado plano para terminais Starlink: guia completo"
+    "pt-BR": "Soluções de fixação em telhado plano para terminais Starlink: guia completo",
+    "es-MX": "Soluciones de montaje en techo plano para terminales Starlink: guía completa"
   },
   "mounts.blog-sidebar-text.5": {
     "en": "Guide to flat roof mounting for Starlink terminals. Product comparison, roof-type-specific installation instructions, waterproofing, and maintenance for commercial and residential roofs.",
-    "pt-BR": "Guia de fixação em telhado plano para terminais Starlink. Comparação de produtos, instruções de instalação específicas por tipo de telhado, impermeabilização e manutenção para telhados comerciais e residenciais."
+    "pt-BR": "Guia de fixação em telhado plano para terminais Starlink. Comparação de produtos, instruções de instalação específicas por tipo de telhado, impermeabilização e manutenção para telhados comerciais e residenciais.",
+    "es-MX": "Guía de montaje en techo plano para terminales Starlink. Comparación de productos, instrucciones de instalación según el tipo de techo, impermeabilización y mantenimiento para techos comerciales y residenciales."
   },
   "mounts.a.11": {
     "en": "Universal Starlink Pipe Mount: Complete Installation and Compatibility Guide",
-    "pt-BR": "Suporte de tubo universal para Starlink: guia completo de instalação e compatibilidade"
+    "pt-BR": "Suporte de tubo universal para Starlink: guia completo de instalação e compatibilidade",
+    "es-MX": "Soporte de tubo universal para Starlink: guía completa de instalación y compatibilidad"
   },
   "mounts.blog-sidebar-text.6": {
     "en": "Complete guide to Tejoy Universal Pipe Mount for Starlink. Covers terminal compatibility, technical specs, step-by-step installation, and FAQ for all Starlink models.",
-    "pt-BR": "Guia completo do suporte de tubo universal da Tejoy para Starlink. Aborda compatibilidade de terminais, especificações técnicas, instalação passo a passo e perguntas frequentes para todos os modelos Starlink."
+    "pt-BR": "Guia completo do suporte de tubo universal da Tejoy para Starlink. Aborda compatibilidade de terminais, especificações técnicas, instalação passo a passo e perguntas frequentes para todos os modelos Starlink.",
+    "es-MX": "Guía completa del soporte de tubo universal de Tejoy para Starlink. Incluye compatibilidad de terminales, especificaciones técnicas, instalación paso a paso y preguntas frecuentes para todos los modelos Starlink."
   },
   "mounts.a.13": {
     "en": "Starlink Mini vs Standard: Which Mounting Kit Do You Need?",
-    "pt-BR": "Starlink Mini vs Standard: qual kit de fixação você precisa?"
+    "pt-BR": "Starlink Mini vs Standard: qual kit de fixação você precisa?",
+    "es-MX": "Starlink Mini vs Standard: ¿qué kit de montaje necesitas?"
   },
   "mounts.blog-sidebar-text.7": {
     "en": "Comprehensive comparison of Starlink Mini vs Standard vs Performance terminal mounts. Decision matrix, cost comparison, and recommendations by use case.",
-    "pt-BR": "Comparação completa entre os suportes dos terminais Starlink Mini, Standard e Performance. Matriz de decisão, comparação de custos e recomendações por caso de uso."
+    "pt-BR": "Comparação completa entre os suportes dos terminais Starlink Mini, Standard e Performance. Matriz de decisão, comparação de custos e recomendações por caso de uso.",
+    "es-MX": "Comparación completa entre los soportes de los terminales Starlink Mini, Standard y Performance. Matriz de decisión, comparación de costos y recomendaciones por caso de uso."
   },
   "mounts.a.15": {
     "en": "Starlink Mount Compatibility Guide: Mini vs Standard vs Performance",
-    "pt-BR": "Guia de compatibilidade de suportes Starlink: Mini vs Standard vs Performance"
+    "pt-BR": "Guia de compatibilidade de suportes Starlink: Mini vs Standard vs Performance",
+    "es-MX": "Guía de compatibilidad de soportes Starlink: Mini vs Standard vs Performance"
   },
   "mounts.blog-sidebar-text.8": {
     "en": "Complete Starlink mount compatibility guide. Compare mounts for Mini, Standard, and Performance terminals. Find the right mount for RV, home, or industrial use.",
-    "pt-BR": "Guia completo de compatibilidade de suportes Starlink. Compare suportes para os terminais Mini, Standard e Performance. Encontre o suporte certo para uso em motorhome, residência ou industrial."
+    "pt-BR": "Guia completo de compatibilidade de suportes Starlink. Compare suportes para os terminais Mini, Standard e Performance. Encontre o suporte certo para uso em motorhome, residência ou industrial.",
+    "es-MX": "Guía completa de compatibilidad de soportes Starlink. Compara los soportes para los terminales Mini, Standard y Performance. Encuentra el soporte adecuado para casa rodante, hogar o uso industrial."
   },
   "mounts.a.17": {
     "en": "Reliable Mount Solutions for Industrial Applications: Meeting the Global Surge in Demand for Industrial Mounting Systems",
-    "pt-BR": "Soluções de suporte confiáveis para aplicações industriais: atendendo ao aumento global da demanda por sistemas de fixação industriais"
+    "pt-BR": "Soluções de suporte confiáveis para aplicações industriais: atendendo ao aumento global da demanda por sistemas de fixação industriais",
+    "es-MX": "Soluciones de soporte confiables para aplicaciones industriales: cómo responder al aumento global de la demanda de sistemas de montaje industriales"
   },
   "mounts.blog-sidebar-text.9": {
     "en": "Discover how reliable industrial mounting systems are transforming manufacturing, renewable energy, and telecommunications with smart IoT technology, advanced composite materials, and modular designs that enhance safety and operational effi···",
-    "pt-BR": "Descubra como sistemas de fixação industriais confiáveis estão transformando a indústria, a energia renovável e as telecomunicações com tecnologia IoT inteligente, materiais compostos avançados e designs modulares que aumentam a segurança e a eficiência operacional···"
+    "pt-BR": "Descubra como sistemas de fixação industriais confiáveis estão transformando a indústria, a energia renovável e as telecomunicações com tecnologia IoT inteligente, materiais compostos avançados e designs modulares que aumentam a segurança e a eficiência operacional···",
+    "es-MX": "Descubre cómo los sistemas de montaje industriales confiables están transformando la manufactura, la energía renovable y las telecomunicaciones con tecnología IoT inteligente, materiales compuestos avanzados y diseños modulares que mejoran la seguridad y la eficiencia operat···"
   },
   "mounts.sidebar-title.2": {
     "en": "News",
-    "pt-BR": "Notícias"
+    "pt-BR": "Notícias",
+    "es-MX": "Noticias"
   },
   "mounts.a.25": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
-    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos"
+    "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos",
+    "es-MX": "Instalación de la caja de conexiones Starlink para el manejo de cables en exteriores"
   },
   "mounts.meta.title": {
     "en": "Mounts-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Suportes-Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia"
+    "pt-BR": "Suportes-Tejoy | Acessórios Premium para Starlink, Suportes e Soluções de Energia",
+    "es-MX": "Soportes-Tejoy | Accesorios premium para Starlink, soportes &amp; soluciones de energía"
   },
   "mounts.meta.desc": {
     "en": "Pipe mounts, wall mounts, roof mounts, junction boxes, installation guides",
-    "pt-BR": "Suportes de tubo, suportes de parede, suportes de telhado, caixas de junção e guias de instalação para Starlink."
+    "pt-BR": "Suportes de tubo, suportes de parede, suportes de telhado, caixas de junção e guias de instalação para Starlink.",
+    "es-MX": "Soportes de tubo, soportes de pared, soportes de techo, cajas de conexiones, guías de instalación"
   },
   "mounts.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Más de 15 años de experiencia y más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
   }
 }

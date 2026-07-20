@@ -2,91 +2,113 @@
   "contact.page-header-title.1": {
     "en": "Contact Us",
     "pt-BR": "Contato",
+    "es-MX": "Contáctanos",
     "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
   },
   "contact.page-header-subtitle.1": {
     "en": "OEM/ODM inquiries welcome.",
-    "pt-BR": "Consultas OEM/ODM são bem-vindas."
+    "pt-BR": "Consultas OEM/ODM são bem-vindas.",
+    "es-MX": "Consultas OEM/ODM bienvenidas."
   },
   "contact.section-title-tagline.1": {
     "en": "Reach the Tejoy team",
-    "pt-BR": "Fale com a equipe Tejoy"
+    "pt-BR": "Fale com a equipe Tejoy",
+    "es-MX": "Habla con el equipo de Tejoy"
   },
   "contact.section-title-title.1": {
     "en": "Contact Information",
-    "pt-BR": "Informações de Contato"
+    "pt-BR": "Informações de Contato",
+    "es-MX": "Información de contacto"
   },
   "contact.contact-info-card-intro.1": {
     "en": "Independent manufacturer of Starlink-compatible mounts, power adapters, cables and protective cases. OEM/ODM and wholesale inquiries welcome.",
-    "pt-BR": "Fabricante independente de suportes, adaptadores de energia, cabos e cases de proteção compatíveis com Starlink. Consultas OEM/ODM e de atacado são bem-vindas."
+    "pt-BR": "Fabricante independente de suportes, adaptadores de energia, cabos e cases de proteção compatíveis com Starlink. Consultas OEM/ODM e de atacado são bem-vindas.",
+    "es-MX": "Fabricante independiente de soportes, adaptadores de energía, cables y estuches de protección compatibles con Starlink. Consultas OEM/ODM y de mayoreo bienvenidas."
   },
   "contact.contact-info-list-label.2": {
     "en": "Headquarters",
-    "pt-BR": "Sede"
+    "pt-BR": "Sede",
+    "es-MX": "Oficinas centrales"
   },
   "contact.contact-info-list-value.2": {
     "en": "No. 62, Baotian 1st Road, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China",
-    "pt-BR": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China"
+    "pt-BR": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China",
+    "es-MX": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China"
   },
   "contact.contact-info-list-label.3": {
     "en": "Response time",
-    "pt-BR": "Tempo de resposta"
+    "pt-BR": "Tempo de resposta",
+    "es-MX": "Tiempo de respuesta"
   },
   "contact.contact-info-list-value.3": {
     "en": "We typically reply within 1 business day.",
-    "pt-BR": "Normalmente respondemos em até 1 dia útil."
+    "pt-BR": "Normalmente respondemos em até 1 dia útil.",
+    "es-MX": "Normalmente respondemos en 1 día hábil."
   },
   "contact.contact-info-card-note.1": {
     "en": "For OEM/ODM or bulk orders, tell us the target Starlink model and quantity — we'll come back with specifications and pricing.",
-    "pt-BR": "Para pedidos OEM/ODM ou compras em grande volume, informe o modelo Starlink desejado e a quantidade — retornaremos com especificações e preços."
+    "pt-BR": "Para pedidos OEM/ODM ou compras em grande volume, informe o modelo Starlink desejado e a quantidade — retornaremos com especificações e preços.",
+    "es-MX": "Para pedidos OEM/ODM o de gran volumen, dinos el modelo Starlink que buscas y la cantidad — te respondemos con especificaciones y precios."
   },
   "contact.section-title-tagline.2": {
     "en": "Please feel free to contact us if you have any questions",
-    "pt-BR": "Fique à vontade para entrar em contato se tiver qualquer dúvida"
+    "pt-BR": "Fique à vontade para entrar em contato se tiver qualquer dúvida",
+    "es-MX": "Escríbenos con toda confianza si tienes cualquier duda"
   },
   "contact.section-title-title.2": {
     "en": "Leave a Message Online",
-    "pt-BR": "Deixe uma mensagem online"
+    "pt-BR": "Deixe uma mensagem online",
+    "es-MX": "Déjanos un mensaje en línea"
   },
   "contact.placeholder.3": {
     "en": "Your Phone Number",
-    "pt-BR": "Seu telefone"
+    "pt-BR": "Seu telefone",
+    "es-MX": "Tu teléfono"
   },
   "contact.placeholder.4": {
     "en": "Your Email Address",
-    "pt-BR": "Seu e-mail"
+    "pt-BR": "Seu e-mail",
+    "es-MX": "Tu correo electrónico"
   },
   "contact.js.1": {
     "en": "Sending…",
-    "pt-BR": "Enviando…"
+    "pt-BR": "Enviando…",
+    "es-MX": "Enviando…"
   },
   "contact.js.2": {
     "en": "Thank you — we'll reply within 1 business day.",
-    "pt-BR": "Obrigado — responderemos em até 1 dia útil."
+    "pt-BR": "Obrigado — responderemos em até 1 dia útil.",
+    "es-MX": "Gracias — te respondemos en 1 día hábil."
   },
   "contact.js.3": {
     "en": "Sorry — we couldn't send your message just now. Please email hello@tejoy.com and we'll reply right away.",
-    "pt-BR": "Desculpe — não foi possível enviar sua mensagem agora. Envie um e-mail para hello@tejoy.com e responderemos imediatamente."
+    "pt-BR": "Desculpe — não foi possível enviar sua mensagem agora. Envie um e-mail para hello@tejoy.com e responderemos imediatamente.",
+    "es-MX": "Lo sentimos — no pudimos enviar tu mensaje en este momento. Escríbenos por correo electrónico a hello@tejoy.com y te respondemos de inmediato."
   },
   "contact.js.4": {
     "en": "Network error — please email hello@tejoy.com and we'll get right back to you.",
-    "pt-BR": "Erro de rede — envie um e-mail para hello@tejoy.com e retornaremos imediatamente."
+    "pt-BR": "Erro de rede — envie um e-mail para hello@tejoy.com e retornaremos imediatamente.",
+    "es-MX": "Error de red — escríbenos por correo electrónico a hello@tejoy.com y te respondemos de inmediato."
   },
   "contact.meta.title": {
     "en": "Contact Us-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Contato - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia"
+    "pt-BR": "Contato - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "Contáctanos - Tejoy | Accesorios premium para Starlink, soportes &amp; soluciones de energía"
   },
   "contact.meta.desc": {
     "en": "Contact Tejoy for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@tejoy.com; we typically reply within one business day.",
-    "pt-BR": "Entre em contato com a Tejoy para acessórios OEM/ODM compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases. E-mail hello@tejoy.com; normalmente respondemos em até 1 dia útil."
+    "pt-BR": "Entre em contato com a Tejoy para acessórios OEM/ODM compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases. E-mail hello@tejoy.com; normalmente respondemos em até 1 dia útil.",
+    "es-MX": "Contacta a Tejoy para accesorios OEM/ODM compatibles con Starlink — soportes, adaptadores de energía, cables y estuches. Correo electrónico hello@tejoy.com; normalmente respondemos en un día hábil."
   },
   "contact.ld.description.2": {
     "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX."
+    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
+    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Más de 15 años de experiencia y 200+ patentes. OEM/ODM disponible. No está afiliada a SpaceX."
   },
   "contact.ld.name.3": {
     "en": "Contact Us",
     "pt-BR": "Contato",
+    "es-MX": "Contáctanos",
     "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
   }
 }
