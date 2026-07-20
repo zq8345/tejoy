@@ -60,7 +60,12 @@
     "road trip": { "es": "viaje por carretera", "evidence": "starlink-mx", "quote": "recorridos por carretera / viaje por carretera" },
     "power (电力输入)": { "es": "alimentación", "evidence": "starlink-mx", "quote": "entrada de alimentación de CC" },
     "power (分类名)": { "es": "Energía", "evidence": "judgement", "quote": "", "note": "分类名选 Energía 是判断；alimentación 用于技术语境（电力输入）" },
-    "DC": { "es": "CC", "evidence": "starlink-mx", "quote": "entrada de alimentación de CC", "note": "⭐ corriente continua。**不是 DC** —— 我不查语料就会直接留 DC" },
+    "DC": { "es": "CC", "evidence": "starlink-mx", "quote": "entrada de alimentación de CC", "note": "⭐ corriente continua。**不是 DC** —— 我不查语料就会直接留 DC。⚠️2026-07-19 实测:站上 DC 63 处 / CC 63 处【各半并存】,而检查器报 0 —— 规则写在这里,闸却没装(见 es-glossary-check 规则④)。含 `DC 5521` 接口代号也统一收 CC,与站上已有的 `CC macho`/`Type-C a CC` 一致,不留特例。" },
+    "AC": { "es": "CA", "evidence": "judgement", "quote": "", "note": "corriente alterna,DC→CC 的对称项。⚠️ `AC Cable` 是 Starlink MX 的硬件部件名,已在 untranslated 里豁免,不受此条影响。" },
+    "power bank": { "es": "power bank", "evidence": "judgement", "quote": "", "note": "⚠️【判断,无墨西哥语料背书】墨西哥电商普遍直接用 power bank,但我没有 coppel/gob.mx 语料实证;备选 batería portátil。es===en 所以规则④不照它 —— 这是【借词】不是【漏翻】,两者必须在数据上分清。" },
+    "Type-C": { "es": "Type-C", "variants": ["Type C"], "evidence": "judgement", "quote": "", "note": "USB-IF 标准名,保留英文并保留连字符。无连字符的 `Type C` 是错写(站上 7:1 并存),由规则②的 variants 照。" },
+    "R&D": { "es": "I+D", "evidence": "judgement", "quote": "", "note": "investigación y desarrollo,西语固定写法是 I+D(不是 I&D)。⚠️ 这是【术语】,归术语表管;而散文里的 `&` 归下面的 ampersand 规则管 —— 两者分开,才不用为 `&` 开特例。" },
+    "plug and play": { "es": "plug and play", "evidence": "judgement", "quote": "", "note": "⚠️【判断,无墨西哥语料背书】西语技术文案普遍直接用 plug and play;备选 conectar y usar。es===en → 它是【借词】不是【漏翻】,所以规则④跳过它、两把尺子都不再报它的 `and`。站上 13 处。" },
     "specifications": { "es": "especificaciones", "evidence": "starlink-mx", "quote": "Especificaciones del producto" },
     "product": { "es": "producto", "evidence": "starlink-mx", "quote": "Especificaciones del producto" },
     "speed": { "es": "velocidad", "evidence": "starlink-mx", "quote": "velocidades de hasta 400+ Mbps" },
@@ -88,8 +93,31 @@
     { "value": "AC Cable", "why": "硬件部件名", "evidence": "starlink-mx", "quote": "AC Cable 1.5 m (4.92 ft)" },
     { "value": "Starlink / SpaceX / Tejoy", "why": "品牌", "evidence": "locales.json fallback", "quote": "" },
     { "value": "Mini / Standard / Standard Circular / Standard Actuated / Performance (Gen 1-3) / Enterprise", "why": "型号名，单一真源 = locales.json model_display", "evidence": "locales.json fallback", "quote": "" },
-    { "value": "TEJOY STARLINK ACCESSORIES LIMITED", "why": "注册法律实体名。⚠️ 必须靠【多词短语】白名单，**绝不能**把 accessories 塞进单词白名单 —— 那是我们最核心的残留标记词，白名单化 = 全站放过它", "evidence": "locales.json fallback", "quote": "" }
+    { "value": "TEJOY STARLINK ACCESSORIES LIMITED", "why": "注册法律实体名。⚠️ 必须靠【多词短语】白名单，**绝不能**把 accessories 塞进单词白名单 —— 那是我们最核心的残留标记词，白名单化 = 全站放过它", "evidence": "locales.json fallback", "quote": "" },
+
+    { "value": "Rectangular Satellite", "why": "⭐ Starlink 官方型号名（Rectangular Satellite V2 / Gen2 / Flat High Performance）。译成 satélite 会把型号名拆坏，买家按型号找货就对不上。实测全站 satellite 12 处【全部】落在型号名里，散文用法 0 处。", "evidence": "产品数据实测", "quote": "Starlink Rectangular Satellite V2 · Cable Starlink Rectangular Satellite Gen2" },
+    { "value": "Internet Kit Satellite", "why": "同上，Starlink Mini Internet Kit Satellite 是官方套件名", "evidence": "产品数据实测", "quote": "especialmente para el Starlink Mini Internet Kit Satellite" },
+    { "value": "Power over Ethernet", "why": "IEEE 协议专名（缩写 POE），协议名不译", "evidence": "行业标准名", "quote": "Se puede usar con sistemas Power over Ethernet (POE)" },
+    { "value": "Power Delivery", "why": "USB-IF 协议专名（缩写 PD），协议名不译", "evidence": "行业标准名", "quote": "una fuente USB Power Delivery (PD) de 100W" },
+    { "value": "High Performance", "why": "⭐ Starlink 官方型号名（High Performance / Flat High Performance）。**这正是 pt 时代那 2 条已知误报的同一个洞**：`high` 是英文标记词，而型号名里恰好有它。写进这里，两把尺子一起认。", "evidence": "产品数据实测", "quote": "Cable para Starlink Flat High Performance" }
   ],
+
+  "_ampersand_doc": [
+    "⭐ `&`(数据里写作 &amp;)在 es 可见文案里 → 一律写成 `y`。",
+    "",
+    "这条是【查出来的,不是判的】—— 我签过的 chrome 目录里每一处都已经这么做了:",
+    "  Mounts &amp; Brackets      → Soportes y Bases",
+    "  Power &amp; Charging       → Energía y Carga",
+    "  Cases &amp; Protection     → Estuches y Protección",
+    "  Certifications & Testing → Certificaciones y Pruebas",
+    "  meta.title.suffix        → …Soportes y Soluciones de Energía",
+    "→ 规则早就在签过的目录里了,是 2026-07-19 那批灌注偏离了它(52 处 / 24 文件仍是 &amp;)。",
+    "",
+    "⚠️ 只有一条规则,没有特例:`&` 出现在【术语】里(R&D)由 terms 管(→ I+D);",
+    "   出现在【可见文案】里就是 `y`。分成两处管,才不需要给 `&` 开豁免口。",
+    "由 es-glossary-check 规则⑤ 强制。"
+  ],
+  "ampersand": { "es": "y", "evidence": "chrome 已签目录", "quote": "Mounts &amp; Brackets → Soportes y Bases" },
 
   "_format_doc": [
     "⭐ 数字格式 —— 【坐实的事实，不是判断】。es-MX 与 es-ES 在这里是相反的。",

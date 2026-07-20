@@ -44,6 +44,72 @@ const VARIANTS = new Map();
 for (const [term, t] of Object.entries(G.terms)) {
   for (const v of t.variants || []) VARIANTS.set(v.toLowerCase(), { term, want: t.es });
 }
+/* ⚠️ 上面这张表按【单词】查(WORD_RE 切词后逐个查表),所以**多词 variant 它永远匹配不到** ——
+ *   `Type C`(缺连字符的错写)被切成 `type`+`c`,两个都不在表里,于是静默放过。
+ *   这跟规则④漏掉的那一整类是同一个形状:**照的粒度和要照的东西对不上**。
+ *   → 多词 variant 走短语查,单独一条。 */
+const MULTIWORD_VARIANTS = [];
+for (const [term, t] of Object.entries(G.terms)) {
+  for (const v of t.variants || []) if (/\s/.test(v)) MULTIWORD_VARIANTS.push({ v, term, want: t.es });
+}
+
+/* ── 规则 ④：**术语根本没翻** —— 英文原词原样留在 es 译文里 ────────────────
+ *
+ * ⭐⭐ 这条是补一个【结构性的洞】,不是加一个特例。总工 2026-07-19 量出来的:
+ *   术语表白纸黑字写着 `"DC": {es:"CC", note:"⭐不是 DC"}`,而磁盘上 63 处仍是 `DC`,
+ *   检查器却报 `0 处命中` 打了 ✅。
+ *
+ *   原因:规则② 只照 `variants`(已声明的竞争译法)。**「英文原词压根没翻」这一整类,
+ *   它从来没照过** —— 我声明了规则,却没装闸。
+ *
+ *   ⚠️ 这正是我自己在 _forbidden_doc 里写的那句「**它绿 ≠ 译文是墨西哥西语**」的实例。
+ *      而且是最坏的一种:**规则写在术语表里,闸却不存在** —— 绿灯让人以为查过了。
+ *
+ * ⭐ 一条规则,不是 77 个特例:**术语表里 es !== en 的条目,其英文原词出现在 es 里 = 报警**。
+ *   以后新增术语【自动】被照,不用记得给它加 variants。
+ *
+ * ⚠️ 豁免必须显式且写明理由 —— 复用 glossary 的 `untranslated`(每条带 why + evidence),
+ *   **绝不靠"闸看不见"来通过**。且豁免是【多词短语】,不是单词:
+ *   把 `accessories` 加进单词白名单 = 全站放过它;而 `Starlink Accessories Limited`
+ *   只放过注册实体名。这跟 es-leak-scan 里那条是同一个道理,我在那儿写过一次了。
+ *
+ * ⚠️ 剥短语必须在匹配单词【之前】,且长的排前 —— 否则 `Satellite` 先被吃掉,
+ *   `Rectangular Satellite V2` 这个型号名就漏了。pt 那个 212→29 的 bug 就是这么来的。 */
+/* 剥离清单 = ① untranslated（专名/部件名） ∪ ② **es === en 的术语（借词）**
+ *
+ * ⭐ ② 不是特例,是同一条规则的必然推论:**一个术语的 es 就等于 en,它以英文出现就是正确的**,
+ *   所以它必须在"找漏翻的英文词"之前被剥掉。否则 `power bank`(借词)会被裸 `power` 命中 ——
+ *   而那会逼我去给 power bank 加豁免,变成一条特例。
+ *   ⚠️ **借词 ≠ 漏翻。这两件事必须在数据上分清**:借词写进 terms(es===en),漏翻才该报警。 */
+const BORROWED = Object.entries(G.terms)
+  .filter(([key, t]) => t.es && englishTermsOfRaw(key).some((en) => en.toLowerCase() === String(t.es).toLowerCase()))
+  .map(([, t]) => t.es);
+
+function englishTermsOfRaw(key) {
+  return key.replace(/\([^)]*\)/g, '').split('/').map((s) => s.trim()).filter(Boolean);
+}
+
+const EXEMPT_PHRASES = [
+  ...G.untranslated.flatMap((u) => String(u.value).split(' / ').map((v) => v.trim())),
+  ...BORROWED,
+]
+  .filter(Boolean)
+  .sort((a, b) => b.length - a.length);
+
+/** 从术语表的 key 里取出英文词:`power (电力输入)` → `power`;`mount / mounts` → 两个 */
+const englishTermsOf = (key) =>
+  key.replace(/\([^)]*\)/g, '').split('/').map((s) => s.trim()).filter(Boolean);
+
+/* 只照【es 与 en 不同】的术语。router/kit 这类 es===en 的借词不可能"没翻",照它只会误报。 */
+const UNTRANSLATED = [];
+for (const [key, t] of Object.entries(G.terms)) {
+  if (!t.es) continue;
+  for (const en of englishTermsOf(key)) {
+    if (en.toLowerCase() === String(t.es).toLowerCase()) continue; // es===en,无漂移空间
+    UNTRANSLATED.push({ en, want: t.es, evidence: t.evidence, note: t.note });
+  }
+}
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /* ── 规则 ③：小数逗号 ───────────────────────────────────────────────────
  *   ⚠️ 千分位 `1,200` 和小数逗号 `25,6` 形状相似 —— 靠「逗号后【恰好】3 位」区分。
@@ -70,6 +136,30 @@ export function checkOne(text) {
     if (VARIANTS.has(w)) { const v = VARIANTS.get(w); out.push({ kind: '术语不一致', hit: w, want: v.want, why: `术语「${v.term}」全站唯一译法是「${v.want}」`, ev: G.terms[v.term].evidence }); }
   }
   for (const m of t.match(DECIMAL_COMMA_RE) || []) out.push({ kind: '数字格式', hit: m, want: m.replace(',', '.'), why: '小数逗号 = 西班牙格式。墨西哥用小数点（coppel 实测：小数点 40 次 / 小数逗号 0 次）', ev: 'coppel' });
+
+  /* 规则 ⑤：可见文案里的 `&`（数据里是 &amp;）必须写成 `y`
+   *   ⚠️ 必须查【原始值】而不是 strip 后的文本 —— strip() 会把 &amp; 整个删掉,
+   *      在它身上永远查不到。这跟规则④漏掉整类是同一个教训:照的对象要对。 */
+  if (/&amp;/.test(String(text))) {
+    const raw = String(text);
+    const i = raw.indexOf('&amp;');
+    out.push({ kind: '&符号', hit: '&amp;', want: 'y', ev: G.ampersand.evidence,
+      why: `es 可见文案里的 & 一律写 y（chrome 已签目录里每处都是这么做的）。术语 R&D 例外，走 terms → I+D。上下文：…${raw.slice(Math.max(0, i - 26), i + 22)}…` });
+  }
+
+  /* 规则 ②b：多词 variant（短语粒度）—— 单词表照不到的那一类 */
+  for (const mv of MULTIWORD_VARIANTS) {
+    const m = t.match(new RegExp('(?<![-\\w])' + escapeRe(mv.v) + '(?![-\\w])', 'gi'));
+    if (m) out.push({ kind: '术语不一致', hit: m[0], want: mv.want, why: `术语「${mv.term}」全站唯一写法是「${mv.want}」`, ev: G.terms[mv.term].evidence });
+  }
+
+  /* 规则 ④：先剥豁免短语（长的已排前、大小写不敏感），再找残留的英文原词。 */
+  let tx = t;
+  for (const p of EXEMPT_PHRASES) tx = tx.replace(new RegExp(escapeRe(p), 'gi'), ' ');
+  for (const u of UNTRANSLATED) {
+    const m = tx.match(new RegExp('\\b' + escapeRe(u.en) + '\\b', 'gi'));
+    if (m) out.push({ kind: '未翻译', hit: m[0], want: u.want, ev: u.evidence || 'glossary', why: `术语表定了 ${u.en} → ${u.want}，但译文里还是英文原词${u.note ? '。' + String(u.note).slice(0, 60) : ''}` });
+  }
   /* 同一个词可能同时命中「禁用词」和「术语 variant」（如 carro / lancha）—— 那是两条规则都对，
      但报两遍只是噪音。⚠️ 按 hit 去重，**保留第一条**（禁用词的 why 更具体）。 */
   const seen = new Set();

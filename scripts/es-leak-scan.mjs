@@ -36,6 +36,24 @@ export const WHITELIST_PHRASES = [
    *      accessories 是我们最核心的英文残留标记词，白名单化 = 全站放过它。
    *      这里剥的是"公司叫这个名字"，不是"这个词可以是英文"。 */
   'Starlink Accessories Limited',
+  /* ⭐⭐ 2026-07-19：这份清单曾经【和术语表各管各的】,而那是个真洞。
+   *   我在 es-glossary.json 里豁免了 High Performance / Rectangular Satellite / power bank …,
+   *   这把尺子却不知道,于是它对着同一批数据报 39 条"英文残留" —— **全是误报**。
+   *   一把长期飘红的尺子,最后会被所有人略过 —— 那正是我一路在警告的那种失效。
+   *   → **术语表是单一真源,两把尺子都从它读**。以后新增豁免只写一处,两边同时认。 */
+  ...(() => {
+    // ⚠️ 用 import.meta.url 而不是 HERE —— HERE 在本文件里声明得比这里晚,
+    //    直接用会 ReferenceError(我刚踩了一次)。这样也不依赖 cwd。
+    const G = JSON.parse(fs.readFileSync(new URL('../data/es-glossary.json', import.meta.url), 'utf8'));
+    const borrowed = Object.entries(G.terms)
+      .filter(([key, t]) => t.es && key.replace(/\([^)]*\)/g, '').split('/').map((s) => s.trim())
+        .some((en) => en.toLowerCase() === String(t.es).toLowerCase()))
+      .map(([, t]) => t.es);
+    return [...G.untranslated.flatMap((u) => String(u.value).split(' / ').map((v) => v.trim())), ...borrowed].filter(Boolean);
+  })(),
+  /* ⚠️ 这一条【不属于术语表】,所以留在本地:`may.` 是西语「mayo」的缩写(`15 de may. de 2026`),
+   *   和英文标记词 `may` 撞形。它不是术语、也不是"不译的英文",是**日期格式**。 */
+  'de may. de',
 ].sort((a, b) => b.length - a.length); // ⭐ 长的先剥 —— 'Starlink Cable' 必须先于 'Cable'
 
 /* ── ② 单词白名单：品牌 / 型号 / 代码值 ─────────────────────────────────

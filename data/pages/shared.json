@@ -82,7 +82,7 @@
   "shared.starlink_compatible_power_adapters_buyer": {
     "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
     "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C",
-    "es-MX": "Guía de compra de adaptadores de energía compatibles con Starlink: 12V DC vs AC vs USB-C"
+    "es-MX": "Guía de compra de adaptadores de energía compatibles con Starlink: 12V CC vs CA vs USB-C"
   },
   "shared.read_more": {
     "en": "Read more",
@@ -177,7 +177,7 @@
   "shared.tejoy_starlink_mini_power_guide_12v_adap": {
     "en": "Tejoy Starlink Mini Power Guide - 12V Adapters & DC Cables",
     "pt-BR": "Guia de energia Tejoy para Starlink Mini — adaptadores 12V e cabos DC",
-    "es-MX": "Guía de energía Tejoy para Starlink Mini - adaptadores de 12V y cables DC"
+    "es-MX": "Guía de energía Tejoy para Starlink Mini - adaptadores de 12V y cables CC"
   },
   "shared.2026_02_06": {
     "en": "2026-02-06",

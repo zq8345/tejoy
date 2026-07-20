@@ -153,12 +153,12 @@
   "home.p.6": {
     "en": "Buyer guide for Starlink power adapters — compare 12V DC, stock AC, and USB-C PD options, with recommendations by use case: RV, off-grid, and home.",
     "pt-BR": "Guia de compra de adaptadores de energia para Starlink — compare as opções 12V DC, AC original e USB-C PD, com recomendações por caso de uso: motorhome, off-grid e residência.",
-    "es-MX": "Guía de compra de adaptadores de corriente para Starlink — compara las opciones de 12V CC, AC original y USB-C PD, con recomendaciones por caso de uso: casa rodante, sin red eléctrica y hogar."
+    "es-MX": "Guía de compra de adaptadores de corriente para Starlink — compara las opciones de 12V CC, CA original y USB-C PD, con recomendaciones por caso de uso: casa rodante, sin red eléctrica y hogar."
   },
   "home.guide.cat.2": {
     "en": "RV &amp; Off-Grid",
     "pt-BR": "Motorhome &amp; Off-Grid",
-    "es-MX": "Casa rodante &amp; sin red eléctrica"
+    "es-MX": "Casa rodante y sin red eléctrica"
   },
   "home.h3.6": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
