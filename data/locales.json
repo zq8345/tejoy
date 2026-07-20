@@ -2,7 +2,8 @@
   "_doc": "Locale registry for the site chrome. Adding a language = add it to `enabled` and translate the keys in data/chrome.json; the guard (scripts/i18n-check.mjs) tells you when you are done. Routing (href/lang/hreflang/canonical) is NEVER listed here or in the catalog — it is derived from route+locale by the generator.",
   "enabled": [
     "en",
-    "pt-BR"
+    "pt-BR",
+    "es-MX"
   ],
   "default": "en",
   "_fallback_doc": [
