@@ -71,11 +71,16 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-hold\.json/.test(f)) {
     sources.data.push(f);                                  // 已知的【非文案】数据,点名放行
     // ⭐ es-glossary.json = 术语表(出处单一真源),不是文案目录:顶层是 forbidden/terms/… ,无 en 字段,
     //    isCatalog() 已正确判它不是目录。点名放行是【它本就不是文案】,不是"guard 少认一种形状"——
     //    我核过两者的区别(node -e 跑了 isCatalog),没盲目加白名单。这正是 guard 26f9dd64 那条要逼出的判断。
+    // ⭐ es-hold.json 同理:扣留产品清单(id + why),无 en 字段,不是文案。由 es-hold-check 双向强制。
+    // ⚠️ 留档:这道形状闸同时逮到了 data/es-product-translations.json —— 而那个我【没有放行,直接删了】。
+    //    它是已耗尽的迁移输入(只覆盖 2/58,另 56 个是批量直灌),更要命的是
+    //    **seed 会跳过已有 es 的产品,所以编辑它不会有任何效果,还不报错** —— 一根没接线的杆,
+    //    比一份重复真源更坏。放行它等于把这根杆永久留在树上。**闸报的东西不一定该放行,也可能该删掉。**
   } else {
     unknown.push(f);                                       // 认不出 -> 吼,绝不静默跳过
   }
