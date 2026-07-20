@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<style>
+/* Sidebar Category Highlight */
+.sidebar__category-list li {
+  padding: 0px 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+.sidebar__category-list li.active-cat {
+  background-color: #2b3aa1 !important;
+  color: #fff !important;
+.sidebar__category-list li.active-cat a {
+  color: #fff !important;
+/* ── 卡片等高方案 ── */
+.blog-sidebar .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+.blog-sidebar .col-xl-4.col-lg-4 {
+  display: flex;
+  margin-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+.blog-one__single {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 10px 60px 0 rgba(0,0,0,.05);
+  transition: all 0.5s ease;
+.blog-one__single:hover {
+  box-shadow: 0 10px 60px 0 rgba(0,0,0,.07);
+.blog-one__img {
+  position: relative;
+  display: block;
+  background-color: var(--mibooz-black, #17161a);
+  overflow: hidden;
+  width: 100%;
+.blog-one__img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease;
+.blog-one__single:hover .blog-one__img img {
+  transform: scale(1.05);
+.blog-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #fff;
+.blog-one__title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #333;
+  /* 限制2行 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.4em * 2);
+.blog-one__title a {
+  color: inherit;
+  text-decoration: none;
+.blog-one__tt {
+  margin: 0 !important;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+  /* 限制2行 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1 0 auto;
+.blog-one__single a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+/* Pagination Style */
+.pagebar {
+    margin-top: 40px !important;
+    text-align: center;
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+.pagination .page-item {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    min-width: 50px;
+    text-align: center;
+.pagination .page-item:hover {
+    background: #000;
+    color: #fff;
+</style>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Productos-Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía</title>
+<meta name="description" content="Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.">
+<meta name="author" content="tejoy" />
+
+<!-- Organization + WebSite JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://tejoy.com/#organization",
+  "name": "Tejoy",
+  "alternateName": "TEJOY STARLINK ACCESSORIES LIMITED.",
+  "url": "https://tejoy.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "/static/tejoy-logo-black.png",
+    "width": 600,
+    "height": 60
+  },
+  "description": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+  "knowsAbout": ["Starlink-compatible accessories", "satellite internet accessories", "RV connectivity", "off-grid power", "mounting systems"],
+  "foundingDate": "2010",
+  "numberOfEmployees": "150",
+  "areaServed": "Worldwide",
+  "sameAs": [
+    "https://www.youtube.com/@tejoy"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://tejoy.com/#website",
+  "url": "https://tejoy.com",
+  "name": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+  "description": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+  "publisher": {
+    "@id": "https://tejoy.com/#organization"
+  },
+  "inLanguage": "en"
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tejoy.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://tejoy.com"
+    }
+  ]
+}
+</script>
+
+<!-- Preconnect & DNS-Prefetch -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MH29J06T54"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MH29J06T54');
+</script>
+
+<!-- WebP 自动替换 - 浏览器支持WebP时自动加载.webp版本，同时检查文件是否存在 -->
+<script>
+(function() {
+  function checkWebP(callback) {
+    var img = new Image();
+    img.onload = function() { callback(true); };
+    img.onerror = function() { callback(false); };
+    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+  }
+  checkWebP(function(supported) {
+    if (!supported) return;
+    document.querySelectorAll('img[src*="/static/upload/"]').forEach(function(img) {
+      var src = img.getAttribute('src');
+      if (src && (src.match(/\.(jpg|jpeg|png)(\?|$)/i))) {
+        var webpSrc = src.replace(/\.(jpg|jpeg|png)/i, '.webp');
+        // 先检查.webp文件是否存在，存在才替换
+        var testImg = new Image();
+        testImg.onload = function() { img.setAttribute('src', webpSrc); };
+        testImg.onerror = function() { /* .webp不存在，保留原图 */ };
+        testImg.src = webpSrc;
+      }
+    });
+  });
+})();
+</script>
+
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://tejoy.com/es/products/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Products-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+<meta property="og:description" content="Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX." />
+<meta property="og:url" content="https://tejoy.com/es/products/" />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:image" content="/static/tejoy-logo-black.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Products-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions" />
+<meta name="twitter:description" content="Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX." />
+<meta name="twitter:image" content="/static/tejoy-logo-black.png" />
+
+
+<link rel="preload" href="/skin/css/mibooz.css" as="style" />
+<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
+<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/skin/css/all.min.css" />
+<link rel="stylesheet" href="/skin/css/swiper.min.css" />
+<link rel="stylesheet" href="/skin/css/pro.css" />
+<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
+<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=54" />
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<style>
+/* Seletor de idioma (EN/PT) — provisório inline no protótipo; migrar para tejoy-redesign.css na fase de rollout global */
+.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
+.lang-switch__link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;transition:all .2s ease}
+.lang-switch__link:hover{background:#fff;color:#111;border-color:#fff}
+.lang-switch__link svg{flex:0 0 auto}
+@media (max-width:1199px){.lang-switch{position:static;grid-column:2;justify-self:end;transform:none;right:auto;margin:0}}
+</style>
+<link rel="alternate" hreflang="en" href="https://tejoy.com/products/" />
+<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/products/" />
+<link rel="alternate" hreflang="es-MX" href="https://tejoy.com/es/products/" />
+<link rel="alternate" hreflang="x-default" href="https://tejoy.com/products/" />
+</head>
+<body>
+<div class="page-wrapper">
+
+<header class="main-header clearfix">
+    <nav class="main-menu clearfix">
+      <div class="main-menu-wrapper">
+        <div class="main-menu-wrapper__logo"> <a href="/es/"><img src="/static/tejoy-logo-white.png" alt="Tejoy | Accesorios Premium para Starlink"></a> </div>
+        
+        
+        <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+          <ul class="main-menu__list">
+            <li><a href="/es/">Inicio</a></li>
+
+            <li><a href="/es/products/" title="Productos">Productos</a>
+              <ul class="nav-dd-products">
+                <li><a href="/es/products/#mounts">Soportes y Bases <span class="nav-dd__n">(19)</span></a></li>
+                <li><a href="/es/products/#power">Energía y Carga <span class="nav-dd__n">(5)</span></a></li>
+                <li><a href="/es/products/#cables">Cables <span class="nav-dd__n">(33)</span></a></li>
+                <li><a href="/es/products/#networking">Redes <span class="nav-dd__n">(4)</span></a></li>
+                <li><a href="/es/products/#cases">Estuches y Protección <span class="nav-dd__n">(3)</span></a></li>
+                <li class="nav-dd__sep"><a href="/es/products/">Todos los productos <span class="nav-dd__n">(64)</span></a></li>
+                <li><a href="/es/products/">Comprar por modelo Starlink <span class="nav-dd__n">&rarr;</span></a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/service/" title="Guías">Guías</a>
+              <ul>
+                <li><a href="/es/marine/">Marítimo</a></li>
+                <li><a href="/es/rv-off-grid/">Casa rodante / Sin red</a></li>
+                <li><a href="/es/mounts/">Soportes</a></li>
+                <li><a href="/es/industrial/">Industrial</a></li>
+                <li><a href="/es/power/">Energía</a></li>
+                <li><a href="/es/hangye/">Centro por Sector</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/faq/" title="Ayuda">Ayuda</a>
+              <ul>
+                <li><a href="/es/faq/">Preguntas frecuentes</a></li>
+                <li><a href="/es/video/">Videos</a></li>
+                <li><a href="/es/compatibility/">Guía de Compatibilidad</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/about/" title="Empresa">Empresa</a>
+              <ul>
+                <li><a href="/es/about/">Acerca de</a></li>
+                <li><a href="/es/contact/">Contacto</a></li>
+                <li><a href="/es/certifications-testing/">Certificaciones y Pruebas</a></li>
+                <li><a href="/es/oem-odm-manufacturing/">Fabricación OEM/ODM</a></li>
+                <li><a href="/es/patents-manufacturing/">Patentes y Capacidad de Fabricación</a></li>
+                <li><a href="/es/brand-affiliation-faq/">Marca y Afiliación (FAQ)</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="lang-switch" data-lang-switch>
+            <a href="/products/" class="lang-switch__link" hreflang="en" aria-label="Ver esta página en inglés"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span></a>
+          </div>
+          <div class="lang-switch" data-lang-switch>
+            <a href="/pt/products/" class="lang-switch__link" hreflang="pt-BR" aria-label="Ver esta página en portugués"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>PT</span></a>
+          </div>
+                     <div class="main-menu-wrapper__call">
+
+            
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+  </div>
+  
+  <section class="page-header">
+    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp)"> </div>
+    <div class="container">
+      <div class="page-header__inner left">
+        <h1 class="page-header__title">Products</h1>
+        <p class="page-header__subtitle">Starlink-compatible accessories for every terminal generation.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="blog-sidebar huibg">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="pro-sidebar__left">
+            <div class="blog-sidebar__content">
+              <div class="product-filters">
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Modelo</span>
+                  <div class="product-chips" id="modelChips">
+                    <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">64</span></button>
+                    <button type="button" class="product-chip" data-filter="mini">Mini <span class="product-chip__n">32</span></button>
+                    <button type="button" class="product-chip" data-filter="standard">Standard <span class="product-chip__n">13</span></button>
+                    <button type="button" class="product-chip" data-filter="standard-actuated">Standard Actuated <span class="product-chip__n">6</span></button>
+                    <button type="button" class="product-chip" data-filter="standard-circular">Standard Circular <span class="product-chip__n">2</span></button>
+                    <button type="button" class="product-chip" data-filter="performance-gen-1">Perf Gen1 <span class="product-chip__n">1</span></button>
+                    <button type="button" class="product-chip" data-filter="performance-gen-3">Perf Gen3 <span class="product-chip__n">5</span></button>
+                    <button type="button" class="product-chip" data-filter="enterprise">Enterprise <span class="product-chip__n">5</span></button>
+                  </div>
+                </div>
+                <div class="product-chiprow">
+                  <span class="product-chiprow__label">Tipo</span>
+                  <div class="product-chips" id="formChips">
+                    <button type="button" class="product-chip is-active" data-filter="all">All <span class="product-chip__n">64</span></button>
+                    <button type="button" class="product-chip" data-filter="mounts">Mounts &amp; Brackets <span class="product-chip__n">19</span></button>
+                    <button type="button" class="product-chip" data-filter="power">Power &amp; Charging <span class="product-chip__n">5</span></button>
+                    <button type="button" class="product-chip" data-filter="cables">Cables <span class="product-chip__n">33</span></button>
+                    <button type="button" class="product-chip" data-filter="networking">Networking <span class="product-chip__n">4</span></button>
+                    <button type="button" class="product-chip" data-filter="cases">Cases &amp; Protection <span class="product-chip__n">3</span></button>
+                  </div>
+                </div>
+              </div>
+              <div class="row" id="productGrid">
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/enterprise/650">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/f6f88df527.jpg" alt="(Paquete de 2) Cable Adaptador Ethernet para Starlink Enterprise, Extensión a Cable RJ45, Cable Starlink 23AWG Impermeable, Acoplador SPX-RJ45 con Tapas Protectoras - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">(Paquete de 2) Cable Adaptador Ethernet para Starlink Enterprise, Extensión a Cable RJ45, Cable Starlink 23AWG Impermeable, Acoplador SPX-RJ45 con Tapas Protectoras</h3>
+                      <p class="blog-one__tt">Conversión Ethernet sin complicaciones: convierte fácilmente el conector del Starlink Enterp ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/enterprise/657">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.jpg" alt="Cable de Router 2M de Alto Desempeño para Starlink - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Router 2M de Alto Desempeño para Starlink</h3>
+                      <p class="blog-one__tt">CABLE PARA STARLINK High Performance: este cable es compatible con Starlink High Performance ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/enterprise/658">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/63add80afc.jpg" alt="Cable de Extensión a RJ45 para Starlink Flat High Performance, Adaptador Ethernet para Starlink Flat High Performance 22AWG, Acoplador SPX RJ45 Impermeable con Tapas Protectoras (Paquete de 2) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Extensión a RJ45 para Starlink Flat High Performance, Adaptador Ethernet para Starlink Flat High Performance 22AWG, Acoplador SPX RJ45 Impermeable con Tapas Protectoras (Paquete de 2)</h3>
+                      <p class="blog-one__tt">Conversión Ethernet sin complicaciones: convierte fácilmente el conector del Starlink Flat H ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/enterprise/669">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/2bb4444012.jpg" alt="Cable Flat High Performance para Starlink 75FT/23M, Cable de Alimentación FHP de Repuesto linkoostar, Cable de Extensión Impermeable para Starlink, Accesorios Flat High Performance Gen 2 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable Flat High Performance para Starlink 75FT/23M, Cable de Alimentación FHP de Repuesto linkoostar, Cable de Extensión Impermeable para Starlink, Accesorios Flat High Performance Gen 2</h3>
+                      <p class="blog-one__tt">【Cable Starlink optimizado para Starlink Flat High Performance Gen2】Nuestro cable de extensi ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/enterprise/675">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/0959d22481.jpg" alt="Cable Ethernet para Starlink con Clasificación CMX CMR 24AWG 1200Mbps para Conectar la Fuente de Alimentación al Conector RJ45, Cable de Repuesto para Satélite Rectangular Starlink V2 para Routers o Dispositivos RJ45 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable Ethernet para Starlink con Clasificación CMX CMR 24AWG 1200Mbps para Conectar la Fuente de Alimentación al Conector RJ45, Cable de Repuesto para Satélite Rectangular Starlink V2 para Routers o Dispositivos RJ45</h3>
+                      <p class="blog-one__tt">Conector Starlink Gen3 RJ45 *1, Conector de Energía Starlink High-Performance *1, estándar d ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/44">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260428/1777337750969009.jpg" alt="Cable 2 en 1 para Starlink Mini 16.4FT/5M, Carga CC/USB C + Cable Ethernet, Accesorios de Alimentación de Repuesto para Starlink Mini (18AWG) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable 2 en 1 para Starlink Mini 16.4FT/5M, Carga CC/USB C + Cable Ethernet, Accesorios de Alimentación de Repuesto para Starlink Mini (18AWG)</h3>
+                      <p class="blog-one__tt">Diseño de cable integrado: combina Ethernet + alimentación en un solo cable (cable 2 en 1 co ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/656">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/49ddb18b64.jpg" alt="Cable Adaptador de Cargador Vehicular a CC Hembra para Starlink Mini, Cable de Alimentación de 12~48V de Encendedor de Cigarrillos a CC, Fuente de Alimentación Estable con Salida de 36W para Vehículo, Camioneta, Casa Rodante y Bote - Construcción Duradera de 19AWG - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable Adaptador de Cargador Vehicular a CC Hembra para Starlink Mini, Cable de Alimentación de 12~48V de Encendedor de Cigarrillos a CC, Fuente de Alimentación Estable con Salida de 36W para Vehículo, Camioneta, Casa Rodante y Bote - Construcción Duradera de 19AWG</h3>
+                      <p class="blog-one__tt">Mantente conectado en cualquier lugar: Alimenta tu Starlink Mini directamente desde el encen ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/663">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/2797aed546.jpg" alt="Cable Adaptador de Energía USB Type-C a CC para Starlink 2M/3M/5M/10M/15M, Múltiples Longitudes, para Starlink Mini - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable Adaptador de Energía USB Type-C a CC para Starlink 2M/3M/5M/10M/15M, Múltiples Longitudes, para Starlink Mini</h3>
+                      <p class="blog-one__tt">Longitud: 2M/3M/5M/10M/15M..Varias longitudes disponibles para elegir. 1. Especificaciones d ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/676">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/64328bb2bb.jpg" alt="Cable para Starlink Mini, Cable de Alimentación USB C a CC para Starlink Mini, Compatible con Power Bank de 100W+ y Cargador PD - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink Mini, Cable de Alimentación USB C a CC para Starlink Mini, Compatible con Power Bank de 100W+ y Cargador PD</h3>
+                      <p class="blog-one__tt">Disfruta de un suministro de energía confiable con el Cable de Alimentación USB-C a CC para ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/mini/678">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/bcdb1e570e.jpg" alt="For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable</h3>
+                      <p class="blog-one__tt">Connector Starlink MINI DC (5.5*2.1) *1, Standard Cat6 RJ45 *1, T568B wiring standard Pin Co ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/mini/679">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/fa1c3904bb.jpg" alt="For Starlink Mini Cable, 3 in 1 Starlink Mini Car Charger DC Power Cable+ Cigarette Lighter Adapter 12V-48V with Digital Display USB C PD & USB A Ports for Trucks Cars 10FT - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">For Starlink Mini Cable, 3 in 1 Starlink Mini Car Charger DC Power Cable+ Cigarette Lighter Adapter 12V-48V with Digital Display USB C PD & USB A Ports for Trucks Cars 10FT</h3>
+                      <p class="blog-one__tt">【3-in-1 Multifunctional Design for Starlink Mini】This dedicated Starlink Mini power cable in ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/680">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/6239529072.jpg" alt="Soporte Vehicular para Starlink Mini para Tablero, Soporte con Ventosa para Starlink Mini para Tablero y Parabrisas, Kit de Montaje Seguro para la Mayoría de los Vehículos que Garantiza un Manejo Estable y Señal Satelital - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte Vehicular para Starlink Mini para Tablero, Soporte con Ventosa para Starlink Mini para Tablero y Parabrisas, Kit de Montaje Seguro para la Mayoría de los Vehículos que Garantiza un Manejo Estable y Señal Satelital</h3>
+                      <p class="blog-one__tt">Compatibilidad específica con Starlink Mini: el soporte con ventosa para Starlink Mini fue d ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/681">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/2bb4ccae90.jpg" alt="Soporte de Techo de Vehículo para Starlink Mini, Soporte Magnético para Starlink Mini, Accesorios para Starlink Mini, starlingkshop Kit de Montaje para Starlink Mini para Casas Rodantes, Vans, Bote, Yates, Camiones - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte de Techo de Vehículo para Starlink Mini, Soporte Magnético para Starlink Mini, Accesorios para Starlink Mini, starlingkshop Kit de Montaje para Starlink Mini para Casas Rodantes, Vans, Bote, Yates, Camiones</h3>
+                      <p class="blog-one__tt">【Compatible con Starlink Mini】Este soporte para Starlink Mini está diseñado para instalarse ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/682">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/9887acf663.jpg" alt="Soporte para Starlink Mini, Soporte de Techo para Vehículo con 4 Ventosas Potentes, Base de Montaje Ajustable y Resistente para Starlink Mini - Garantiza una Señal Satelital Estable para Casa Rodante, Techo, Pared, Bote y Uso al Aire Libre - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Starlink Mini, Soporte de Techo para Vehículo con 4 Ventosas Potentes, Base de Montaje Ajustable y Resistente para Starlink Mini - Garantiza una Señal Satelital Estable para Casa Rodante, Techo, Pared, Bote y Uso al Aire Libre</h3>
+                      <p class="blog-one__tt">【Diseñado para Starlink Mini】Disfruta del servicio de internet rápido y estable del Starlink ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
+                <div class="blog-one__single">
+                  <a href="/es/mini/683">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/54e2b31d29.jpg" alt="Cargador de 60W para Starlink Mini Fuente de Alimentación de Repuesto Adaptador de CA con Salida de 30V 2A Cargador de Pared para Antena Starlink Mini - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cargador de 60W para Starlink Mini Fuente de Alimentación de Repuesto Adaptador de CA con Salida de 30V 2A Cargador de Pared para Antena Starlink Mini</h3>
+                      <p class="blog-one__tt">Diseñado para el Mini - El cargador para Starlink Mini está hecho específicamente para el ad ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/684">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/1632b03ab7.jpg" alt="Soporte Pivotante para Starlink Mini Ajusta el Ángulo de Inclinación Soporte de Antena - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte Pivotante para Starlink Mini Ajusta el Ángulo de Inclinación Soporte de Antena</h3>
+                      <p class="blog-one__tt">Soporte de techo pivotante de alta resistencia para Starlink Mini, diseñado para soportar co ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/685">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/471fc16a30.jpg" alt="Cable de Extensión para Starlink Mini de 23.5CM, Cable Extensor Impermeable CC Macho a CC Hembra, Adaptador Convertidor de Alimentación, Compatible con el Adaptador de Tubo del Starlink Mini y el Cable de Alimentación Original - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Extensión para Starlink Mini de 23.5CM, Cable Extensor Impermeable CC Macho a CC Hembra, Adaptador Convertidor de Alimentación, Compatible con el Adaptador de Tubo del Starlink Mini y el Cable de Alimentación Original</h3>
+                      <p class="blog-one__tt">Diseñado específicamente para el Starlink Mini con soportes: Ideal para instalaciones de Sta ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/686">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/f7e0ae7d2f.jpg" alt="Cable de Extensión para Starlink Mini DaierTek Impermeable, Conector de Cable CC Starlink Standard Gen3, Adaptador Hembra a Hembra, 0.98FT, Portátil, para Camping, Viajes, Vehículo y Casa Rodante - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Extensión para Starlink Mini DaierTek Impermeable, Conector de Cable CC Starlink Standard Gen3, Adaptador Hembra a Hembra, 0.98FT, Portátil, para Camping, Viajes, Vehículo y Casa Rodante</h3>
+                      <p class="blog-one__tt">Cable de extensión CC Starlink: Diseñado específicamente para el Starlink Mini y el Starlink ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/687">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/16e4e4ebb5.jpg" alt="Soporte Magnético para Starlink Mini, para Antena Starlink Mini - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte Magnético para Starlink Mini, para Antena Starlink Mini</h3>
+                      <p class="blog-one__tt">El soporte Starlink Mini para techo de vehículo cuenta con 4 potentes patas magnéticas y un ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/688">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/169450f984.jpg" alt="Soporte para Starlink Mini, Soporte Vehicular compatible con 1.1-1.7 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Starlink Mini, Soporte Vehicular compatible con 1.1-1.7</h3>
+                      <p class="blog-one__tt">El soporte vehicular para Starlink Mini, fabricado en aleación de aluminio robusta y resiste ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/689">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/6bb0763c24.jpg" alt="Soporte para Starlink Mini para Casa Rodante/ Poste/ Yate/ Camper, Soporte de Escalera Starlink para Casa Rodante, Rango de Poste 0.8-1.18 pulgadas , Kit de Montaje Starlink - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Starlink Mini para Casa Rodante/ Poste/ Yate/ Camper, Soporte de Escalera Starlink para Casa Rodante, Rango de Poste 0.8-1.18 pulgadas , Kit de Montaje Starlink</h3>
+                      <p class="blog-one__tt">Encaje perfecto para Starlink Mini: este soporte de escalera para casa rodante está diseñado ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/mini/690">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/24a706af4a.jpg" alt="Adaptador de Antena con Soporte de Poste para Starlink Mini hasta D1 1/2 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador de Antena con Soporte de Poste para Starlink Mini hasta D1 1/2</h3>
+                      <p class="blog-one__tt">El adaptador de tubo Starlink Mini permite una conexión firme entre la antena Starlink y los ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/mini/691">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/08/products/b3597dc054.jpg" alt="For Starlink Mini Roof Mount Adjustable Starink Mini Home Mount Heavy Duty Pole Mounting with Adjustable Tilt 90 for Better Signal - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">For Starlink Mini Roof Mount Adjustable Starink Mini Home Mount Heavy Duty Pole Mounting with Adjustable Tilt 90 for Better Signal</h3>
+                      <p class="blog-one__tt">Compatible with Starlink Mini: Designed specifically for the Starlink mini dish antenna, the ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/692">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/StarlinkMiniUSBCtoDCAdapter5.jpg" alt="Adaptador Type-C a CC para Starlink Mini, Impermeable, Compatible con el Cable de Alimentación USB C Original del Starlink Mini, Fuente PD de 65W+, Adaptador de Energía CC - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Type-C a CC para Starlink Mini, Impermeable, Compatible con el Cable de Alimentación USB C Original del Starlink Mini, Fuente PD de 65W+, Adaptador de Energía CC</h3>
+                      <p class="blog-one__tt">Adaptador USB C a CC: Este adaptador USB C a CC para Starlink Mini está diseñado especialmen ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/693">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/1b7642c95a.jpg" alt="Cable de Alimentación USB C a CC para Starlink Mini 16.4 FT/5 M, Cable Starlink Mini 100W, Entrada USB Type-C a Conector CC Barrel Jack, Cable de Carga Impermeable, Funciona con Fuente PD de 100W+ 18AWG - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Alimentación USB C a CC para Starlink Mini 16.4 FT/5 M, Cable Starlink Mini 100W, Entrada USB Type-C a Conector CC Barrel Jack, Cable de Carga Impermeable, Funciona con Fuente PD de 100W+ 18AWG</h3>
+                      <p class="blog-one__tt">【XLinkShop】 Para evitar pérdidas durante el uso y lograr el mejor desempeño, elige un power ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cases">
+                <div class="blog-one__single">
+                  <a href="/es/mini/694">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/a20257a41f.jpg" alt="Bolsa de Transporte para Starlink Mini, Bolsa de Hombro de Viaje con Correa para Kit de Antena Starlink Mini, Tela Oxford 600D de Alta Resistencia, Maletín de Almacenamiento Portátil a Prueba de Golpes para Exteriores, Campamento y Navegación - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Bolsa de Transporte para Starlink Mini, Bolsa de Hombro de Viaje con Correa para Kit de Antena Starlink Mini, Tela Oxford 600D de Alta Resistencia, Maletín de Almacenamiento Portátil a Prueba de Golpes para Exteriores, Campamento y Navegación</h3>
+                      <p class="blog-one__tt">Capacidad suficiente para el Starlink Mini - Esta bolsa de transporte está diseñada específi ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cases">
+                <div class="blog-one__single">
+                  <a href="/mini/695">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/d649cf2f17.jpg" alt="For Starlink Mini Waterproof Hard Case for Dish Kit - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">For Starlink Mini Waterproof Hard Case for Dish Kit</h3>
+                      <p class="blog-one__tt">Starlink Mini Hard Case with injection-molded shell for impact resistance and protection, of ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/702">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/1e6b9f2824.jpg" alt="Cable para Starlink Router Mini Paquete de 2 (1FT 6.5FT) Cable de Alimentación USB C a CC Compatible con Mini Router, Plug and Play PD 9V Repuesto Compatible para Kit de Internet Starlink - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink Router Mini Paquete de 2 (1FT 6.5FT) Cable de Alimentación USB C a CC Compatible con Mini Router, Plug and Play PD 9V Repuesto Compatible para Kit de Internet Starlink</h3>
+                      <p class="blog-one__tt">Paquete de 2 con dos largos distintos para todo tipo de uso: el cable STARGEAR para Starlink ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
+                <div class="blog-one__single">
+                  <a href="/es/mini/703">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/StarlinkMiniCarAdapter-22.jpg" alt="Adaptador vehicular para Starlink Mini, convertidor elevador de 12V a 24V, adaptador para encendedor de cigarros, fuente de alimentación para Starlink Mini, elevador CC de 60W - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador vehicular para Starlink Mini, convertidor elevador de 12V a 24V, adaptador para encendedor de cigarros, fuente de alimentación para Starlink Mini, elevador CC de 60W</h3>
+                      <p class="blog-one__tt">Adaptador vehicular 2 en 1 para Starlink Mini: mantén tu internet sin interrupciones en el c ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="networking">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4199">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260521/1779350844699054.jpg" alt="Adaptador Ethernet de 4 Puertos para Router Starlink Mini, Adaptador Específico de Red, Dock de Expansión, Caja de Red POE - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet de 4 Puertos para Router Starlink Mini, Adaptador Específico de Red, Dock de Expansión, Caja de Red POE</h3>
+                      <p class="blog-one__tt">Solución de conectividad de red compacta y profesional Esta caja de red POE compacta está di ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4200">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260521/1779352319694762.jpg" alt="Cable de Carga Plano para Starlink Mini [Type-C a CC / CC a CC Opcional] 60W 20V 3A, Cable de Alimentación PD de Alta Velocidad para Laptop, Router y Tira de LED - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Carga Plano para Starlink Mini [Type-C a CC / CC a CC Opcional] 60W 20V 3A, Cable de Alimentación PD de Alta Velocidad para Laptop, Router y Tira de LED</h3>
+                      <p class="blog-one__tt">Mejora tu instalación de energía con nuestro cable plano Mini de alta eficiencia Disfruta de ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4201">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779412510179383.jpg" alt="Power Bank Portátil para Starlink Mini 27500mAh/99Wh con Pantalla Digital, Batería Externa de Carga Rápida y Soporte Plegable para Viajes y Uso en Exteriores - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Power Bank Portátil para Starlink Mini 27500mAh/99Wh con Pantalla Digital, Batería Externa de Carga Rápida y Soporte Plegable para Viajes y Uso en Exteriores</h3>
+                      <p class="blog-one__tt">Tu solución de internet para llevar a todas partes: Diseñado específicamente como compañero ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4203">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779413282561312.jpg" alt="Cable de Alimentación con Adaptador para Vehículo 2 en 1 de 12-24V para Starlink - Accesorio Impermeable para Encendedor de Cigarros - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Alimentación con Adaptador para Vehículo 2 en 1 de 12-24V para Starlink - Accesorio Impermeable para Encendedor de Cigarros</h3>
+                      <p class="blog-one__tt">Diseñado para los entusiastas del Starlink Mini, este cable de alimentación con adaptador pa ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4204">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779414654778711.jpg" alt="Kit de Alimentación de 60W para Starlink Mini - Adaptador CA/CC de 30V/2A con Cargador para Vehículo de 12V, Cable CC Impermeable para Uso en Casa Rodante/Exteriores - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Kit de Alimentación de 60W para Starlink Mini - Adaptador CA/CC de 30V/2A con Cargador para Vehículo de 12V, Cable CC Impermeable para Uso en Casa Rodante/Exteriores</h3>
+                      <p class="blog-one__tt">Diseñado para usuarios de Starlink Mini, este kit de alimentación de 60W entrega energía efi ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="power">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4205">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779414966204424.jpg" alt="Cargador para Vehículo Starlink Mini de 12V/24V a 30V 2A 60W Adaptador de Energía CC para Camión/Casa Rodante/Bote - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cargador para Vehículo Starlink Mini de 12V/24V a 30V 2A 60W Adaptador de Energía CC para Camión/Casa Rodante/Bote</h3>
+                      <p class="blog-one__tt">El Mini Adaptador de Energía para Vehículo es un convertidor CC-CC de alto desempeño, hecho ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/mini/4206">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779415510147664.jpg" alt="Starlink Mini DC Power Extension Cable — 12V/24V Cigarette Lighter to DC Adapter for RV, Truck, Boat & Car - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Starlink Mini DC Power Extension Cable — 12V/24V Cigarette Lighter to DC Adapter for RV, Truck, Boat & Car</h3>
+                      <p class="blog-one__tt">Starlink Mini DC Power Extension Cable Product Overview Designed for Starlink Mini users who ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="mini" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/mini/4207">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779416243147050.jpg" alt="Adaptador de Energía 12V para Starlink Mini: Cargador de 100W, Cable de Conversión CC a CC para Casa Rodante, Vanlife y Camping sin Red Eléctrica, solución de energía para internet en campamentos - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador de Energía 12V para Starlink Mini: Cargador de 100W, Cable de Conversión CC a CC para Casa Rodante, Vanlife y Camping sin Red Eléctrica, solución de energía para internet en campamentos</h3>
+                      <p class="blog-one__tt">Cable de extensión de alimentación CC a CC de 100W – Listo para casa rodante y Starlink Mini ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-1" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-1/654">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/c65049683b.jpg" alt="Cable para Starlink High Performance, Conectores Impermeables, Compatible con la Antena y el Power Supply Starlink High Performance, Duradero y Confiable para Uso Comercial e Industrial - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink High Performance, Conectores Impermeables, Compatible con la Antena y el Power Supply Starlink High Performance, Duradero y Confiable para Uso Comercial e Industrial</h3>
+                      <p class="blog-one__tt">Diseñado para el sistema Starlink High Performance: este cable es un reemplazo directo del S ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-3/42">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260428/1777341673585824.jpg" alt="Adaptador para Starlink Performance Gen 3, Extensión de Cable a Acoplador RJ45 Impermeable, Compatible con la Antena Starlink Performance Gen 3 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador para Starlink Performance Gen 3, Extensión de Cable a Acoplador RJ45 Impermeable, Compatible con la Antena Starlink Performance Gen 3</h3>
+                      <p class="blog-one__tt">Conectividad plug-and-play: El adaptador Ethernet Starlink para Performance Gen 3 te da una ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-3/43">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260428/1777338223949419.jpg" alt="Adaptador Ethernet para Starlink Performance Gen 3, Extensión de Cable a Acoplador RJ45 para Starlink Performance Gen 3, Impermeable, Compatible con la Antena Starlink Performance Gen 3 (Paquete de 1) 23AWG - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet para Starlink Performance Gen 3, Extensión de Cable a Acoplador RJ45 para Starlink Performance Gen 3, Impermeable, Compatible con la Antena Starlink Performance Gen 3 (Paquete de 1) 23AWG</h3>
+                      <p class="blog-one__tt">*Compatibilidad: diseñado específicamente para la antena Starlink Performance Gen 3, este ad ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-3/697">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/5650253a55.jpg" alt="(23AWG) Adaptador para Starlink Performance (Gen 3), Cable 23AWG de 2000Mbps, Protección Impermeable IP68, Acoplador SPX a RJ45 (Paquete de 1) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">(23AWG) Adaptador para Starlink Performance (Gen 3), Cable 23AWG de 2000Mbps, Protección Impermeable IP68, Acoplador SPX a RJ45 (Paquete de 1)</h3>
+                      <p class="blog-one__tt">Adaptador Starlink Performance (Gen 3), Transferencia de Datos Confiable (23AWG) Disfruta de ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-3/700">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/7f00996ac6.jpg" alt="Cable de Extensión Impermeable Starlink Performance Gen3 – Cable de Red Cat6 de Alta Velocidad para el Satélite Rectangular Starlink Gen3, Plug-and-Play, Resistente a la Intemperie y Duradero para Uso en Interiores/Exteriores (10M/33FT) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable de Extensión Impermeable Starlink Performance Gen3 – Cable de Red Cat6 de Alta Velocidad para el Satélite Rectangular Starlink Gen3, Plug-and-Play, Resistente a la Intemperie y Duradero para Uso en Interiores/Exteriores (10M/33FT)</h3>
+                      <p class="blog-one__tt">Alto desempeño Diseñado para el Starlink Performance Gen3, nuestro cable de extensión de 33F ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="performance-gen-3" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/performance-gen-3/4202">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/image/20260522/1779412638932645.png" alt="Adaptador de Soporte para Tubo para Starlink Gen 3, Kit de Soporte de Poste en Aleación de Aluminio de Alta Resistencia para Antena V3, Instalación en Techo y Pared - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador de Soporte para Tubo para Starlink Gen 3, Kit de Soporte de Poste en Aleación de Aluminio de Alta Resistencia para Antena V3, Instalación en Techo y Pared</h3>
+                      <p class="blog-one__tt">Compatibilidad total para Starlink Gen 3 Este adaptador está diseñado específicamente para a ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard/651">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/1e0268e594.jpg" alt="(Paquete de 1) Adaptador Ethernet para Starlink Gen 3 y Mini, Cable 24AWG de 2000Mbps, Protección Impermeable IP68, Acoplador SPX a RJ45 para Antena Standard/Mini (Accesorios Starlink V3) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">(Paquete de 1) Adaptador Ethernet para Starlink Gen 3 y Mini, Cable 24AWG de 2000Mbps, Protección Impermeable IP68, Acoplador SPX a RJ45 para Antena Standard/Mini (Accesorios Starlink V3)</h3>
+                      <p class="blog-one__tt">Adaptador Ethernet Starlink para Gen 3 y Mini | Transferencia de datos rápida y confiable Di ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard/652">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/413c1389e2.webp" alt="(Paquete de 2) Adaptador Ethernet para Starlink Mini/Gen 3, Extensión de Cable Starlink Impermeable para Starlink Mini, Acoplador Star Link Standard a RJ45 para Antena y Router Starlink Gen3 Standard V3 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">(Paquete de 2) Adaptador Ethernet para Starlink Mini/Gen 3, Extensión de Cable Starlink Impermeable para Starlink Mini, Acoplador Star Link Standard a RJ45 para Antena y Router Starlink Gen3 Standard V3</h3>
+                      <p class="blog-one__tt">El Adaptador Ethernet Starlink para Starlink Gen 3 está diseñado para conectar tu Starlink G ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard/660">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/starlinkgen3RJ45image4-0321545254.jpg" alt="Cable para Starlink GEN3, Cable de Extensión Ethernet para Starlink, Impermeable, de Alta Velocidad, Cat 6 Ethernet Standard, Cable Largo de Repuesto para Satélite V3 Sata Internet Kit de Red Starlink - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink GEN3, Cable de Extensión Ethernet para Starlink, Impermeable, de Alta Velocidad, Cat 6 Ethernet Standard, Cable Largo de Repuesto para Satélite V3 Sata Internet Kit de Red Starlink</h3>
+                      <p class="blog-one__tt">Mantén tu conexión estable con el Cable Ethernet Impermeable TheLAShop para Starlink Gen 3, ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="networking">
+                <div class="blog-one__single">
+                  <a href="/es/standard/661">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/8b4bace44a.jpg" alt="Adaptador Ethernet Multipuerto para Starlink Gen 3/ para Starlink Mini para Red Externa Cableada, Adaptador Ethernet Starlink de 4 Puertos 1 a 4 [4 Dispositivos Conectados en Red al Mismo Tiempo] - Hasta 1 Gbps - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet Multipuerto para Starlink Gen 3/ para Starlink Mini para Red Externa Cableada, Adaptador Ethernet Starlink de 4 Puertos 1 a 4 [4 Dispositivos Conectados en Red al Mismo Tiempo] - Hasta 1 Gbps</h3>
+                      <p class="blog-one__tt">Compatibilidad -- Funciona a la perfección con Starlink Gen3 y Starlink Mini, apto para dist ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/662">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/24ed4ad3d4.jpg" alt="Soporte Adaptador para Tubo para Starlink Gen 3, Compatible con Tubo de 1.25-2.5', Conectores de Kit de Montaje en Mástil de Techo de Alta Resistencia para Antena Starlink V3, Accesorios de Kit Adaptador de Montaje en Mástil Reforzado, Fácil Instalación - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte Adaptador para Tubo para Starlink Gen 3, Compatible con Tubo de 1.25-2.5', Conectores de Kit de Montaje en Mástil de Techo de Alta Resistencia para Antena Starlink V3, Accesorios de Kit Adaptador de Montaje en Mástil Reforzado, Fácil Instalación</h3>
+                      <p class="blog-one__tt">Hecho para durar: fabricado con materiales PC premium y con una pared reforzada de 0.3 de es ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cases">
+                <div class="blog-one__single">
+                  <a href="/es/standard/671">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/0ca2e2a7c8.jpg" alt="Estuche para Starlink Gen 3, Diseño Multibolsillos, Bolsa de Viaje de Mano/Hombro para Antena Starlink V3 y Accesorios, Casa Rodante y Camping - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Estuche para Starlink Gen 3, Diseño Multibolsillos, Bolsa de Viaje de Mano/Hombro para Antena Starlink V3 y Accesorios, Casa Rodante y Camping</h3>
+                      <p class="blog-one__tt">Diseño multibolsillos: Este estuche para starlink gen 3 está diseñado para el Starlink Gen 3 ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/672">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/9fbc410503.jpg" alt="Soporte Starlink Gen 3, Soporte Pivotante Starlink con Adaptador de Tubo y Mástil, Diseño con Mecanismo Giratorio, Soporte Standard Gen 3 para Techos Inclinados y con Tejas, Fácil de Instalar y Ajustar. - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte Starlink Gen 3, Soporte Pivotante Starlink con Adaptador de Tubo y Mástil, Diseño con Mecanismo Giratorio, Soporte Standard Gen 3 para Techos Inclinados y con Tejas, Fácil de Instalar y Ajustar.</h3>
+                      <p class="blog-one__tt">El Soporte Pivotante Starlink Standard Gen 3 está diseñado para instalarse en techos inclina ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/673">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/08/products/StarlinkGen3PivotMountimage4.jpg" alt="Soporte para Starlink Gen 3, Soporte Pivotante Starlink con Adaptador de Tubo y Mástil, Diseño con Mecanismo Giratorio, Soporte Standard Gen 3 para Techos Inclinados y con Tejas, Fácil de Instalar y Ajustar. - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Starlink Gen 3, Soporte Pivotante Starlink con Adaptador de Tubo y Mástil, Diseño con Mecanismo Giratorio, Soporte Standard Gen 3 para Techos Inclinados y con Tejas, Fácil de Instalar y Ajustar.</h3>
+                      <p class="blog-one__tt">Soporte pivotante de techo de alta resistencia para Starlink Gen 3, diseñado para resistir c ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/674">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/bf26b45c66.jpg" alt="Kit de Montaje para Router y Power Supply de Starlink Gen 3 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Kit de Montaje para Router y Power Supply de Starlink Gen 3</h3>
+                      <p class="blog-one__tt">El soporte para router y Power Supply de Starlink Gen 3, hecho de ABS resistente a impactos ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard/677">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/065cc72e8f.jpg" alt="Cable para Starlink Mini - Cable de Alimentación CC de Reemplazo Impermeable para Starlink Mini, Gris - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink Mini - Cable de Alimentación CC de Reemplazo Impermeable para Starlink Mini, Gris</h3>
+                      <p class="blog-one__tt">[Fabricación perfecta]: Mejora tu experiencia de red con el cable Starlink mini cuidadosamen ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/696">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/a0f77f1374.jpg" alt="Soporte para Antena Starlink Mini para Postes, Escaleras de Casa Rodante, Barandales y Racks - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Antena Starlink Mini para Postes, Escaleras de Casa Rodante, Barandales y Racks</h3>
+                      <p class="blog-one__tt">El Soporte de Escalera para Starlink Mini te da conectividad a internet sin interrupciones e ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard/701">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/4d257d30f3.jpg" alt="Soporte de Poste para Starlink Gen 3 Standard Kit V3, Adaptador de Antena - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte de Poste para Starlink Gen 3 Standard Kit V3, Adaptador de Antena</h3>
+                      <p class="blog-one__tt">El Adaptador de Tubo Starlink Gen 3 permite una conexión firme entre la antena Starlink y lo ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/standard/704">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/3in1StarlinkMiniCable2.jpg" alt="3 in 1 for Starlink Mini Cable 10FT/3M OR 16FT/5M, 18AWG Starlink Mini 100W High-Speed USB C/Car Charger/DC to DC Power Cable Starlink Mini Car Cigarette Lighter Replacement Waterproof Extension Cable Accessories - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">3 in 1 for Starlink Mini Cable 10FT/3M OR 16FT/5M, 18AWG Starlink Mini 100W High-Speed USB C/Car Charger/DC to DC Power Cable Starlink Mini Car Cigarette Lighter Replacement Waterproof Extension Cable Accessories</h3>
+                      <p class="blog-one__tt">Intelligent Step Up Converter 12V-24V Smart Boost Compatible with 12-24V Vehicied Multiple U ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="networking">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/659">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/8345d6f0f9.jpg" alt="Adaptador Ethernet para Starlink Gen 2, Adaptador Ethernet para Starlink Standard Actuated Gen 2, Red Externa Alámbrica Gigabit RJ45 con Conexión a Internet Rápida y Estable - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet para Starlink Gen 2, Adaptador Ethernet para Starlink Standard Actuated Gen 2, Red Externa Alámbrica Gigabit RJ45 con Conexión a Internet Rápida y Estable</h3>
+                      <p class="blog-one__tt">Amplía tu red: Integra fácilmente tu sistema Starlink a tu red doméstica o empresarial con e ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/665">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg" alt="Cable para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG con Clasificación CMX CMR, Cable de Repuesto Starlink 1200Mbps, Cable Ethernet de Extensión Starlink - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG con Clasificación CMX CMR, Cable de Repuesto Starlink 1200Mbps, Cable Ethernet de Extensión Starlink</h3>
+                      <p class="blog-one__tt">【Cable Starlink Rectangular Satellite Gen2】Solo conecta este cable de repuesto Starlink de 5 ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/666">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/3794a12fbc.jpg" alt="Cable para Starlink Adaptadores SPX a RJ45, Adaptador Ethernet Starlink para Star Link Gen 2 Dishy y Router con Kits Impermeables (Par) - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Cable para Starlink Adaptadores SPX a RJ45, Adaptador Ethernet Starlink para Star Link Gen 2 Dishy y Router con Kits Impermeables (Par)</h3>
+                      <p class="blog-one__tt">Plug and play: el adaptador Ethernet Starlink permite la conexión directa del Starlink Stand ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="networking">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/667">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/105b33dab5.jpg" alt="Adaptador Ethernet para Starlink para Red Externa Cableada Starlink Gen2, Adaptador Ethernet Starlink Gen2 de Puertos Duales, Red de Alta Velocidad de Hasta 1 Gbps - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet para Starlink para Red Externa Cableada Starlink Gen2, Adaptador Ethernet Starlink Gen2 de Puertos Duales, Red de Alta Velocidad de Hasta 1 Gbps</h3>
+                      <p class="blog-one__tt">【Conexión de puerto dual】El Adaptador Ethernet Starlink Gen2 simplifica el cableado con dos ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="cables">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/668">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/54bebe4174.jpg" alt="Adaptador Ethernet para Starlink V2 (Paquete de 2) Impermeable, Cable Star Link SPX a RJ45, Adaptadores con Conectores Hembra para Starlink Actuated Gen 2 Dishy y Router, Kit de Reparación Accesorios - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Adaptador Ethernet para Starlink V2 (Paquete de 2) Impermeable, Cable Star Link SPX a RJ45, Adaptadores con Conectores Hembra para Starlink Actuated Gen 2 Dishy y Router, Kit de Reparación Accesorios</h3>
+                      <p class="blog-one__tt">Adaptadores de cable Starlink, paquete de 2: 1 * adaptador SPX V2 Plug (antena) macho a RJ45 ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-actuated" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard-actuated/670">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/320616680a.jpg" alt="Soporte para Starlink Gen 2, Soporte Pivotante - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Soporte para Starlink Gen 2, Soporte Pivotante</h3>
+                      <p class="blog-one__tt">Diseñado para instalarse en techos de tejas asfálticas (shingle); requiere perforación. No s ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard-circular/655">
+                    <div class="blog-one__img">
+                      <img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/ddbec41296.jpg" alt="Kit de Enrutamiento de Cables para Starlink, Kit de Montaje de Cables, Accesorios Starlink, Pasacables de Pared, Pasamuros para Cables para Orificio de Pared de 1 Pulgada y Orificio de Cableado de Muebles -  - Paquete de 2 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Kit de Enrutamiento de Cables para Starlink, Kit de Montaje de Cables, Accesorios Starlink, Pasacables de Pared, Pasamuros para Cables para Orificio de Pared de 1 Pulgada y Orificio de Cableado de Muebles -  - Paquete de 2</h3>
+                      <p class="blog-one__tt">Fácil de instalar: el Kit de Enrutamiento de Cables para Starlink se instala en 3 pasos en p ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="standard-circular" data-form="mounts">
+                <div class="blog-one__single">
+                  <a href="/es/standard-circular/664">
+                    <div class="blog-one__img">
+                      <img src="/static/upload/down/08cc07cfde.jpg" alt="Kit de Enrutamiento de Cables para Starlink, Tornillos + Abrazaderas para Clip de Cable Serie Starlink, Paquete de 20 - Productos Tejoy" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                      <h3 class="blog-one__title">Kit de Enrutamiento de Cables para Starlink, Tornillos + Abrazaderas para Clip de Cable Serie Starlink, Paquete de 20</h3>
+                      <p class="blog-one__tt">Organiza tus cables enredados con 20 unidades de Clips de Montaje para Cable Starlink. Estas ···</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="site-footer__middle">
+      <div class="container">
+        <div class="site-footer__middle-inner">
+          <div class="row">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
+              <div class="footer-widget__column footer-widget__newsletter">
+                <h3 class="footer-widget__title">TEJOY STARLINK ACCESSORIES LIMITED</h3>
+                <div class="text"> Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China<br>
+                  Correo: hello@tejoy.com<br>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-7 pcblock wow fadeInUp" data-wow-delay="100ms">
+              <div class="row">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-products-title">Productos</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-products-list"><li><a href="/es/standard-circular/">- Standard Circular</a></li><li><a href="/es/standard-actuated/">- Standard Actuated</a></li><li><a href="/es/standard/">- Standard</a></li><li><a href="/es/mini/">- Mini</a></li><li><a href="/es/performance-gen-1/">- Performance (Gen 1)</a></li><li><a href="/es/performance-gen-3/">- Performance (Gen 3)</a></li><li><a href="/es/enterprise/">- Enterprise</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-service-title">Guías</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/es/marine/">- Marítimo</a></li><li><a href="/es/rv-off-grid/">- Casa rodante / Sin red</a></li><li><a href="/es/mounts/">- Soportes</a></li><li><a href="/es/industrial/">- Industrial</a></li><li><a href="/es/power/">- Energía</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__links clearfix">
+                    <h3 class="footer-widget__title" id="footer-other-title">Otros menús</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix">
+                       
+                      <li><a href="/es/about/">- Acerca de nosotros</a></li>
+                      
+                      <li><a href="/es/products/">- Productos</a></li>
+                      
+                      <li><a href="/es/hangye/">- Sectores</a></li>
+                      
+                      <li><a href="/es/service/">- Guías</a></li>
+                      
+                      <li><a href="/es/faq/">- Preguntas frecuentes</a></li>
+                      
+                      <li><a href="/es/video/">- Videos</a></li>
+                      
+                      <li><a href="/es/contact/">- Contacto</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="site-footer__bottom-inner">
+              <p class="site-footer__bottom-text">Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos los derechos reservados.
+Tejoy fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.  <a href="/sitemap.xml" target="_blank">XML</a>  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://tejoy.com/#organization",
+  "name": "TEJOY STARLINK ACCESSORIES LIMITED.",
+  "url": "https://tejoy.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tejoy.com/static/tejoy-logo-black.png"
+  },
+  "description": "Professional manufacturer of Starlink cable accessories, mounts, connectors and cable equipment since 2010.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "No. 62, Baotian 1st Road, Xixiang Street",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "postalCode": "518000",
+    "addressCountry": "CN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hello@tejoy.com",
+    "availableLanguage": ["English", "Chinese", "French", "German", "Spanish", "Italian", "Portuguese", "Polish", "Dutch", "Japanese", "Korean", "Thai", "Malay", "Vietnamese", "Arabic", "Swahili", "Hausa"]
+  },
+  "sameAs": [
+    "https://tejoy.com"
+  ],
+  "foundingDate": "2010",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "minValue": 150,
+    "maxValue": 200
+  }
+}
+</script>
+
+
+
+  
+  <!-- Structured Data: ItemList for Product Category -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Products - tejoy",
+    "description": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "url": "https://tejoy.com/products/",
+    "numberOfItems": 64
+  }
+  </script>
+  
+</div>
+<div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content"> <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+    <div class="logo-box"> <a href="/es/" aria-label="Inicio"><img src="/static/tejoy-logo-white.png" width="155" alt="Tejoy | Accesorios Premium para Starlink"/></a> </div>
+    <div class="mobile-nav__container"></div>
+    <ul class="mobile-nav__contact list-unstyled">
+      <li> <i class="fa fa-envelope"></i> <a href="mailto:hello@tejoy.com">hello@tejoy.com</a> </li>
+</ul>
+    <!-- /.mobile-nav__contact --> 
+  </div>
+  <!-- /.mobile-nav__content --> 
+</div>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
+<script src="/skin/js/jquery-3.6.0.min.js"></script> 
+<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
+<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
+<script src="/skin/js/wow.js" defer></script>
+<script src="/skin/js/swiper.min.js"></script>
+<script src="/skin/js/mibooz.js?v=6" defer></script>
+
+<script>
+// 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
+// CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
+(function() {
+  // 先检测浏览器是否支持WebP（复用已有检测逻辑）
+  function isWebPSupported() {
+    var img = new Image();
+    var supported = false;
+    img.onload = function() { supported = true; };
+    img.onerror = function() { supported = false; };
+    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+    // 同步返回不可靠，改用异步检测
+    return null; // 未知
+  }
+  
+  // 页面加载完成后替换CSS背景图
+  function replaceSliderBgToWebP() {
+    // 检查浏览器是否支持WebP
+    var testImg = new Image();
+    testImg.onload = function() {
+      // WebP支持
+      document.querySelectorAll('.image-layer').forEach(function(el) {
+        var bg = el.style.backgroundImage;
+        if (bg && bg.match(/\.(jpg|jpeg|png)["']?\)/i)) {
+          el.style.backgroundImage = bg.replace(/\.(jpg|jpeg|png)(["']?\))/gi, '.webp$2');
+        }
+      });
+    };
+    testImg.onerror = function() {
+      // 不支持WebP，不替换
+    };
+    testImg.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+                  'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+  }
+  
+  // DOM就绪后执行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceSliderBgToWebP);
+  } else {
+    replaceSliderBgToWebP();
+  }
+})();
+</script>
+
+<script>
+$(function() {
+     $(document).on('click', '.yvzhonga', function(e) {
+        e.preventDefault();
+        $('.yvul').toggle();   // 直接切换所有匹配元素
+    });
+	// 悬浮窗口
+	$(".yb_conct").hover(function() {
+		$(".yb_conct").css("right", "5px");
+		$(".yb_bar .yb_ercode").css('height', '200px');
+	}, function() {
+		$(".yb_conct").css("right", "-127px");
+		$(".yb_bar .yb_ercode").css('height', '53px');
+	});
+	// 返回顶部
+	$(".yb_top").click(function() {
+		$("html,body").animate({
+			'scrollTop': '0px'
+		}, 300)
+	});
+});
+</script>
+
+<script>
+// Category Active Highlight
+window.onload = function(){
+    let url = window.location.href;
+    let lis = document.querySelectorAll("#catList li");
+    lis.forEach(function(li){
+        let link = li.getAttribute("data-link");
+        if(url.indexOf(link) !== -1){
+            li.classList.add("active-cat");
+        }
+    });
+}
+</script>
+<!-- product-filter -->
+<script>
+(function(){
+  var grid = document.getElementById('productGrid');
+  if(!grid) return;
+  var cards = [].slice.call(grid.querySelectorAll('[data-cat]'));
+  var modelChips = [].slice.call(document.querySelectorAll('#modelChips .product-chip'));
+  var formChips = [].slice.call(document.querySelectorAll('#formChips .product-chip'));
+  if(!modelChips.length || !formChips.length) return;
+  var state = { cat:'all', form:'all' };
+  var emptyMsg = document.createElement('div');
+  emptyMsg.className = 'product-empty';
+  emptyMsg.textContent = 'No products match this combination.';
+  emptyMsg.style.display = 'none';
+  grid.parentNode.insertBefore(emptyMsg, grid.nextSibling);
+  function show(c){
+    return (state.cat==='all'||c.getAttribute('data-cat')===state.cat) &&
+           (state.form==='all'||c.getAttribute('data-form')===state.form);
+  }
+  function count(chips, selfAttr, otherAttr){
+    var otherVal = (otherAttr==='data-cat') ? state.cat : state.form;
+    for(var i=0;i<chips.length;i++){
+      var f = chips[i].getAttribute('data-filter'), n = 0;
+      for(var j=0;j<cards.length;j++){
+        var c = cards[j];
+        var selfOk = (f==='all') || (c.getAttribute(selfAttr)===f);
+        var otherOk = (otherVal==='all') || (c.getAttribute(otherAttr)===otherVal);
+        if(selfOk && otherOk) n++;
+      }
+      var span = chips[i].querySelector('.product-chip__n');
+      if(span) span.textContent = n;
+      chips[i].classList.toggle('is-empty', n===0);
+    }
+  }
+  function apply(){
+    var vis = 0;
+    for(var i=0;i<cards.length;i++){ var ok = show(cards[i]); cards[i].style.display = ok?'':'none'; if(ok) vis++; }
+    count(modelChips, 'data-cat', 'data-form');
+    count(formChips, 'data-form', 'data-cat');
+    emptyMsg.style.display = vis ? 'none' : '';
+  }
+  function bind(chips, axis){
+    for(var i=0;i<chips.length;i++){
+      chips[i].addEventListener('click', function(){
+        state[axis] = this.getAttribute('data-filter');
+        for(var j=0;j<chips.length;j++) chips[j].classList.toggle('is-active', chips[j]===this);
+        apply();
+      });
+    }
+  }
+  bind(modelChips, 'cat');
+  bind(formChips, 'form');
+  apply();
+  function deepLink(scroll){
+    var h = (location.hash || '').replace('#','').toLowerCase();
+    if(!/^[a-z0-9-]+$/.test(h)) return;
+    var chip = document.querySelector('#formChips .product-chip[data-filter="'+h+'"]')
+            || document.querySelector('#modelChips .product-chip[data-filter="'+h+'"]');
+    if(!chip) return;
+    chip.click();
+    if(scroll){ var f = document.querySelector('.product-filters'); if(f) f.scrollIntoView({block:'start'}); }
+  }
+  deepLink(true);
+  window.addEventListener('hashchange', function(){ deepLink(true); });
+})();
+</script>
+
+</body>
+</html>

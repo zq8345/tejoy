@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<style>
+/* XLC-Style About Page — full-width layout, no sidebar image squeeze */
+.xlc-section{padding:70px 0}
+.xlc-section-alt{background-color:#f6f6f6}
+.xlc-section-heading{text-align:center;margin-bottom:50px}
+.xlc-section-heading h2{font-size:32px;font-weight:700;color:#17161a;margin:0 0 12px}
+.xlc-section-heading p{font-size:16px;color:#707070;max-width:600px;margin:0 auto;line-height:1.7}
+.xlc-body{max-width:960px;margin:0 auto;font-size:16px;line-height:1.8;color:#444}
+.xlc-body h2{font-size:26px;font-weight:700;color:#17161a;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #e3e3e3}
+.xlc-body h3{font-size:20px;font-weight:600;color:#17161a;margin:28px 0 12px}
+.xlc-body p{margin:0 0 16px}
+.xlc-body ul{margin:0 0 20px;padding-left:24px}
+.xlc-body li{margin-bottom:6px}
+.xlc-body table{width:100%;margin:20px 0;border-collapse:collapse}
+.xlc-body table th{background:#2b3aa1;color:#fff;padding:10px 14px;font-weight:600}
+.xlc-body table td{padding:10px 14px;border:1px solid #e3e3e3}
+.xlc-body blockquote{margin:24px 0;padding:18px 24px;background:#f0f2fa;border-left:4px solid #2b3aa1;border-radius:6px;font-size:15px;color:#333}
+.xlc-body img{max-width:100%;height:auto;border-radius:8px;margin:20px 0}
+.xlc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.xlc-stat-card{background:#fff;border-radius:12px;padding:36px 20px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform .25s ease,box-shadow .25s ease}
+.xlc-stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(0,0,0,0.10)}
+.xlc-stat-number{font-size:40px;font-weight:800;color:#2b3aa1;line-height:1.1;margin-bottom:6px}
+.xlc-stat-label{font-size:14px;color:#707070;text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+.xlc-features{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1000px;margin:0 auto}
+.xlc-feature-card{background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,0.05);border-left:4px solid #2b3aa1;transition:transform .2s ease}
+.xlc-feature-card:hover{transform:translateY(-2px)}
+.xlc-feature-card h3{font-size:20px;font-weight:700;color:#17161a;margin:0 0 10px}
+.xlc-feature-card p{font-size:15px;color:#555;line-height:1.7;margin:0}
+.xlc-cta{text-align:center;padding:50px 20px;background:#2b3aa1;border-radius:12px;max-width:800px;margin:40px auto}
+.xlc-cta h3{font-size:26px;font-weight:700;color:#fff;margin:0 0 10px}
+.xlc-cta p{font-size:16px;color:rgba(255,255,255,0.85);margin:0 0 24px}
+.xlc-cta a{display:inline-block;padding:14px 36px;background:#fff;color:#2b3aa1;border-radius:6px;font-weight:700;text-decoration:none;transition:background .2s}
+.xlc-cta a:hover{background:#e8e8e8}
+@media (max-width:991px){.xlc-stats{grid-template-columns:repeat(2,1fr)}.xlc-features{grid-template-columns:1fr}.xlc-section{padding:50px 0}}
+@media (max-width:575px){.xlc-stats{grid-template-columns:1fr 1fr}.xlc-stat-number{font-size:30px}}
+</style>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Acerca de nosotros - Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía</title>
+<meta name="description" content="Tejoy es un fabricante independiente y externo de accesorios compatibles con Starlink — soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de fabricación con enfoque en ingeniería, más de 200 patentes, OEM/ODM disponible. No afiliada a SpaceX ni a Starlink.">
+<meta name="author" content="tejoy" />
+
+<!-- Organization + WebSite JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://tejoy.com/#organization",
+  "name": "Tejoy",
+  "alternateName": "TEJOY STARLINK ACCESSORIES LIMITED.",
+  "url": "https://tejoy.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "/static/tejoy-logo-black.png",
+    "width": 600,
+    "height": 60
+  },
+  "description": "Tejoy es un fabricante independiente líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Sin relación con SpaceX ni con Starlink.",
+  "knowsAbout": ["accesorios compatibles con Starlink", "accesorios para internet vía satélite", "conectividad en casa rodante", "energía sin red eléctrica", "sistemas de montaje"],
+  "foundingDate": "2010",
+  "numberOfEmployees": "150",
+  "areaServed": "Worldwide",
+  "sameAs": [
+    "https://www.youtube.com/@tejoy"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://tejoy.com/#website",
+  "url": "https://tejoy.com",
+  "name": "Tejoy | Accesorios Premium para Starlink",
+  "description": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX.",
+  "publisher": {
+    "@id": "https://tejoy.com/#organization"
+  },
+  "inLanguage": "es-MX"
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://tejoy.com/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Acerca de nosotros",
+      "item": "https://tejoy.com/es/about/"
+    }
+  ]
+}
+</script>
+
+<!-- Preconnect & DNS-Prefetch -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MH29J06T54"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MH29J06T54');
+</script>
+
+<!-- WebP 自动替换 - 浏览器支持WebP时自动加载.webp版本，同时检查文件是否存在 -->
+<script>
+(function() {
+  function checkWebP(callback) {
+    var img = new Image();
+    img.onload = function() { callback(true); };
+    img.onerror = function() { callback(false); };
+    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+  }
+  checkWebP(function(supported) {
+    if (!supported) return;
+    document.querySelectorAll('img[src*="/static/upload/"]').forEach(function(img) {
+      var src = img.getAttribute('src');
+      if (src && (src.match(/\.(jpg|jpeg|png)(\?|$)/i))) {
+        var webpSrc = src.replace(/\.(jpg|jpeg|png)/i, '.webp');
+        // 先检查.webp文件是否存在，存在才替换
+        var testImg = new Image();
+        testImg.onload = function() { img.setAttribute('src', webpSrc); };
+        testImg.onerror = function() { /* .webp不存在，保留原图 */ };
+        testImg.src = webpSrc;
+      }
+    });
+  });
+})();
+</script>
+
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://tejoy.com/es/about/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Acerca de nosotros - Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía" />
+<meta property="og:description" content="Tejoy es un fabricante independiente y externo de accesorios compatibles con Starlink — soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de fabricación con enfoque en ingeniería, más de 200 patentes, OEM/ODM disponible. No afiliada a SpaceX ni a Starlink." />
+<meta property="og:url" content="https://tejoy.com/es/about/" />
+<meta property="og:image" content="/static/tejoy-logo-black.png" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:site_name" content="Tejoy | Accesorios Premium para Starlink" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Acerca de nosotros - Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía" />
+<meta name="twitter:description" content="Tejoy es un fabricante independiente y externo de accesorios compatibles con Starlink — soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de fabricación con enfoque en ingeniería, más de 200 patentes, OEM/ODM disponible. No afiliada a SpaceX ni a Starlink." />
+<meta name="twitter:image" content="/static/tejoy-logo-black.png" />
+
+
+<link rel="preload" href="/skin/css/mibooz.css" as="style" />
+<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
+<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/skin/css/all.min.css" />
+<link rel="stylesheet" href="/skin/css/swiper.min.css" />
+<link rel="stylesheet" href="/skin/css/pro.css" />
+<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
+<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=54" />
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<style>
+/* Seletor de idioma (EN/PT) — provisório inline no protótipo; migrar para tejoy-redesign.css na fase de rollout global */
+.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
+.lang-switch__link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;transition:all .2s ease}
+.lang-switch__link:hover{background:#fff;color:#111;border-color:#fff}
+.lang-switch__link svg{flex:0 0 auto}
+@media (max-width:1199px){.lang-switch{position:static;grid-column:2;justify-self:end;transform:none;right:auto;margin:0}}
+</style>
+<!-- hreflang alternates (derived from locales.json + page existence) -->
+<link rel="alternate" hreflang="en" href="https://tejoy.com/about/" />
+<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt/about/" />
+<link rel="alternate" hreflang="es-MX" href="https://tejoy.com/es/about/" />
+<link rel="alternate" hreflang="x-default" href="https://tejoy.com/about/" />
+</head>
+<body class="about-page">
+<div class="page-wrapper">
+
+<header class="main-header clearfix">
+    <nav class="main-menu clearfix">
+      <div class="main-menu-wrapper">
+        <div class="main-menu-wrapper__logo"> <a href="/es/"><img src="/static/tejoy-logo-white.png" alt="Tejoy | Accesorios Premium para Starlink"></a> </div>
+        
+        
+        <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+          <ul class="main-menu__list">
+            <li><a href="/es/">Inicio</a></li>
+
+            <li><a href="/es/products/" title="Productos">Productos</a>
+              <ul class="nav-dd-products">
+                <li><a href="/es/products/#mounts">Soportes y Bases <span class="nav-dd__n">(19)</span></a></li>
+                <li><a href="/es/products/#power">Energía y Carga <span class="nav-dd__n">(5)</span></a></li>
+                <li><a href="/es/products/#cables">Cables <span class="nav-dd__n">(33)</span></a></li>
+                <li><a href="/es/products/#networking">Redes <span class="nav-dd__n">(4)</span></a></li>
+                <li><a href="/es/products/#cases">Estuches y Protección <span class="nav-dd__n">(3)</span></a></li>
+                <li class="nav-dd__sep"><a href="/es/products/">Todos los productos <span class="nav-dd__n">(64)</span></a></li>
+                <li><a href="/es/products/">Comprar por modelo Starlink <span class="nav-dd__n">&rarr;</span></a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/service/" title="Guías">Guías</a>
+              <ul>
+                <li><a href="/es/marine/">Marítimo</a></li>
+                <li><a href="/es/rv-off-grid/">Casa rodante / Sin red</a></li>
+                <li><a href="/es/mounts/">Soportes</a></li>
+                <li><a href="/es/industrial/">Industrial</a></li>
+                <li><a href="/es/power/">Energía</a></li>
+                <li><a href="/es/hangye/">Centro por Sector</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/faq/" title="Ayuda">Ayuda</a>
+              <ul>
+                <li><a href="/es/faq/">Preguntas frecuentes</a></li>
+                <li><a href="/es/video/">Videos</a></li>
+                <li><a href="/es/compatibility/">Guía de Compatibilidad</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/es/about/" title="Empresa">Empresa</a>
+              <ul>
+                <li><a href="/es/about/">Acerca de</a></li>
+                <li><a href="/es/contact/">Contacto</a></li>
+                <li><a href="/es/certifications-testing/">Certificaciones y Pruebas</a></li>
+                <li><a href="/es/oem-odm-manufacturing/">Fabricación OEM/ODM</a></li>
+                <li><a href="/es/patents-manufacturing/">Patentes y Capacidad de Fabricación</a></li>
+                <li><a href="/es/brand-affiliation-faq/">Marca y Afiliación (FAQ)</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="lang-switch" data-lang-switch>
+            <a href="/about/" class="lang-switch__link" hreflang="en" aria-label="Ver esta página en inglés"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span></a>
+          </div>
+          <div class="lang-switch" data-lang-switch>
+            <a href="/pt/about/" class="lang-switch__link" hreflang="pt-BR" aria-label="Ver esta página en portugués"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>PT</span></a>
+          </div>
+                     <div class="main-menu-wrapper__call">
+
+            
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+  </div>
+
+  
+  <section class="page-header">
+    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp)"> </div>
+    <div class="container">
+      <div class="page-header__inner left">
+        <h1 class="page-header__title">Acerca de nosotros</h1>
+        <p class="page-header__subtitle">Fabricación con enfoque en ingeniería desde 2010.</p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Intro -->
+  <section class="xlc-section">
+    <div class="container">
+      <div class="about-lead">
+        <div class="about-lead__text">
+          <p>Tejoy Starlink Accessories Limited es un fabricante de accesorios compatibles con Starlink con enfoque en ingeniería, con sede en la Gran Área de la Bahía Guangdong–Hong Kong–Macao. Bajo una operación integrada de I+D, producción y ventas, diseñamos y fabricamos una línea completa de periféricos para terminales Starlink — cables de red y de alimentación impermeables, soportes y bases, adaptadores de energía, estuches protectores y hardware de expansión de señal.</p>
+          <p>Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3), y le da a los compradores de todo el mundo un suministro estable, duradero y de ajuste preciso, todo en un solo lugar. Tejoy es un fabricante independiente y externo, y <strong>no está afiliado a SpaceX ni a Starlink</strong>.</p>
+        </div>
+        <div class="about-lead__media">
+          <img src="/static/upload/image/tejoy-company-wall.png" alt="Planta de fabricación de Tejoy" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- By the Numbers -->
+  <section class="xlc-section xlc-section-alt">
+    <div class="container">
+      <div class="tj-sechead">
+        <div class="tj-kick">De un vistazo</div>
+        <h2 class="tj-h2">Tejoy en números</h2>
+        <div class="tj-rule"></div>
+        <p class="tj-sub">Quince años de fabricación enfocada en accesorios compatibles con Starlink.</p>
+      </div>
+      <div class="xlc-stats">
+        <div class="xlc-stat-card">
+          <div class="xlc-stat-number">15+</div>
+          <div class="xlc-stat-label">Años de experiencia</div>
+        </div>
+        <div class="xlc-stat-card">
+          <div class="xlc-stat-number">100+</div>
+          <div class="xlc-stat-label">Equipo profesional</div>
+        </div>
+        <div class="xlc-stat-card">
+          <div class="xlc-stat-number">150+</div>
+          <div class="xlc-stat-label">Personal calificado</div>
+        </div>
+        <div class="xlc-stat-card">
+          <div class="xlc-stat-number">200+</div>
+          <div class="xlc-stat-label">Patentes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing Capability -->
+  <section class="xlc-section">
+    <div class="container">
+      <div class="tj-sechead">
+        <div class="tj-kick">Producción</div>
+        <h2 class="tj-h2">Capacidad de fabricación</h2>
+        <div class="tj-rule"></div>
+        <p class="tj-sub">Producción automatizada a gran escala con control de calidad interno.</p>
+      </div>
+      <div class="about-split">
+        <div class="about-split__text">
+          <p>Desde una planta de producción estandarizada de 5,000 m², Tejoy opera modernas líneas de producción automatizadas y equipo de prueba profesional, con una producción mensual de 400,000–600,000 unidades. El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.</p>
+          <ul class="about-caps">
+            <li><span class="about-caps__k">5,000 m²</span><span class="about-caps__v">Planta de producción estandarizada</span></li>
+            <li><span class="about-caps__k">400,000–600,000</span><span class="about-caps__v">Unidades por mes</span></li>
+            <li><span class="about-caps__k">Automatizadas</span><span class="about-caps__v">Líneas de producción y pruebas</span></li>
+            <li><span class="about-caps__k">QC interno</span><span class="about-caps__v">Cada lote revisado conforme a la especificación</span></li>
+          </ul>
+        </div>
+        <div class="about-split__media">
+          <img src="/static/upload/image/20260508/1778202301187378.jpg" alt="Planta de producción de Tejoy" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="xlc-section xlc-section-alt">
+    <div class="container">
+      <div class="tj-sechead">
+        <div class="tj-kick">Cumplimiento</div>
+        <h2 class="tj-h2">Certificaciones y pruebas</h2>
+        <div class="tj-rule"></div>
+        <p class="tj-sub">Productos probados conforme a normas internacionales.</p>
+      </div>
+      <div class="about-certs">
+        <span class="about-certs__badge">FCC</span>
+        <span class="about-certs__badge">CE</span>
+        <span class="about-certs__badge">RoHS</span>
+      </div>
+      <p class="about-certs__link"><a href="/es/certifications-testing/">Ver certificaciones, pruebas y calidad &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Global Reach -->
+  <section class="xlc-section">
+    <div class="container">
+      <div class="tj-sechead">
+        <div class="tj-kick">En todo el mundo</div>
+        <h2 class="tj-h2">Alcance global</h2>
+        <div class="tj-rule"></div>
+        <p class="tj-sub">Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.</p>
+      </div>
+      <div class="tj-stats">
+        <div class="tj-st">
+          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+          <div class="tj-v">USD 20&ndash;30M</div>
+          <div class="tj-l">Ingresos anuales por exportación</div>
+        </div>
+        <div class="tj-st">
+          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12M3 21h18M8 21v-6h8v6M8 12h8"/></svg>
+          <div class="tj-v">Almacén en EE. UU.</div>
+          <div class="tj-l">Inventario local y DDP</div>
+        </div>
+        <div class="tj-st">
+          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7h11v9M14 10h4l3 3v3M3 16h18M7 18.5a2 2 0 1 0 4 0M16 18.5a2 2 0 1 0 4 0"/></svg>
+          <div class="tj-v">DHL &middot; FedEx</div>
+          <div class="tj-l">Entrega a todo el mundo</div>
+        </div>
+        <div class="tj-st">
+          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div class="tj-v">Múltiples regiones</div>
+          <div class="tj-l">Países atendidos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="xlc-section xlc-section-alt">
+    <div class="container">
+      <div class="xlc-cta">
+        <h3>Asóciate con Tejoy</h3>
+        <p>Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución.</p>
+        <a href="/es/contact/"><span>Contáctanos</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__middle">
+      <div class="container">
+        <div class="site-footer__middle-inner">
+          <div class="row">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
+              <div class="footer-widget__column footer-widget__newsletter">
+                <h3 class="footer-widget__title">TEJOY STARLINK ACCESSORIES LIMITED</h3>
+                <div class="text"> Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China<br>
+                  Correo: hello@tejoy.com<br>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-7 pcblock wow fadeInUp" data-wow-delay="100ms">
+              <div class="row">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-products-title">Productos</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-products-list"><li><a href="/es/standard-circular/">- Standard Circular</a></li><li><a href="/es/standard-actuated/">- Standard Actuated</a></li><li><a href="/es/standard/">- Standard</a></li><li><a href="/es/mini/">- Mini</a></li><li><a href="/es/performance-gen-1/">- Performance (Gen 1)</a></li><li><a href="/es/performance-gen-3/">- Performance (Gen 3)</a></li><li><a href="/es/enterprise/">- Enterprise</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__contact">
+                    <h3 class="footer-widget__title" id="footer-service-title">Guías</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/es/marine/">- Marítimo</a></li><li><a href="/es/rv-off-grid/">- Casa rodante / Sin red</a></li><li><a href="/es/mounts/">- Soportes</a></li><li><a href="/es/industrial/">- Industrial</a></li><li><a href="/es/power/">- Energía</a></li></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__links clearfix">
+                    <h3 class="footer-widget__title" id="footer-other-title">Otros menús</h3>
+                    <ul class="footer-widget__links-list list-unstyled clearfix">
+                       
+                      <li><a href="/es/about/">- Acerca de nosotros</a></li>
+                      
+                      <li><a href="/es/products/">- Productos</a></li>
+                      
+                      <li><a href="/es/hangye/">- Sectores</a></li>
+                      
+                      <li><a href="/es/service/">- Guías</a></li>
+                      
+                      <li><a href="/es/faq/">- Preguntas frecuentes</a></li>
+                      
+                      <li><a href="/es/video/">- Videos</a></li>
+                      
+                      <li><a href="/es/contact/">- Contacto</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="site-footer__bottom-inner">
+              <p class="site-footer__bottom-text">Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos los derechos reservados.
+Tejoy fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.  <a href="/sitemap.xml" target="_blank">XML</a>  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://tejoy.com/#organization",
+  "name": "TEJOY STARLINK ACCESSORIES LIMITED.",
+  "url": "https://tejoy.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tejoy.com/static/tejoy-logo-black.png"
+  },
+  "description": "Professional manufacturer of Starlink cable accessories, mounts, connectors and cable equipment since 2010.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "No. 62, Baotian 1st Road, Xixiang Street",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "postalCode": "518000",
+    "addressCountry": "CN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hello@tejoy.com",
+    "availableLanguage": ["English", "Chinese", "French", "German", "Spanish", "Italian", "Portuguese", "Polish", "Dutch", "Japanese", "Korean", "Thai", "Malay", "Vietnamese", "Arabic", "Swahili", "Hausa"]
+  },
+  "sameAs": [
+    "https://tejoy.com"
+  ],
+  "foundingDate": "2010",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "minValue": 150,
+    "maxValue": 200
+  }
+}
+</script>
+
+  </div>
+  <div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content"> <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+    <div class="logo-box"> <a href="/es/" aria-label="Inicio"><img src="/static/tejoy-logo-white.png" width="155" alt="Tejoy | Accesorios Premium para Starlink"/></a> </div>
+    <div class="mobile-nav__container"></div>
+    <ul class="mobile-nav__contact list-unstyled">
+      <li> <i class="fa fa-envelope"></i> <a href="mailto:hello@tejoy.com">hello@tejoy.com</a> </li>
+</ul>
+    <!-- /.mobile-nav__contact --> 
+  </div>
+  <!-- /.mobile-nav__content --> 
+</div>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
+<script src="/skin/js/jquery-3.6.0.min.js"></script> 
+<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
+<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
+<script src="/skin/js/wow.js" defer></script>
+<script src="/skin/js/swiper.min.js"></script>
+<script src="/skin/js/mibooz.js?v=6" defer></script>
+
+<script>
+// 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
+// CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
+(function() {
+  // 先检测浏览器是否支持WebP（复用已有检测逻辑）
+  function isWebPSupported() {
+    var img = new Image();
+    var supported = false;
+    img.onload = function() { supported = true; };
+    img.onerror = function() { supported = false; };
+    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+    // 同步返回不可靠，改用异步检测
+    return null; // 未知
+  }
+  
+  // 页面加载完成后替换CSS背景图
+  function replaceSliderBgToWebP() {
+    // 检查浏览器是否支持WebP
+    var testImg = new Image();
+    testImg.onload = function() {
+      // WebP支持
+      document.querySelectorAll('.image-layer').forEach(function(el) {
+        var bg = el.style.backgroundImage;
+        if (bg && bg.match(/\.(jpg|jpeg|png)["']?\)/i)) {
+          el.style.backgroundImage = bg.replace(/\.(jpg|jpeg|png)(["']?\))/gi, '.webp$2');
+        }
+      });
+    };
+    testImg.onerror = function() {
+      // 不支持WebP，不替换
+    };
+    testImg.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
+                  'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
+  }
+  
+  // DOM就绪后执行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceSliderBgToWebP);
+  } else {
+    replaceSliderBgToWebP();
+  }
+})();
+</script>
+
+<script>
+$(function() {
+     $(document).on('click', '.yvzhonga', function(e) {
+        e.preventDefault();
+        $('.yvul').toggle();   // 直接切换所有匹配元素
+    });
+	// 悬浮窗口
+	$(".yb_conct").hover(function() {
+		$(".yb_conct").css("right", "5px");
+		$(".yb_bar .yb_ercode").css('height', '200px');
+	}, function() {
+		$(".yb_conct").css("right", "-127px");
+		$(".yb_bar .yb_ercode").css('height', '53px');
+	});
+	// 返回顶部
+	$(".yb_top").click(function() {
+		$("html,body").animate({
+			'scrollTop': '0px'
+		}, 300)
+	});
+});
+</script>
+
+
+  </body>
+</html>

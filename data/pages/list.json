@@ -3,18 +3,22 @@
   "_banner_doc": "banner 存【模式】不存 7 条串:{model} 由 data/locales.json 的 model_display 填。存 7 条串 = 把同一个决定存 7 遍,其中一条迟早漂 —— pt 的 standard 就漂成了 'Acessórios Starlink Standard'(少一个 para),7 条里错 1 条、没人发现。本次按模式一并修正(总工 2026-07-19 批:可归因到模式,走「diff 可归因即放行」的新口径)。加一门语言,母语方只需要签这一个模式。",
   "list.banner.model": {
     "en": "Starlink {model} Accessories",
-    "pt-BR": "Acessórios para Starlink {model}"
+    "pt-BR": "Acessórios para Starlink {model}",
+    "es-MX": "Accesorios para Starlink {model}"
   },
   "list.filter.model": {
     "en": "Model",
-    "pt-BR": "Modelo"
+    "pt-BR": "Modelo",
+    "es-MX": "Modelo"
   },
   "list.filter.type": {
     "en": "Type",
-    "pt-BR": "Tipo"
+    "pt-BR": "Tipo",
+    "es-MX": "Tipo"
   },
   "list.chip.all": {
     "en": "All",
-    "pt-BR": "Todos"
+    "pt-BR": "Todos",
+    "es-MX": "Todos"
   }
 }

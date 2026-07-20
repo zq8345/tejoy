@@ -48,7 +48,7 @@ export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
   return `${e.title}-${model}-Tejoy${suffix}`;
 }
 
-export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf }) {
+export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf, enabled }) {
   const e = mergeI18n(prod, locale);
   // Gallery alt is DERIVED from the localized title, not stored (总工 2026-07-14, verified across
   // all 428: 369 already duplicate the title verbatim, 59 are filenames, 0 are real descriptions —
@@ -87,10 +87,16 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   const path = `/${prod.category}/${prod.id}`;
   const canonical = `https://tejoy.com${urlOf ? urlOf(path, locale) : path}`;
   const enUrl = `https://tejoy.com${path}`;
-  const hreflang = urlOf && locale !== "en"
-    ? `\n<link rel="alternate" hreflang="en" href="${enUrl}" />`
-      + `\n<link rel="alternate" hreflang="${locale}" href="${canonical}" />`
-      + `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`
+  // ⭐ 原来这里只发三条:en、【自己】、x-default —— 也就是"只认对侧"的二元形状。es 上线后,
+  //   一个 pt 产品页会闭口不提它有西语版,反之亦然。hreflang 是互指的,漏一边等于没挂。
+  //   → 每一门 enabled 语种都发,当且仅当【它那边真的有这个页】(urlOf 原样还回来 = 没有)。
+  //   ⚠️ en 侧维持现状(不发 hreflang):那是本轮之前就有的结构缺口,改它会动 64 个英文页的
+  //      <head>,不属于"上线 es"这次改动 —— 单独记账,不夹带。
+  const hreflang = urlOf && locale !== "en" && Array.isArray(enabled) && enabled.length
+    ? enabled
+        .filter((loc) => loc === "en" || urlOf(path, loc) !== path)
+        .map((loc) => `\n<link rel="alternate" hreflang="${loc}" href="https://tejoy.com${urlOf(path, loc)}" />`)
+        .join("") + `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`
     : "";
   const reps = {
     META_TITLE: metaTitleOf(e, prod, locale, modelDisplay, catalog), META_DESC: e.meta_description,
@@ -211,7 +217,7 @@ export function setTileAlts(html, locale, catalog, modelDisplay) {
 // 机型卡按【存在性】过滤,不是按一张写死的清单:一张卡只在它指向的页面于该语种存在时才出现。
 // 这不是我发明的规则 —— 它精确预测了 pt 首页的现状(7 张,正好是有 pt 页的 7 个分类)。en 8 张。
 // 好处是它自己会长:等 /pt/performance-gen-2/ 建出来,pt 首页自动就有第 8 张,没人需要记得。
-export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, exists }) {
+export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, exists, dirOf, enabled }) {
   const sfx = catalog["card.alt.category"];
   const suffix = sfx[locale] ?? sfx.en;
   const cards = tiles
@@ -223,19 +229,29 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
         `              </div>\n              <div class="product-grid-text"><b>${name}</b></div>\n            </a>\n          </div>`;
     })
     .join("\n          \n          ");
-  return renderPage(tpl.split("{{TILES}}").join(cards), { locale, catalog, urlOf });
+  return renderPage(tpl.split("{{TILES}}").join(cards), { locale, catalog, urlOf, dirOf, enabled });
 }
 
 // R3 的通用页渲染:模板 + 散文目录 -> 页面。首页只是它多一个 {{TILES}} 的特例。
 // (a) 是为首页定制的;(b) 有 11 个页、(c)(d)(e) 还有 71 个 —— 同一套机器,参数化一次用四桶。
-export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
+export function renderPage(tpl, { locale, catalog, urlOf, path = "/", dirOf, enabled }) {
   let out = tpl;
+  // ⛔ 目录前缀必须【派生】,不许在这里写死。原来这里是 `locale === "en" ? path : "/pt" + path`
+  //    —— 一个【二元】判据:凡不是 en 的一律当 pt。第三门语言一进来,82 个 es 页的 canonical
+  //    全部指向 /pt/,等于对 Google 声明"西语页是葡语页的副本"。它不报错、不白屏,和上面
+  //    那个 canonical 事故是同一种死法。
+  //    ⭐ 这是同一条规则第三次被写死:scripts/regen.mjs 的 dirOf(已修)、这里、以及 8 个
+  //    列表页手写烘死的 head(本轮走一次性修,收口另记)。**判据是二元的,语言不是。**
+  //    → dirOf 由调用方从 data/locales.json 派生(scripts/locale-dirs.mjs 是唯一真源)传进来。
+  if (typeof dirOf !== "function") throw new Error("renderPage: 必须传 dirOf(locale) —— 目录名从 locales.json 派生,缺省回落到 'pt' 正是要根除的那个 bug");
+  if (!Array.isArray(enabled) || !enabled.length) throw new Error("renderPage: 必须传 enabled(locales.json 的 enabled) —— hreflang 的语种集合不许在这里写死");
   // ⛔ canonical 必须是【每页自己的】路径。第一版我把首页的逻辑当成了通用的(写死 "/"),于是
   // 11 个信息页的 canonical 全指向 https://tejoy.com/ —— 等于告诉 Google 这 11 个页不该被单独
   // 收录。它不报错、不白屏、页面看着完全正常,只会在几周后表现为"这些页从搜索结果消失了",
   // 而那时没人会联想到这次重构。(c)(d)(e) 复用这台机器,所以它是断言,不是"我记得"。
   if (!path.startsWith("/") || !path.endsWith("/")) throw new Error(`renderPage: path 必须形如 "/slug/",拿到 ${JSON.stringify(path)}`);
-  const self = locale === "en" ? path : "/pt" + path;
+  const pre = (loc) => { const d = dirOf(loc); return d ? `/${d}` : ""; };   // "" | "/pt" | "/es"
+  const self = `${pre(locale)}${path}`;
   const enUrl = `https://tejoy.com${path}`;
   const reps = {
     HTML_LANG: locale,
@@ -243,17 +259,25 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/" }) {
     // breadcrumb 的 position 1 指【首页】,position 2 才指本页 —— 两件不同的东西,我第一版
     // 把它们合成了一个 token,于是 /faq/ 的面包屑第一级指向了 /faq/ 自己。
     // 首页恰好两者相同,所以这个错在 (a) 里完全不可见 —— 又一次:重复不可见的那一侧最会骗人。
-    HOME_URL: locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/",
-    CANONICAL_NOSLASH: self === "/" ? (locale === "en" ? "https://tejoy.com" : "https://tejoy.com/pt/") : `https://tejoy.com${self}`,
+    // 默认语种没有前缀 -> 站点根(无尾斜杠);有前缀的 -> 前缀 + 尾斜杠。判据是"有没有目录",
+    // 不是"是不是 en" —— 同一条规则,不再点名任何一门语言。
+    HOME_URL: pre(locale) ? `https://tejoy.com${pre(locale)}/` : "https://tejoy.com",
+    CANONICAL_NOSLASH: self === "/" ? "https://tejoy.com" : `https://tejoy.com${self}`,
     OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
-    // hreflang 三条链接由 route 算出来:en 自己、pt 对应页、x-default。【两个语种都发】——
-    // hreflang 本来就是互指的,只在一侧挂等于没挂。现网 en 侧【时有时无】(en/about 就没有),
-    // pt 侧齐全:又是 pt 对、en 残缺,和 breadcrumb 同一个形状。派生顺带把 en 缺的补齐 ——
+    // hreflang 由 route 算出来,【每一门 enabled 语种都发】—— hreflang 本来就是互指的,
+    // 只在一侧挂等于没挂。现网 en 侧【时有时无】(en/about 就没有),pt 侧齐全:又是 pt 对、
+    // en 残缺,和 breadcrumb 同一个形状。派生顺带把 en 缺的补齐 ——
     // 按总工那条线,正确答案可计算 = 结构修复,免费,该做。
-    HREFLANG: `<!-- hreflang alternates (en <-> pt paired page) -->\n` +
-      `<link rel="alternate" hreflang="en" href="${enUrl}" />\n` +
-      `<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com/pt${path}" />\n` +
-      `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
+    // ⭐ 原来这三行把 en / pt-BR 写死了。切换器已经在每个页上挂出 ES 按钮,hreflang 却不认 es
+    //   —— 等于告诉 Google「有这个链接,但它不是本站的语言版本」。**半加一门语言比不加更糟。**
+    // ⚠️ 存在性是规则:某语种没有这个页(比如 es-hold 扣留的产品),就【不发】它的 alternate,
+    //   否则是在声明一个 404。这和切换器、body 内链用的是同一条规则,不是这里新发明的。
+    HREFLANG: `<!-- hreflang alternates (derived from locales.json + page existence) -->\n` +
+      enabled
+        // urlOf 把 p 原样还回来 = "该语种没有这个页" —— 复用它,不另造一个 exists 参数。
+        .filter((loc) => !pre(loc) || urlOf(path, loc) !== path)
+        .map((loc) => `<link rel="alternate" hreflang="${loc}" href="https://tejoy.com${urlOf(path, loc)}" />`)
+        .concat(`<link rel="alternate" hreflang="x-default" href="${enUrl}" />`).join("\n"),
   };
   for (const [k, v] of Object.entries(reps)) out = out.split(`{{${k}}}`).join(v);
   // body 内链走同一条存在性规则(chrome 早就在用):有该语种的页就加前缀,没有就留原样。

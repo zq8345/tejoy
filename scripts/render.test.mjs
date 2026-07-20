@@ -6,6 +6,7 @@
 import fs from "fs";
 import { renderPage, assertNoTokens } from "../functions/_lib/render.js";
 import { visibleText, isProse } from "./page-extract.migration.mjs";
+import { localeDirs } from "./locale-dirs.mjs";
 
 let pass = 0, fail = 0;
 const ok = (name, cond, extra = "") => { if (cond) { pass++; console.log(`  ✅ ${name}`); } else { fail++; console.log(`  🔴 ${name} ${extra}`); } };
@@ -16,27 +17,47 @@ const throws = (name, fn, re) => {
 
 const urlOf = (p) => p;
 const cat = { "x.a": { en: "A", "pt-BR": "Á" } };
+// ⭐ dirOf 从【真的 locales.json】派生,不在测试里另写一份映射 —— 测试自己造一份映射,
+//    就又成了同一条规则的第 N 份实现,而这正是被测的那个 bug。
+const LOCALES = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
+const dirOf = (loc) => localeDirs(LOCALES)[loc] ?? "";
+const enabled = LOCALES.enabled;
 
 console.log("\n【① canonical 必须是每页自己的路径】 —— 曾把 11 个信息页全部规范化到首页:");
 ok("每页 canonical 用自己的 path",
-  renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "en", catalog: cat, urlOf, path: "/faq/" })
+  renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "en", catalog: cat, urlOf, path: "/faq/", dirOf, enabled })
     .includes('href="https://tejoy.com/faq/"'));
 ok("pt 加 /pt 前缀",
-  renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "pt-BR", catalog: cat, urlOf, path: "/faq/" })
+  renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "pt-BR", catalog: cat, urlOf, path: "/faq/", dirOf, enabled })
     .includes('href="https://tejoy.com/pt/faq/"'));
 throws("path 形状不对就炸(而不是悄悄当成首页)",
-  () => renderPage("{{CANONICAL}}", { locale: "en", catalog: cat, urlOf, path: "faq" }), /path 必须形如/);
+  () => renderPage("{{CANONICAL}}", { locale: "en", catalog: cat, urlOf, path: "faq", dirOf, enabled }), /path 必须形如/);
 ok("breadcrumb 首页 URL 与本页 URL 是两个不同的 token",
-  renderPage('{{HOME_URL}}|{{CANONICAL}}', { locale: "en", catalog: cat, urlOf, path: "/faq/" }) === "https://tejoy.com|https://tejoy.com/faq/");
+  renderPage('{{HOME_URL}}|{{CANONICAL}}', { locale: "en", catalog: cat, urlOf, path: "/faq/", dirOf, enabled }) === "https://tejoy.com|https://tejoy.com/faq/");
+
+// ⭐ 第三门语言。原来这里是 `locale === "en" ? path : "/pt" + path` —— 一个【二元】判据:
+//   凡不是 en 的一律当 pt。它在只有两门语言时【永远是对的】,所以两轮全绿都没照出来;
+//   es 一进来,82 个西语页的 canonical 全部指向 /pt/,等于对 Google 声明"西语页是葡语页的副本"。
+//   ⚠️ 这条断言不测"es 对不对",它测的是**判据是不是派生的** —— 所以下面还钉了"绝不出现 /pt/"。
+console.log("\n【①b 第三门语言】 —— 二元判据(en / 非 en)在只有两门语言时永远是对的:");
+{
+  const esOut = renderPage('<link rel="canonical" href="{{CANONICAL}}" />|{{HOME_URL}}',
+    { locale: "es-MX", catalog: cat, urlOf, path: "/faq/", dirOf, enabled });
+  ok("es canonical 指向 /es/,不是 /pt/", esOut.includes('href="https://tejoy.com/es/faq/"'), esOut);
+  ok("es 页里绝不出现 /pt/", !esOut.includes("/pt/"), esOut);
+  ok("es 的 HOME_URL 也是派生的", esOut.endsWith("https://tejoy.com/es/"), esOut);
+}
+throws("不传 dirOf 就炸 —— 缺省回落到 'pt' 正是要根除的那个 bug",
+  () => renderPage("{{CANONICAL}}", { locale: "es-MX", catalog: cat, urlOf, path: "/faq/", enabled }), /必须传 dirOf/);
 
 console.log("\n【② 否定式:任何剩下的 {{...}} 都要炸】 —— 曾因正则不认连字符而放行:");
 throws("带连字符的 token(正则曾不认识它,于是它被原样印出去)",
-  () => renderPage("{{t.certifications-testing.meta.keywords}}", { locale: "en", catalog: cat, urlOf, path: "/x/" }), /不存在的 key|未解析/);
+  () => renderPage("{{t.certifications-testing.meta.keywords}}", { locale: "en", catalog: cat, urlOf, path: "/x/", dirOf, enabled }), /不存在的 key|未解析/);
 throws("我还没想到的 token 形状,也必须炸",
   () => assertNoTokens("<p>{{SOMETHING_I_NEVER_ANTICIPATED}}</p>", "en"), /未解析的 token/);
 throws("拼错的 token 不会静默留在页面上",
   () => assertNoTokens("<p>{{t.x.a</p>{{ t.x.a }}", "en"), /未解析的 token/);
-ok("解析干净就不炸", renderPage("{{t.x.a}}", { locale: "pt-BR", catalog: cat, urlOf, path: "/x/" }) === "Á");
+ok("解析干净就不炸", renderPage("{{t.x.a}}", { locale: "pt-BR", catalog: cat, urlOf, path: "/x/", dirOf, enabled }) === "Á");
 
 console.log("\n【③ 紧跟【闭】标签后面的裸文本】 —— 同一个 bug 咬了两次(R1 的 seeder,R3(b) 的 contact/oem-odm):");
 ok("</label>Name —— 用户真正读的那半,曾被整个漏掉",

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 语言切换器的门。总工点名的三条,全部可计算:
-//   ① href 指向【对侧】语种   ② hreflang 与目标语种一致   ③ 目标页真的存在
+//   ① href 指向【其他每一门】语种   ② hreflang 与目标语种一致   ③ 目标页真的存在
 //
 // ⭐ 为什么以前没有这道门 —— 这是最贵的一课:
 // 切换器 100% 失效,活过了 R2 和 R3 整整三轮,而 chrome-verify 一路 253/253 全绿。
@@ -11,34 +11,81 @@
 //   「白名单不是『这里不会错』,是『这里我放弃观察』。我把这两件事当成了一件。」
 //   「我自己造的盲区,恰好就是 bug 落地的地方。」
 // 这句对我同样成立。所以这道门【专门】盯那个所有人都排除掉的地方。
+//
+// ⭐⭐ 2026-07-20:这道门自己也是【二元】的 —— `const isPt = p.startsWith("pt/")`,
+//   然后 `want = isPt ? enPath : "/pt"+enPath`、`wantHl = isPt ? "en" : "pt-BR"`,
+//   而且只读切换器里的【第一个】链接。es 一上来,它对着 84 个**输出完全正确**的页报红,
+//   要求 es/about/ 指向 `/pt/es/about/` —— 一个根本不存在的路径。
+//   ⚠️ **门自己红了,但错的是门。** 这是同一条规则第四次被写死(regen 的 dirOf、renderPage 的
+//   canonical、8 个列表页手写 head、这里)。一道会对着正确产物报红的门,最后会被所有人略过 ——
+//   那比没有门更糟,因为它还占着"我们有门"这个位置。
+//   → 目录名和语种集合一律从 data/locales.json 派生;"对侧"改成"其他每一门语种"。
 import fs from "fs";
+import { localeDirs } from "./locale-dirs.mjs";
+
+const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
+const DIR = localeDirs(locales);                       // { en:"", "pt-BR":"pt", "es-MX":"es" }
+const ENABLED = locales.enabled;
+
+// 页面路径 -> 它是哪门语种。最长目录前缀命中,谁都不命中就是默认语种。
+const localeOf = (p) => {
+  let best = locales.default, bestLen = -1;
+  for (const [loc, d] of Object.entries(DIR)) {
+    if (!d) continue;
+    if ((p === d || p.startsWith(`${d}/`)) && d.length > bestLen) { best = loc; bestLen = d.length; }
+  }
+  return best;
+};
+// 页面路径 -> 与语种无关的"路由"(/about/ 、/mini/689)
+const routeOf = (p, loc) => {
+  const d = DIR[loc];
+  const bare = d ? p.slice(d.length + 1) : p;
+  return `/${bare}`.replace(/index\.html$/, "").replace(/\.html$/, "");
+};
+const urlFor = (route, loc) => (DIR[loc] ? `/${DIR[loc]}${route}` : route);
+const fileFor = (route, loc) => {
+  const u = urlFor(route, loc);
+  return u.endsWith("/") ? `${u.slice(1)}index.html` : `${u.slice(1)}.html`;
+};
 
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
   e.name === "node_modules" || e.name === ".git" || e.name === "data" || e.name === "admin" ? [] :
   e.isDirectory() ? walk(`${d}/${e.name}`) : /\.html$/.test(e.name) ? [`${d}/${e.name}`] : []);
 
+// 切换器链接是全站唯一带 lang-switch__link 的 <a> —— 直接全文抓【所有】,不再只看第一个。
+const LINK_RE = /<a\s+href="([^"]*)"[^>]*class="lang-switch__link"[^>]*hreflang="([^"]*)"/g;
+
 const fails = [];
 let checked = 0, none = 0;
 for (const p of walk(".").map((f) => f.replace("./", ""))) {
   const h = fs.readFileSync(p, "utf8");
-  const i = h.indexOf('<div class="lang-switch"');
-  if (i < 0) { none++; continue; }
-  const seg = h.slice(i, i + 500);
-  const href = (seg.match(/href="([^"]*)"/) || [])[1];
-  const hl = (seg.match(/hreflang="([^"]*)"/) || [])[1];
-  const isPt = p.startsWith("pt/");
-  const enPath = "/" + (isPt ? p.slice(3) : p).replace(/index\.html$/, "").replace(/\.html$/, "");
-  const want = isPt ? enPath : `/pt${enPath}`;
-  const wantHl = isPt ? "en" : "pt-BR";
-  const targetFile = want.endsWith("/") ? `${want.slice(1)}index.html` : `${want.slice(1)}.html`;
+  if (h.indexOf('<div class="lang-switch"') < 0) { none++; continue; }
+  const own = localeOf(p);
+  const route = routeOf(p, own);
+
+  // 期望:其他每一门语种,当且仅当【它那边真的有这个页】。存在性是规则本身,不是清单。
+  const want = new Map();
+  for (const loc of ENABLED) {
+    if (loc === own) continue;
+    if (fs.existsSync(fileFor(route, loc))) want.set(loc, urlFor(route, loc));
+  }
+  const got = new Map();
+  for (const m of h.matchAll(LINK_RE)) got.set(m[2], m[1]);
+
   const issues = [];
-  if (href !== want) issues.push(`① href=${href} 应为 ${want}`);
-  if (hl !== wantHl) issues.push(`② hreflang=${hl} 应为 ${wantHl}`);
-  if (!fs.existsSync(targetFile)) issues.push(`③ 目标页不存在: ${targetFile}`);
+  for (const [loc, href] of want) {
+    if (!got.has(loc)) { issues.push(`① 缺少 ${loc} 的链接(应为 ${href})`); continue; }
+    if (got.get(loc) !== href) issues.push(`① ${loc}: href=${got.get(loc)} 应为 ${href}`);
+  }
+  for (const [loc, href] of got) {
+    if (loc === own) { issues.push(`② 指向自己:hreflang=${loc}`); continue; }
+    if (!ENABLED.includes(loc)) { issues.push(`② hreflang=${loc} 不在 enabled 里`); continue; }
+    if (!want.has(loc)) issues.push(`③ 目标页不存在,不该有这个链接: ${href} -> ${fileFor(route, loc)}`);
+  }
   checked++;
   if (issues.length) fails.push(`${p}\n     ${issues.join("\n     ")}`);
 }
-console.log(`switcher-verify  有切换器的页 ${checked} | 无切换器 ${none}(en 页没有 pt 对侧时是合法的)`);
-console.log(`  ① 指向对侧语种 · ② hreflang 与目标一致 · ③ 目标页存在:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
+console.log(`switcher-verify  语种 ${ENABLED.join(",")} | 有切换器的页 ${checked} | 无切换器 ${none}(该页只有一个语种版本时是合法的)`);
+console.log(`  ① 指向其他每一门语种 · ② hreflang 与目标一致 · ③ 目标页存在:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
 if (fails.length) { console.log(`\n🔴 ${fails.length} 个页:`); fails.slice(0, 10).forEach((f) => console.log(`   ${f}`)); }
 process.exit(fails.length ? 1 : 0);

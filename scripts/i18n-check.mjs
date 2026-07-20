@@ -71,22 +71,20 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-product-translations\.json|es-hold\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-hold\.json/.test(f)) {
     // ⭐ es-hold.json = 多语言建的【扣留清单单一真源】(id + why + since),不是文案目录:
     //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
     //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
     //    没有它,这 20 处 gap 会让 --strict 永远红,而一道永远红的门最后会被所有人略过。
     sources.data.push(f);                                  // 已知的【非文案】数据,点名放行
-    // ⭐ es-product-translations.json = seed 的【暂存源】,不是 catalog。放行的理由是【实测的】,
-    //    不是"它看起来像暂存":我逐条比对过 —— 它的 6 条 es 字符串(产品 655/664 的 title /
-    //    description_html / meta_description)【6/6 已经 seed 进 data/products/*.json】,而那里正是
-    //    guard 在看的地方。所以放行它不让任何一条译文失去监视。
-    //    形状上它也确实不是目录:es 单侧,无 en,无 i18n 结构。
-    //    ⚠️ 判据是「它的译文有没有进到被监视的地方」,不是「它长得像不像数据」——
-    //       后者是把"我不认识它"当成"它不重要",那正是这道形状闸要挡的东西。
     // ⭐ es-glossary.json = 术语表(出处单一真源),不是文案目录:顶层是 forbidden/terms/… ,无 en 字段,
     //    isCatalog() 已正确判它不是目录。点名放行是【它本就不是文案】,不是"guard 少认一种形状"——
     //    我核过两者的区别(node -e 跑了 isCatalog),没盲目加白名单。这正是 guard 26f9dd64 那条要逼出的判断。
+    // ⭐ es-hold.json 同理:扣留产品清单(id + why),无 en 字段,不是文案。由 es-hold-check 双向强制。
+    // ⚠️ 留档:这道形状闸同时逮到了 data/es-product-translations.json —— 而那个我【没有放行,直接删了】。
+    //    它是已耗尽的迁移输入(只覆盖 2/58,另 56 个是批量直灌),更要命的是
+    //    **seed 会跳过已有 es 的产品,所以编辑它不会有任何效果,还不报错** —— 一根没接线的杆,
+    //    比一份重复真源更坏。放行它等于把这根杆永久留在树上。**闸报的东西不一定该放行,也可能该删掉。**
   } else {
     unknown.push(f);                                       // 认不出 -> 吼,绝不静默跳过
   }
