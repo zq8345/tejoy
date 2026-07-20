@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, setListTitle, renderHome, renderPage, excerptOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, renderHome, renderPage, excerptOf } from "../functions/_lib/render.js";
 import { localeDirs } from "./locale-dirs.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -99,20 +99,27 @@ const TYPES = [["cables", "Cables"], ["mounts", "Mounts & Brackets"], ["power", 
   ["networking", "Networking"], ["cases", "Cases & Protection"]];
 // One table: [page, which products it scopes, what its <title> is named after]. Every list page
 // goes through it — no page gets to be the exception that keeps a hand-written title.
+// 第 4 格 = banner 用哪个机型名派生标题(setListLabels)。只有机型页有:
+//   /products/ 的 banner 是 chrome 的 body.banner.title(普通名词,已经有主);
+//   /type/X 的 banner 是另一个模式("Starlink {形态}",没有 Accessories),不套这个模式。
+// 写成显式的一格,不是从 name 反推 —— 反推要靠"哪些 name 恰好是机型名",那是个会漂的猜测。
 const LIST_PAGES = [
   ["products/index.html", null, { t: "body.banner.title" }],       // common noun -> catalog
-  ...CATS.map((c) => [`${c}/index.html`, c, MODEL[c]]),             // model names are brand terms
-  ...AGGREGATES.map(([rel, cat]) => [rel, cat, MODEL["performance-gen-2"]]),
+  ...CATS.map((c) => [`${c}/index.html`, c, MODEL[c], MODEL[c]]),   // model names are brand terms
+  ...AGGREGATES.map(([rel, cat]) => [rel, cat, MODEL["performance-gen-2"], MODEL["performance-gen-2"]]),
   ...TYPES.map(([s, f]) => [`type/${s}/index.html`, { form: f }, f.replace(/&/g, "&amp;")]),
 ];
+// 列表页的 banner/筛选栏标签 catalog(data/pages/list.json)—— 和 shared 一样并进来
+const listCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "list.json"), "utf8"));
 let lists = 0;
-for (const [rel, cat, name] of LIST_PAGES) {
+for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  for (const locale of LOCALES) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) continue;
   const h0 = fs.readFileSync(p, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
   h1 = setListTitle(h1, name, locale, catalog);
+  h1 = setListLabels(h1, { locale, catalog: listCat, model: bannerModel });
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
  }
 }

@@ -1,0 +1,20 @@
+{
+  "_doc": "8 个列表页(/products/ + 7 个机型页 + Gen 2 聚合页)的 banner 标题与筛选栏标签。这些串以前【写死在 HTML 里】、catalog 一条都没有 —— 列表页不是模板生成的,regenListPage/setListTitle/chrome-sync 只灌卡片、<title> 和 chrome,其余正文原样留着。后果:加一门语言时,拿 en 页复制留英文、拿 pt 页复制留葡语,两条路都不通。消费者:functions/_lib/render.js 的 setListLabels()。",
+  "_banner_doc": "banner 存【模式】不存 7 条串:{model} 由 data/locales.json 的 model_display 填。存 7 条串 = 把同一个决定存 7 遍,其中一条迟早漂 —— pt 的 standard 就漂成了 'Acessórios Starlink Standard'(少一个 para),7 条里错 1 条、没人发现。本次按模式一并修正(总工 2026-07-19 批:可归因到模式,走「diff 可归因即放行」的新口径)。加一门语言,母语方只需要签这一个模式。",
+  "list.banner.model": {
+    "en": "Starlink {model} Accessories",
+    "pt-BR": "Acessórios para Starlink {model}"
+  },
+  "list.filter.model": {
+    "en": "Model",
+    "pt-BR": "Modelo"
+  },
+  "list.filter.type": {
+    "en": "Type",
+    "pt-BR": "Tipo"
+  },
+  "list.chip.all": {
+    "en": "All",
+    "pt-BR": "Todos"
+  }
+}

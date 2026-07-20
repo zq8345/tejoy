@@ -304,6 +304,42 @@ export function assertNoTokens(out, locale) {
   return out;
 }
 
+// 列表页的 banner 标题 + 筛选栏标签。这 10 条串以前【写死在 8 个列表页的 HTML 里】,
+// catalog 一条都没有。后果:加一门语言时,拿 en 页复制留英文、拿 pt 页复制留葡语,两条路都不通。
+//
+// ⭐ banner 不存 7 条串,存【一个模式】:en "Starlink {model} Accessories" /
+//    pt "Acessórios para Starlink {model}",7 个机型页的标题由 model_display 派生。
+//    存 7 条串就是把同一个决定存 7 遍,其中一条迟早漂 —— pt 的 standard 就漂了
+//    ("Acessórios Starlink Standard",少一个 para),7 条里错 1 条,没人发现。
+//    加一门语言,母语方只需要签【一个模式】。
+//
+// ⚠️ 只碰 catalog 真正拥有的那几处:机型 chip 的名字(Mini/Standard…)是 model_display,
+//    属于 fallback 里的型号名、不翻;形态 chip(Mounts & Brackets…)在 chrome 里,已经有主了。
+export function setListLabels(html, { locale, catalog, model }) {
+  const t = (key) => {
+    const e = catalog[key];
+    if (!e) throw new Error(`setListLabels: catalog 缺 key ${key}`);
+    const v = e[locale] ?? e.en;
+    if (v === undefined || v === null || v === "") throw new Error(`setListLabels: ${key} 在 ${locale} 下没有值`);
+    return v;
+  };
+  let out = html;
+  if (model) {
+    const h1 = t("list.banner.model").replace("{model}", model);
+    out = out.replace(/(<h1 class="page-header__title">)[^<]*(<\/h1>)/, `$1${h1}$2`);
+  }
+  // 筛选栏两个标签:第一个是机型轴、第二个是形态轴 —— 顺序由页面结构固定,不是我猜的。
+  let n = 0;
+  out = out.replace(/(<span class="product-chiprow__label">)[^<]*(<\/span>)/g,
+    (m, a, b) => a + t(n++ === 0 ? "list.filter.model" : "list.filter.type") + b);
+  // 两条轴各有一个 "All" chip,同一个词。只认 href 指向该轴全集的那一个,
+  // 不按文本 "All" 认 —— 型号 chip 里将来若出现同名值,按文本认会误伤。
+  const ALL = t("list.chip.all");
+  out = out.replace(/(<a class="product-chip[^"]*" href="[^"]*"(?: data-filter="all")?>)([^<]*?)( <span class="product-chip__n">)/g,
+    (m, a, label, b) => (label === "All" || label === ALL ? a + ALL + b : m));
+  return out;
+}
+
 export function setListTitle(html, name, locale, catalog) {
   const t = listTitleOf(name, locale, catalog);
   if (!t) return html;
