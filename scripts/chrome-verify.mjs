@@ -15,6 +15,7 @@
 //   ③ mobilenav: identical, full stop
 //   ④ whitespace: any surviving difference must be INDENTATION only — never inline gaps
 import { execSync } from "child_process";
+import { baseline, baselineExists, baselineRef } from "./_baseline.mjs";
 import fs from "fs";
 import path from "path";
 
@@ -51,7 +52,11 @@ const inlineGaps = (s) => ((s || "").match(/>[ \t]+</g) || []).length;
 // stdio pipe: a page absent from HEAD makes git print "fatal: … exists on disk, but not in HEAD"
 // to stderr. Harmless to the check, but it lands in the operator's terminal looking like a crash —
 // and a line-numbered reader (`sed -n 2p`) then quotes git's panic as if it were the verdict.
-const before = (p) => { try { return execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26, stdio: ["pipe", "pipe", "pipe"] }).replace(/\r/g, ""); } catch { return null; } };
+// ⚠️ 这里原本读 `git show HEAD:`。我提交之后再跑这道门,HEAD 就是那笔提交本身 ——
+//    门拿它跟【它自己】比,于是 81 个带着英文 chrome 的 pt 页拿到了绿灯(exit 0)。
+//    「零回归门只在提交之前有意义」这条我记在脑子里,证明记不住。基线归 _baseline.mjs,
+//    锁在【分支起点】(与 origin/main 的 merge-base),提交多少次都不动。
+const before = (p) => { try { return baseline(p).replace(/\r/g, ""); } catch { return null; } };
 
 const pages = walk(".");
 let ok = 0; const fails = [], wsOnlyPages = [], inlineDrift = [], noBaseline = [];

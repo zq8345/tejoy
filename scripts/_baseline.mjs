@@ -11,14 +11,31 @@
 // 前三次我都在"下次记得先 revert / 记得读 HEAD"。第四次证明这条纪律不成立 ——
 // 总工:「别靠『记得用哪个读法』,你已经证明了自己记不住。」所以它现在是一个函数,
 // 而不是一条我需要在每个新脚本里重新想起来的规矩。
+// ⭐ 第五次,形状变了一点:基线不能是 HEAD。
+//
+// 我把 81 个 pt 页带着英文 chrome 提交了,然后跑 chrome-verify —— 它给了绿灯。
+// 因为它读 `git show HEAD:`,而那一刻 HEAD 就是那笔提交本身:**门拿那笔提交跟它自己比**。
+// 「零回归」门只在提交【之前】有意义,这条以前记在脑子里,证明记不住。
+//
+// 所以基线 = 【分支起点】(与 origin/main 的 merge-base),不是 HEAD。
+// 提交多少次都不动,门永远在回答「相对我这条分支开工时,变了什么」—— 那才是要问的问题。
 import { execSync } from "child_process";
 
+const BASE = (() => {
+  for (const ref of ["origin/main", "origin/master"]) {
+    try { return execSync(`git merge-base HEAD ${ref}`, { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).trim(); }
+    catch { /* 没有该远端分支,试下一个 */ }
+  }
+  return "HEAD";     // 独立仓库/没有远端时退回 HEAD(此时它就是唯一存在的基线)
+})();
+export const baselineRef = BASE;
+
 export const baseline = (p) =>
-  execSync(`git show HEAD:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26 }).replace(/\r\n/g, "\n");
+  execSync(`git show ${BASE}:"${p}"`, { encoding: "utf8", maxBuffer: 1 << 26 }).replace(/\r\n/g, "\n");
 
 // 存在性也要走基线:工作区里有、HEAD 里没有,是"新页",不是"已有页"
 export const baselineExists = (p) => {
-  try { execSync(`git cat-file -e HEAD:"${p}"`, { stdio: "pipe" }); return true; } catch { return false; }
+  try { execSync(`git cat-file -e ${BASE}:"${p}"`, { stdio: "pipe" }); return true; } catch { return false; }
 };
 
 // catalog 都是 JSON,探针几乎都要 JSON.parse(baseline(f)) —— 放这里,免得各处各写一遍
