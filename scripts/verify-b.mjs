@@ -64,6 +64,47 @@ const intended = (s, slug, isPt) => {
   return s;
 };
 
+// ⑧ 【数据改动 ≠ 生成器回归】。这道门问的是「生成器有没有改内容」,而 catalog 里的译文
+//    本来就会被母语方改(这轮:多语言签的 pt survivor 收敛)。基线页里是旧译文、生成页里是
+//    新译文 —— 门会全红,而它红得毫无信息量,下一个人就会开始无视它。
+//
+//    ⛔ 不加 37 条白名单 —— 那是「清单本身就是那个 bug」。加一条【规则】:
+//    把基线页里的「旧 catalog 值」按 en 配对替换成「新 catalog 值」,换完仍不一致才算回归。
+//    en 做主键 = 「同一条串换了译文」;en 也变了就不配对,所以内容增删伪装不成收敛。
+const catFiles = ["data/chrome.json", ...fs.readdirSync("data/pages").filter((f) => f.endsWith(".json")).map((f) => `data/pages/${f}`)];
+//    ⚠️ 配对必须按【key】,不能按 en:catalog 里还留着重复 en(第 16 组没收敛),按 en 查
+//    会挑到另一条记录,把「Sobre Nós」换成别的键的值。key 在这次改动里是稳定的(去重只删 key,
+//    删掉的直接跳过)。
+//    去重【删掉】的 key 走不到 key 配对(合规那组 18 个 key 全被并进一个共享 key),
+//    所以对删掉的 key 退回 en 回查 —— 但只在当前 catalog 里该 en 【唯一】时才认,
+//    否则就是我上面踩的那个坑(挑到另一条记录)。en 不唯一 = 那组还没收敛 = 本来就该红。
+const byEnNow = new Map();
+for (const f of catFiles) for (const [k, v] of Object.entries(JSON.parse(fs.readFileSync(f, "utf8"))))
+  if (!k.startsWith("_") && v && typeof v.en === "string") (byEnNow.get(v.en) || byEnNow.set(v.en, []).get(v.en)).push(v);
+
+const SUBST = new Map();
+for (const f of catFiles) {
+  let oldJ; try { oldJ = JSON.parse(baseline(f)); } catch { continue; }        // 基线上还没有这个文件
+  const nowJ = JSON.parse(fs.readFileSync(f, "utf8"));
+  for (const [k, v] of Object.entries(oldJ)) {
+    if (k.startsWith("_") || !v) continue;
+    const sameEn = typeof v.en === "string" ? byEnNow.get(v.en) : null;
+    const now = nowJ[k] || (sameEn && sameEn.length === 1 ? sameEn[0] : null);
+    if (!now) continue;
+    for (const loc of Object.keys(v)) {
+      if (loc === "en" || loc.startsWith("reason.")) continue;
+      if (typeof v[loc] === "string" && typeof now[loc] === "string" && v[loc] !== now[loc] && v[loc].length > 4)
+        SUBST.set(v[loc], now[loc]);
+    }
+  }
+}
+//    ⚠️ 必须【单遍、不重叠】替换。第一版用 split/join 顺序替换,前一条的产物成了后一条的输入:
+//    "Sobre Nós" → "Sobre a Tejoy" → "Sobre a Tejoy a Tejoy"。长的优先,一次扫完。
+const KEYS = [...SUBST.keys()].sort((a, b) => b.length - a.length);
+const RE = KEYS.length ? new RegExp(KEYS.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g") : null;
+const applySubst = (s) => (RE ? s.replace(RE, (m) => SUBST.get(m)) : s);
+console.log(`   (按 en 配对扣除 ${SUBST.size} 处 catalog 译文改动 —— 数据改动不是生成器回归)`);
+
 // 按目录读 —— 和 i18n-check 一样,新桶靠存在就进验收,不靠我记得往清单里加
 const PAGES = fs.readdirSync("data/templates").filter((f) => /^page-.+.html$/.test(f)).map((f) => f.replace(/^page-|.html$/g, ""));
 let ok = 0; const bad = [];
@@ -72,7 +113,7 @@ for (const slug of PAGES) {
     const f = `${isPt ? "pt/" : ""}${slug}/index.html`;
     if (!fs.existsSync(f)) continue;
     const head = baseline(f);   // 走共享基线读法,不自己拼 git show
-    const want = ws(killHL(intended(head, slug, isPt)));
+    const want = ws(killHL(applySubst(intended(head, slug, isPt))));
     const got = ws(killHL(fs.readFileSync(f, "utf8")));
     if (want === got) { ok++; continue; }
     let i = 0; while (i < Math.min(want.length, got.length) && want[i] === got[i]) i++;
