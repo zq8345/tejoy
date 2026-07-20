@@ -39,16 +39,28 @@ export function mergeI18n(prod, locale) {
 export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
   const sfx = catalog && catalog["meta.title.suffix"];
   const model = modelDisplay && modelDisplay[prod.category];
-  // Without the catalog/model map wired in, fall back to the STORED meta_title so this change is
-  // strictly additive: a caller that hasn't been updated behaves exactly as before. Deriving with
-  // an empty suffix would silently drop the brand tail from every en <title> — a caller half-way
-  // through migration must not be able to quietly break output.
-  if (!sfx || !model) return prod.i18n.en.meta_title;
+  // ⛔ 原本这里是「调用者没传 catalog/model 就回落到【存储的】meta_title」,理由写着
+  //    "strictly additive:没更新的调用者行为完全不变"。那条理由在当时成立,现在不成立了:
+  //    存储的 meta_title 已经被删干净(它是派生值),回落的目标不存在了 —— 这个分支现在
+  //    返回 undefined,会把 `<title>undefined</title>` 写进页面并 commit。
+  //    ⭐ 一个"为了兼容旧调用者"的兜底,在旧数据被清理后,就从兼容层变成了故障源。
+  //    兜底和它假设的那份数据必须同生共死。
+  if (!sfx || !model) {
+    throw new Error(`metaTitleOf: 缺 ${!sfx ? "catalog.meta.title.suffix" : `modelDisplay[${prod.category}]`}`
+      + ` —— meta_title 是派生值,存储的那份已删,没有可回落的东西。调用者必须传 data/chrome.json 与 locales.json 的 model_display`);
+  }
   const suffix = sfx[locale] ?? sfx.en ?? "";
   return `${e.title}-${model}-Tejoy${suffix}`;
 }
 
 export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf, enabled }) {
+  // ⛔ 前置条件放在最前面,别等它在某个 token 上炸。
+  //    后台那条路径 `render(prod, {template, imgBase, related})` 报的是
+  //    「template references catalog key that does not exist: body.banner.title」——
+  //    那句话把读者指向【模板】,而模板没有任何问题:真因是【调用者没传 catalog】。
+  //    ⭐ 一个把人指向错误位置的报错,比没有报错更贵:它让人去改那个没坏的东西。
+  if (!catalog) throw new Error("render: 缺 catalog —— product.html 有 24 个 {{t.}} token 要它来解析。调用者必须传 data/chrome.json");
+  if (!modelDisplay) throw new Error("render: 缺 modelDisplay —— meta_title 由它派生。调用者必须传 data/locales.json 的 model_display");
   const e = mergeI18n(prod, locale);
   // Gallery alt is DERIVED from the localized title, not stored (总工 2026-07-14, verified across
   // all 428: 369 already duplicate the title verbatim, 59 are filenames, 0 are real descriptions —
@@ -133,9 +145,23 @@ export const entryExcerpt = (e, locale) => (e.i18n && e.i18n[locale] && e.i18n[l
 // (The i18n window argues this suffix should not exist at all — 64 cards means a screen-reader
 // user hears it 64 times — but removing it changes the EN alt output and would break R2's own
 // "en byte-identical" gate. So: use it now, delete it as its own change. r1-findings.md §8.5.)
+// ⛔ catalog 缺席时【不许回落】。
+//
+// 这里原本是 `?? "- tejoy Products"` —— 一个硬编码的英文兜底。它看起来是"健壮",实际是
+// 一台造假机:后台 functions/api/admin/[[path]].js 的两处 regenListPage 从来没传过 catalog,
+// 于是 Joe 每保存一次产品,/products/ 和分类页的 64 张卡片就被写进略微错误的 alt,
+// **然后 commit 进仓库**。没有任何门会红 —— 因为输出是"合理"的。
+//
+// ⭐ 静默回落 = 把"调用者忘了传"变成"输出悄悄错了"。而抛错 = 把它变成一个人正在看着的时刻
+//    (Joe 点保存的那一秒)。同一个 bug,后者花五分钟,前者花几个月且没人发现。
+// ⚠️ 为什么不是"让 render.js 自己去读 chrome.json":它跑在 Workers 里,没有 fs,
+//    而且被 Node 和 CF 两边导入 —— catalog 只能由调用者给。既然只能靠调用者,
+//    唯一的杠杆就是【让漏传无法被忽略】。
 const altOf = (title, locale, catalog) => {
   const s = catalog && catalog["card.alt.suffix"];
-  const suffix = (s && (s[locale] ?? s.en)) ?? "- tejoy Products";
+  if (!s) throw new Error("altOf: 缺 catalog(或其中的 card.alt.suffix)—— 卡片 alt 不能靠硬编码兜底,调用者必须传 data/chrome.json");
+  const suffix = s[locale] ?? s.en;
+  if (suffix === undefined || suffix === null || suffix === "") throw new Error(`altOf: card.alt.suffix 在 ${locale} 下没有值 —— guard 应该先拦住`);
   return `${title} ${suffix}`;
 };
 

@@ -155,5 +155,18 @@ console.log("\n【⑦ 仓库卫生】 —— 被 gitignore 静默吞的文件 ·
   ok(out.trim().split("\n").filter(Boolean).join(" / ") || "(无输出)", code === 0);
 }
 
+// ⑧ 后台发布路径 —— 它在 R1 给 product.html 加 24 个 {{t.}} token 那天就死了,而没有任何门
+//    看着它:Joe 点"保存产品"直接 500,持续到今天才被发现。现在它有门了,而且门量的是
+//    【生产真正调用的那个函数】(buildProductFiles),不是手写的等价调用。
+console.log("\n【⑧ 后台发布路径】 —— 跑生产那个函数,不是手写等价调用:");
+{
+  const { execSync } = await import("child_process");
+  let out = "", code = 0;
+  try { out = execSync("node scripts/admin-publish-check.mjs", { encoding: "utf8" }); }
+  catch (e) { out = (e.stdout || "") + (e.stderr || ""); code = 1; }
+  const m = out.match(/admin-publish-check: (\d+) 项失败/);
+  ok(`后台 render/regenListPage 带齐 catalog、产物无 token/undefined、英文页零回归(失败 ${m ? m[1] : "?"} 项)`, code === 0);
+}
+
 console.log(`\n${fail ? "🔴" : "✅"} ${pass} 通过 / ${fail} 失败`);
 process.exit(fail ? 1 : 0);

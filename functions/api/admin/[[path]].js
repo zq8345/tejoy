@@ -8,25 +8,54 @@ import { ghConfig, commitFiles, readFile } from "../../_lib/github.js";
 const LIST_CAT = null; // /products/ uses no category filter
 
 // Read the render inputs (template + config + manifest) straight from the repo.
+//
+// ⚠️ chrome.json / locales.json 以前【没读】—— 于是 render() 和 regenListPage() 都拿不到
+//    catalog。后果不是"少点东西",是两种不同的坏:
+//      · render()      → 在第一个 {{t.}} token 上抛错 → Joe 点保存直接 500(实测过)
+//      · regenListPage → 【不抛】,altOf 静默回落到硬编码的 "- tejoy Products",
+//                        把略微错误的卡片 alt commit 进仓库,没有任何门会红
+//    两个入口现在都要求 catalog(缺就抛),所以这里必须把它们读进来。
 async function loadCtx(env, cfg) {
-  const [template, siteRaw, manRaw] = await Promise.all([
+  const [template, siteRaw, manRaw, chromeRaw, localesRaw] = await Promise.all([
     readFile(env, cfg, "data/templates/product.html"),
     readFile(env, cfg, "data/site.json"),
     readFile(env, cfg, "data/products-index.json"),
+    readFile(env, cfg, "data/chrome.json"),
+    readFile(env, cfg, "data/locales.json"),
   ]);
-  if (!template || !siteRaw) return null;
-  return { template, site: JSON.parse(siteRaw), manifest: manRaw ? JSON.parse(manRaw) : [] };
+  if (!template || !siteRaw || !chromeRaw || !localesRaw) return null;
+  return {
+    template, site: JSON.parse(siteRaw), manifest: manRaw ? JSON.parse(manRaw) : [],
+    catalog: JSON.parse(chromeRaw), modelDisplay: JSON.parse(localesRaw).model_display,
+  };
 }
+
+// 后台只发英文页(它写 `${category}/${id}.html`,不写 pt/ 和 es/),所以 locale 恒为 en,
+// urlOf 对 en 就是原样返回 —— 这不是"简化",是默认语种的正确行为(不加前缀)。
+// ⚠️ 由此有一个【已知的、这一笔不修】的洞:Joe 改一个产品,pt/ 和 es/ 的对应页不会重生成,
+//    会静默变旧。已单独报总工,不在这一笔里夹带。
+const EN_URL_OF = (p) => p;
 
 // Persist a product: update manifest, regenerate its detail page + the affected list pages
 // (/products/ + new category + old category if it moved), commit everything in one commit.
-async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }) {
-  const { template, site } = ctx;
+// ⭐ 渲染部分抽成【纯函数】,IO 留在 publishProduct 里。
+//
+// 理由不是"好看":这个 P0 活下来,就是因为没人真跑过这条路径 —— 而它跑不了,
+// 因为它和 GitHub API 长在一起。抽出来之后,scripts/admin-publish-check.mjs 调用的是
+// **生产真正调用的这一个函数**,不是我照着理解手写的等价物。
+// ⚠️ 我第一版的门就栽在这儿:我在文件开头写了"手写等价调用只能证明我以为的签名",
+//    然后第②节自己就那么干了 —— 攻击(把 render 调用还原成 P0)时,②照样全绿。
+//    尺子必须量原件,不是量我的副本。
+// readPage(rel) 由调用者注入:线上是 GitHub API,测试里是磁盘。渲染逻辑两边完全同一份。
+export async function buildProductFiles(ctx, prod, { oldCategory, readPage }) {
+  const { template, site, catalog, modelDisplay } = ctx;
   const thumb = prod.images[0] ? resolveImg(prod.images[0], site.img_base) : "";
   const entry = { id: prod.id, category: prod.category, form: prod.form, title: prod.i18n.en.title, thumb, excerpt: excerptOf(prod) };
   const manifest = ctx.manifest.filter((e) => e.id !== prod.id).concat(entry)
     .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
-  const detailHtml = render(prod, { template, imgBase: site.img_base, related: genRelated(entry, manifest) });
+  const detailHtml = render(prod, { template, imgBase: site.img_base,
+    related: genRelated(entry, manifest, "en", catalog, EN_URL_OF),
+    locale: "en", catalog, modelDisplay, urlOf: EN_URL_OF });
   const files = [
     { path: `data/products/${prod.id}.json`, content: JSON.stringify(prod, null, 2) },
     { path: `${prod.category}/${prod.id}.html`, content: detailHtml },
@@ -36,15 +65,23 @@ async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }
   if (oldCategory && oldCategory !== prod.category) cats.add(oldCategory);
   for (const cat of cats) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
-    const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+    const h = await readPage(rel);
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { locale: "en", catalog, urlOf: EN_URL_OF }) });
   }
+  return files;
+}
+
+// Persist a product: update manifest, regenerate its detail page + the affected list pages
+// (/products/ + new category + old category if it moved), commit everything in one commit.
+async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }) {
+  const files = await buildProductFiles(ctx, prod, { oldCategory, readPage: (rel) => readFile(env, cfg, rel) });
   return commitFiles(env, cfg, files, `admin: ${isNew ? "create" : "update"} product ${prod.id} (${email})`);
 }
 
 // Delete a product: remove its JSON + detail page, drop it from the manifest, and
 // regenerate the affected list pages (/products/ + its category) — one atomic commit.
 async function unpublishProduct(env, cfg, ctx, id, { email }) {
+  const { catalog } = ctx;          // ⚠️ 漏了它 = 下面那行 regenListPage 直接 ReferenceError
   const existing = ctx.manifest.find((e) => e.id === id);
   if (!existing) return { notFound: true };
   const category = existing.category;
@@ -57,7 +94,7 @@ async function unpublishProduct(env, cfg, ctx, id, { email }) {
   for (const cat of new Set([LIST_CAT, category])) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
     const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { locale: "en", catalog, urlOf: EN_URL_OF }) });
   }
   return commitFiles(env, cfg, files, `admin: delete product ${id} (${email})`);
 }
@@ -85,7 +122,10 @@ function validateProduct(body, id) {
     id, category: body.category, form, robots: body.robots ?? null,
     i18n: { en: {
       title: en.title, summary_html: en.summary_html || "", description_html: en.description_html,
-      meta_title: en.meta_title || en.title, meta_description: en.meta_description || "",
+      // ⛔ 不再持久化 meta_title:它是【派生值】(metaTitleOf 从 title + model_display + 品牌后缀算),
+      //    64 个产品里存的那份已经被删干净。后台每存一次就写回一份 = 把刚清掉的化石重新种回去,
+      //    而且它一旦和 title 不一致,漂移是看不见的(半英半葡就是这么上线的)。
+      meta_description: en.meta_description || "",
     } },
     images: body.images.map((im) => (im.key !== undefined ? { key: im.key, alt: im.alt || "" } : { src: im.src, alt: im.alt || "" })),
     jsonld_product: body.jsonld_product ?? null, jsonld_breadcrumb: body.jsonld_breadcrumb ?? null,
