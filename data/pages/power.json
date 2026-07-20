@@ -4,11 +4,6 @@
     "pt-BR": "Adaptadores de energia e cabeamento para Starlink.",
     "es-MX": "Adaptadores de energía y cableado para Starlink."
   },
-  "power.blog-sidebar-text.1": {
-    "en": "Buyer guide for Starlink power adapters. Compare 12V DC, stock AC, and USB-C PD options. Recommendations by use case: RV, off-grid, home, and vehicle installations.",
-    "pt-BR": "Guia de compra de adaptadores de energia para Starlink. Compare as opções 12V DC, AC original e USB-C PD. Recomendações por caso de uso: motorhome, off-grid, residência e instalações em veículos.",
-    "es-MX": "Guía de compra de adaptadores de energía para Starlink. Compara las opciones de 12V CC, CA original y USB-C PD. Recomendaciones por caso de uso: casa rodante, sin red eléctrica, hogar e instalaciones en vehículos."
-  },
   "power.blog-sidebar-text.2": {
     "en": "How to choose the right Starlink Mini 12V power adapter. 12V setup guide for RV, vehicle, and off-grid Starlink Mini configurations.",
     "pt-BR": "Como escolher o adaptador de energia 12V certo para a Starlink Mini. Guia de configuração 12V para motorhome, veículo e uso off-grid da Starlink Mini.",
@@ -29,11 +24,6 @@
     "pt-BR": "As opções de fonte de energia nos acessórios Starlink para motorhome podem gerar bastante confusão. Com várias alternativas disponíveis, pode ser difícil saber o que funciona melhor na estrada. Muitos usuários de motorhome têm dificuldade para manter a conexão por causa de uma alimentação inadequada ···",
     "es-MX": "Las opciones de alimentación en los accesorios Starlink para casa rodante pueden ser bastante confusas. Con varias alternativas disponibles, puede ser difícil saber qué funciona mejor en la carretera. Muchos usuarios de casa rodante tienen dificultades para mantener la conexión por una alimentación inadecuada ···"
   },
-  "power.sidebar-title.2": {
-    "en": "News",
-    "pt-BR": "Novidades",
-    "es-MX": "Noticias"
-  },
   "power.meta.title": {
     "en": "Power-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Energia - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
@@ -43,10 +33,5 @@
     "en": "Power adapters, 12V DC solutions, solar power, cable management",
     "pt-BR": "Adaptadores de energia, soluções 12V DC, energia solar e gerenciamento de cabos para Starlink.",
     "es-MX": "Adaptadores de energía, soluciones de 12V CC, energía solar, organización de cables"
-  },
-  "power.ld.description.2": {
-    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
-    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
   }
 }

@@ -4,16 +4,6 @@
     "pt-BR": "Acessórios Starlink para motorhomes, camping e setups off-grid.",
     "es-MX": "Accesorios Starlink para casas rodantes, camping e instalaciones sin red eléctrica."
   },
-  "rv-off-grid.a.1": {
-    "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
-    "pt-BR": "Como instalar a Starlink Mini para camping em motorhome: guia completo",
-    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
-  },
-  "rv-off-grid.blog-sidebar-text.1": {
-    "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
-    "pt-BR": "Guia passo a passo completo para instalar a Starlink Mini no camping em motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento.",
-    "es-MX": "Guía completa paso a paso para instalar la Starlink Mini para acampar en casa rodante. Lista de equipo, montaje, alimentación, paso de cables y solución de problemas para tener internet confiable en cualquier campamento."
-  },
   "rv-off-grid.blog-sidebar-text.2": {
     "en": "Complete winterization guide for Starlink Mini. Cold weather accessories, snow and ice management, battery considerations, and maintenance schedule for sub-zero operation.",
     "pt-BR": "Guia completo de preparação da Starlink Mini para o inverno. Acessórios para frio, manejo de neve e gelo, cuidados com a bateria e cronograma de manutenção para operação em temperaturas abaixo de zero.",
@@ -109,16 +99,6 @@
     "pt-BR": "Descubra os acessórios Starlink essenciais para quem vive de motorhome em tempo integral. Conheça a antena de satélite portátil, o kit de fixação, o roteador Wi-Fi e o gerador de energia, além de um guia de instalação e comparação de preços para internet estável em movimento.",
     "es-MX": "Descubre los accesorios Starlink esenciales para quienes viven de tiempo completo en casa rodante. Conoce la antena satelital portátil, el kit de montaje, el router Wi-Fi y el generador de energía, además de una guía de instalación y una comparación de precios para tener internet estable en movimiento."
   },
-  "rv-off-grid.sidebar-title.2": {
-    "en": "News",
-    "pt-BR": "Notícias",
-    "es-MX": "Noticias"
-  },
-  "rv-off-grid.a.26": {
-    "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
-    "pt-BR": "Como instalar a Starlink Mini para camping em motorhome: guia completo",
-    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
-  },
   "rv-off-grid.meta.title": {
     "en": "RV / Off-Grid-Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Motorhome / Off-Grid - Tejoy | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
@@ -128,10 +108,5 @@
     "en": "RV accessories, camping setups, solar-powered solutions, off-grid living",
     "pt-BR": "Acessórios Starlink para motorhome, setups de camping, soluções com energia solar e vida off-grid.",
     "es-MX": "Accesorios para casa rodante, instalaciones de camping, soluciones con energía solar, vida sin red eléctrica"
-  },
-  "rv-off-grid.ld.description.2": {
-    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não afiliada à SpaceX.",
-    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
   }
 }
