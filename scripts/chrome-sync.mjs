@@ -11,6 +11,7 @@
 //   ⛔ scripts/chrome-seed.migration.mjs ran the dataflow BACKWARDS once, to bootstrap. Not a syncer.
 import fs from "fs";
 import path from "path";
+import { localeDirs } from "./locale-dirs.mjs";
 
 const WRITE = process.argv.includes("--write");
 const ONLY = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
@@ -63,7 +64,7 @@ const pick = (key, readerLocale) => {
   if (v === undefined || v === null || v === "") throw new Error(`chrome-sync: ${key} 缺 ${readerLocale} — guard 应该先拦住`);
   return v;
 };
-const LOC_DIR = Object.fromEntries(LOCALES.map((loc) => [loc, loc === DEFAULT_LOC ? "" : (locales.dir || {})[loc] || loc.split("-")[0]]));
+const LOC_DIR = localeDirs(locales);   // ← 规则搬进 scripts/locale-dirs.mjs;regen 用的是同一份
 const existsCache = new Map();
 const pageExists = (rel) => {
   if (!existsCache.has(rel)) existsCache.set(rel, fs.existsSync(rel));

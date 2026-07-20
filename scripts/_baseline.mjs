@@ -21,6 +21,9 @@ export const baselineExists = (p) => {
   try { execSync(`git cat-file -e HEAD:"${p}"`, { stdio: "pipe" }); return true; } catch { return false; }
 };
 
+// catalog 都是 JSON,探针几乎都要 JSON.parse(baseline(f)) —— 放这里,免得各处各写一遍
+export const baselineJson = (p) => JSON.parse(baseline(p));
+
 // 基线上被跟踪的文件清单 —— 别用 fs.readdirSync 去枚举"有哪些页",那数的是工作区
 export const baselineFiles = (re) =>
   execSync("git ls-files", { encoding: "utf8", maxBuffer: 1 << 26 }).split("\n").filter((f) => f && (!re || re.test(f)));

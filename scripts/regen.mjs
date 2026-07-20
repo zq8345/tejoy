@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { render, genRelated, resolveImg, regenListPage, setListTitle, renderHome, renderPage, excerptOf } from "../functions/_lib/render.js";
+import { localeDirs } from "./locale-dirs.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -23,7 +24,8 @@ const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"
 const MODEL = locales.model_display;
 const LOCALES = locales.enabled;
 const DEFAULT = locales.default;
-const dirOf = (loc) => (loc === DEFAULT ? "" : "pt");          // pt-BR -> /pt
+const LOC_DIR = localeDirs(locales);                           // pt-BR -> pt / es-MX -> es(唯一真源)
+const dirOf = (loc) => LOC_DIR[loc] ?? "";
 const pageOf = (loc, rel) => path.join(REPO, dirOf(loc), rel);
 // Same rule chrome-sync uses: prefix IF the localized page exists. Existence is the rule; there
 // is no list to keep in sync, so it cannot go stale (r1-report.md §5).
