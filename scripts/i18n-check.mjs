@@ -71,7 +71,11 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-product-translations\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-product-translations\.json|es-hold\.json/.test(f)) {
+    // ⭐ es-hold.json = 多语言建的【扣留清单单一真源】(id + why + since),不是文案目录:
+    //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
+    //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
+    //    没有它,这 20 处 gap 会让 --strict 永远红,而一道永远红的门最后会被所有人略过。
     sources.data.push(f);                                  // 已知的【非文案】数据,点名放行
     // ⭐ es-product-translations.json = seed 的【暂存源】,不是 catalog。放行的理由是【实测的】,
     //    不是"它看起来像暂存":我逐条比对过 —— 它的 6 条 es 字符串(产品 655/664 的 title /
@@ -97,11 +101,26 @@ if (unknown.length) {
 // `_`-prefixed entries are file-level docs/metadata, not translatable keys.
 const entries = Object.entries(catalog).filter(([k]) => !k.startsWith("_"));
 
-const gaps = [];
+// ⭐ 扣留产品的 es 缺失 = 【有据的缺失】,不是漏翻。真源是 data/es-hold.json —— 多语言建的,
+//    我不再造第二份。(我原本打算登记进 locales.json 的 `fallback`,那会重建他们刚消灭的
+//    第二个来源;而且实测 `fallback` 在这个文件里【只被数了一下】,一个 gap 都豁免不了 ——
+//    把一个安全决定登记进一个没有机器读的字段,等于写了一张没人看的告示。)
+//    ⚠️ 豁免【不能静默】:数目进结论行,并按理由分组打印,所以它长胖了看得见。
+const HOLD = fs.existsSync("data/es-hold.json")
+  ? new Map((JSON.parse(fs.readFileSync("data/es-hold.json", "utf8")).hold || []).map((h) => [String(h.id), h]))
+  : new Map();
+const holdOf = (key, loc) => {
+  const m = loc === "es-MX" && key.match(/^product\.(\d+)\./);
+  return m ? HOLD.get(m[1]) : undefined;
+};
+
+const gaps = [], held = [];
 for (const [key, entry] of entries) {
   for (const loc of enabled) {
     const v = entry[loc];
-    if (v === undefined || v === null || String(v).trim() === "") gaps.push({ key, loc, en: entry.en });
+    if (v !== undefined && v !== null && String(v).trim() !== "") continue;
+    const h = holdOf(key, loc);
+    if (h) held.push({ key, loc, id: h.id, why: h.why }); else gaps.push({ key, loc, en: entry.en });
   }
 }
 
@@ -179,6 +198,13 @@ if (gaps.length) {
   console.log(`\n🔴 缺失 ${gaps.length} 处(未翻译 / 待裁决):`);
   for (const g of gaps) console.log(`   [${g.loc}] ${g.key}  en="${g.en}"`);
 }
+if (held.length) {
+  const byId = new Map();
+  for (const h of held) (byId.get(h.id) || byId.set(h.id, { why: h.why, keys: [] }).get(h.id)).keys.push(h.key.split(".").pop());
+  console.log(`
+📋 有据扣留 ${held.length} 处 es 缺失(真源 data/es-hold.json,由 scripts/es-hold-check.mjs 双向强制):`);
+  for (const [id, v] of byId) console.log(`   产品 ${id} ×${v.keys.length}(${v.keys.join("/")})  ${String(v.why).slice(0, 72)}`);
+}
 if (orphans.length) console.log(`\n⚠️ 孤儿 token(partial 用了但 catalog 没有) ${orphans.length}: ${[...new Set(orphans)].join(", ")}`);
 if (dynClaimed.length) console.log(`
 📎 由【动态前缀】认领 ${dynClaimed.length}(代码里是 \`前缀\${...}\` 拼出来的名字,无法逐条核实是否真被用到): ${dynClaimed.join(", ")}`);
@@ -197,7 +223,8 @@ if (unused.length) console.log(`\n⚠️ 无人使用的 key(可能已腐烂) ${
 // 变的只是:结论行必须诚实地描述整份报告,而不是描述我挑出来的那两类。
 const warns = [gaps.length && `缺失 ${gaps.length}`, orphans.length && `孤儿 ${orphans.length}`,
   unused.length && `无人使用 ${unused.length}`,
-  dynClaimed.length && `动态前缀认领 ${dynClaimed.length}`].filter(Boolean);
+  dynClaimed.length && `动态前缀认领 ${dynClaimed.length}`,
+  held.length && `有据扣留 ${held.length}`].filter(Boolean);
 const fail = gaps.length > 0 || orphans.length > 0;
 if (MODE === "strict" && fail) {
   console.error(`\nFAIL: ${gaps.length} 处缺失 / ${orphans.length} 个孤儿 token(--strict)`);
