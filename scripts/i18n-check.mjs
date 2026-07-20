@@ -148,14 +148,30 @@ const allCode = CODE.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(
 //    整类放行会把这个真发现一起盖掉:一个太宽的白名单,和一个太窄的枚举一样会骗人。
 const mergeSrc = (allCode.match(/export function mergeI18n[\s\S]*?\n\}/) || [""])[0];
 const PRODUCT_FIELDS = new Set([...mergeSrc.matchAll(/^\s{4}(\w+):/gm)].map((m) => m[1]));
+// 第四类消费者:【名字是算出来的】key。chrome-sync 写的是 pick(`switcher.code.${short}`, locale) ——
+// 字面量扫描永远看不见它,于是 6 个活得好好的 switcher key 被报成"可能已腐烂"。
+// 这是同一类假警报的第六次,而"假警报会训练人略过告警、然后真的那条也没人读"这句话
+// 就写在这个文件上面几十行的地方。
+// ⭐ 修法不是把 switcher.* 加进白名单(那又是一张清单),是让扫描认识模板字面量:
+//    从源码里抠出 `前缀${...}` 的【静态前缀】,以该前缀开头的 key 都算被消费。
+//    前缀必须含点号且长于一段 —— 免得抠出个 "" 把整个目录一次放行。太宽的白名单和
+//    太窄的枚举一样会骗人(上面 PRODUCT_FIELDS 那条注释就是为这个写的:整类放行会把
+//    "meta_title 真的没人读"这个真发现一起盖掉)。
+// ⚠️ 前缀匹配天然会【吞掉同前缀下的腐烂】:代码写 `switcher.code.${short}`,那 switcher.code.
+//    底下随便塞一个死 key 也会被认成"在用"。我实测过 —— 塞 switcher.code.zz_dead,不报。
+//    所以它不能悄悄算作"已使用",要【单独归类说出来】:这一类是"由动态前缀认领,无法逐条核实"。
+//    静默吸收 = 又造一个没人看得见的洞,而这正是这一整轮在修的东西。
+const DYN_PREFIXES = [...allCode.matchAll(/`([a-z0-9_.]*)\$\{/gi)].map((m) => m[1])
+  .filter((p) => p.length > 3 && p.includes("."));
 const used = (key) => {
   const p = key.match(/^product\.\d+\.(\w+)$/);
   if (p) return PRODUCT_FIELDS.has(p[1]);
-  return allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`);
+  if (allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`)) return true;
+  return DYN_PREFIXES.some((pre) => key.startsWith(pre)) ? "dyn" : false;
 };
 // Unused keys: in the catalog but referenced by neither a template nor code (rot).
-const unused = [];
-for (const [key] of entries) if (!used(key)) unused.push(key);
+const unused = [], dynClaimed = [];
+for (const [key] of entries) { const u = used(key); if (u === "dyn") dynClaimed.push(key); else if (!u) unused.push(key); }
 
 const wl = locales.fallback || [];
 console.log(`i18n-check [${MODE}]  locales=${enabled.join(",")}  keys=${entries.length}  whitelist=${wl.length}`);
@@ -164,6 +180,8 @@ if (gaps.length) {
   for (const g of gaps) console.log(`   [${g.loc}] ${g.key}  en="${g.en}"`);
 }
 if (orphans.length) console.log(`\n⚠️ 孤儿 token(partial 用了但 catalog 没有) ${orphans.length}: ${[...new Set(orphans)].join(", ")}`);
+if (dynClaimed.length) console.log(`
+📎 由【动态前缀】认领 ${dynClaimed.length}(代码里是 \`前缀\${...}\` 拼出来的名字,无法逐条核实是否真被用到): ${dynClaimed.join(", ")}`);
 if (unused.length) console.log(`\n⚠️ 无人使用的 key(可能已腐烂) ${unused.length}: ${unused.slice(0, 12).join(", ")}${unused.length > 12 ? " …" : ""}`);
 // ⛔ 有【任何】告警时,最后一行不许是绿的。
 //
@@ -178,7 +196,8 @@ if (unused.length) console.log(`\n⚠️ 无人使用的 key(可能已腐烂) ${
 // fail 的语义不动(unused 仍不阻塞 —— 它是"可能腐烂",不是"这个语种缺东西")。
 // 变的只是:结论行必须诚实地描述整份报告,而不是描述我挑出来的那两类。
 const warns = [gaps.length && `缺失 ${gaps.length}`, orphans.length && `孤儿 ${orphans.length}`,
-  unused.length && `无人使用 ${unused.length}`].filter(Boolean);
+  unused.length && `无人使用 ${unused.length}`,
+  dynClaimed.length && `动态前缀认领 ${dynClaimed.length}`].filter(Boolean);
 const fail = gaps.length > 0 || orphans.length > 0;
 if (MODE === "strict" && fail) {
   console.error(`\nFAIL: ${gaps.length} 处缺失 / ${orphans.length} 个孤儿 token(--strict)`);

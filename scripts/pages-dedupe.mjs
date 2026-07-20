@@ -11,7 +11,7 @@
 //      真语义漂移的 18 组【不碰】—— survivor 是最终 pt 决定,归多语言。
 import fs from "fs";
 import { execSync } from "child_process";
-import { baselineJson, baselineFiles } from "./_baseline.mjs";
+import { baselineJson, baselineFiles, baselineExists } from "./_baseline.mjs";
 
 const WRITE = process.argv.includes("--write");
 const readJson = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
@@ -26,8 +26,11 @@ const localesOf = (v) => Object.keys(v).filter((k) => k !== "en" && !k.startsWit
 //    「哪个 es 跟着这条 pt」的信息就没了。所以映射必须从【基线】取(git show HEAD:),
 //    不是从我刚写过的工作区取 —— 这是第五次因为量自己的输出出事。
 const BASE_ROWS = new Map();   // en -> [ row ... ](基线上该 en 的所有记录)
+// ⚠️ baselineFiles 数的是【当前被跟踪】的文件,不是基线上存在的文件 —— 本分支新增的
+//    data/pages/list.json 就在前者里、不在后者里,直接读会炸。存在性也要走基线。
 for (const f of ["data/chrome.json",
-  ...baselineFiles(/^data\/pages\/.*\.json$/).filter((x) => !x.endsWith("home-tiles.json"))]) {
+  ...baselineFiles(/^data\/pages\/.*\.json$/).filter((x) => !x.endsWith("home-tiles.json"))]
+  .filter((x) => baselineExists(x))) {
   for (const [k, v] of Object.entries(baselineJson(f))) {
     if (k.startsWith("_") || !v || v.en === undefined) continue;
     (BASE_ROWS.get(v.en) || BASE_ROWS.set(v.en, []).get(v.en)).push(v);
