@@ -26,33 +26,33 @@
   "images": [
     {
       "src": "/static/upload/down/1e6b9f2824.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/0ac871005f.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/1a2b2289e5.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/79ca125924.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/7af54695da.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/86589aeab3.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     },
     {
       "src": "/static/upload/down/3de4c15be7.jpg",
-      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - tejoy"
+      "alt": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit\",\n  \"description\": \"2 Pack Dual-Length Set for Versatile Use: The STARGEAR Starlink Router Mini cable Includes 6.5FT (2m) long cable for distant outlets, 1FT (0.3m) short cable for quick connections. Compatible with Starlink Router Mini&#39;s 9V protocol, ensures stable power supply. Perfect for home use or Starlink Mi\",\n  \"image\": \"https://wanew.com/static/upload/down/cc113965a1.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit\",\n  \"description\": \"2 Pack Dual-Length Set for Versatile Use: The STARGEAR Starlink Router Mini cable Includes 6.5FT (2m) long cable for distant outlets, 1FT (0.3m) short cable for quick connections. Compatible with Starlink Router Mini&#39;s 9V protocol, ensures stable power supply. Perfect for home use or Starlink Mi\",\n  \"image\": \"https://wanew.com/static/upload/down/cc113965a1.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

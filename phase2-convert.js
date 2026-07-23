@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Tejoy Phase 2 — 英文产品详情/分类页 -> pt (正文英文, 只换外壳+chrome+head+双向切换器)
+/* Wanew Phase 2 — 英文产品详情/分类页 -> pt (正文英文, 只换外壳+chrome+head+双向切换器)
  * 基线: origin/main ba60dadd (含批次B: clean-URL 内链 + 机型专属 h1 + FAB方角 + CSS ?v=54)
  * 用法: node phase2-convert.js --dry-run    校验不写盘
  *       node phase2-convert.js --run        真跑(生成pt页 + 给英文原页加PT切换器/hreflang)
@@ -99,13 +99,13 @@ function prefixPtLinks(html) {
 /* ---------- head 接线 (clean URL) ---------- */
 function fixHead(html, enUrl, ptUrl) {
   html = html.replace(/<html[^>]*>/, '<html lang="pt-BR">');
-  html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="https://tejoy.com${ptUrl}" />`);
+  html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="https://wanew.com${ptUrl}" />`);
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*"[^>]*>/g, '');
-  const trio = `\n<link rel="alternate" hreflang="en" href="https://tejoy.com${enUrl}" />`
-             + `\n<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com${ptUrl}" />`
-             + `\n<link rel="alternate" hreflang="x-default" href="https://tejoy.com${enUrl}" />`;
+  const trio = `\n<link rel="alternate" hreflang="en" href="https://wanew.com${enUrl}" />`
+             + `\n<link rel="alternate" hreflang="pt-BR" href="https://wanew.com${ptUrl}" />`
+             + `\n<link rel="alternate" hreflang="x-default" href="https://wanew.com${enUrl}" />`;
   html = html.replace(/(<link rel="canonical"[^>]*>)/, `$1${trio}`);
-  html = html.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="https://tejoy.com${ptUrl}" />`);
+  html = html.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="https://wanew.com${ptUrl}" />`);
   if (/og:locale/.test(html)) html = html.replace(/<meta property="og:locale"[^>]*>/, '<meta property="og:locale" content="pt_BR" />');
   else html = html.replace(/(<meta property="og:url"[^>]*>)/, `$1\n<meta property="og:locale" content="pt_BR" />`);
   html = html.replace(/"inLanguage"\s*:\s*"[^"]*"/g, '"inLanguage": "pt-BR"');
@@ -180,9 +180,9 @@ function injectEnSide(enHtml, enUrl, ptUrl, shell) {
   h = h.replace('                     <div class="main-menu-wrapper__call">', block + '\n                     <div class="main-menu-wrapper__call">');
   // hreflang trio (英文页原有canonical, 在其后插; 若已有hreflang先删)
   h = h.replace(/\s*<link rel="alternate" hreflang="[^"]*"[^>]*>/g, '');
-  const trio = `\n<link rel="alternate" hreflang="en" href="https://tejoy.com${enUrl}" />`
-             + `\n<link rel="alternate" hreflang="pt-BR" href="https://tejoy.com${ptUrl}" />`
-             + `\n<link rel="alternate" hreflang="x-default" href="https://tejoy.com${enUrl}" />`;
+  const trio = `\n<link rel="alternate" hreflang="en" href="https://wanew.com${enUrl}" />`
+             + `\n<link rel="alternate" hreflang="pt-BR" href="https://wanew.com${ptUrl}" />`
+             + `\n<link rel="alternate" hreflang="x-default" href="https://wanew.com${enUrl}" />`;
   h = h.replace(/(<link rel="canonical"[^>]*>)/, `$1${trio}`);
   return h;
 }
@@ -195,7 +195,7 @@ function validatePt(h, ptUrl) {
   if (/FOOTER_LANGS/.test(h)) iss.push('FOOTER_LANGS残');
   if (/function getCookie/.test(h)) iss.push('cookie残');
   if (!/<html lang="pt-BR">/.test(h)) iss.push('lang');
-  if (!h.includes(`canonical" href="https://tejoy.com${ptUrl}"`)) iss.push('canonical');
+  if (!h.includes(`canonical" href="https://wanew.com${ptUrl}"`)) iss.push('canonical');
   if ((h.match(/rel="alternate" hreflang/g) || []).length !== 3) iss.push('hreflang≠3');
   if (!/class="lang-switch__link"/.test(h)) iss.push('无切换器');
   if (!/position:absolute;top:50%;right:24px/.test(h) || !/max-width:1199px\){\.lang-switch\{position:static/.test(h)) iss.push('切换器样式');

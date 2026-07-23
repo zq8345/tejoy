@@ -5,7 +5,7 @@
 //
 // 只碰【确定的】组,绝不替母语方签 pt:
 //   ① chrome 已有同 en 的 key → 重定向到 chrome key(canonical),删页面副本。
-//      pt 侧:25 组页面 pt == chrome pt(零变化);2 组(FAQ/tejoy_premium)漂了,多语言已裁"按 chrome 收敛"。
+//      pt 侧:25 组页面 pt == chrome pt(零变化);2 组(FAQ/wanew_premium)漂了,多语言已裁"按 chrome 收敛"。
 //   ② pages 内 pt 【一致】→ 新建共享 key,pt = 那个一致值(零决策)。
 //   ③ pt 漂移:只处理 More(→Leia mais,多语言已裁)和【纯大小写】组(sentence-case,多语言定的规则)。
 //      真语义漂移的 18 组【不碰】—— survivor 是最终 pt 决定,归多语言。

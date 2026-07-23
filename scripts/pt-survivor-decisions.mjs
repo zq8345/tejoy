@@ -16,7 +16,7 @@ import fs from 'fs';
 
 /* 每组:用 en 前缀定位,pick = 选中变体的判别子串(必须唯一命中一个变体),why = 依据 */
 const D = [
-  { en: 'Tejoy is a leading manufacturer', pick: 'Não é afiliada à SpaceX',
+  { en: 'Wanew is a leading manufacturer', pick: 'Não é afiliada à SpaceX',
     why: '【查,不是判】chrome footer.copyright 我签过的合规原话就是「Não é afiliada à SpaceX nem à Starlink」。合规文案全站必须逐字一致。多数(×17)在这里无关。' },
 
   { en: 'How to Set Up Starlink Mini for RV Camping', pick: 'para camping em motorhome',
@@ -25,14 +25,14 @@ const D = [
   { en: 'Global shipping and logistics guide', pick: 'Opções de frete expresso, aéreo e marítimo',
     why: 'en「Express, air, sea freight」—— frete 统辖三者。另一变体「Opções de expresso, frete aéreo e marítimo」把 frete 只挂在 aéreo 上。' },
 
-  { en: 'Complete quality control standards', pick: 'para os acessórios Starlink da Tejoy',
-    why: 'en 是 standards FOR Tejoy accessories → para,不是 dos(所属)。' },
+  { en: 'Complete quality control standards', pick: 'para os acessórios Starlink da Wanew',
+    why: 'en 是 standards FOR Wanew accessories → para,不是 dos(所属)。' },
 
   { en: 'Custom Starlink Accessory Manufacturing', pick: 'sob medida: do protótipo à produção',
     why: '葡语正字法:标题用 sentence case,Title Case 是英语借来的写法。另一变体「Do Protótipo à Produção」是英式大写。' },
 
   { en: 'OEM/ODM manufacturing guide', pick: 'de uma fabricante com 15 anos',
-    why: '【查,不是判】与全站 ×17 的「A Tejoy é uma fabricante líder」性数一致(阴性)。另一变体用了阳性 um fabricante。' },
+    why: '【查,不是判】与全站 ×17 的「A Wanew é uma fabricante líder」性数一致(阴性)。另一变体用了阳性 um fabricante。' },
 
   { en: 'Bulk Ordering Guide: MOQ, Lead Time', pick: null,
     override: 'Guia de pedidos em grande volume: MOQ, prazo de entrega e preços para suportes Starlink',
@@ -52,7 +52,7 @@ const D = [
   { en: 'Starlink Junction Box Installation', pick: 'em ambientes externos',
     why: 'en「Outdoor Cable Management」是技术语域;ao ar livre 偏「户外休闲」。建筑布线用 ambientes externos。' },
 
-  { en: 'Installation guide for Tejoy Outdoor Junction Box', pick: 'Invólucro à prova de intempéries',
+  { en: 'Installation guide for Wanew Outdoor Junction Box', pick: 'Invólucro à prova de intempéries',
     why: 'en「IP66 weatherproof enclosure」→ enclosure = invólucro(IP 等级外壳的固定说法);compartimento = 隔间。且与上一组的 ambientes externos 保持一致。' },
 
   { en: 'Guide to installing Starlink without drilling', pick: 'suportes para peitoril de janela',

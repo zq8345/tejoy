@@ -3,7 +3,7 @@
 // CF Pages deploy, so an edit regenerates its pages and ships them together.
 //
 // Env (Joe sets in CF Pages, kept out of the repo):
-//   GITHUB_TOKEN  fine-grained PAT with Contents:write on the tejoy repo
+//   GITHUB_TOKEN  fine-grained PAT with Contents:write on the wanew repo
 //   GITHUB_REPO   "zq8345/tejoy"
 //   GITHUB_BRANCH "main"   (optional, defaults to main)
 

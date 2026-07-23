@@ -26,29 +26,29 @@
   "images": [
     {
       "src": "/static/upload/down/24ed4ad3d4.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     },
     {
       "src": "/static/upload/down/17d188f2ec.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     },
     {
       "src": "/static/upload/down/47769b37d7.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     },
     {
       "src": "/static/upload/down/bb08b6846b.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     },
     {
       "src": "/static/upload/down/8674c7b696.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     },
     {
       "src": "/static/upload/down/3bf431113e.jpg",
-      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - tejoy"
+      "alt": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation\",\n  \"description\": \"Built to Last - Constructed from premium PC materials and featuring 0.3&quot; thickened wall thickness, it is waterproof, wear-resistant, cold-proof, heat-proof, and anti-aging, ensuring durability in all weather conditions. Supporting maximum weight capacity up to 500 pounds.Fits Most Pipes - The p\",\n  \"image\": \"https://wanew.com/static/upload/down/c1c635a557.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation\",\n  \"description\": \"Built to Last - Constructed from premium PC materials and featuring 0.3&quot; thickened wall thickness, it is waterproof, wear-resistant, cold-proof, heat-proof, and anti-aging, ensuring durability in all weather conditions. Supporting maximum weight capacity up to 500 pounds.Fits Most Pipes - The p\",\n  \"image\": \"https://wanew.com/static/upload/down/c1c635a557.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

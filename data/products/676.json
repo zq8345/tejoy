@@ -26,25 +26,25 @@
   "images": [
     {
       "src": "/static/upload/down/64328bb2bb.jpg",
-      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - tejoy"
+      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - wanew"
     },
     {
       "src": "/static/upload/down/500c938067.jpg",
-      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - tejoy"
+      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - wanew"
     },
     {
       "src": "/static/upload/down/37ec41c044.jpg",
-      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - tejoy"
+      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - wanew"
     },
     {
       "src": "/static/upload/down/4dab553d16.jpg",
-      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - tejoy"
+      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - wanew"
     },
     {
       "src": "/static/upload/down/4dcc97a927.jpg",
-      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - tejoy"
+      "alt": "For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger\",\n  \"description\": \"Experience reliable power delivery with the Starlink Mini USB-C to DC Power Cable. Made with anti-aging PVC and 20AWG copper wire, this cable is durable and water-resistant, perfect for outdoor use like camping. With its plug-and-play design and different length options, enjoy flexibility and ease o\",\n  \"image\": \"https://wanew.com/static/upload/down/a30145a386.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable , Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger\",\n  \"description\": \"Experience reliable power delivery with the Starlink Mini USB-C to DC Power Cable. Made with anti-aging PVC and 20AWG copper wire, this cable is durable and water-resistant, perfect for outdoor use like camping. With its plug-and-play design and different length options, enjoy flexibility and ease o\",\n  \"image\": \"https://wanew.com/static/upload/down/a30145a386.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

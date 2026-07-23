@@ -26,29 +26,29 @@
   "images": [
     {
       "src": "/static/upload/down/54bebe4174.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     },
     {
       "src": "/static/upload/down/02defadc23.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     },
     {
       "src": "/static/upload/down/822a86b401.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     },
     {
       "src": "/static/upload/down/4ca4a0f610.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     },
     {
       "src": "/static/upload/down/60b10572ed.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     },
     {
       "src": "/static/upload/down/c90e55631c.jpg",
-      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - tejoy"
+      "alt": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories\",\n  \"description\": \"2 Pack Starlink Cable Adapters: 1 * SPX V2 Plug (Dish) Male to RJ45 Female adapter (T568B), 1 * SPX V2 Plug (Router) Male to RJ45 Female adapter (T568B). Specially designed for the Starlink Rectangular Satellite V2. Note: CAT6A Regular Ethernet cable not included.Both Male and Female Ports - Waterpr\",\n  \"image\": \"https://wanew.com/static/upload/down/7aa99492ac.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories\",\n  \"description\": \"2 Pack Starlink Cable Adapters: 1 * SPX V2 Plug (Dish) Male to RJ45 Female adapter (T568B), 1 * SPX V2 Plug (Router) Male to RJ45 Female adapter (T568B). Specially designed for the Starlink Rectangular Satellite V2. Note: CAT6A Regular Ethernet cable not included.Both Male and Female Ports - Waterpr\",\n  \"image\": \"https://wanew.com/static/upload/down/7aa99492ac.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard Actuated\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

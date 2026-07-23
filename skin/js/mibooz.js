@@ -1,6 +1,6 @@
 (function ($) {
   "use strict";
-//更多精品模板：http://www.tejoy.cn
+//更多精品模板：http://www.wanew.cn
   if ($('.main-slider-two__img').length) {
     $('.main-slider-two__img').tilt({
       maxTilt: 5,
@@ -794,12 +794,12 @@
 })(jQuery);
 
 (function () {
-  function updateTejoyHeaderState() {
-    document.body.classList.toggle("tejoy-scrolled", window.scrollY > 12);
+  function updateWanewHeaderState() {
+    document.body.classList.toggle("wanew-scrolled", window.scrollY > 12);
   }
 
-  updateTejoyHeaderState();
-  window.addEventListener("scroll", updateTejoyHeaderState, { passive: true });
+  updateWanewHeaderState();
+  window.addEventListener("scroll", updateWanewHeaderState, { passive: true });
 })();
 
 (function () {
@@ -853,7 +853,7 @@
 })();
 
 (function () {
-  function initTejoyMobileSubmenus() {
+  function initWanewMobileSubmenus() {
     document.querySelectorAll(".mobile-nav__container .main-menu__list li").forEach(function (item) {
       var submenu = item.querySelector(":scope > ul");
       var link = item.querySelector(":scope > a");
@@ -876,7 +876,7 @@
         event.stopPropagation();
         event.stopImmediatePropagation();
 
-        var open = item.classList.toggle("tejoy-mobile-submenu-open");
+        var open = item.classList.toggle("wanew-mobile-submenu-open");
         button.classList.toggle("expanded", open);
         link.classList.toggle("expanded", open);
         button.setAttribute("aria-expanded", open ? "true" : "false");
@@ -885,8 +885,8 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initTejoyMobileSubmenus);
+    document.addEventListener("DOMContentLoaded", initWanewMobileSubmenus);
   } else {
-    initTejoyMobileSubmenus();
+    initWanewMobileSubmenus();
   }
 })();

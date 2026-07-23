@@ -4,7 +4,7 @@
 // so `anonymous curl /api/admin/* -> 401/403` holds even before the Access app exists.
 //
 // Env (set by Joe in CF Pages dashboard once the Access app is created):
-//   ACCESS_TEAM_DOMAIN  e.g. "tejoy.cloudflareaccess.com"  (JWKS = https://<domain>/cdn-cgi/access/certs)
+//   ACCESS_TEAM_DOMAIN  e.g. "wanew.cloudflareaccess.com"  (JWKS = https://<domain>/cdn-cgi/access/certs)
 //   ACCESS_AUD          the Application Audience (AUD) tag of the Access application
 //   ADMIN_EMAILS        comma-separated allowlist, e.g. "zq8345@gmail.com"
 

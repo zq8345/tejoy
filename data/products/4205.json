@@ -26,21 +26,21 @@
   "images": [
     {
       "src": "/static/upload/image/20260522/1779414966204424.jpg",
-      "alt": "3.jpg - tejoy"
+      "alt": "3.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779414989294535.jpg",
-      "alt": "4.jpg - tejoy"
+      "alt": "4.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260601/1780300550741115.jpg",
-      "alt": "5.jpg - tejoy"
+      "alt": "5.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260601/1780300706720313.jpg",
-      "alt": "sp.jpg - tejoy"
+      "alt": "sp.jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini Car Charger 12V/24V to 30V 2A 60W DC Power Adapter for Truck/RV/Boat\",\n  \"description\": \"The Mini Car Power Adapter is a high-performance DC-DC converter tailored for Starlink Mini users who need stable power on the go. Featuring an input range of 12V-24V (compatible with most vehicle electrical systems) and a fixed 30V 2A (60W) output, it seamlessly powers Starlink Mini terminals witho\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779414929710537.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini Car Charger 12V/24V to 30V 2A 60W DC Power Adapter for Truck/RV/Boat\",\n  \"description\": \"The Mini Car Power Adapter is a high-performance DC-DC converter tailored for Starlink Mini users who need stable power on the go. Featuring an input range of 12V-24V (compatible with most vehicle electrical systems) and a fixed 30V 2A (60W) output, it seamlessly powers Starlink Mini terminals witho\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779414929710537.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

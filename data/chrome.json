@@ -171,13 +171,13 @@
     "es-MX": "Marca y Afiliación (FAQ)",
     "reason.es-MX": "判断:与 header.faq 绑定:此处 FAQ 作括号缩写保留,与 pt 同构"
   },
-  "header.tejoy_premium_starlink_accessories": {
-    "en": "Tejoy | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Tejoy | Acessórios Premium para Starlink",
-    "es-MX": "Tejoy | Accesorios Premium para Starlink",
+  "header.wanew_premium_starlink_accessories": {
+    "en": "Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Wanew | Acessórios Premium para Starlink",
+    "es-MX": "Wanew | Accesorios Premium para Starlink",
     "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)"
   },
-  "mobilenav.hello_tejoy_com": {
+  "mobilenav.hello_wanew_com": {
     "en": "hello@tejoy.com",
     "pt-BR": "hello@tejoy.com",
     "es-MX": "hello@tejoy.com",
@@ -245,7 +245,7 @@
     "reason.es-MX": "fallback: 型号名",
     "reason": "fallback: model name"
   },
-  "footer.tejoy_starlink_accessories_limited": {
+  "footer.wanew_starlink_accessories_limited": {
     "en": "TEJOY STARLINK ACCESSORIES LIMITED",
     "pt-BR": "TEJOY STARLINK ACCESSORIES LIMITED",
     "es-MX": "TEJOY STARLINK ACCESSORIES LIMITED",
@@ -258,7 +258,7 @@
     "es-MX": "Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China",
     "reason.es-MX": "判断:⭐只译标签「Address:」,地址本体【保持英文】—— 它是投递用的物理地址,译了没人能用。pt 同此处理"
   },
-  "footer.e_mail_hello_tejoy_com": {
+  "footer.e_mail_hello_wanew_com": {
     "en": "E-mail：hello@tejoy.com",
     "pt-BR": "E-mail: hello@tejoy.com",
     "es-MX": "Correo: hello@tejoy.com",
@@ -307,10 +307,10 @@
     "es-MX": "- Contacto",
     "reason.es-MX": "判断:语法确定"
   },
-  "footer.copyright_2026_tejoy_starlink_acce": {
-    "en": "Copyright  ©  2026 Tejoy Starlink Accessories Limited All Rights Reserved.\nTejoy manufactures third-party Starlink-compatible accessories. Not affiliated with SpaceX or Starlink.",
-    "pt-BR": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos os direitos reservados.\nA Tejoy fabrica acessórios de terceiros compatíveis com Starlink. Não é afiliada à SpaceX nem à Starlink.",
-    "es-MX": "Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos los derechos reservados.\nTejoy fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.",
+  "footer.copyright_2026_wanew_starlink_acce": {
+    "en": "Copyright  ©  2026 Wanew Starlink Accessories Limited All Rights Reserved.\nWanew manufactures third-party Starlink-compatible accessories. Not affiliated with SpaceX or Starlink.",
+    "pt-BR": "Copyright  ©  2026 Wanew Starlink Accessories Limited. Todos os direitos reservados.\nA Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afiliada à SpaceX nem à Starlink.",
+    "es-MX": "Copyright  ©  2026 Wanew Starlink Accessories Limited. Todos los derechos reservados.\nWanew fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.",
     "reason.es-MX": "⭐免责声明 —— 证据 Starlink MX「Starlink es una división de SpaceX」句式;accesorios 坐实。**这条是合规文案,含义不能漂**:third-party=de terceros / compatible=compatibles con / not affiliated=no está afiliada"
   },
   "footer.xml": {
@@ -357,16 +357,16 @@
     "reason": "同形词：国际语言代码"
   },
   "card.alt.suffix": {
-    "en": "- tejoy Products",
-    "pt-BR": "- Produtos Tejoy",
-    "es-MX": "- Productos Tejoy",
+    "en": "- wanew Products",
+    "pt-BR": "- Produtos Wanew",
+    "es-MX": "- Productos Wanew",
     "reason.es-MX": "判断:与 pt 同构(catalog key,不是每页一份的字符串)",
     "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml"
   },
   "card.alt.category": {
-    "en": "- tejoy product category",
-    "pt-BR": "- categoria de produto tejoy",
-    "es-MX": "- categoría de producto tejoy",
+    "en": "- wanew product category",
+    "pt-BR": "- categoria de produto wanew",
+    "es-MX": "- categoría de producto wanew",
     "reason.es-MX": "判断:与 pt 同构",
     "_note": "首页机型卡 alt 后缀。pt-BR 的值不是我造的:它已经手写在 pt/index.html 的 Mini/Standard 两张卡上,这里只是把它提上来当唯一真源。"
   },

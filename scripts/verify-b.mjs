@@ -13,7 +13,7 @@ const ws = (s) => s.replace(/\r\n/g, "\n").replace(/>\s+</g, "><").replace(/\s+/
 
 // 有意的结构修复,逐条点名 —— 不是把整类排除掉让门变绿
 // ① breadcrumb 由 route 派生:position 1 = 首页,position 2 = 本页(en 存量 bug 由构造修复)
-// ② FAQPage 的 @id 同理(en/faq 写的是 tejoy.com/?faq/ —— 全站唯一,来源查不到,不写进结论)
+// ② FAQPage 的 @id 同理(en/faq 写的是 wanew.com/?faq/ —— 全站唯一,来源查不到,不写进结论)
 // ③ 重复 description 去重:总工逐页读了全文后裁的,不是通用规律
 // ④ hreflang 由 route 派生、两侧都发(en 侧时有时无,pt 齐全)
 const KEEP = { contact: 1, "certifications-testing": 1, compatibility: 1, "oem-odm-manufacturing": 1,
@@ -40,21 +40,21 @@ const killHL = (s) => s.split(HL_COMMENT).join("").split(FOOTER_END).join("")
   .replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
 
 const intended = (s, slug, isPt) => {
-  const self = `https://tejoy.com${isPt ? "/pt/" : "/"}${slug}/`;
-  const home = isPt ? "https://tejoy.com/pt/" : "https://tejoy.com";
+  const self = `https://wanew.com${isPt ? "/pt/" : "/"}${slug}/`;
+  const home = isPt ? "https://wanew.com/pt/" : "https://wanew.com";
   if (isPt) {
     // ⑤ pt 独有的开发者注释。模板只有一份、从 en 出,所以 pt 会丢掉它。它在 </footer> 之后、
     // 不是 chrome-sync 的锚点(那个用的是 partial 里的 <!-- #block:name -->),对读者不可见。
     s = s.split("<!--Site Footer End-->").join("");
     // ⑥ ⭐ 这一处【pt 才是有缺陷的那边】。pt 有【两个】author meta:顶部多一个
-    //    content="tejoy.com"(还坐在 <meta charset> 前面),下面才是正常的 content="tejoy";
+    //    content="wanew.com"(还坐在 <meta charset> 前面),下面才是正常的 content="wanew";
     //    en(这些页上)只有后者。模板从 en 出,正好把这个重复且值不一致的 meta 去掉 = 修复。
     //    「pt 永远对」也不是规律 —— 规律是【哪边对要逐条问】。这次答案是 en。
     //
     //    ⚠️ 我第一次量它时只查了 11 个信息页,就写下"只有 contact 是这样" —— 范围比结论窄的
     //    测量不是证据。对 HEAD 全站量:5 个页(index / pt/index / pt/marine / pt/mounts /
     //    pt/rv-off-grid)。en 首页自己也有一对,但首页模板从它出、两份都保留,所以 (a) 不受影响。
-    s = s.replace(/[ \t]*<meta name="author" content="tejoy\.com" \/>\s*\n?/, "");
+    s = s.replace(/[ \t]*<meta name="author" content="wanew\.com" \/>\s*\n?/, "");
   }
   let n = 0;
   s = s.replace(/("item": ")([^"]*)(")/g, (m, a, v, c) => { n++; return n === 1 ? a + home + c : n === 2 ? a + self + c : m; });
@@ -99,7 +99,7 @@ for (const f of catFiles) {
   }
 }
 //    ⚠️ 必须【单遍、不重叠】替换。第一版用 split/join 顺序替换,前一条的产物成了后一条的输入:
-//    "Sobre Nós" → "Sobre a Tejoy" → "Sobre a Tejoy a Tejoy"。长的优先,一次扫完。
+//    "Sobre Nós" → "Sobre a Wanew" → "Sobre a Wanew a Wanew"。长的优先,一次扫完。
 const KEYS = [...SUBST.keys()].sort((a, b) => b.length - a.length);
 const RE = KEYS.length ? new RegExp(KEYS.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g") : null;
 const applySubst = (s) => (RE ? s.replace(RE, (m) => SUBST.get(m)) : s);

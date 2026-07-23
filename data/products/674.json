@@ -26,45 +26,45 @@
   "images": [
     {
       "src": "/static/upload/down/bf26b45c66.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/2bdd2b2424.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/5d87359991.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router13.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router11.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router12.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router14.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router15.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router16.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     },
     {
       "src": "/static/upload/down/StarlinkGen3Router17.jpg",
-      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - tejoy"
+      "alt": "For Starlink Gen 3 Router & Power Supply Mounting Kit - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Gen 3 Router & Power Supply Mounting Kit\",\n  \"description\": \"Starlink Gen 3 Router and Power Supply Mount, made from high-quality impact-resistant ABS, provides a stable and secure mount for your Starlink Gen 3 WiFi router.Features:Starlink Router Wall Mount - Starlink Gen 3 Router and Power Supply Mount enables a secure and firm mounting of your Gen 3 router\",\n  \"image\": \"https://wanew.com/static/upload/down/StarlinkGen3Router10.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Gen 3 Router & Power Supply Mounting Kit\",\n  \"description\": \"Starlink Gen 3 Router and Power Supply Mount, made from high-quality impact-resistant ABS, provides a stable and secure mount for your Starlink Gen 3 WiFi router.Features:Starlink Router Wall Mount - Starlink Gen 3 Router and Power Supply Mount enables a secure and firm mounting of your Gen 3 router\",\n  \"image\": \"https://wanew.com/static/upload/down/StarlinkGen3Router10.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

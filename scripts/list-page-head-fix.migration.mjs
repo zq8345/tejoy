@@ -36,8 +36,8 @@ for (const route of ROUTES) {
     if (!fs.existsSync(f)) { console.log(`  跳过(该语种没有这个页): ${f}`); continue; }
     const before = fs.readFileSync(f, "utf8");
     let h = before;
-    const selfUrl = `https://tejoy.com${urlFor(route, loc)}`;
-    const enUrl = `https://tejoy.com${route}`;
+    const selfUrl = `https://wanew.com${urlFor(route, loc)}`;
+    const enUrl = `https://wanew.com${route}`;
 
     // ① <html lang>
     h = h.replace(/<html lang="[^"]*"/, `<html lang="${loc}"`);
@@ -60,7 +60,7 @@ for (const route of ROUTES) {
     //    → 改成:**把所有 alternate 行全删掉,再在原来第一行的位置插入唯一一块。**
     //       这样无论原文有几段、连不连续、跑几次,结果都一样(幂等)。
     const block = ENABLED.filter((l) => fs.existsSync(fileFor(route, l)))
-      .map((l) => `<link rel="alternate" hreflang="${l}" href="https://tejoy.com${urlFor(route, l)}" />`)
+      .map((l) => `<link rel="alternate" hreflang="${l}" href="https://wanew.com${urlFor(route, l)}" />`)
       .concat(`<link rel="alternate" hreflang="x-default" href="${enUrl}" />`).join("\n");
     const lines = h.split("\n");
     const isAlt = (s) => /^\s*<link rel="alternate" hreflang="/.test(s);

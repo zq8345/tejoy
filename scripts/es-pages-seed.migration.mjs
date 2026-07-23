@@ -13,7 +13,7 @@ import { seedLocale } from './es-seed-lib.mjs';
 const VIDEO = {
   'video.page-header-title.1': 'Videos',              // ⭐ 墨西哥无重音（术语表 forbidden: vídeo）
   'video.page-header-subtitle.1': 'Demostraciones de productos y guías de instalación.',
-  'video.alt.1': 'Presentación de la fábrica - video tejoy',
+  'video.alt.1': 'Presentación de la fábrica - video wanew',
   'video.a.1': 'Presentación de la fábrica',
 
   /* ⚠️ meta/ld 的品牌串:与 chrome 的 meta.title.suffix 【逐字一致】。
@@ -22,12 +22,12 @@ const VIDEO = {
    * 📌 挂账(dev 的活,不是我的):pages 的 meta.title 是【存】的,不是派生的 ——
    *   而 render.js:20 对产品明确写着 "deliberately NOT read from data — it is DERIVED"。
    *   存派生值 = 标题一改就静默漂,**这正是当初半英半葡 meta_title 上线的成因**。 */
-  'video.meta.title': 'Videos - Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
-  'video.meta.site_name': 'Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
+  'video.meta.title': 'Videos - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
+  'video.meta.site_name': 'Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
   'video.meta.desc':
-    'Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX.',
+    'Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX.',
   'video.ld.description':
-    'Tejoy es un fabricante líder de accesorios de terceros compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Independiente de SpaceX y Starlink.',
+    'Wanew es un fabricante líder de accesorios de terceros compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Independiente de SpaceX y Starlink.',
   // ⚠️ "third-party" → "de terceros",与 chrome footer.copyright 的免责声明【逐字一致】。这是合规文案,含义不能漂。
 
   'video.ld.knowsAbout': 'accesorios compatibles con Starlink',
@@ -35,7 +35,7 @@ const VIDEO = {
   'video.ld.knowsAbout.3': 'conectividad para casa rodante',   // RV → casa rodante（术语表；与 Starlink MX 的 autocaravana 冲突,见 forbidden）
   'video.ld.knowsAbout.4': 'energía sin red eléctrica',        // off-grid → 展开。pt 直接留了 off-grid,**不拿 pt 推 es**
   'video.ld.knowsAbout.5': 'sistemas de soporte',
-  'video.ld.name': 'Tejoy | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
+  'video.ld.name': 'Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía',
   'video.ld.name.2': 'Inicio',
   'video.ld.name.3': 'Videos',
 };

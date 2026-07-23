@@ -26,37 +26,37 @@
   "images": [
     {
       "src": "/static/upload/down/1632b03ab7.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/116b9c5b03.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/f25b50a240.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/8de2855b98.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/44691c578c.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/18e68bfaed.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/64fbe86a83.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     },
     {
       "src": "/static/upload/down/a1ff28b283.jpg",
-      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - tejoy"
+      "alt": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount\",\n  \"description\": \"Starlink Mini Heavy Duty Pivot Roof Mount, designed to withstand severe weather, allows for easy angle adjustment to ensure optimal signal reception.Features:Adjustable Pivot Mount - Starlink Mini Pivot Mount with 180-degree swivel pivot and 360-degree rotation mast, provides omnidirectional adjustm\",\n  \"image\": \"https://wanew.com/static/upload/down/b3597dc054.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount\",\n  \"description\": \"Starlink Mini Heavy Duty Pivot Roof Mount, designed to withstand severe weather, allows for easy angle adjustment to ensure optimal signal reception.Features:Adjustable Pivot Mount - Starlink Mini Pivot Mount with 180-degree swivel pivot and 360-degree rotation mast, provides omnidirectional adjustm\",\n  \"image\": \"https://wanew.com/static/upload/down/b3597dc054.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

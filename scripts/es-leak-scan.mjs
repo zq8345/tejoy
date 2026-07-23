@@ -60,7 +60,7 @@ export const WHITELIST_PHRASES = [
  *   与 locales.json 的 fallback 同源。**这里放的是「本来就不该是西语」的东西**，
  *   不是「翻不动所以放过」—— 后者属于 GAP，必须红。 */
 export const WHITELIST_WORDS = new Set([
-  'starlink', 'tejoy', 'spacex',              // 品牌
+  'starlink', 'wanew', 'spacex',              // 品牌
   'mini', 'standard', 'performance', 'enterprise', 'circular', 'actuated', 'gen', 'flat',
   'xml', 'oem', 'odm', 'wifi', 'rv',          // 代码值 / 格式名 / 行业缩写
   'copyright',                                 // 法律套话，国际通用（pt 同）

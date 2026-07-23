@@ -2,7 +2,7 @@
 /**
  * 【1】验收: 拿冻结基线量 R1/R2 —— translationLeaks 应从 501 逼近 0
  *
- * 用法:  node scripts/pt-leak-vs-baseline.mjs --tree C:/开发/tejoy-r1-wt [--md 输出.md]
+ * 用法:  node scripts/pt-leak-vs-baseline.mjs --tree C:/开发/wanew-r1-wt [--md 输出.md]
  *
  * ⚠️ 四道闸都是干跑时**真踩到的**, 不是假想。两次差点冤枉 dev:
  *
@@ -107,7 +107,7 @@ const cls = classify(r);
 const now = translationLeaksOf(cls);
 const baseByClass = {
   a_cardTitles: BASE.byClass['a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域'],
-  b_altSuffix: BASE.byClass['b_altSuffix — "- tejoy Products" 模板串 → chrome catalog key'],
+  b_altSuffix: BASE.byClass['b_altSuffix — "- wanew Products" 模板串 → chrome catalog key'],
   c_galleryAltFilename: BASE.byClass['c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入"应逼近0"'],
   d_otherText: BASE.byClass['d_otherText — 其余可见文本 (已逐个核实为真型号名)'],
   e_links: BASE.byClass['e_links — 该指pt却指英文 → R1 localizeUrl 域'],

@@ -30,7 +30,7 @@ const MAX = MAX_IX >= 0 ? Number(process.argv[MAX_IX + 1]) : Infinity;
 const WHITELIST = [
   // ⚠️ 多词条目必须排在单词之前, 否则单词条目(如 \bStarlink\b)会先把中间词剔掉, 多词就再也匹配不上
   // 法定公司名 (注册名必须英文)
-  /\bTEJOY\s+STARLINK\s+ACCESSORIES\s+LIMITED\b/gi, /\bTejoy\s+Starlink\s+Accessories\s+Limited\b/gi,
+  /\bWANEW\s+STARLINK\s+ACCESSORIES\s+LIMITED\b/gi, /\bWanew\s+Starlink\s+Accessories\s+Limited\b/gi,
   // 机型 / 产品线 (多词在前)
   /\bStandard\s+Actuated\b/gi, /\bStandard\s+Circular\b/gi, /\bFlat\s+High[-\s]Performance\b/gi,
   /\bHigh[-\s]Performance\b/gi, /\bPerformance\s*\(?\s*Gen\s*\d\s*\)?/gi, /\bGen\s*\d\b/gi,
@@ -40,7 +40,7 @@ const WHITELIST = [
   /\bStarlink\s+Mini\b/gi, /\bStarlink\b/gi, /\bMini\b/gi, /\bStandard\b/gi, /\bEnterprise\b/gi,
   /\bPerformance\b/gi, /\bActuated\b/gi, /\bCircular\b/gi, /\bDishy\b/gi, /\bV[23]\b/g,
   // 品牌 / 站名
-  /\bTejoy\b/gi, /\bSpaceX\b/gi, /\bSTARGEAR\b/gi, /\bXLinkShop\b/gi, /\bstarlingkshop\b/gi,
+  /\bWanew\b/gi, /\bSpaceX\b/gi, /\bSTARGEAR\b/gi, /\bXLinkShop\b/gi, /\bstarlingkshop\b/gi,
   /\bDaierTek\b/gi, /\bTheLAShop\b/gi, /\bZinweyton\b/gi, /\blinkoostar\b/gi, /\bStar\s?Link\b/gi,
   // 规格 / 技术 token
   /\bRJ\s?45\b/gi, /\bIP\s?6\d\b/gi, /\bIP\d0\b/gi, /\bPoE\b/gi, /\bPOE\b/g,

@@ -41,7 +41,7 @@ const md = `# i18n 泄漏【基线快照】—— 冻结
 
 ### 为什么验收不是 N
 \`c_galleryAltFilename\`(${snap.byClass['c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入"应逼近0"']}) 排除在外：这些 alt 直接写的是**图片文件名**
-（如 \`Starlink Performance Adapter Gen 3 cable-images (1).jpg - tejoy\`），**英文站的 alt 一模一样** →
+（如 \`Starlink Performance Adapter Gen 3 cable-images (1).jpg - wanew\`），**英文站的 alt 一模一样** →
 属既有数据质量问题、与翻译无关、**R2 也不会自动修**。计入会让"逼近 0"**永远达不到**，
 反而遮住"生成器到底有没有做对"。它跟类③（图片里烧死的英文像素）一起挂"图片/数据质量"档。
 
@@ -50,7 +50,7 @@ const md = `# i18n 泄漏【基线快照】—— 冻结
 | 类 | 数量 | 归谁修 |
 |---|---|---|
 | **a_cardTitles** 列表/分类页产品卡英文标题 | ${snap.byClass['a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域']} | **R2 生成器**（从 \`i18n[locale]\` 渲卡片） |
-| **b_altSuffix** \`"- tejoy Products"\` 模板串 | ${snap.byClass['b_altSuffix — "- tejoy Products" 模板串 → chrome catalog key']} | **chrome catalog key** |
+| **b_altSuffix** \`"- wanew Products"\` 模板串 | ${snap.byClass['b_altSuffix — "- wanew Products" 模板串 → chrome catalog key']} | **chrome catalog key** |
 | **c_galleryAltFilename** alt=图片文件名 | ${snap.byClass['c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入"应逼近0"']} | ⚠️既有数据问题，不计入验收 |
 | **d_otherText** 其余可见文本 | ${snap.byClass['d_otherText — 其余可见文本 (已逐个核实为真型号名)']} | 已逐个核实=**真型号名**，无需修 |
 | **e_links** 该指 pt 却指英文 | ${snap.byClass['e_links — 该指pt却指英文 → R1 localizeUrl 域']} | **R1 \`localizeUrl\`** |

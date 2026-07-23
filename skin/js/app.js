@@ -1,6 +1,6 @@
 (function ($) {
   "use strict"; //data background
-    //ģ�壺http://www.tejoy.cn
+    //ģ�壺http://www.wanew.cn
   $('[data-background]').each(function () {
     var $data_bg = $(this).attr('data-background');
     $(this).css({

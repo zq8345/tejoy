@@ -8,7 +8,7 @@
   "translationLeaks": 501,
   "byClass": {
     "a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域": 199,
-    "b_altSuffix — \"- tejoy Products\" 模板串 → chrome catalog key": 256,
+    "b_altSuffix — \"- wanew Products\" 模板串 → chrome catalog key": 256,
     "c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入\"应逼近0\"": 46,
     "d_otherText — 其余可见文本 (已逐个核实为真型号名)": 11,
     "e_links — 该指pt却指英文 → R1 localizeUrl 域": 35
@@ -658,232 +658,232 @@
       {
         "file": "pt/mini/44.html",
         "line": 343,
-        "alt": "2 in 1 Starlink Mini Cable (1).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (1).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 344,
-        "alt": "2 in 1 Starlink Mini Cable (2).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (2).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 345,
-        "alt": "2 in 1 Starlink Mini Cable (3).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (3).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 346,
-        "alt": "2 in 1 Starlink Mini Cable (7).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (7).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 347,
-        "alt": "2 in 1 Starlink Mini Cable (6).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (6).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 348,
-        "alt": "2 in 1 Starlink Mini Cable (5).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (5).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 349,
-        "alt": "2 in 1 Starlink Mini Cable (4).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (4).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 356,
-        "alt": "2 in 1 Starlink Mini Cable (1).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (1).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 357,
-        "alt": "2 in 1 Starlink Mini Cable (2).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (2).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 358,
-        "alt": "2 in 1 Starlink Mini Cable (3).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (3).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 359,
-        "alt": "2 in 1 Starlink Mini Cable (7).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (7).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 360,
-        "alt": "2 in 1 Starlink Mini Cable (6).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (6).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 361,
-        "alt": "2 in 1 Starlink Mini Cable (5).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (5).jpg - wanew"
       },
       {
         "file": "pt/mini/44.html",
         "line": 362,
-        "alt": "2 in 1 Starlink Mini Cable (4).jpg - tejoy"
+        "alt": "2 in 1 Starlink Mini Cable (4).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 342,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 343,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 344,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 345,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 346,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 347,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 348,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 349,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 356,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 357,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 358,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 359,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 360,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 361,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 362,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/42.html",
         "line": 363,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 342,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 343,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 344,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 345,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 346,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 347,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 348,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 349,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 356,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 357,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 358,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 359,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 360,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 361,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 362,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
       },
       {
         "file": "pt/performance-gen-3/43.html",
         "line": 363,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
       }
     ],
     "e_links": [
