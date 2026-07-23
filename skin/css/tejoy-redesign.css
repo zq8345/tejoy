@@ -5308,6 +5308,10 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
   position: relative;
   z-index: 20;
 }
+/* W2c-1(总工真机诊断): img inline 基线在图下垫 ~8px 空隙 -> 容器(38.19h)居中的是"图+空隙",
+   图心比容器中心高 4px。display:block 消空隙 -> 容器高=图高 -> translateY(-50%) 自然对中,
+   各断点通用(原则修非魔数; 总工真机 translateY(+4px) 交叉验证幅度一致)。 */
+.main-menu-wrapper__logo a img { display: block; }
 
 /* logo pointer fix (robust): the nav wrapper (.main-menu-wrapper__main-menu, ~1127px
    wide, static) overlaps the absolutely-positioned logo and swallowed REAL mouse
