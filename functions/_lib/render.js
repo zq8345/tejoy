@@ -3,11 +3,13 @@
 // APIs. related is generated from lightweight manifest entries {id,category,form,title,thumb}
 // so publish-time regen needs only the manifest (not every product JSON).
 
-export const CATMAP = {
-  "mini": "Mini", "standard": "Standard", "standard-actuated": "Standard-Actuated",
-  "standard-circular": "Standard-Circular", "performance-gen-1": "Performance-Gen-1",
-  "performance-gen-3": "Performance-Gen-3", "enterprise": "Enterprise",
-};
+// #52 批1：类目显示名硬编码（原 CATMAP）迁 data/categories.json（唯一真源，管理页可编辑）。
+// render.js 保持纯函数不做 IO —— 调用方（regen.mjs / admin worker）读 json 后经 catmapOf() 传入。
+export function catmapOf(categoriesJson) {
+  const m = {};
+  for (const c of (categoriesJson?.categories || [])) m[c.slug] = c.display;
+  return m;
+}
 
 export function resolveImg(im, imgBase) {
   return im && im.key !== undefined ? imgBase + im.key : (im ? im.src : "");
@@ -48,7 +50,7 @@ export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
   return `${e.title}-${model}-Wanew${suffix}`;
 }
 
-export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf, enabled }) {
+export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf, enabled, catmap = {} }) {
   const e = mergeI18n(prod, locale);
   // Gallery alt is DERIVED from the localized title, not stored (总工 2026-07-14, verified across
   // all 428: 369 already duplicate the title verbatim, 59 are filenames, 0 are real descriptions —
@@ -102,7 +104,7 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
     META_TITLE: metaTitleOf(e, prod, locale, modelDisplay, catalog), META_DESC: e.meta_description,
     ROBOTS_META: robots, CANONICAL: canonical, HREFLANG: hreflang,
     HTML_LANG: locale, OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
-    GALLERY_MAIN: slides, GALLERY_THUMB: slides, CATEGORY: (modelDisplay && modelDisplay[prod.category]) || CATMAP[prod.category] || prod.category,
+    GALLERY_MAIN: slides, GALLERY_THUMB: slides, CATEGORY: (modelDisplay && modelDisplay[prod.category]) || catmap[prod.category] || prod.category,
     TITLE: e.title, SUMMARY_BLOCK: summary, DESCRIPTION: e.description_html,
     RELATED: cards, JSONLD_BREADCRUMB: prod.jsonld_breadcrumb || "", JSONLD_PRODUCT: jsonldProduct,
   };

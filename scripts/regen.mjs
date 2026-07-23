@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, renderHome, renderPage, excerptOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, renderHome, renderPage, excerptOf, catmapOf } from "../functions/_lib/render.js";
 import { localeDirs } from "./locale-dirs.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -21,6 +21,9 @@ for (const f of fs.readdirSync(pdir)) {
 
 const locales = JSON.parse(fs.readFileSync(path.join(REPO, "data", "locales.json"), "utf8"));
 const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"), "utf8"));
+// #52 批1：类目唯一真源 = data/categories.json（原 render.js CATMAP + 本文件 CATS 双硬编码迁入）
+const categoriesJson = JSON.parse(fs.readFileSync(path.join(REPO, "data", "categories.json"), "utf8"));
+const CATMAP_DATA = catmapOf(categoriesJson);
 const MODEL = locales.model_display;
 const LOCALES = locales.enabled;
 const DEFAULT = locales.default;
@@ -66,7 +69,7 @@ for (const id of targets) {
     // decide the site map. Creating pt pages that nothing links to is a different decision.
     if (locale !== DEFAULT && !fs.existsSync(out)) continue;
     const related = genRelated(entry, entries, locale, catalog, urlOf);
-    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf, enabled: LOCALES });
+    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf, enabled: LOCALES, catmap: CATMAP_DATA });
     const opens = (html.match(/<div\b/g) || []).length;
     const closes = (html.match(/<\/div>/g) || []).length;
     if (opens !== closes) { imbalanced++; console.error(`  ⚠️ div imbalance ${locale} ${prod.category}/${id}: ${opens}/${closes}`); }
@@ -87,7 +90,8 @@ console.log(`manifest: data/products-index.json (${manifest.length} products, wi
 
 // Regenerate list pages (card grid + chip counts) from the manifest — so a new/edited
 // product shows up on /products/ and its category page. /for/X hubs stay hand-curated.
-const CATS = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
+// #52 批1：CATS 硬编码 → 从 data/categories.json 派生（顺序=json 顺序=页面顺序）
+const CATS = categoriesJson.categories.map((c) => c.slug);
 // Performance (Gen 2) has 0 products of its own. Joe wants the 8th homepage tile back, so the tile
 // must land somewhere real: this page aggregates the Performance family instead of being an empty
 // shell. Not a hardcoded product list — a category predicate, so it tracks the data forever.
