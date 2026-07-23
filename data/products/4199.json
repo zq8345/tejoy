@@ -26,17 +26,17 @@
   "images": [
     {
       "src": "/static/upload/image/20260521/1779350844699054.jpg",
-      "alt": "2.jpg - tejoy"
+      "alt": "2.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779350844208049.jpg",
-      "alt": "3.jpg - tejoy"
+      "alt": "3.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779350845170757.jpg",
-      "alt": "1.1.jpg - tejoy"
+      "alt": "1.1.jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box\",\n  \"description\": \"Compact &amp; Professional Network Connectivity SolutionThis compact POE network box is designed for clean and reliable Ethernet connectivity in smart homes, offices, surveillance systems, and IoT installations. Featuring multiple RJ45 ports and a slim wall-mounted structure, it helps organize netwo\",\n  \"image\": \"https://wanew.com/static/upload/image/20260521/1779350795536742.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box\",\n  \"description\": \"Compact &amp; Professional Network Connectivity SolutionThis compact POE network box is designed for clean and reliable Ethernet connectivity in smart homes, offices, surveillance systems, and IoT installations. Featuring multiple RJ45 ports and a slim wall-mounted structure, it helps organize netwo\",\n  \"image\": \"https://wanew.com/static/upload/image/20260521/1779350795536742.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

@@ -129,7 +129,7 @@ export async function onRequest(context) {
   // The returned key is what a product image entry stores; it resolves via site.json img_base
   // (which becomes https://img.tejoy.com/ once R2 + the custom domain are live).
   if (method === "POST" && path[0] === "upload" && path.length === 1) {
-    if (!env.TEJOY_IMAGES) return json({ error: "R2 not bound (env.TEJOY_IMAGES)" }, 503);
+    if (!env.WANEW_IMAGES) return json({ error: "R2 not bound (env.WANEW_IMAGES)" }, 503);
     const url = new URL(request.url);
     const ct = request.headers.get("content-type") || "application/octet-stream";
     const name = url.searchParams.get("name") || "image";
@@ -139,7 +139,7 @@ export async function onRequest(context) {
     if (!buf.byteLength) return json({ error: "empty body" }, 400);
     if (buf.byteLength > 8 * 1024 * 1024) return json({ error: "image exceeds 8MB" }, 413);
     const key = `u_file/uploads/${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}.${ext}`;
-    await env.TEJOY_IMAGES.put(key, buf, { httpMetadata: { contentType: ct } });
+    await env.WANEW_IMAGES.put(key, buf, { httpMetadata: { contentType: ct } });
     return json({ ok: true, key });
   }
 

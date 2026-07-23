@@ -66,7 +66,7 @@ export const visibleText = (html) => nodes(html, 0).map((n) => n.text.trim());
 // 而且冻得无声无息。可见 = 要 key,不管它今天碰巧是什么语言。
 //
 // ⚠️ 属性这一路我第一版【整个漏了】:ATTRS 只用在骨架比较里,抽取里从没用过 —— 于是
-// pt/video 会印 alt="Factory showcase - tejoy video"。这是 R1 那条教训第三次复发
+// pt/video 会印 alt="Factory showcase - wanew video"。这是 R1 那条教训第三次复发
 // (「属性枚举漏掉 → pt 静默退回英文」)。在一个函数里列出来,不等于在另一个函数里处理了。
 const nodes = (body, off, all = false) => {
   const killed = strip(body);
@@ -267,7 +267,7 @@ for (const slug of SLUGS) {
   // JS 在运行时构造的 JSON-LD:`script.textContent = JSON.stringify({…})`,单引号写的,
   // 所以它【不是】 <script type="application/ld+json">,上面那套 JSON 遍历完全看不见它。
   // 只有 faq 一个页有。它的 name/description 是随语种变的真文案(pt 侧是葡语的,不派生就会被
-  // en 覆盖);@id 由 route 算 —— 顺带修掉 en 侧一个存量 bug:它写的是 https://tejoy.com/?faq/,
+  // en 覆盖);@id 由 route 算 —— 顺带修掉 en 侧一个存量 bug:它写的是 https://wanew.com/?faq/,
   // 那个 `?` 本来就在源文件里(不是这条流水线造的,我一度错记在自己账上)。pt 侧是对的。
   {
     const at = tpl.indexOf("script.textContent = JSON.stringify(");
@@ -288,7 +288,7 @@ for (const slug of SLUGS) {
       }
       seg = seg.replace(/('@id':\s*')[^']*(#[^']*')/, "$1{{CANONICAL}}$2");
       tpl = tpl.slice(0, at) + seg + tpl.slice(end);
-      console.log(`   ${slug}: JS 构造的 JSON-LD → name/description 进目录,@id 由 route 派生(en 存量 bug 'tejoy.com/?faq/' 顺带修好)`);
+      console.log(`   ${slug}: JS 构造的 JSON-LD → name/description 进目录,@id 由 route 派生(en 存量 bug 'wanew.com/?faq/' 顺带修好)`);
     }
   }
 
@@ -314,7 +314,7 @@ for (const slug of SLUGS) {
     // ③ 重复 meta 去重(总工裁,他把 6 个页的两条值都看过了):
     //   规则 = 取【更专属于本页】的那条;两条都专属时取第一条 —— 浏览器和 Google 本来就取第一条,
     //   所以那是零行为变化。DROP_KEEP 是点名的例外,不是"我记得":contact 的第 1 条是【首页通稿】
-    //   ("Tejoy is a leading manufacturer…"),第 2 条才是 contact 自己的 —— 默认规则在这里恰好
+    //   ("Wanew is a leading manufacturer…"),第 2 条才是 contact 自己的 —— 默认规则在这里恰好
     //   保留烂的那条。而这个答案不是我选的:pt/contact 只有一条 description,就是第 2 条。
     //   ⚠️ 同一个动作也修好了 ②:那条通稿正好坐在 <meta charset> 前面,丢掉它 head 顺序就对了。
     // 总工逐页读了两条值的全文才裁的,7 条写死在表里 —— 他点名「别做成通用规则」:
@@ -376,7 +376,7 @@ for (const slug of SLUGS) {
       // en/pt 相同时也要替 —— en 那份本身就是错的,「两边相同」只说明两边一样错。
       //
       // ⚠️ 必须按【出现顺序】用游标替,不能 split/join 值:en/faq 的 position 1 和 2 值完全相同
-      // (都是 https://tejoy.com,正是那个 bug),split 会把两处都替成 position 1 的 token。
+      // (都是 https://wanew.com,正是那个 bug),split 会把两处都替成 position 1 的 token。
       // 这是「重复不可见的那一侧」第三次找上门了 —— 前两次是 og:site_name==title、
       // 和首页的 HOME_URL==CANONICAL。凡是两个东西恰好相等的地方,按值操作就会把它们合并掉。
       const bc = pa.match(/^itemListElement\[(\d+)\]\.item$/);
@@ -428,7 +428,7 @@ for (const slug of SLUGS) {
     .replace(/og:url" content="[^"]*"/, 'og:url" content="{{CANONICAL}}"')
     .replace(/"inLanguage": "en"/, '"inLanguage": "{{HTML_LANG}}"')
     // breadcrumb position 1 指首页,position 2 才指本页 —— 两件不同的东西,别合成一个 token
-    .replace(/"item": "https:\/\/tejoy\.com"/g, '"item": "{{HOME_URL}}"')
+    .replace(/"item": "https:\/\/wanew\.com"/g, '"item": "{{HOME_URL}}"')
     .replace(/(<meta property="og:type"[^>]*>)/, "$1{{OG_LOCALE}}");
   tpl = head + rest;
 

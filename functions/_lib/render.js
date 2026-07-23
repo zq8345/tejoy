@@ -33,7 +33,7 @@ export function mergeI18n(prod, locale) {
   };
 }
 
-// meta_title = {localized title}-{model display}-Tejoy{locale brand suffix}.
+// meta_title = {localized title}-{model display}-Wanew{locale brand suffix}.
 // Reproduces the stored value for all 64 products exactly, so deriving loses nothing and cannot
 // go half-translated. Adding a language costs one catalog key, not 64 stored strings.
 export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
@@ -45,7 +45,7 @@ export function metaTitleOf(e, prod, locale, modelDisplay, catalog) {
   // through migration must not be able to quietly break output.
   if (!sfx || !model) return prod.i18n.en.meta_title;
   const suffix = sfx[locale] ?? sfx.en ?? "";
-  return `${e.title}-${model}-Tejoy${suffix}`;
+  return `${e.title}-${model}-Wanew${suffix}`;
 }
 
 export function render(prod, { template, imgBase, related, locale = "en", modelDisplay, catalog, urlOf, enabled }) {
@@ -57,7 +57,7 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   // with the Portuguese one; this does it by rule instead. Same output, no bypass to keep in sync.
   // Joe's explicit alt from the admin wins — the admin has an alt field, so it is his to set.
   // Derivable = empty, a filename, or the title in some dressed-up form. Test it BOTH ways: 670's
-  // alts read "For Starlink Gen 2 Mount, Pivot Mount - tejoy" — the title plus a suffix — so
+  // alts read "For Starlink Gen 2 Mount, Pivot Mount - wanew" — the title plus a suffix — so
   // title.startsWith(alt) is false while alt.startsWith(title) is true. Checking one direction
   // only left 10 images rendering English alt on pt pages.
   const enTitle = prod.i18n.en.title || "";
@@ -135,7 +135,7 @@ export const entryExcerpt = (e, locale) => (e.i18n && e.i18n[locale] && e.i18n[l
 // "en byte-identical" gate. So: use it now, delete it as its own change. r1-findings.md §8.5.)
 const altOf = (title, locale, catalog) => {
   const s = catalog && catalog["card.alt.suffix"];
-  const suffix = (s && (s[locale] ?? s.en)) ?? "- tejoy Products";
+  const suffix = (s && (s[locale] ?? s.en)) ?? "- wanew Products";
   return `${title} ${suffix}`;
 };
 
@@ -178,7 +178,7 @@ function updateChips(html, id, countFn) {
   });
 }
 
-// A list page's <title> is DERIVED, never hand-written: `{name}-Tejoy{suffix}`, suffix from the
+// A list page's <title> is DERIVED, never hand-written: `{name}-Wanew{suffix}`, suffix from the
 // catalog. It was hand-written on all 25 pt pages, and 5 of them still carried the English suffix
 // — the R1 thesis exactly: one catalog beats 159 hand-kept copies. Verified byte-identical against
 // all 7 existing en category pages before being switched on, so it moves no en baseline.
@@ -191,7 +191,7 @@ export function listTitleOf(name, locale, catalog) {
   if (!sfx) return null;                                    // no catalog -> caller leaves the page alone
   const n = typeof name === "object" ? (catalog[name.t] && (catalog[name.t][locale] ?? catalog[name.t].en)) : name;
   if (!n) return null;
-  return `${n}-Tejoy${sfx[locale] ?? sfx.en}`;
+  return `${n}-Wanew${sfx[locale] ?? sfx.en}`;
 }
 
 // Homepage model tiles: alt is DERIVED from the tile's own href — `{model} {suffix}` — instead of

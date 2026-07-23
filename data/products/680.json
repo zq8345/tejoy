@@ -26,29 +26,29 @@
   "images": [
     {
       "src": "/static/upload/down/6239529072.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     },
     {
       "src": "/static/upload/down/639f3c40f5.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     },
     {
       "src": "/static/upload/down/802b9a1f12.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     },
     {
       "src": "/static/upload/down/a0363f5231.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     },
     {
       "src": "/static/upload/down/db34ba080b.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     },
     {
       "src": "/static/upload/down/5e0e6514f2.jpg",
-      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - tejoy"
+      "alt": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal\",\n  \"description\": \"Compatibility Specifically with Starlink Mini: The Starlink Mini suction cup mount is specially designed for the Starlink Mini Internet Kit Satellite, making it an ideal choice for enhancing the vehicle internet experience with Starlink Mesh. Please note that this starl\",\n  \"image\": \"https://wanew.com/static/upload/down/685d35ef82.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal\",\n  \"description\": \"Compatibility Specifically with Starlink Mini: The Starlink Mini suction cup mount is specially designed for the Starlink Mini Internet Kit Satellite, making it an ideal choice for enhancing the vehicle internet experience with Starlink Mesh. Please note that this starl\",\n  \"image\": \"https://wanew.com/static/upload/down/685d35ef82.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

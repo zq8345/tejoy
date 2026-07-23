@@ -26,29 +26,29 @@
   "images": [
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/2bb4ccae90.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/3c96b2806c.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/7ba0bb8f24.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/7233649a74.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/d835ba1ef7.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/6a7d19a728.jpg",
-      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - tejoy"
+      "alt": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks\",\n  \"description\": \"【Compartatible with Starlink Mini】This Starlink Mini Mount is designed to be installed on the RVs, yachts, and trucks, and is designed to allow you to enjoy the fast and stable Internet service provided by Starlink Mini while driving.\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/8faf79e260.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,starlingkshop Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks\",\n  \"description\": \"【Compartatible with Starlink Mini】This Starlink Mini Mount is designed to be installed on the RVs, yachts, and trucks, and is designed to allow you to enjoy the fast and stable Internet service provided by Starlink Mini while driving.\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/8faf79e260.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

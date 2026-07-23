@@ -13,7 +13,7 @@
 import fs from 'fs';
 
 const D = [
-  { en: 'Tejoy is a leading manufacturer', pick: 'adaptadores de energía, cables y estuches protectores. Más de 15',
+  { en: 'Wanew is a leading manufacturer', pick: 'adaptadores de energía, cables y estuches protectores. Más de 15',
     why: '【查,不是判】18 处竟有 17 种写法。逐轴按已签/最高频定:①power adapter→`energía`(全站 22 次最高,且与我签的 chrome header.power=`Energía` 一致) ②protective cases→`estuches protectores`(形容词,直接对应 en) ③15+ years→`Más de 15 años`(自然西语)。三轴同时满足的只有这一条。' },
 
   { en: 'How to Set Up Starlink Mini for RV Camping', pick: 'para acampar',
@@ -22,7 +22,7 @@ const D = [
   { en: 'Global shipping and logistics guide', pick: 'Opciones de flete exprés',
     why: 'en「Express, air, sea freight」—— freight 统辖三者,`flete exprés, aéreo y marítimo` 保住这个结构;另一变体把 exprés 拆给 mensajería,只有 aéreo/marítimo 归 flete。' },
 
-  { en: 'Complete quality control standards', pick: 'para los accesorios Starlink de Tejoy',
+  { en: 'Complete quality control standards', pick: 'para los accesorios Starlink de Wanew',
     why: '两轴都占:①en 是 standards FOR accessories → `para`,不是 `de` ②另一变体留了英文缩写 `QC` 未译,本条展开成 `control de calidad`。' },
 
   { en: 'Custom Starlink Accessory Manufacturing', pick: 'personalizados',
@@ -42,7 +42,7 @@ const D = [
   { en: 'Starlink Junction Box Installation', pick: 'el manejo de',
     why: 'en「Cable Management」→ `manejo de cables`(管理);另一变体 `organizar`(整理)弱化了。' },
 
-  { en: 'Installation guide for Tejoy Outdoor Junction Box', pick: 'Caja IP66',
+  { en: 'Installation guide for Wanew Outdoor Junction Box', pick: 'Caja IP66',
     why: '产品本身叫 caja de conexiones(junction box),外壳沿用 `Caja` 与产品名一致;`Gabinete` 在墨西哥多指机柜,尺寸感不符。' },
 
   { en: 'Guide to installing Starlink without drilling', pick: 'bases con contrapeso',

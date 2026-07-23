@@ -26,29 +26,29 @@
   "images": [
     {
       "src": "/static/upload/down/49ddb18b64.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     },
     {
       "src": "/static/upload/down/577458cccd.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     },
     {
       "src": "/static/upload/down/8646b48db2.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     },
     {
       "src": "/static/upload/down/ccc693c82d.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     },
     {
       "src": "/static/upload/down/1847c4f363.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     },
     {
       "src": "/static/upload/down/ebc9fc7fde.jpg",
-      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - tejoy"
+      "alt": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction\",\n  \"description\": \"Stay Connected Anywhere: Power your Starlink Mini directly from your vehicle&#39;s cigarette lighter socket with this Starlink Mini car adapter, ensuring seamless internet access on road trips, camping adventures, or in emergencies.Optimized Power Parameters: Designed with an input of 12~48V and an\",\n  \"image\": \"https://wanew.com/static/upload/image/20260513/1778662616580185.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction\",\n  \"description\": \"Stay Connected Anywhere: Power your Starlink Mini directly from your vehicle&#39;s cigarette lighter socket with this Starlink Mini car adapter, ensuring seamless internet access on road trips, camping adventures, or in emergencies.Optimized Power Parameters: Designed with an input of 12~48V and an\",\n  \"image\": \"https://wanew.com/static/upload/image/20260513/1778662616580185.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

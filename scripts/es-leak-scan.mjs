@@ -31,7 +31,7 @@ export const WHITELIST_PHRASES = [
   'Performance (Gen 1)', 'Performance (Gen 2)', 'Performance (Gen 3)',
   'Standard Circular', 'Standard Actuated',
   'All Rights Reserved',
-  /* ⭐ 注册法律实体名 —— 与 locales.json fallback 的 'TEJOY STARLINK ACCESSORIES LIMITED' 同源。
+  /* ⭐ 注册法律实体名 —— 与 locales.json fallback 的 'Wanew Starlink Accessories' 同源。
    *   ⚠️ 必须是【多词短语】而【绝不能】把 'accessories' 塞进单词白名单：
    *      accessories 是我们最核心的英文残留标记词，白名单化 = 全站放过它。
    *      这里剥的是"公司叫这个名字"，不是"这个词可以是英文"。 */
@@ -60,7 +60,7 @@ export const WHITELIST_PHRASES = [
  *   与 locales.json 的 fallback 同源。**这里放的是「本来就不该是西语」的东西**，
  *   不是「翻不动所以放过」—— 后者属于 GAP，必须红。 */
 export const WHITELIST_WORDS = new Set([
-  'starlink', 'tejoy', 'spacex',              // 品牌
+  'starlink', 'wanew', 'spacex',              // 品牌
   'mini', 'standard', 'performance', 'enterprise', 'circular', 'actuated', 'gen', 'flat',
   'xml', 'oem', 'odm', 'wifi', 'rv',          // 代码值 / 格式名 / 行业缩写
   'copyright',                                 // 法律套话，国际通用（pt 同）
@@ -126,7 +126,7 @@ export const WORD_RE = /[a-zà-ÿñ][a-zà-ÿñ'-]*/gi;
 /* ⚠️⚠️ 这里我栽了一次，留档 —— **短语剥离曾经是大小写敏感的**：
  *     原来:  t = t.split(p).join(' ')          // split 是字面量匹配 = 大小写敏感
  *   'Power Supply' 恰好【大小写就是那样】，所以自检全绿，**这个洞完全不可见**。
- *   直到扫我自己的译文，'TEJOY STARLINK ACCESSORIES LIMITED'（全大写）漏出来才暴露。
+ *   直到扫我自己的译文，'Wanew Starlink Accessories'（全大写）漏出来才暴露。
  *   ⭐ 教训还是那条：**我只测了能用的那个变体。** 白名单里但凡有一条大小写不同，它就静默失效。
  *
  *   ⚠️ 改成正则后必须【转义】—— 'Performance (Gen 1)' 里的括号在正则里是分组，

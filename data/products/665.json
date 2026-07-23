@@ -26,37 +26,37 @@
   "images": [
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/f83812bd45.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/4af1a3b1ff.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/99dd287f19.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/946d5a389b.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/e5a87eb616.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/47e946a01c.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/adbccf7b9a.jpg",
-      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - tejoy"
+      "alt": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable\",\n  \"description\": \"【Starlink Rectangular Satellite Gen2 Cable】Simply connect this Starlink replacement cable 50ft to your Starlink Gen2 dish and router for a hassle-free setup. It features a plug and play design, saving you time and effort. Specifically designed to replace the rectangular satellite v2 cable, this St\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/dc39f5f2eb.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable\",\n  \"description\": \"【Starlink Rectangular Satellite Gen2 Cable】Simply connect this Starlink replacement cable 50ft to your Starlink Gen2 dish and router for a hassle-free setup. It features a plug and play design, saving you time and effort. Specifically designed to replace the rectangular satellite v2 cable, this St\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/dc39f5f2eb.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard Actuated\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

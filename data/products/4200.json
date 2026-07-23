@@ -26,25 +26,25 @@
   "images": [
     {
       "src": "/static/upload/image/20260521/1779352319694762.jpg",
-      "alt": "dc-dc 4.jpg - tejoy"
+      "alt": "dc-dc 4.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779352333473328.jpg",
-      "alt": "3.jpg - tejoy"
+      "alt": "3.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779352334235729.jpg",
-      "alt": "2.jpg - tejoy"
+      "alt": "2.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779352334185690.jpg",
-      "alt": "1.jpg - tejoy"
+      "alt": "1.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260521/1779352392164935.jpg",
-      "alt": "dc-dc 3.jpg - tejoy"
+      "alt": "dc-dc 3.jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Flat Power Charging Cable [Type-C to DC / DC to DC Optional] 60W 20V 3A  High Speed PD Supply Wire for Laptop Router LED Strip\",\n  \"description\": \"Upgrade Your Power Setup with Our High-Efficiency Mini Flat CableExperience seamless, high-speed power delivery with our Mini Flat Power Charging Cable, engineered for modern electronics that demand both performance and portability. Available in two versatile configurations, this cable is the ultima\",\n  \"image\": \"https://wanew.com/static/upload/image/20260521/1779352297715023.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Flat Power Charging Cable [Type-C to DC / DC to DC Optional] 60W 20V 3A  High Speed PD Supply Wire for Laptop Router LED Strip\",\n  \"description\": \"Upgrade Your Power Setup with Our High-Efficiency Mini Flat CableExperience seamless, high-speed power delivery with our Mini Flat Power Charging Cable, engineered for modern electronics that demand both performance and portability. Available in two versatile configurations, this cable is the ultima\",\n  \"image\": \"https://wanew.com/static/upload/image/20260521/1779352297715023.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

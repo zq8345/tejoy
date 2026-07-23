@@ -26,29 +26,29 @@
   "images": [
     {
       "src": "/static/upload/down/7f00996ac6.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     },
     {
       "src": "/static/upload/down/42d4b66adb.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     },
     {
       "src": "/static/upload/down/53da30c807.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     },
     {
       "src": "/static/upload/down/af0c12b8db.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     },
     {
       "src": "/static/upload/down/b365a78da9.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     },
     {
       "src": "/static/upload/down/9af626b867.jpg",
-      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - tejoy"
+      "alt": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT) - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT)\",\n  \"description\": \"【High-Speed Performance】Designed for Starlink Performance Gen3, our 33FT/10M extension cable is built with high-quality 23AWG wire to deliver speeds up to 2000Mbps with minimal latency, ensuring smooth, uninterrupted online experiences even during bandwidth-heavy tasks.【Weatherproof &amp; Durable\",\n  \"image\": \"https://wanew.com/static/upload/down/42c3b49d4e.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT)\",\n  \"description\": \"【High-Speed Performance】Designed for Starlink Performance Gen3, our 33FT/10M extension cable is built with high-quality 23AWG wire to deliver speeds up to 2000Mbps with minimal latency, ensuring smooth, uninterrupted online experiences even during bandwidth-heavy tasks.【Weatherproof &amp; Durable\",\n  \"image\": \"https://wanew.com/static/upload/down/42c3b49d4e.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Performance (Gen 3)\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

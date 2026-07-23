@@ -92,10 +92,10 @@ export function tokenizeAttrs(html, decide) {
 // Internal hrefs become routing tokens — resolved from route+locale, never catalog keys.
 export function tokenizeHrefs(html) {
   // Absolute same-site URLs must tokenize too, or the locale never gets a say: the en logo links
-  // to https://tejoy.com/ while the pt logo links to /pt/. Keep the ORIGINAL form inside the
+  // to https://wanew.com/ while the pt logo links to /pt/. Keep the ORIGINAL form inside the
   // token — rewriting it to "/" is the same destination but a different byte, and "en zero
   // content regression" is the evidence this refactor changed nothing. Equivalent != identical.
-  html = html.replace(/href="(https?:\/\/(?:www\.)?tejoy\.com\/[^"]*)"/g, (full, u) => `href="{{url.${u}}}"`);
+  html = html.replace(/href="(https?:\/\/(?:www\.)?wanew\.com\/[^"]*)"/g, (full, u) => `href="{{url.${u}}}"`);
   return html.replace(/href="(\/[^"]*)"/g, (full, path) => `href="{{url.${path}}}"`);
 }
 

@@ -26,33 +26,33 @@
   "images": [
     {
       "src": "/static/upload/down/169450f984.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/d80d53356f.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/ad2fdb6259.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/a15383bd10.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/a25d1f0900.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/33da962e0a.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     },
     {
       "src": "/static/upload/down/806d4b81c3.jpg",
-      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - tejoy"
+      "alt": "For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Mount Car Mount fit 1.1-1.7\",\n  \"description\": \"Starlink Mini Car Mount, crafted by sturdy and impact-resistant aluminum alloy, can securely attach to your RV roof rack or yacht bar, ensuing stable and safe mounting of your Starlink Mini dish during travel.Features:Starlink Mini Car Roof Mount - Starlink Mini Mount offers a strong and secure fixa\",\n  \"image\": \"https://wanew.com/static/upload/down/c4df348df8.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Mount Car Mount fit 1.1-1.7\",\n  \"description\": \"Starlink Mini Car Mount, crafted by sturdy and impact-resistant aluminum alloy, can securely attach to your RV roof rack or yacht bar, ensuing stable and safe mounting of your Starlink Mini dish during travel.Features:Starlink Mini Car Roof Mount - Starlink Mini Mount offers a strong and secure fixa\",\n  \"image\": \"https://wanew.com/static/upload/down/c4df348df8.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

@@ -8,7 +8,7 @@
  *
  * ⚠️ 逐条对着 en 核过意图,**不整批替换** —— 有一条必须【保留】所有格:
  *     brand-affiliation-faq.h3.1
- *       en: "Are Tejoy products official Starlink accessories?"
+ *       en: "Are Wanew products official Starlink accessories?"
  *       pt: "…são acessórios oficiais da Starlink?"
  *     **这句是我们【设问并否认】的那句,所有格正是它要表达的意思。改了反而毁掉合规文案。**
  *
@@ -45,7 +45,7 @@ const FIX = [
 
 /* 明确【不动】的,写进代码而不是留在脑子里 */
 const KEEP = [
-  { key: 'brand-affiliation-faq.h3.1', why: 'en「Are Tejoy products official Starlink accessories?」—— 这是我们设问并【否认】的那句,所有格是它的本意。改了会毁掉合规文案本身。' },
+  { key: 'brand-affiliation-faq.h3.1', why: 'en「Are Wanew products official Starlink accessories?」—— 这是我们设问并【否认】的那句,所有格是它的本意。改了会毁掉合规文案本身。' },
 ];
 
 const APPLY = process.argv.includes('--apply');

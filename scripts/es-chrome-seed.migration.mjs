@@ -54,10 +54,10 @@ const ES = {
   'header.patents_manufacturing_capacity': ['Patentes y Capacidad de Fabricación', J + '语法确定'],
   'header.brand_affiliation_faq': ['Marca y Afiliación (FAQ)', J + '与 header.faq 绑定:此处 FAQ 作括号缩写保留,与 pt 同构'],
   /* 🔴 header.pt / header.ver_esta_p_gina_em_portugu_s —— 【故意不给值】,见文件末 §切换器 */
-  'header.tejoy_premium_starlink_accessories': ['Tejoy | Accesorios Premium para Starlink', SL + '「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)'],
+  'header.wanew_premium_starlink_accessories': ['Wanew | Accesorios Premium para Starlink', SL + '「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)'],
 
   /* ── mobilenav ──────────────────────────────────────────────────────── */
-  'mobilenav.hello_tejoy_com': ['hello@tejoy.com', FB + 'e-mail 地址 / 代码值'],
+  'mobilenav.hello_wanew_com': ['hello@wanew.com', FB + 'e-mail 地址 / 代码值'],
   'mobilenav.logo_image': ['Inicio', J + '⭐这是 alt 文本。en 的「logo image」是个废 alt(描述了图片是什么,没说它去哪);pt 已改成「Página inicial」= 有用的 alt。es 同构'],
 
   /* ── footer ─────────────────────────────────────────────────────────── */
@@ -69,12 +69,12 @@ const ES = {
   'footer.performance_gen_1': ['Performance (Gen 1)', FB + '型号名'],
   'footer.performance_gen_3': ['Performance (Gen 3)', FB + '型号名'],
   'footer.enterprise': ['Enterprise', FB + '型号名'],
-  'footer.tejoy_starlink_accessories_limited': ['TEJOY STARLINK ACCESSORIES LIMITED', FB + '注册法律实体名'],
+  'footer.wanew_starlink_accessories_limited': ['Wanew Starlink Accessories', FB + '注册法律实体名'],
   'footer.address_no_62_baotian_1st_road_xix': [
     'Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China',
     J + '⭐只译标签「Address:」,地址本体【保持英文】—— 它是投递用的物理地址,译了没人能用。pt 同此处理',
   ],
-  'footer.e_mail_hello_tejoy_com': ['Correo: hello@tejoy.com', SL + '「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**'],
+  'footer.e_mail_hello_wanew_com': ['Correo: hello@wanew.com', SL + '「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**'],
   'footer.about_us': ['- Acerca de nosotros', J + '语法确定'],
   'footer.products': ['- Productos', SL + 'producto 坐实'],
   'footer.industry': ['- Sectores', J + 'industry(行业板块)= sector;与 header.industry_hub 一致'],
@@ -82,15 +82,15 @@ const ES = {
   'footer.faq': ['- Preguntas frecuentes', J + '与 header.faq 绑定'],
   'footer.video': ['- Videos', '⭐墨西哥特征: 无重音,与 header.video 一致'],
   'footer.contact_us': ['- Contacto', J + '语法确定'],
-  'footer.copyright_2026_tejoy_starlink_acce': [
-    'Copyright  ©  2026 Tejoy Starlink Accessories Limited. Todos los derechos reservados.\nTejoy fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.',
+  'footer.copyright_2026_wanew_starlink_acce': [
+    'Copyright  ©  2026 Wanew Starlink Accessories Limited. Todos los derechos reservados.\nWanew fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.',
     '⭐免责声明 —— ' + SL + '「Starlink es una división de SpaceX」句式;accesorios 坐实。**这条是合规文案,含义不能漂**:third-party=de terceros / compatible=compatibles con / not affiliated=no está afiliada',
   ],
   'footer.xml': ['XML', FB + '格式名 / 代码值'],
 
   /* ── card / meta ────────────────────────────────────────────────────── */
-  'card.alt.suffix': ['- Productos Tejoy', J + '与 pt 同构(catalog key,不是每页一份的字符串)'],
-  'card.alt.category': ['- categoría de producto tejoy', J + '与 pt 同构'],
+  'card.alt.suffix': ['- Productos Wanew', J + '与 pt 同构(catalog key,不是每页一份的字符串)'],
+  'card.alt.category': ['- categoría de producto wanew', J + '与 pt 同构'],
   'card.lang_badge': ['en inglés', J + '⭐es 卡片指向 en 正文时的语言标注。措辞遵循我签 pt 时的同一条:小写、不加括号、不喊叫 ——「它是一句提示,不是一个警告」。由 renderPage 按存在性【派生】,绝不写死'],
   'meta.title.suffix': [' | Accesorios Premium para Starlink, Soportes y Soluciones de Energía', SL + 'accesorios 坐实;派生 meta_title 用,不存 64 份'],
 

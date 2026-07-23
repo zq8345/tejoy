@@ -79,7 +79,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
  */
 
 /* 【源 A】Starlink 官方墨西哥站 —— 同产品领域 · 母语 · 真人写
- * 采集：Tejoy-审计窗 2026-07-14，**浏览器真机渲染**（该站纯 JS，我 curl 只拿到 863 字符空壳）
+ * 采集：Wanew-审计窗 2026-07-14，**浏览器真机渲染**（该站纯 JS，我 curl 只拿到 863 字符空壳）
  * 页面：/mx/residential · /mx/roam · /mx/specifications/4   （站点声明 lang=`es-419`）*/
 const STARLINK_MX = [
   // tú 形式

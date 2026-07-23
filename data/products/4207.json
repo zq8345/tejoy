@@ -26,21 +26,21 @@
   "images": [
     {
       "src": "/static/upload/image/20260522/1779416243147050.jpg",
-      "alt": "5.jpg - tejoy"
+      "alt": "5.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779416243997498.jpg",
-      "alt": "2.jpg - tejoy"
+      "alt": "2.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779416243527276.jpg",
-      "alt": "4.jpg - tejoy"
+      "alt": "4.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779416243519520.jpg",
-      "alt": "3.jpg - tejoy"
+      "alt": "3.jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini 12V Power Adapter: 100W charger DC to DC Conversion Cable for RV, Vanlife & Off-Grid Camping camping internet power solution\",\n  \"description\": \"100W DC to DC Power Extension Cable – RV &amp; Starlink Mini ReadyStay Connected Anywhere, Without the InverterFor RVers, campers, and overlanders, reliable internet on the road is non-negotiable. The Starlink Mini has changed the game with its compact, high-speed satellite internet—but pow\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779416235455532.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Starlink Mini 12V Power Adapter: 100W charger DC to DC Conversion Cable for RV, Vanlife & Off-Grid Camping camping internet power solution\",\n  \"description\": \"100W DC to DC Power Extension Cable – RV &amp; Starlink Mini ReadyStay Connected Anywhere, Without the InverterFor RVers, campers, and overlanders, reliable internet on the road is non-negotiable. The Starlink Mini has changed the game with its compact, high-speed satellite internet—but pow\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779416235455532.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

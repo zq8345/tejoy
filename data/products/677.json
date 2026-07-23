@@ -26,29 +26,29 @@
   "images": [
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/065cc72e8f.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/5baf34ef2d.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/fd744f376e.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/fe86cf3674.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/86f307a40c.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/a95b9de9c9.jpg",
-      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - tejoy"
+      "alt": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray\",\n  \"description\": \"Enhance your network experience with carefully crafted Starlink mini cable that meet original quality standards. Our high-quality Starlink replacement cable, Fast network speeds enable lightning-fast data transfer and streaming without worrying about latency or signal qualit\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/748d477865.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray\",\n  \"description\": \"Enhance your network experience with carefully crafted Starlink mini cable that meet original quality standards. Our high-quality Starlink replacement cable, Fast network speeds enable lightning-fast data transfer and streaming without worrying about latency or signal qualit\",\n  \"image\": \"https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/748d477865.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

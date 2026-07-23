@@ -19,10 +19,10 @@
     "pt-BR": "RoHS",
     "es-MX": "RoHS"
   },
-  "shared.tejoy_is_a_leading_third_party_manufactu": {
-    "en": "Tejoy is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
-    "pt-BR": "A Tejoy é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink.",
-    "es-MX": "Tejoy es un fabricante independiente líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Sin relación con SpaceX ni con Starlink."
+  "shared.wanew_is_a_leading_third_party_manufactu": {
+    "en": "Wanew is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
+    "pt-BR": "A Wanew é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink.",
+    "es-MX": "Wanew es un fabricante independiente líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Sin relación con SpaceX ni con Starlink."
   },
   "shared.starlink_compatible_accessories": {
     "en": "Starlink-compatible accessories",
@@ -89,15 +89,15 @@
     "pt-BR": "Leia mais",
     "es-MX": "Leer más"
   },
-  "shared.tejoy_pipe_mount_vs_wall_mount_vs_flat_r": {
-    "en": "Tejoy Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
-    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Tejoy: qual é o ideal para você?",
-    "es-MX": "Soporte de tubo vs soporte de pared vs soporte para techo plano de Tejoy: ¿cuál es el ideal para ti?"
+  "shared.wanew_pipe_mount_vs_wall_mount_vs_flat_r": {
+    "en": "Wanew Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
+    "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Wanew: qual é o ideal para você?",
+    "es-MX": "Soporte de tubo vs soporte de pared vs soporte para techo plano de Wanew: ¿cuál es el ideal para ti?"
   },
-  "shared.shipping_and_logistics_how_tejoy_deliver": {
-    "en": "Shipping and Logistics: How Tejoy Delivers Worldwide",
-    "pt-BR": "Envio e logística: como a Tejoy entrega no mundo todo",
-    "es-MX": "Envíos y logística: cómo Tejoy entrega en todo el mundo"
+  "shared.shipping_and_logistics_how_wanew_deliver": {
+    "en": "Shipping and Logistics: How Wanew Delivers Worldwide",
+    "pt-BR": "Envio e logística: como a Wanew entrega no mundo todo",
+    "es-MX": "Envíos y logística: cómo Wanew entrega en todo el mundo"
   },
   "shared.common.more": {
     "en": "More",
@@ -144,10 +144,10 @@
     "pt-BR": "29 de abr. de 2026",
     "es-MX": "29 de abr. de 2026"
   },
-  "shared.comprehensive_comparison_of_tejoy_pipe_m": {
-    "en": "Comprehensive comparison of Tejoy pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
-    "pt-BR": "Comparação completa entre os suportes de tubo, de parede e para telhado plano da Tejoy para Starlink. Matriz de decisão, cenários reais e perguntas frequentes para ajudar você a escolher a solução de fixação certa.",
-    "es-MX": "Comparación completa entre los soportes de tubo, de pared y para techo plano de Tejoy para Starlink. Matriz de decisión, escenarios reales y preguntas frecuentes para ayudarte a elegir la solución de montaje correcta."
+  "shared.comprehensive_comparison_of_wanew_pipe_m": {
+    "en": "Comprehensive comparison of Wanew pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
+    "pt-BR": "Comparação completa entre os suportes de tubo, de parede e para telhado plano da Wanew para Starlink. Matriz de decisão, cenários reais e perguntas frequentes para ajudar você a escolher a solução de fixação certa.",
+    "es-MX": "Comparación completa entre los soportes de tubo, de pared y para techo plano de Wanew para Starlink. Matriz de decisión, escenarios reales y preguntas frecuentes para ayudarte a elegir la solución de montaje correcta."
   },
   "shared.how_to_install_a_starlink_mount_without_": {
     "en": "How to Install a Starlink Mount Without Drilling: Non-Permanent Solutions",
@@ -174,10 +174,10 @@
     "pt-BR": "28 de jun. de 2026",
     "es-MX": "28 de jun. de 2026"
   },
-  "shared.tejoy_starlink_mini_power_guide_12v_adap": {
-    "en": "Tejoy Starlink Mini Power Guide - 12V Adapters & DC Cables",
-    "pt-BR": "Guia de energia Tejoy para Starlink Mini — adaptadores 12V e cabos DC",
-    "es-MX": "Guía de energía Tejoy para Starlink Mini - adaptadores de 12V y cables CC"
+  "shared.wanew_starlink_mini_power_guide_12v_adap": {
+    "en": "Wanew Starlink Mini Power Guide - 12V Adapters & DC Cables",
+    "pt-BR": "Guia de energia Wanew para Starlink Mini — adaptadores 12V e cabos DC",
+    "es-MX": "Guía de energía Wanew para Starlink Mini - adaptadores de 12V y cables CC"
   },
   "shared.2026_02_06": {
     "en": "2026-02-06",
@@ -194,15 +194,15 @@
     "pt-BR": "Melhor gestão de cabos para Starlink Mini para suportes de teto em motorhome: guia completo",
     "es-MX": "La mejor gestión de cables de la Starlink Mini para soportes de techo en casa rodante: guía completa"
   },
-  "shared.complete_range_of_tejoy_accessories_comp": {
-    "en": "Complete range of Tejoy accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases.",
-    "pt-BR": "Linha completa de acessórios Tejoy compatíveis com os terminais Starlink Mini, Standard, Performance e Enterprise. Suportes, energia, cabos e cases.",
-    "es-MX": "Línea completa de accesorios Tejoy compatibles con los terminales Starlink Mini, Standard, Performance y Enterprise. Soportes, energía, cables y estuches."
+  "shared.complete_range_of_wanew_accessories_comp": {
+    "en": "Complete range of Wanew accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases.",
+    "pt-BR": "Linha completa de acessórios Wanew compatíveis com os terminais Starlink Mini, Standard, Performance e Enterprise. Suportes, energia, cabos e cases.",
+    "es-MX": "Línea completa de accesorios Wanew compatibles con los terminales Starlink Mini, Standard, Performance y Enterprise. Soportes, energía, cables y estuches."
   },
-  "shared.tejoy_is_a_leading_manufacturer_of_starl": {
-    "en": "Tejoy is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Tejoy é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não é afiliada à SpaceX.",
-    "es-MX": "Tejoy es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
+  "shared.wanew_is_a_leading_manufacturer_of_starl": {
+    "en": "Wanew is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Wanew é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não é afiliada à SpaceX.",
+    "es-MX": "Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
   },
   "shared.how_to_set_up_starlink_mini_for_rv_campi": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
@@ -210,14 +210,14 @@
     "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
   },
   "shared.global_shipping_and_logistics_guide_for_": {
-    "en": "Global shipping and logistics guide for Tejoy. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
-    "pt-BR": "Guia global de envio e logística da Tejoy. Opções de frete expresso, aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio.",
-    "es-MX": "Guía global de envío y logística de Tejoy. Opciones de flete exprés, aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío."
+    "en": "Global shipping and logistics guide for Wanew. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
+    "pt-BR": "Guia global de envio e logística da Wanew. Opções de frete expresso, aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio.",
+    "es-MX": "Guía global de envío y logística de Wanew. Opciones de flete exprés, aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío."
   },
   "shared.complete_quality_control_standards_for_t": {
-    "en": "Complete quality control standards for Tejoy Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
-    "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Tejoy. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações.",
-    "es-MX": "Estándares completos de control de calidad para los accesorios Starlink de Tejoy. Proceso de control de calidad en 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones."
+    "en": "Complete quality control standards for Wanew Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
+    "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Wanew. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações.",
+    "es-MX": "Estándares completos de control de calidad para los accesorios Starlink de Wanew. Proceso de control de calidad en 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones."
   },
   "shared.custom_starlink_accessory_manufacturing_": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
@@ -234,10 +234,10 @@
     "pt-BR": "Guia de pedidos em grande volume: MOQ, prazo de entrega e preços para suportes Starlink",
     "es-MX": "Guía de pedidos al mayoreo: MOQ, tiempo de entrega y precios para soportes Starlink"
   },
-  "shared.complete_bulk_ordering_guide_for_tejoy_s": {
-    "en": "Complete bulk ordering guide for Tejoy Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
-    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Tejoy. MOQ por produto, prazos de entrega, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores.",
-    "es-MX": "Guía completa de pedidos al mayoreo de los accesorios Starlink de Tejoy. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores."
+  "shared.complete_bulk_ordering_guide_for_wanew_s": {
+    "en": "Complete bulk ordering guide for Wanew Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
+    "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Wanew. MOQ por produto, prazos de entrega, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores.",
+    "es-MX": "Guía completa de pedidos al mayoreo de los accesorios Starlink de Wanew. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores."
   },
   "shared.news": {
     "en": "News",
@@ -254,10 +254,10 @@
     "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos",
     "es-MX": "Instalación de la caja de conexiones Starlink para el manejo de cables en exteriores"
   },
-  "shared.installation_guide_for_tejoy_outdoor_jun": {
-    "en": "Installation guide for Tejoy Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
-    "pt-BR": "Guia de instalação da caixa de junção externa da Tejoy. Invólucro à prova de intempéries IP66 para emendas de cabos Starlink, alojamento do adaptador 12V e gerenciamento de cabos em ambientes externos.",
-    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Tejoy. Caja IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y manejo de cables en exteriores."
+  "shared.installation_guide_for_wanew_outdoor_jun": {
+    "en": "Installation guide for Wanew Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
+    "pt-BR": "Guia de instalação da caixa de junção externa da Wanew. Invólucro à prova de intempéries IP66 para emendas de cabos Starlink, alojamento do adaptador 12V e gerenciamento de cabos em ambientes externos.",
+    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Wanew. Caja IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y manejo de cables en exteriores."
   },
   "shared.guide_to_installing_starlink_without_dri": {
     "en": "Guide to installing Starlink without drilling. No-drill methods for renters: railing mounts, window sill mounts, weighted bases, tripods, and cable routing without wall penetration.",

@@ -37,7 +37,7 @@ export function collect() {
         out.push({ id, cat: p.category, kind: 'gallery', pos: i, stratum: i === 0 ? 'hero' : 'rest', where: 'cdn', url: R2_BASE + im.key, alt: im.alt });
       } else if (im.src) {
         const local = stripQuery(im.src);
-        out.push({ id, cat: p.category, kind: 'gallery', pos: i, stratum: i === 0 ? 'hero' : 'rest', where: 'local', path: '.' + local, url: 'https://tejoy.com' + local, alt: im.alt });
+        out.push({ id, cat: p.category, kind: 'gallery', pos: i, stratum: i === 0 ? 'hero' : 'rest', where: 'local', path: '.' + local, url: 'https://wanew.com' + local, alt: im.alt });
       } else {
         out.push({ id, cat: p.category, kind: 'gallery', pos: i, stratum: 'rest', where: 'NO_SRC', alt: im.alt });   // 绝不静默跳过
       }
@@ -49,7 +49,7 @@ export function collect() {
       if (/^https?:/.test(raw)) out.push({ id, cat: p.category, kind: 'inline', pos: i++, stratum: 'inline', where: 'external', url: raw });
       else {
         const local = stripQuery(raw);
-        out.push({ id, cat: p.category, kind: 'inline', pos: i++, stratum: 'inline', where: 'local', path: '.' + local, url: 'https://tejoy.com' + local, raw });
+        out.push({ id, cat: p.category, kind: 'inline', pos: i++, stratum: 'inline', where: 'local', path: '.' + local, url: 'https://wanew.com' + local, raw });
       }
     }
   }

@@ -45,7 +45,7 @@ const snapshot = {
   translationLeaks,
   byClass: {
     'a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域': cls.a_cardTitles.length,
-    'b_altSuffix — "- tejoy Products" 模板串 → chrome catalog key': cls.b_altSuffix.length,
+    'b_altSuffix — "- wanew Products" 模板串 → chrome catalog key': cls.b_altSuffix.length,
     'c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入"应逼近0"': cls.c_galleryAltFilename.length,
     'd_otherText — 其余可见文本 (已逐个核实为真型号名)': cls.d_otherText.length,
     'e_links — 该指pt却指英文 → R1 localizeUrl 域': cls.e_links.length,

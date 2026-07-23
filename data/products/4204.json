@@ -26,21 +26,21 @@
   "images": [
     {
       "src": "/static/upload/image/20260522/1779414654778711.jpg",
-      "alt": "2.jpg - tejoy"
+      "alt": "2.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779414655282248.jpg",
-      "alt": "3.jpg - tejoy"
+      "alt": "3.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779414655868295.jpg",
-      "alt": "1.jpg - tejoy"
+      "alt": "1.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260601/1780300443402203.jpg",
-      "alt": "sp.jpg - tejoy"
+      "alt": "sp.jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini 60W Power Supply Kit - 30V/2A AC/DC Adapter with 12V Car Charger, Waterproof DC Cable for RV/Outdoor Use\",\n  \"description\": \"Engineered for Starlink Mini users, this 60W power supply kit delivers efficient and stable power to keep your satellite internet running seamlessly. The kit includes two essential components:AC Power Adapter: Accepts 110-240V ~ 50/60Hz input (compatible with global voltage standards) and outputs 30\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779414647956007.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini 60W Power Supply Kit - 30V/2A AC/DC Adapter with 12V Car Charger, Waterproof DC Cable for RV/Outdoor Use\",\n  \"description\": \"Engineered for Starlink Mini users, this 60W power supply kit delivers efficient and stable power to keep your satellite internet running seamlessly. The kit includes two essential components:AC Power Adapter: Accepts 110-240V ~ 50/60Hz input (compatible with global voltage standards) and outputs 30\",\n  \"image\": \"https://wanew.com/static/upload/image/20260522/1779414647956007.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

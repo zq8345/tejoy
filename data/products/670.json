@@ -26,45 +26,45 @@
   "images": [
     {
       "src": "/static/upload/down/320616680a.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/99cb7c7c74.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/97eea20558.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/c94c43272a.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/a9d7e58fc0.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/2cb46719cd.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/f163f52bea.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/c0f27e0c02.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/037af30c9d.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     },
     {
       "src": "/static/upload/down/5820447b80.jpg",
-      "alt": "For Starlink Gen 2 Mount, Pivot Mount - tejoy"
+      "alt": "For Starlink Gen 2 Mount, Pivot Mount - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Gen 2 Mount, Pivot Mount\",\n  \"description\": \"Designed for installation on shingled roofs, requires drilling. Not recommended for tile, slate, and clay roofing. For best results, the mount should be adjusted to ensure Starlink is installed as close to vertical as possible.Compatibility:Standard Actuated Starlink, High Performance Starlink\",\n  \"image\": \"https://wanew.com/static/upload/down/e7cc776bf5.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Gen 2 Mount, Pivot Mount\",\n  \"description\": \"Designed for installation on shingled roofs, requires drilling. Not recommended for tile, slate, and clay roofing. For best results, the mount should be adjusted to ensure Starlink is installed as close to vertical as possible.Compatibility:Standard Actuated Starlink, High Performance Starlink\",\n  \"image\": \"https://wanew.com/static/upload/down/e7cc776bf5.jpg\",\n  \"category\": \"Standard Actuated\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Standard Actuated\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

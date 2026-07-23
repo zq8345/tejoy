@@ -20,21 +20,21 @@
   "images": [
     {
       "src": "/static/upload/down/bcdb1e570e.jpg",
-      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - tejoy"
+      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - wanew"
     },
     {
       "src": "/static/upload/down/251904c577.jpg",
-      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - tejoy"
+      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - wanew"
     },
     {
       "src": "/static/upload/down/d1fe0e1f62.jpg",
-      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - tejoy"
+      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - wanew"
     },
     {
       "src": "/static/upload/down/c2561d485a.jpg",
-      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - tejoy"
+      "alt": "For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable\",\n  \"description\": \"ConnectorStarlink MINI DC (5.5*2.1) *1, Standard Cat6 RJ45 *1, T568B wiring standardPin ConfigurationPositive (Pin+): 1, 2, 3, 6; Negative (Pin-): 4, 5, 7, 8CableCAT5E cable (26AWG), 8-core wire (4 red + 4 black), gray PVC outer sheath, male connector cable\",\n  \"image\": \"https://wanew.com/static/upload/down/65e884715a.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Mini Cable Starlink POE Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable\",\n  \"description\": \"ConnectorStarlink MINI DC (5.5*2.1) *1, Standard Cat6 RJ45 *1, T568B wiring standardPin ConfigurationPositive (Pin+): 1, 2, 3, 6; Negative (Pin-): 4, 5, 7, 8CableCAT5E cable (26AWG), 8-core wire (4 red + 4 black), gray PVC outer sheath, male connector cable\",\n  \"image\": \"https://wanew.com/static/upload/down/65e884715a.jpg\",\n  \"category\": \"Mini\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Mini\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

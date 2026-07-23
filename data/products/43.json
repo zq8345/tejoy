@@ -26,37 +26,37 @@
   "images": [
     {
       "src": "/static/upload/image/20260428/1777338223949419.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338223778154.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338224955704.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338223840880.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338224212026.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338224519150.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338224584808.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260428/1777338224264281.jpg",
-      "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - tejoy"
+      "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Performance Gen 3 Ethernet Adapter, For Starlink Performance Gen 3 Cable Extension to RJ45 Coupler Waterproof Compatible with Starlink Performance Gen 3 Dish (1 Pack) 23AWG\",\n  \"description\": \"*Compatibility:Designed specifically for the Starlink Performance Gen 3 dish, this Ethernet adapter enables a direct connection from the Starlink Performance Gen 3 Ethernet cables. Perfect for anyone seeking a reliable, high-performance connection.*Seamless Plug-and-Play Integration:This Starlink Et\",\n  \"image\": \"https://wanew.com/static/upload/image/20260428/1777338187401965.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Performance Gen 3 Ethernet Adapter, For Starlink Performance Gen 3 Cable Extension to RJ45 Coupler Waterproof Compatible with Starlink Performance Gen 3 Dish (1 Pack) 23AWG\",\n  \"description\": \"*Compatibility:Designed specifically for the Starlink Performance Gen 3 dish, this Ethernet adapter enables a direct connection from the Starlink Performance Gen 3 Ethernet cables. Perfect for anyone seeking a reliable, high-performance connection.*Seamless Plug-and-Play Integration:This Starlink Et\",\n  \"image\": \"https://wanew.com/static/upload/image/20260428/1777338187401965.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Performance (Gen 3)\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

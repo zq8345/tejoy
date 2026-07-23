@@ -26,21 +26,21 @@
   "images": [
     {
       "src": "/static/upload/image/20260522/1779412638932645.png",
-      "alt": "31.png - tejoy"
+      "alt": "31.png - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779412654270322.jpg",
-      "alt": "1.jpg - tejoy"
+      "alt": "1.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779412655148911.jpg",
-      "alt": "duibi.jpg - tejoy"
+      "alt": "duibi.jpg - wanew"
     },
     {
       "src": "/static/upload/image/20260522/1779412655747923.png",
-      "alt": "场景1.png - tejoy"
+      "alt": "场景1.png - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Pipe Mount Adapter for Starlink Gen 3, Heavy Duty Aluminum Alloy Pole Mount Kit for V3 Dish, Roof & Wall Installation\",\n  \"description\": \"Ultimate Compatibility for Starlink Gen 3This adapter is specifically designed to fit the Starlink Gen 3 (V3) standard dish antenna perfectly. It provides a seamless interface between your Starlink hardware and any standard diameter pipe or pole, solving the challenge of mounting the third-generatio\",\n  \"image\": \"https://wanew.com/static/upload/image/20260523/1779504372294321.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Pipe Mount Adapter for Starlink Gen 3, Heavy Duty Aluminum Alloy Pole Mount Kit for V3 Dish, Roof & Wall Installation\",\n  \"description\": \"Ultimate Compatibility for Starlink Gen 3This adapter is specifically designed to fit the Starlink Gen 3 (V3) standard dish antenna perfectly. It provides a seamless interface between your Starlink hardware and any standard diameter pipe or pole, solving the challenge of mounting the third-generatio\",\n  \"image\": \"https://wanew.com/static/upload/image/20260523/1779504372294321.jpg\",\n  \"category\": \"Performance (Gen 3)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Performance (Gen 3)\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

@@ -26,33 +26,33 @@
   "images": [
     {
       "src": "/static/upload/down/63add80afc.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/e0c9cca3f7.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/a91b269681.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/a38371a1ce.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/3bddf5fbf2.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/7218be6ff2.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     },
     {
       "src": "/static/upload/down/8dd7023376.jpg",
-      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - tejoy"
+      "alt": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack) - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack)\",\n  \"description\": \"Seamless Ethernet Conversion: Easily convert Starlink Flat High Performance connector to a standard RJ45 port, allowing you to use high-quality 22AWG or better cables for extended connectionsExtended Cable Compatibility: Supports up to 50 meters of 22AWG CAT6 cable for high-speed data transmission,\",\n  \"image\": \"https://wanew.com/static/upload/down/610ebfd608.jpg\",\n  \"category\": \"Enterprise\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack)\",\n  \"description\": \"Seamless Ethernet Conversion: Easily convert Starlink Flat High Performance connector to a standard RJ45 port, allowing you to use high-quality 22AWG or better cables for extended connectionsExtended Cable Compatibility: Supports up to 50 meters of 22AWG CAT6 cable for high-speed data transmission,\",\n  \"image\": \"https://wanew.com/static/upload/down/610ebfd608.jpg\",\n  \"category\": \"Enterprise\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Enterprise\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }

@@ -26,25 +26,25 @@
   "images": [
     {
       "src": "/static/upload/down/c65049683b.jpg",
-      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - tejoy"
+      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - wanew"
     },
     {
       "src": "/static/upload/down/67c1bac871.jpg",
-      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - tejoy"
+      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - wanew"
     },
     {
       "src": "/static/upload/down/bd22751fc1.jpg",
-      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - tejoy"
+      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - wanew"
     },
     {
       "src": "/static/upload/down/18dabe7660.jpg",
-      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - tejoy"
+      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - wanew"
     },
     {
       "src": "/static/upload/down/771722bd24.jpg",
-      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - tejoy"
+      "alt": "Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use - wanew"
     }
   ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use\",\n  \"description\": \"Designed for Starlink High Performance System: This cable is a direct replacement for the Starlink Cable that connects the Starlink High Performance antenna to the power supply. It plugs into the left-side port of the power supply, ensuring full compatibility and stable performance.Available in 3 Le\",\n  \"image\": \"https://wanew.com/static/upload/down/0e170191f8.jpg\",\n  \"category\": \"Performance (Gen 1)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"tejoy\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
+  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Cable for Starlink High Performance , Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use\",\n  \"description\": \"Designed for Starlink High Performance System: This cable is a direct replacement for the Starlink Cable that connects the Starlink High Performance antenna to the power supply. It plugs into the left-side port of the power supply, ensuring full compatibility and stable performance.Available in 3 Le\",\n  \"image\": \"https://wanew.com/static/upload/down/0e170191f8.jpg\",\n  \"category\": \"Performance (Gen 1)\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"wanew\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"availability\": \"https://schema.org/InStock\",\n    \"url\": \"https://wanew.com\"\n  }\n}\n",
   "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Performance (Gen 1)\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
 }
