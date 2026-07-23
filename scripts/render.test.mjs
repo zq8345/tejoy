@@ -26,14 +26,14 @@ const enabled = LOCALES.enabled;
 console.log("\n【① canonical 必须是每页自己的路径】 —— 曾把 11 个信息页全部规范化到首页:");
 ok("每页 canonical 用自己的 path",
   renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "en", catalog: cat, urlOf, path: "/faq/", dirOf, enabled })
-    .includes('href="https://tejoy.com/faq/"'));
+    .includes('href="https://wanew.com/faq/"'));
 ok("pt 加 /pt 前缀",
   renderPage('<link rel="canonical" href="{{CANONICAL}}" />', { locale: "pt-BR", catalog: cat, urlOf, path: "/faq/", dirOf, enabled })
-    .includes('href="https://tejoy.com/pt/faq/"'));
+    .includes('href="https://wanew.com/pt/faq/"'));
 throws("path 形状不对就炸(而不是悄悄当成首页)",
   () => renderPage("{{CANONICAL}}", { locale: "en", catalog: cat, urlOf, path: "faq", dirOf, enabled }), /path 必须形如/);
 ok("breadcrumb 首页 URL 与本页 URL 是两个不同的 token",
-  renderPage('{{HOME_URL}}|{{CANONICAL}}', { locale: "en", catalog: cat, urlOf, path: "/faq/", dirOf, enabled }) === "https://tejoy.com|https://tejoy.com/faq/");
+  renderPage('{{HOME_URL}}|{{CANONICAL}}', { locale: "en", catalog: cat, urlOf, path: "/faq/", dirOf, enabled }) === "https://wanew.com|https://wanew.com/faq/");
 
 // ⭐ 第三门语言。原来这里是 `locale === "en" ? path : "/pt" + path` —— 一个【二元】判据:
 //   凡不是 en 的一律当 pt。它在只有两门语言时【永远是对的】,所以两轮全绿都没照出来;
@@ -43,9 +43,9 @@ console.log("\n【①b 第三门语言】 —— 二元判据(en / 非 en)在只
 {
   const esOut = renderPage('<link rel="canonical" href="{{CANONICAL}}" />|{{HOME_URL}}',
     { locale: "es-MX", catalog: cat, urlOf, path: "/faq/", dirOf, enabled });
-  ok("es canonical 指向 /es/,不是 /pt/", esOut.includes('href="https://tejoy.com/es/faq/"'), esOut);
+  ok("es canonical 指向 /es/,不是 /pt/", esOut.includes('href="https://wanew.com/es/faq/"'), esOut);
   ok("es 页里绝不出现 /pt/", !esOut.includes("/pt/"), esOut);
-  ok("es 的 HOME_URL 也是派生的", esOut.endsWith("https://tejoy.com/es/"), esOut);
+  ok("es 的 HOME_URL 也是派生的", esOut.endsWith("https://wanew.com/es/"), esOut);
 }
 throws("不传 dirOf 就炸 —— 缺省回落到 'pt' 正是要根除的那个 bug",
   () => renderPage("{{CANONICAL}}", { locale: "es-MX", catalog: cat, urlOf, path: "/faq/", enabled }), /必须传 dirOf/);
