@@ -1,5 +1,5 @@
 // Admin API — every /api/admin/* is gated by a verified Cloudflare Access JWT.
-// Hard gate acceptance: `curl https://tejoy.com/api/admin/...` with no Access token => 401.
+// Hard gate acceptance: `curl https://wanew.com/api/admin/...` with no Access token => 401.
 // Read routes are live now; write/publish (GitHub API + regen) land in the next increment.
 import { verifyAccessJwt, deny } from "../../_lib/access-jwt.js";
 import { render, genRelated, resolveImg, regenListPage, excerptOf } from "../../_lib/render.js";

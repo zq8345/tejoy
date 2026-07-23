@@ -85,8 +85,8 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   // canonical is the dangerous one: a pt page canonical'd to the EN page tells Google not to index
   // pt at all, and no check I own would go red. (r2-report.md §7 lists the full set.)
   const path = `/${prod.category}/${prod.id}`;
-  const canonical = `https://tejoy.com${urlOf ? urlOf(path, locale) : path}`;
-  const enUrl = `https://tejoy.com${path}`;
+  const canonical = `https://wanew.com${urlOf ? urlOf(path, locale) : path}`;
+  const enUrl = `https://wanew.com${path}`;
   // ⭐ 原来这里只发三条:en、【自己】、x-default —— 也就是"只认对侧"的二元形状。es 上线后,
   //   一个 pt 产品页会闭口不提它有西语版,反之亦然。hreflang 是互指的,漏一边等于没挂。
   //   → 每一门 enabled 语种都发,当且仅当【它那边真的有这个页】(urlOf 原样还回来 = 没有)。
@@ -95,7 +95,7 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
   const hreflang = urlOf && locale !== "en" && Array.isArray(enabled) && enabled.length
     ? enabled
         .filter((loc) => loc === "en" || urlOf(path, loc) !== path)
-        .map((loc) => `\n<link rel="alternate" hreflang="${loc}" href="https://tejoy.com${urlOf(path, loc)}" />`)
+        .map((loc) => `\n<link rel="alternate" hreflang="${loc}" href="https://wanew.com${urlOf(path, loc)}" />`)
         .join("") + `\n<link rel="alternate" hreflang="x-default" href="${enUrl}" />`
     : "";
   const reps = {
@@ -246,23 +246,23 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/", dirOf, ena
   if (typeof dirOf !== "function") throw new Error("renderPage: 必须传 dirOf(locale) —— 目录名从 locales.json 派生,缺省回落到 'pt' 正是要根除的那个 bug");
   if (!Array.isArray(enabled) || !enabled.length) throw new Error("renderPage: 必须传 enabled(locales.json 的 enabled) —— hreflang 的语种集合不许在这里写死");
   // ⛔ canonical 必须是【每页自己的】路径。第一版我把首页的逻辑当成了通用的(写死 "/"),于是
-  // 11 个信息页的 canonical 全指向 https://tejoy.com/ —— 等于告诉 Google 这 11 个页不该被单独
+  // 11 个信息页的 canonical 全指向 https://wanew.com/ —— 等于告诉 Google 这 11 个页不该被单独
   // 收录。它不报错、不白屏、页面看着完全正常,只会在几周后表现为"这些页从搜索结果消失了",
   // 而那时没人会联想到这次重构。(c)(d)(e) 复用这台机器,所以它是断言,不是"我记得"。
   if (!path.startsWith("/") || !path.endsWith("/")) throw new Error(`renderPage: path 必须形如 "/slug/",拿到 ${JSON.stringify(path)}`);
   const pre = (loc) => { const d = dirOf(loc); return d ? `/${d}` : ""; };   // "" | "/pt" | "/es"
   const self = `${pre(locale)}${path}`;
-  const enUrl = `https://tejoy.com${path}`;
+  const enUrl = `https://wanew.com${path}`;
   const reps = {
     HTML_LANG: locale,
-    CANONICAL: `https://tejoy.com${self}`,
+    CANONICAL: `https://wanew.com${self}`,
     // breadcrumb 的 position 1 指【首页】,position 2 才指本页 —— 两件不同的东西,我第一版
     // 把它们合成了一个 token,于是 /faq/ 的面包屑第一级指向了 /faq/ 自己。
     // 首页恰好两者相同,所以这个错在 (a) 里完全不可见 —— 又一次:重复不可见的那一侧最会骗人。
     // 默认语种没有前缀 -> 站点根(无尾斜杠);有前缀的 -> 前缀 + 尾斜杠。判据是"有没有目录",
     // 不是"是不是 en" —— 同一条规则,不再点名任何一门语言。
-    HOME_URL: pre(locale) ? `https://tejoy.com${pre(locale)}/` : "https://tejoy.com",
-    CANONICAL_NOSLASH: self === "/" ? "https://tejoy.com" : `https://tejoy.com${self}`,
+    HOME_URL: pre(locale) ? `https://wanew.com${pre(locale)}/` : "https://wanew.com",
+    CANONICAL_NOSLASH: self === "/" ? "https://wanew.com" : `https://wanew.com${self}`,
     OG_LOCALE: locale === "en" ? "" : `\n<meta property="og:locale" content="${locale.replace("-", "_")}" />`,
     // hreflang 由 route 算出来,【每一门 enabled 语种都发】—— hreflang 本来就是互指的,
     // 只在一侧挂等于没挂。现网 en 侧【时有时无】(en/about 就没有),pt 侧齐全:又是 pt 对、
@@ -276,7 +276,7 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/", dirOf, ena
       enabled
         // urlOf 把 p 原样还回来 = "该语种没有这个页" —— 复用它,不另造一个 exists 参数。
         .filter((loc) => !pre(loc) || urlOf(path, loc) !== path)
-        .map((loc) => `<link rel="alternate" hreflang="${loc}" href="https://tejoy.com${urlOf(path, loc)}" />`)
+        .map((loc) => `<link rel="alternate" hreflang="${loc}" href="https://wanew.com${urlOf(path, loc)}" />`)
         .concat(`<link rel="alternate" hreflang="x-default" href="${enUrl}" />`).join("\n"),
   };
   for (const [k, v] of Object.entries(reps)) out = out.split(`{{${k}}}`).join(v);
