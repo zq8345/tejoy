@@ -5312,6 +5312,9 @@ html body .main-header .main-menu .main-menu__list > li.current > a {
    图心比容器中心高 4px。display:block 消空隙 -> 容器高=图高 -> translateY(-50%) 自然对中,
    各断点通用(原则修非魔数; 总工真机 translateY(+4px) 交叉验证幅度一致)。 */
 .main-menu-wrapper__logo a img { display: block; }
+/* W2c-d(总工真机第二层诊断): a 仍 inline-block 在 div 行盒里 -> descender 又垫 ~7.9px(div 37.86 vs a 30),
+   translateY(-50%) 居中的还是"锚+空隙"。同病根第二层: a 也 block -> div 高=a 高=img 高,链条闭合。 */
+.main-menu-wrapper__logo a { display: block; }
 
 /* logo pointer fix (robust): the nav wrapper (.main-menu-wrapper__main-menu, ~1127px
    wide, static) overlaps the absolutely-positioned logo and swallowed REAL mouse
