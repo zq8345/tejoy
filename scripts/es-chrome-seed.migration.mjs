@@ -57,7 +57,7 @@ const ES = {
   'header.wanew_premium_starlink_accessories': ['Wanew | Accesorios Premium para Starlink', SL + '「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)'],
 
   /* ── mobilenav ──────────────────────────────────────────────────────── */
-  'mobilenav.hello_wanew_com': ['hello@tejoy.com', FB + 'e-mail 地址 / 代码值'],
+  'mobilenav.hello_wanew_com': ['hello@wanew.com', FB + 'e-mail 地址 / 代码值'],
   'mobilenav.logo_image': ['Inicio', J + '⭐这是 alt 文本。en 的「logo image」是个废 alt(描述了图片是什么,没说它去哪);pt 已改成「Página inicial」= 有用的 alt。es 同构'],
 
   /* ── footer ─────────────────────────────────────────────────────────── */
@@ -69,12 +69,12 @@ const ES = {
   'footer.performance_gen_1': ['Performance (Gen 1)', FB + '型号名'],
   'footer.performance_gen_3': ['Performance (Gen 3)', FB + '型号名'],
   'footer.enterprise': ['Enterprise', FB + '型号名'],
-  'footer.wanew_starlink_accessories_limited': ['TEJOY STARLINK ACCESSORIES LIMITED', FB + '注册法律实体名'],
+  'footer.wanew_starlink_accessories_limited': ['Wanew Starlink Accessories', FB + '注册法律实体名'],
   'footer.address_no_62_baotian_1st_road_xix': [
     'Dirección: No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong, China',
     J + '⭐只译标签「Address:」,地址本体【保持英文】—— 它是投递用的物理地址,译了没人能用。pt 同此处理',
   ],
-  'footer.e_mail_hello_wanew_com': ['Correo: hello@tejoy.com', SL + '「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**'],
+  'footer.e_mail_hello_wanew_com': ['Correo: hello@wanew.com', SL + '「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**'],
   'footer.about_us': ['- Acerca de nosotros', J + '语法确定'],
   'footer.products': ['- Productos', SL + 'producto 坐实'],
   'footer.industry': ['- Sectores', J + 'industry(行业板块)= sector;与 header.industry_hub 一致'],

@@ -178,9 +178,9 @@
     "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— accesorios 坐实。长度与 pt 同构(截短版)"
   },
   "mobilenav.hello_wanew_com": {
-    "en": "hello@tejoy.com",
-    "pt-BR": "hello@tejoy.com",
-    "es-MX": "hello@tejoy.com",
+    "en": "hello@wanew.com",
+    "pt-BR": "hello@wanew.com",
+    "es-MX": "hello@wanew.com",
     "reason.es-MX": "fallback: e-mail 地址 / 代码值",
     "reason": "fallback: e-mail address / code value"
   },
@@ -246,9 +246,9 @@
     "reason": "fallback: model name"
   },
   "footer.wanew_starlink_accessories_limited": {
-    "en": "TEJOY STARLINK ACCESSORIES LIMITED",
-    "pt-BR": "TEJOY STARLINK ACCESSORIES LIMITED",
-    "es-MX": "TEJOY STARLINK ACCESSORIES LIMITED",
+    "en": "Wanew Starlink Accessories",
+    "pt-BR": "Wanew Starlink Accessories",
+    "es-MX": "Wanew Starlink Accessories",
     "reason.es-MX": "fallback: 注册法律实体名",
     "reason": "fallback: brand / registered legal entity name"
   },
@@ -259,9 +259,9 @@
     "reason.es-MX": "判断:⭐只译标签「Address:」,地址本体【保持英文】—— 它是投递用的物理地址,译了没人能用。pt 同此处理"
   },
   "footer.e_mail_hello_wanew_com": {
-    "en": "E-mail：hello@tejoy.com",
-    "pt-BR": "E-mail: hello@tejoy.com",
-    "es-MX": "Correo: hello@tejoy.com",
+    "en": "E-mail：hello@wanew.com",
+    "pt-BR": "E-mail: hello@wanew.com",
+    "es-MX": "Correo: hello@wanew.com",
     "reason.es-MX": "证据 Starlink MX「Reciba novedades de Starlink por correo electrónico」—— ⭐correo 坐实,**不是 Email**"
   },
   "footer.about_us": {

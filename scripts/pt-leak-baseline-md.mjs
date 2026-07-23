@@ -147,7 +147,7 @@ ${markersSrc}
 ### 调优时抓到的 3 个真 bug（否则报告全是噪音／漏报）
 1. **词边界必须含重音字母** — 否则 \`transferência\` 被切成 \`transfer\` → 假阳性。
 2. **多词白名单必须排在单词之前** — 否则 \`\\bStarlink\\b\` 先吃掉中间词，
-   \`TEJOY STARLINK ACCESSORIES LIMITED\`（法定公司名）永远匹配不上（假阳性 212→29）。
+   \`Wanew Starlink Accessories\`（法定公司名）永远匹配不上（假阳性 212→29）。
 3. **类②盲区**（dev 结构分析发现）— 可见文本扫不到 href；死链检查也放行（英文页真实存在）→ 补了类②。
 
 ---
