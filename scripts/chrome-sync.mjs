@@ -63,6 +63,13 @@ for (const p of pages) {
   if (WRITE) fs.writeFileSync(p, crlf ? html.replace(/\n/g, "\r\n") : html);
 }
 
+// #52 批2：维护全站页面清单（admin-worker 的 pageExists 数据源——Worker 无 fs，applyChrome 的
+// 存在性规则靠它。与产物同源同 commit：walk 是清单的唯一真源，人手不维护）。
+if (WRITE) {
+  const list = pages.slice().sort();
+  fs.writeFileSync("data/pages-list.json", JSON.stringify(list) + "\n");
+}
+
 console.log(`chrome-sync [${WRITE ? "WRITE" : "dry"}]  页面 ${pages.length}  |  字节不变 ${identical}  |  变更 ${changed}(其中纯空白 ${wsOnly})`);
 if (errors.length) { console.log(`\n🔴 错误 ${errors.length}:`); for (const e of errors.slice(0, 10)) console.log("   " + e); }
 const contentChanged = report.filter((r) => r.kind === "content");
