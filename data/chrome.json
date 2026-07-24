@@ -530,5 +530,12 @@
     "es-MX": "Siguiente imagen",
     "reason": "W3 详情页画廊按钮 aria-label —— 同 body.gallery.prev",
     "reason.es-MX": "判断:语法确定"
+  },
+  "header.solutions": {
+    "en": "Solutions",
+    "pt-BR": "Soluções",
+    "es-MX": "Soluciones",
+    "reason": "W3 导航信息架构:场景入口(Marine/RV/Industrial)从 Guides 拆出成一级",
+    "reason.es-MX": "判断:语法确定(B2B 站通用导航词)"
   }
 }
