@@ -537,5 +537,12 @@
     "es-MX": "Soluciones",
     "reason": "W3 导航信息架构:场景入口(Marine/RV/Industrial)从 Guides 拆出成一级",
     "reason.es-MX": "判断:语法确定(B2B 站通用导航词)"
+  },
+  "body.request_quote": {
+    "en": "Request a quote",
+    "pt-BR": "Solicite um orçamento",
+    "es-MX": "Solicita una cotización",
+    "reason": "W3 定位升维:全站统一转化 CTA=询盘(总工派单原文 Get in Touch / Request a Quote)。放 chrome 因 home 与 product 模板都要引",
+    "reason.es-MX": "⚠️ 与 body.send_inquiry 的旧签注(inquiry=consulta 非 cotización)有意分道:当时反对的是\"承诺给不了的报价单\",现在批发询价即报价是业务本体(Joe 定调 B2B 询盘转化)。待母语复核"
   }
 }

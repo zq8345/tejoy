@@ -1,8 +1,8 @@
 {
   "home.hero.title": {
-    "en": "Built for every Starlink terminal.",
-    "pt-BR": "Fabricados para cada terminal Starlink.",
-    "es-MX": "Fabricados para cada terminal Starlink."
+    "en": "Starlink Accessories One-stop Solution",
+    "pt-BR": "Solução completa em acessórios para Starlink",
+    "es-MX": "Solución integral en accesorios para Starlink"
   },
   "home.hero.subtitle": {
     "en": "Accessories for every Starlink model — mounts, cables, power adapters, and more.",
@@ -176,14 +176,9 @@
     "es-MX": "Ver todas las guías →"
   },
   "home.hero.eyebrow": {
-    "en": "Starlink Accessories One-stop Solution",
-    "pt-BR": "Solução completa em acessórios para Starlink",
-    "es-MX": "Solución integral en accesorios para Starlink"
-  },
-  "home.hero.cta2": {
-    "en": "Get wholesale price list",
-    "pt-BR": "Solicite a tabela de preços de atacado",
-    "es-MX": "Solicita la lista de precios mayoristas"
+    "en": "Independent manufacturer · OEM/ODM",
+    "pt-BR": "Fabricante independente · OEM/ODM",
+    "es-MX": "Fabricante independiente · OEM/ODM"
   },
   "home.trust.cert.v": {
     "en": "FCC · CE · RoHS",
@@ -199,11 +194,6 @@
     "en": "Browse by type",
     "pt-BR": "Explore por tipo",
     "es-MX": "Explora por tipo"
-  },
-  "home.field.kick": {
-    "en": "Solutions",
-    "pt-BR": "Soluções",
-    "es-MX": "Soluciones"
   },
   "home.field.h2": {
     "en": "Field-proven, wherever you run Starlink",
@@ -229,5 +219,35 @@
     "en": "Talk to an engineer",
     "pt-BR": "Fale com um engenheiro",
     "es-MX": "Habla con un ingeniero"
+  },
+  "home.hero.serving": {
+    "en": "Serving Starlink users in 130+ countries — mounts, cables, power and networking for every terminal generation.",
+    "pt-BR": "Atendemos usuários Starlink em mais de 130 países — suportes, cabos, energia e redes para todas as gerações de terminal.",
+    "es-MX": "Atendemos a usuarios de Starlink en más de 130 países — soportes, cables, energía y redes para todas las generaciones de terminal."
+  },
+  "home.scene.rv": {
+    "en": "RV",
+    "pt-BR": "Motorhome",
+    "es-MX": "Casa rodante"
+  },
+  "home.scene.home_roof": {
+    "en": "Home &amp; Roof",
+    "pt-BR": "Casa e telhado",
+    "es-MX": "Hogar y techo"
+  },
+  "home.scene.offgrid": {
+    "en": "Off-Grid",
+    "pt-BR": "Off-grid",
+    "es-MX": "Off-grid"
+  },
+  "home.scene.business": {
+    "en": "Business",
+    "pt-BR": "Empresas",
+    "es-MX": "Empresas"
+  },
+  "home.entry.compat": {
+    "en": "Not sure which Starlink you have? Check the compatibility guide",
+    "pt-BR": "Não sabe qual Starlink você tem? Veja o guia de compatibilidade",
+    "es-MX": "¿No sabes cuál Starlink tienes? Consulta la guía de compatibilidad"
   }
 }
