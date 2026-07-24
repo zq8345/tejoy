@@ -83,7 +83,7 @@ const ES = {
   'footer.video': ['- Videos', '⭐墨西哥特征: 无重音,与 header.video 一致'],
   'footer.contact_us': ['- Contacto', J + '语法确定'],
   'footer.copyright_2026_wanew_starlink_acce': [
-    'Copyright  ©  2026 Wanew Starlink Accessories Limited. Todos los derechos reservados.\nWanew fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.',
+    'Copyright  ©  2026 Wanew Starlink Accessories. Todos los derechos reservados.\nWanew fabrica accesorios de terceros compatibles con Starlink. No está afiliada a SpaceX ni a Starlink.',
     '⭐免责声明 —— ' + SL + '「Starlink es una división de SpaceX」句式;accesorios 坐实。**这条是合规文案,含义不能漂**:third-party=de terceros / compatible=compatibles con / not affiliated=no está afiliada',
   ],
   'footer.xml': ['XML', FB + '格式名 / 代码值'],

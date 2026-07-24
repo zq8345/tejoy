@@ -1,2 +1,5 @@
 _*.mjs
 _*.json
+
+# wrangler dev cache (admin-worker local dev artifact)
+.wrangler/

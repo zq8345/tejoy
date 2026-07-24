@@ -29,8 +29,10 @@ const MAX = MAX_IX >= 0 ? Number(process.argv[MAX_IX + 1]) : Infinity;
 /* ─────────── 白名单: 合法保持英文 (多词优先, 顺序=先长后短) ─────────── */
 const WHITELIST = [
   // ⚠️ 多词条目必须排在单词之前, 否则单词条目(如 \bStarlink\b)会先把中间词剔掉, 多词就再也匹配不上
-  // 法定公司名 (注册名必须英文)
-  /\bWANEW\s+STARLINK\s+ACCESSORIES\s+LIMITED\b/gi, /\bWanew\s+Starlink\s+Accessories\s+Limited\b/gi,
+  // 品牌全称 (W2e:Joe 口径=假法名「…Limited」不再造,词条跟着改成 3 词品牌名。
+  //  故意【不】保留旧 4 词条目:若「…Limited」重现,不该被白名单静默——多出的 Limited 自己不报警,
+  //  但至少不是这里主动豁免的。真法名 WanLiu Group Co., Limited 另有绝不动的豁免约定。)
+  /\bWanew\s+Starlink\s+Accessories\b/gi,
   // 机型 / 产品线 (多词在前)
   /\bStandard\s+Actuated\b/gi, /\bStandard\s+Circular\b/gi, /\bFlat\s+High[-\s]Performance\b/gi,
   /\bHigh[-\s]Performance\b/gi, /\bPerformance\s*\(?\s*Gen\s*\d\s*\)?/gi, /\bGen\s*\d\b/gi,
