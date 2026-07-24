@@ -20,6 +20,16 @@ function deleteScriptWith(html, marker) {
   return html.slice(0, s) + html.slice(e + 9);
 }
 
+// W2d：清除历史内联切换器样式块（phase2 时代逐页注入的 <style>，块内注释原话就说
+// "move to tejoy-redesign.css at global rollout"——W2d 即那次 rollout，样式已进 v57）。
+// 与 deleteScriptWith 同族：常驻清理，漏网页面在每次 sync 时被扶正。
+function deleteStyleWith(html, marker) {
+  const m = html.indexOf(marker); if (m < 0) return html;
+  const s = html.lastIndexOf("<style", m), e = html.indexOf("</style>", m);
+  if (s < 0 || e < 0) return html;
+  return html.slice(0, s) + html.slice(e + 8);
+}
+
 const ORPHAN_COMMENTS = [
   "<!-- 多语言页脚数据：所有语言的 Products 和 Service 子分类 -->",
   "<!-- 多语言Home/首页客户端翻译（放在body尾部确保DOM已就绪） -->",
@@ -42,7 +52,8 @@ export function makeChrome({ catalog, locales, partial, manifest, pageExists, lo
     if (!m) throw new Error(`partial 缺 #block:${name}`);
     return m[1];
   };
-  const BLOCKS = { header: block("header"), switcher: block("switcher"), footer: block("footer"), mobilenav: block("mobilenav") };
+  const BLOCKS = { header: block("header"), switcher: block("switcher"), switcheritem: block("switcheritem"),
+    switchercurrent: block("switchercurrent"), footer: block("footer"), mobilenav: block("mobilenav") };
 
   const LOCALES = locales.enabled;
   const DEFAULT_LOC = locales.default;
@@ -97,18 +108,24 @@ export function makeChrome({ catalog, locales, partial, manifest, pageExists, lo
     const dirSelf = LOC_DIR[locale];
     const enPath = "/" + (dirSelf ? pagePath.slice(dirSelf.length + 1) : pagePath).replace(/index\.html$/, "").replace(/\.html$/, "");
 
-    const others = LOCALES.filter((loc) => loc !== locale).map((loc) => {
+    // W2d：切换器=🌐悬停菜单，恒列全部语言。当前语言=高亮不可点(span)；其它语言=对应页存在→
+    // 对应页，不存在→该语言首页兜底（存在性规则只决定 href，不再决定条目有无）。
+    const items = LOCALES.map((loc) => {
+      const short = loc.split("-")[0];
+      const label = pick(`switcher.code.${short}`, locale);
+      if (loc === locale)
+        return renderBlock(BLOCKS.switchercurrent, locale, {}).replace(/\{\{sw\.([a-z]+)\}\}/g, () => label);
       const dir = LOC_DIR[loc] ?? "";
       const rel = dir ? `${dir}${enPath}` : enPath.slice(1);
       const file = !rel || rel.endsWith("/") ? `${rel}index.html` : `${rel}.html`;
-      if (!pageExists(file)) return null;
-      const short = loc.split("-")[0];
-      return { href: dir ? `/${dir}${enPath}` : enPath, hreflang: loc,
-        label: pick(`switcher.code.${short}`, locale), aria: pick(`switcher.aria.to_${short}`, locale) };
-    }).filter(Boolean);
-    const switcher = others
-      .map((o) => renderBlock(BLOCKS.switcher, locale, o).replace(/\{\{sw\.([a-z]+)\}\}/g, (m, k) => o[k]))
-      .join("\n          ");
+      const o = { href: pageExists(file) ? (dir ? `/${dir}${enPath}` : enPath) : (dir ? `/${dir}/` : "/"),
+        hreflang: loc, label, aria: pick(`switcher.aria.to_${short}`, locale) };
+      return renderBlock(BLOCKS.switcheritem, locale, {}).replace(/\{\{sw\.([a-z]+)\}\}/g, (m, k) => o[k]);
+    });
+    const switcher = renderBlock(BLOCKS.switcher, locale, {
+      current_code: pick(`switcher.code.${locale.split("-")[0]}`, locale),
+      items: items.join("\n            "),
+    });
 
     let html = html0;
     for (const [name, a, b, inc] of ANCHORS) {
@@ -121,6 +138,7 @@ export function makeChrome({ catalog, locales, partial, manifest, pageExists, lo
     }
     html = deleteScriptWith(html, "var FOOTER_LANGS");
     html = deleteScriptWith(html, "function getCookie");
+    html = deleteStyleWith(html, ".lang-switch{position");
     for (const c of ORPHAN_COMMENTS) html = html.split(c).join("");
     return { html, errors, locale };
   }

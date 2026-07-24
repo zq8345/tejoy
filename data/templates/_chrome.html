@@ -70,8 +70,18 @@
      门是对的,是我脏了 partial。说明写在块【外】,或者写在 chrome-sync 的代码里。 -->
 <!-- #block:switcher -->
 <div class="lang-switch" data-lang-switch>
-            <a href="{{sw.href}}" class="lang-switch__link" hreflang="{{sw.hreflang}}" aria-label="{{sw.aria}}"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>{{sw.label}}</span></a>
+            <button type="button" class="lang-switch__btn" aria-haspopup="true" aria-label="{{t.switcher.aria.menu}}"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>{{var.current_code}}</span><svg class="lang-switch__caret" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <ul class="lang-switch__menu">
+            {{var.items}}
+            </ul>
+            <script>(function(){var s=document.currentScript.parentNode,b=s.querySelector(".lang-switch__btn");b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){b.setAttribute("aria-expanded",s.classList.toggle("is-open")?"true":"false")});document.addEventListener("click",function(e){if(!s.contains(e.target)){s.classList.remove("is-open");b.setAttribute("aria-expanded","false")}})})();</script>
           </div>
+<!-- #endblock -->
+<!-- #block:switcheritem -->
+<li><a href="{{sw.href}}" class="lang-switch__link" hreflang="{{sw.hreflang}}" aria-label="{{sw.aria}}">{{sw.label}}</a></li>
+<!-- #endblock -->
+<!-- #block:switchercurrent -->
+<li><span class="lang-switch__link is-current" aria-current="true">{{sw.label}}</span></li>
 <!-- #endblock -->
 <!-- #block:footer -->
 <footer class="site-footer">

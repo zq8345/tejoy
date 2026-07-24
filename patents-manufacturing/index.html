@@ -166,17 +166,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 <link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=56" />
+<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
-<style>
-/* Seletor de idioma (EN/PT) — provisório inline no protótipo; migrar para tejoy-redesign.css na fase de rollout global */
-.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
-.lang-switch__link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;transition:all .2s ease}
-.lang-switch__link:hover{background:#fff;color:#111;border-color:#fff}
-.lang-switch__link svg{flex:0 0 auto}
-@media (max-width:1199px){.lang-switch{position:static;grid-column:2;justify-self:end;transform:none;right:auto;margin:0}}
-</style>
 </head>
 <body>
 <div class="page-wrapper">
@@ -234,10 +226,13 @@
             </li>
           </ul>
           <div class="lang-switch" data-lang-switch>
-            <a href="/pt/patents-manufacturing/" class="lang-switch__link" hreflang="pt-BR" aria-label="View this page in Portuguese"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>PT</span></a>
-          </div>
-          <div class="lang-switch" data-lang-switch>
-            <a href="/es/patents-manufacturing/" class="lang-switch__link" hreflang="es-MX" aria-label="View this page in Spanish"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>ES</span></a>
+            <button type="button" class="lang-switch__btn" aria-haspopup="true" aria-label="Select language"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span><svg class="lang-switch__caret" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <ul class="lang-switch__menu">
+            <li><span class="lang-switch__link is-current" aria-current="true">EN</span></li>
+            <li><a href="/pt/patents-manufacturing/" class="lang-switch__link" hreflang="pt-BR" aria-label="View this page in Portuguese">PT</a></li>
+            <li><a href="/es/patents-manufacturing/" class="lang-switch__link" hreflang="es-MX" aria-label="View this page in Spanish">ES</a></li>
+            </ul>
+            <script>(function(){var s=document.currentScript.parentNode,b=s.querySelector(".lang-switch__btn");b.setAttribute("aria-expanded","false");b.addEventListener("click",function(){b.setAttribute("aria-expanded",s.classList.toggle("is-open")?"true":"false")});document.addEventListener("click",function(e){if(!s.contains(e.target)){s.classList.remove("is-open");b.setAttribute("aria-expanded","false")}})})();</script>
           </div>
                      <div class="main-menu-wrapper__call">
 

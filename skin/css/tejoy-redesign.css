@@ -5801,3 +5801,31 @@ a.product-chip { text-decoration: none !important; }
 /* BROWSE PRODUCTS: default outline (transparent + white border/text), hover white bg + dark text. */
 .hero-single__cta { background: transparent !important; color: #fff !important; border: 1px solid #fff !important; }
 .hero-single__cta:hover { background: #fff !important; color: #0a0a0a !important; }
+
+/* ================================================================
+   W2d: Language switcher - globe + current code, hover/focus dropdown (EN/ES/PT).
+   Replaces the per-page provisional inline <style> from the phase2 era (its own
+   comment said "move to tejoy-redesign.css at global rollout" - this is that rollout;
+   chrome.js deleteStyleWith now strips the legacy block on every sync).
+   Opens with pure CSS (:hover / :focus-within) so it works without JS; the tiny
+   inline script in the chrome block only adds tap-toggle (.is-open) + aria-expanded.
+   ================================================================ */
+.lang-switch{position:absolute;top:50%;right:24px;transform:translateY(-50%);display:flex;align-items:center;margin:0;z-index:1001}
+.lang-switch__btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:transparent;color:#fff;font-size:13px;font-weight:600;line-height:1;font-family:inherit;cursor:pointer;transition:all .2s ease}
+.lang-switch__btn svg{flex:0 0 auto}
+.lang-switch__caret{transition:transform .15s ease}
+.lang-switch:hover .lang-switch__btn,.lang-switch:focus-within .lang-switch__btn,.lang-switch.is-open .lang-switch__btn{background:#fff;color:#111;border-color:#fff}
+.lang-switch:hover .lang-switch__caret,.lang-switch:focus-within .lang-switch__caret,.lang-switch.is-open .lang-switch__caret{transform:rotate(180deg)}
+/* 菜单面板走站内既有下拉的视觉语言(白面板+墨字,同 PRODUCTS 下拉),而非自创暗面板 ——
+   也顺应本文件的品牌色歼灭规则 a{color:var(--tj-ink)!important}(它染所有 <a>,链接墨字正好同向;
+   is-current 是 <span>,不在它射程内)。面板阴影用 drop-shadow:顶部 8px padding 是 hover 桥,
+   背景透明,box-shadow 会连桥一起罩,drop-shadow 只描内容实体。 */
+.lang-switch__menu{list-style:none;position:absolute;top:100%;right:0;margin:0;padding:8px 0 0;min-width:100%;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease,visibility 0s .15s;z-index:1002;filter:drop-shadow(0 16px 36px rgba(0,0,0,.16))}
+.lang-switch:hover .lang-switch__menu,.lang-switch:focus-within .lang-switch__menu,.lang-switch.is-open .lang-switch__menu{opacity:1;visibility:visible;transform:none;transition:opacity .15s ease,transform .15s ease}
+.lang-switch__menu li{margin:0}
+.lang-switch__menu .lang-switch__link{display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#fff;border:1px solid var(--tj-line,#e7e9ee);border-top:0;color:var(--tj-ink,#101010);font-size:13px;font-weight:600;line-height:1;letter-spacing:.04em;text-decoration:none;transition:background .15s ease}
+.lang-switch__menu li:first-child .lang-switch__link{border-top:1px solid var(--tj-line,#e7e9ee);border-radius:10px 10px 0 0}
+.lang-switch__menu li:last-child .lang-switch__link{border-radius:0 0 10px 10px}
+.lang-switch__menu a.lang-switch__link:hover,.lang-switch__menu a.lang-switch__link:focus-visible{background:#eef1f5}
+.lang-switch__menu .lang-switch__link.is-current{background:#f4f6f9;color:#98a2b3;cursor:default}
+@media (max-width:1199px){.lang-switch{position:relative;top:auto;right:auto;transform:none;grid-column:2;justify-self:end;margin:0}}
