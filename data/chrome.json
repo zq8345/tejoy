@@ -22,13 +22,13 @@
   "header.mounts_brackets": {
     "en": "Mounts &amp; Brackets",
     "pt-BR": "Suportes e Fixações",
-    "es-MX": "Soportes y Bases",
+    "es-MX": "Soportes y bases",
     "reason.es-MX": "判断:mount=soporte / bracket=base。配件领域无官方西语标尺（见规范）"
   },
   "header.power_charging": {
     "en": "Power &amp; Charging",
     "pt-BR": "Energia e Carregamento",
-    "es-MX": "Energía y Carga",
+    "es-MX": "Energía y carga",
     "reason.es-MX": "证据 Starlink MX「entrada de alimentación de CC」—— 电力域坐实；分类名选 Energía 是判断"
   },
   "header.cables": {
@@ -46,7 +46,7 @@
   "header.cases_protection": {
     "en": "Cases &amp; Protection",
     "pt-BR": "Cases e Proteção",
-    "es-MX": "Estuches y Protección",
+    "es-MX": "Estuches y protección",
     "reason.es-MX": "🔴 无证据: Estuche 已在规范标红 —— 亚马逊 MX 被否（它是我们数据的来源本身），Starlink MX 配件 PDF 是英文。**该词无官方西语标尺,标红上线**"
   },
   "header.all_products": {
@@ -76,7 +76,7 @@
   "header.rv_off_grid": {
     "en": "RV / Off-Grid",
     "pt-BR": "Motorhome / Off-Grid",
-    "es-MX": "Casa rodante / Sin red",
+    "es-MX": "Casa rodante / Fuera de la red eléctrica",
     "reason.es-MX": "⚠️冲突: 证据 Starlink MX写「autocaravanas」,但 autocaravana 是【西班牙】用语,墨西哥说 casa rodante。**这里我判墨西哥用法而不抄 Starlink** —— 理由同 tú/usted:Starlink MX 自己混欧西语,那是它的缺点不是榜样"
   },
   "header.mounts": {
@@ -101,7 +101,7 @@
   "header.industry_hub": {
     "en": "Industry Hub",
     "pt-BR": "Hub por Setor",
-    "es-MX": "Centro por Sector",
+    "es-MX": "Centro por sector",
     "reason.es-MX": "判断:语法确定"
   },
   "header.support": {
@@ -126,7 +126,7 @@
   "header.compatibility_guide": {
     "en": "Compatibility Guide",
     "pt-BR": "Guia de Compatibilidade",
-    "es-MX": "Guía de Compatibilidad",
+    "es-MX": "Guía de compatibilidad",
     "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— Guía 坐实"
   },
   "header.company": {
@@ -150,7 +150,7 @@
   "header.certifications_testing": {
     "en": "Certifications & Testing",
     "pt-BR": "Certificações e Testes",
-    "es-MX": "Certificaciones y Pruebas",
+    "es-MX": "Certificaciones y pruebas",
     "reason.es-MX": "证据 Starlink MX「Pruebe Starlink durante 30 días」—— prueba 坐实"
   },
   "header.oem_odm_manufacturing": {
@@ -162,13 +162,13 @@
   "header.patents_manufacturing_capacity": {
     "en": "Patents & Manufacturing Capacity",
     "pt-BR": "Patentes e Capacidade Fabril",
-    "es-MX": "Patentes y Capacidad de Fabricación",
+    "es-MX": "Patentes y capacidad de fabricación",
     "reason.es-MX": "判断:语法确定"
   },
   "header.brand_affiliation_faq": {
     "en": "Brand & Affiliation FAQ",
     "pt-BR": "Marca e Afiliação (FAQ)",
-    "es-MX": "Marca y Afiliación (FAQ)",
+    "es-MX": "Marca y afiliación (FAQ)",
     "reason.es-MX": "判断:与 header.faq 绑定:此处 FAQ 作括号缩写保留,与 pt 同构"
   },
   "header.wanew_premium_starlink_accessories": {
