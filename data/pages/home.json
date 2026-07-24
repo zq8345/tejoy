@@ -1,8 +1,8 @@
 {
   "home.hero.title": {
-    "en": "Starlink Accessories One-stop Solution",
-    "pt-BR": "Solução completa em acessórios para Starlink",
-    "es-MX": "Solución integral en accesorios para Starlink"
+    "en": "Built for every Starlink terminal.",
+    "pt-BR": "Fabricados para cada terminal Starlink.",
+    "es-MX": "Fabricados para cada terminal Starlink."
   },
   "home.hero.subtitle": {
     "en": "Accessories for every Starlink model — mounts, cables, power adapters, and more.",
@@ -174,5 +174,60 @@
     "en": "View all guides →",
     "pt-BR": "Ver todos os guias →",
     "es-MX": "Ver todas las guías →"
+  },
+  "home.hero.eyebrow": {
+    "en": "Starlink Accessories One-stop Solution",
+    "pt-BR": "Solução completa em acessórios para Starlink",
+    "es-MX": "Solución integral en accesorios para Starlink"
+  },
+  "home.hero.cta2": {
+    "en": "Get wholesale price list",
+    "pt-BR": "Solicite a tabela de preços de atacado",
+    "es-MX": "Solicita la lista de precios mayoristas"
+  },
+  "home.trust.cert.v": {
+    "en": "FCC · CE · RoHS",
+    "pt-BR": "FCC · CE · RoHS",
+    "es-MX": "FCC · CE · RoHS"
+  },
+  "home.trust.cert.k": {
+    "en": "Tested &amp; certified",
+    "pt-BR": "Testado e certificado",
+    "es-MX": "Probado y certificado"
+  },
+  "home.entry.type.h2": {
+    "en": "Browse by type",
+    "pt-BR": "Explore por tipo",
+    "es-MX": "Explora por tipo"
+  },
+  "home.field.kick": {
+    "en": "Solutions",
+    "pt-BR": "Soluções",
+    "es-MX": "Soluciones"
+  },
+  "home.field.h2": {
+    "en": "Field-proven, wherever you run Starlink",
+    "pt-BR": "Comprovado em campo, onde quer que você use Starlink",
+    "es-MX": "Probado en campo, dondequiera que uses Starlink"
+  },
+  "home.field.sub": {
+    "en": "From boats and RVs to farms and job sites — accessories built for real-world installs.",
+    "pt-BR": "De barcos e motorhomes a fazendas e canteiros de obra — acessórios feitos para instalações reais.",
+    "es-MX": "De embarcaciones y casas rodantes a granjas y obras — accesorios hechos para instalaciones reales."
+  },
+  "home.cta.h2": {
+    "en": "Sourcing Starlink accessories at scale?",
+    "pt-BR": "Procurando acessórios para Starlink no atacado?",
+    "es-MX": "¿Buscas accesorios para Starlink al por mayor?"
+  },
+  "home.cta.sub": {
+    "en": "Tell us your Starlink models and volumes — our team replies within one business day.",
+    "pt-BR": "Informe seus modelos de Starlink e volumes — nossa equipe responde em até um dia útil.",
+    "es-MX": "Cuéntanos tus modelos de Starlink y volúmenes — nuestro equipo responde en un día hábil."
+  },
+  "home.cta.talk": {
+    "en": "Talk to an engineer",
+    "pt-BR": "Fale com um engenheiro",
+    "es-MX": "Habla con un ingeniero"
   }
 }
