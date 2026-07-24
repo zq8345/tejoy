@@ -516,5 +516,19 @@
     "es-MX": "Tu mensaje",
     "reason.es-MX": "⭐tú 形式",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use"
+  },
+  "body.gallery.prev": {
+    "en": "Previous image",
+    "pt-BR": "Imagem anterior",
+    "es-MX": "Imagen anterior",
+    "reason": "W3 详情页画廊按钮 aria-label —— pt-leak 闸抓到英文 aria 上 pt 页,进 catalog 三语化",
+    "reason.es-MX": "判断:语法确定(imagen anterior/siguiente 为通用图库控件用语)"
+  },
+  "body.gallery.next": {
+    "en": "Next image",
+    "pt-BR": "Próxima imagem",
+    "es-MX": "Siguiente imagen",
+    "reason": "W3 详情页画廊按钮 aria-label —— 同 body.gallery.prev",
+    "reason.es-MX": "判断:语法确定"
   }
 }
