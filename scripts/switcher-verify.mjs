@@ -63,11 +63,13 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   const own = localeOf(p);
   const route = routeOf(p, own);
 
-  // 期望:其他每一门语种,当且仅当【它那边真的有这个页】。存在性是规则本身,不是清单。
+  // W2d 悬停菜单语义:其他每一门语种【恒】在菜单里 —— 对应页存在→对应页,
+  // 不存在→该语种首页兜底(总工规格③)。存在性只决定 href,不再决定条目有无。
+  // 当前语种在菜单里是 <span aria-current>(不是 <a>),LINK_RE 天然不匹配 → got 里出现即为 bug。
   const want = new Map();
   for (const loc of ENABLED) {
     if (loc === own) continue;
-    if (fs.existsSync(fileFor(route, loc))) want.set(loc, urlFor(route, loc));
+    want.set(loc, fs.existsSync(fileFor(route, loc)) ? urlFor(route, loc) : (DIR[loc] ? `/${DIR[loc]}/` : "/"));
   }
   const got = new Map();
   for (const m of h.matchAll(LINK_RE)) got.set(m[2], m[1]);
@@ -75,17 +77,16 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   const issues = [];
   for (const [loc, href] of want) {
     if (!got.has(loc)) { issues.push(`① 缺少 ${loc} 的链接(应为 ${href})`); continue; }
-    if (got.get(loc) !== href) issues.push(`① ${loc}: href=${got.get(loc)} 应为 ${href}`);
+    if (got.get(loc) !== href) issues.push(`① ${loc}: href=${got.get(loc)} 应为 ${href}(${fs.existsSync(fileFor(route, loc)) ? "对应页" : "缺页→该语种首页兜底"})`);
   }
-  for (const [loc, href] of got) {
-    if (loc === own) { issues.push(`② 指向自己:hreflang=${loc}`); continue; }
-    if (!ENABLED.includes(loc)) { issues.push(`② hreflang=${loc} 不在 enabled 里`); continue; }
-    if (!want.has(loc)) issues.push(`③ 目标页不存在,不该有这个链接: ${href} -> ${fileFor(route, loc)}`);
+  for (const [loc] of got) {
+    if (loc === own) { issues.push(`② 当前语种出现为链接(该是 aria-current 的 span):hreflang=${loc}`); continue; }
+    if (!ENABLED.includes(loc)) issues.push(`② hreflang=${loc} 不在 enabled 里`);
   }
   checked++;
   if (issues.length) fails.push(`${p}\n     ${issues.join("\n     ")}`);
 }
-console.log(`switcher-verify  语种 ${ENABLED.join(",")} | 有切换器的页 ${checked} | 无切换器 ${none}(该页只有一个语种版本时是合法的)`);
-console.log(`  ① 指向其他每一门语种 · ② hreflang 与目标一致 · ③ 目标页存在:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
+console.log(`switcher-verify  语种 ${ENABLED.join(",")} | 有切换器的页 ${checked} | 无切换器 ${none}(W2d 后菜单恒在——无切换器=无 chrome 的独立页才合法)`);
+console.log(`  ① 其他每一门语种恒在菜单(对应页,缺页→该语种首页兜底) · ② 当前语种非链接且 hreflang 合法:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
 if (fails.length) { console.log(`\n🔴 ${fails.length} 个页:`); fails.slice(0, 10).forEach((f) => console.log(`   ${f}`)); }
 process.exit(fails.length ? 1 : 0);

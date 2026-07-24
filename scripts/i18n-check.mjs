@@ -71,7 +71,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-hold\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json/.test(f)) {
     // ⭐ es-hold.json = 多语言建的【扣留清单单一真源】(id + why + since),不是文案目录:
     //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
     //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
@@ -81,6 +81,13 @@ for (const f of allJson("data")) {
     //    isCatalog() 已正确判它不是目录。点名放行是【它本就不是文案】,不是"guard 少认一种形状"——
     //    我核过两者的区别(node -e 跑了 isCatalog),没盲目加白名单。这正是 guard 26f9dd64 那条要逼出的判断。
     // ⭐ es-hold.json 同理:扣留产品清单(id + why),无 en 字段,不是文案。由 es-hold-check 双向强制。
+    // ⭐ pages-list.json = chrome-sync --write 落盘的页面清单(纯字符串数组,admin-worker pageExists
+    //    的数据源),纯路由数据,不是文案。(#52 批2 落的文件;W2d 跑闸时才发现它俩一直没注册——
+    //    这道 🔴 在 HEAD 上就红着,exit=2 此前被管道尾的 tail 吞掉过,留此一笔。)
+    // ⭐ categories.json = #52 批1a 从 render.js CATMAP 硬编码迁出的类目结构常量(slug+display)。
+    //    核过消费链(render.js:107):display 只作为 CATEGORY 的 modelDisplay 兜底进页面 ——
+    //    与 locales.json model_display 同族的【不翻译的结构常量】(值在 fallback 清单里);
+    //    导航/H1 的本地化呈现走 chrome.json 目录键,不经这份文件 → 非文案目录,放行。
     // ⚠️ 留档:这道形状闸同时逮到了 data/es-product-translations.json —— 而那个我【没有放行,直接删了】。
     //    它是已耗尽的迁移输入(只覆盖 2/58,另 56 个是批量直灌),更要命的是
     //    **seed 会跳过已有 es 的产品,所以编辑它不会有任何效果,还不报错** —— 一根没接线的杆,
@@ -156,7 +163,10 @@ for (const m of allTpl.matchAll(/\{\{t\.([a-z0-9_.]+)\}\}/gi)) if (!catalog[m[1]
 // 全站 chrome 都是它写的。第四次同一个形状:漏一类消费者 = 一批活 key 被报成"已腐烂"。
 // (这次没咬到,只因为 locales.json 被误判成目录时把 locale_label 一起带进来了 —— 一个 bug
 //  恰好遮住了另一个 bug。修好前一个,后一个就会露出来。)
-const CODE = ["functions/_lib/render.js", "scripts/regen.mjs", "scripts/chrome-sync.mjs"];
+// ⭐ #52 批2 把 chrome 注入核心从 chrome-sync.mjs 抽进 functions/_lib/chrome.js —— pick(`switcher.…`)
+//    这类计算键消费者跟着搬了家,这份清单没跟上,6 个活 key 被报"无人使用"(W2d 跑闸时发现)。
+//    又一次验证 162 行那句:每一个读 catalog 的东西都得在这里 —— 包括**搬家后的**。
+const CODE = ["functions/_lib/render.js", "functions/_lib/chrome.js", "scripts/regen.mjs", "scripts/chrome-sync.mjs"];
 const allCode = CODE.filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
 // 第三类消费者:产品字段。它们既不是 {{t.key}} token,也不是 catalog["key"] —— render.js 的
 // mergeI18n 直接读 prod.i18n[locale][field]。不认这一类,320 个活值会被报成"已腐烂"(第五次假警报)。

@@ -170,19 +170,32 @@ function walk(dir, acc = []) {
  *        "meta_title 以 title 开头 = 它由 title 派生" / dev 的「我量了自己的倒影」)
  */
 function switcherLeaksOf(raw, rel) {
+  /* W2d 悬停菜单后,pt 页的切换器有【两】个链接(en+es),不再只有一扇 en 门。
+     规则升级为逐链「hreflang ↔ href 树前缀一致」:
+       hreflang=en    → href 不得进 /pt/ 也不得进 /es/
+       hreflang=es-MX → href 必须在 /es/ 树里(缺对应页时兜底 /es/ 也满足)
+       hreflang=pt-BR → 在 pt 页上指向自己 = bug(当前语种该是 span,不是 <a>)
+     深层校验(对应页/兜底首页选对了没)由 switcher-verify.mjs 全站闸负责,这里只堵"树错"。 */
   const out = [];
   for (const m of raw.matchAll(/<a\s[^>]*lang-switch__link[^>]*>/gi)) {
     const tag = m[0];
     const href = (tag.match(/href="([^"]*)"/i) || [])[1] || '';
     const hl = (tag.match(/hreflang="([^"]*)"/i) || [])[1] || '';
     const line = raw.slice(0, m.index).split('\n').length;
-    /* pt 页上的切换器 = 通往 en 的那扇门。它必须: ①指向非 /pt/ 的路径 ②hreflang=en */
-    if (href.startsWith('/pt/') || href === '/pt')
+    const inPt = href === '/pt' || href.startsWith('/pt/');
+    const inEs = href === '/es' || href.startsWith('/es/');
+    if (/^pt/i.test(hl) || inPt)
       out.push({ file: rel, line, kind: 'switcher', hits: ['switcher→pt'], text: tag.slice(0, 96),
-                 href, should: '指向 en 页(非 /pt/)' });
-    else if (hl && !/^en/i.test(hl))
+                 href, should: 'pt 页的切换器链接只该通向其他语种(en/es),当前语种该是 span' });
+    else if (/^en/i.test(hl) && inEs)
       out.push({ file: rel, line, kind: 'switcher', hits: ['switcher-hreflang'], text: tag.slice(0, 96),
-                 href, should: 'hreflang="en"' });
+                 href, should: 'hreflang=en 的链接不该进 /es/ 树' });
+    else if (/^es/i.test(hl) && !inEs)
+      out.push({ file: rel, line, kind: 'switcher', hits: ['switcher-hreflang'], text: tag.slice(0, 96),
+                 href, should: 'hreflang=es-MX 的链接必须在 /es/ 树里' });
+    else if (hl && !/^(en|es)/i.test(hl))
+      out.push({ file: rel, line, kind: 'switcher', hits: ['switcher-hreflang'], text: tag.slice(0, 96),
+                 href, should: 'hreflang 只该是 en 或 es-MX' });
   }
   return out;
 }

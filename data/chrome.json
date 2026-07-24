@@ -338,6 +338,12 @@
     "es-MX": "Ver esta página en español",
     "reason": "约定 A"
   },
+  "switcher.aria.menu": {
+    "en": "Select language",
+    "pt-BR": "Selecionar idioma",
+    "es-MX": "Seleccionar idioma",
+    "reason": "约定 A：W2d 悬停菜单按钮的 aria-label，用读者的语言"
+  },
   "switcher.code.en": {
     "en": "EN",
     "pt-BR": "EN",
