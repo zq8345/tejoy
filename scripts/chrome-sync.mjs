@@ -68,6 +68,23 @@ for (const p of pages) {
 if (WRITE) {
   const list = pages.slice().sort();
   fs.writeFileSync("data/pages-list.json", JSON.stringify(list) + "\n");
+
+  // W2f-b：sitemap 从同一份清单【派生】（correct-by-construction，与 pages-list 同一咽喉同一 commit）。
+  // 旧 sitemap.xml 是手维护纯 en（161 条、0 pt/0 es，产品还带 .html 与 canonical 相左）——废弃重生成。
+  // URL 规则 = canonical 规则：index.html→目录斜杠；其余去 .html 扩展（与 render 的 CANONICAL 一致）。
+  // lastmod：无真值，整字段省略（不造假时间戳——总工裁定）。
+  const EXCLUDE = new Set(["404.html"]);   // 错误页不进 sitemap
+  const urls = list.filter((p) => !EXCLUDE.has(p)).map((p) =>
+    "https://wanew.com/" + p.replace(/index\.html$/, "").replace(/\.html$/, ""));
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
+    + urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n") + "\n</urlset>\n";
+  fs.writeFileSync("sitemap.xml", xml);
+  // 自检（总工点名）：sitemap 条目数必须==清单可发布页数。同源派生下它防的是上面 filter/map 的
+  // 静默丢页——不匹配当场炸，绝不带着缺页的 sitemap 出门。
+  const emitted = (fs.readFileSync("sitemap.xml", "utf8").match(/<loc>/g) || []).length;
+  const expected = list.length - [...EXCLUDE].filter((e) => list.includes(e)).length;
+  if (emitted !== expected) { console.error(`🔴 sitemap 自检 FAIL: 条目 ${emitted} != 可发布页 ${expected}`); process.exit(1); }
+  console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}）`);
 }
 
 console.log(`chrome-sync [${WRITE ? "WRITE" : "dry"}]  页面 ${pages.length}  |  字节不变 ${identical}  |  变更 ${changed}(其中纯空白 ${wsOnly})`);
